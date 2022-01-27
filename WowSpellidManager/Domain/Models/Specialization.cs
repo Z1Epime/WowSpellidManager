@@ -10,7 +10,7 @@ namespace WowSpellidManager.Domain.Models
     /// <summary>
     /// Represents a World of Warcraft calss Specialization.
     /// </summary>
-    internal class Specialization : Entity
+    public class Specialization : Entity
     {
 
         private ObservableCollection<Spell> fSpells;

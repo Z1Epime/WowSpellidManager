@@ -11,7 +11,7 @@ namespace WowSpellidManager.Domain.Models
     /// Represent a class(i.e. Paladin, Warrior, Hunter, ...) from World of Warcraft. <br/>
     /// The WowClass will be held as simple as possible to only meet the very needs which are group, filter and sort stuff by class etc.
     /// </summary>
-    internal class WowClass : Entity
+    public class WowClass : Entity
     {
         private Specialization[] fSpecializations;
         private string fDescription;
