@@ -1,0 +1,2 @@
+# WowSpellidManager
+tbd
