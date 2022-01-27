@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WowSpellidManager.Domain
+namespace WowSpellidManager.Domain.Exceptions
 {
     internal class ArgumentGuard
     {

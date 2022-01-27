@@ -15,6 +15,8 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using WowSpellidManager.Infrastructure.DataManager;
+using WowSpellidManager.Infrastructure.CRUD;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -44,6 +46,16 @@ namespace WowSpellidManager
         {
             m_window = new MainWindow();
             m_window.Activate();
+
+
+            // TODO: dont forget to delete the following after testing
+            DataProvider.DataParser.fParsingMethod = "JSON";
+            DataOperationProvider dataOperationProvider = new DataOperationProvider();
+            dataOperationProvider.fSpellOperator.Save();
+            // TODO: das bisschen ui was ich hab mit meiner neuen logik verbinden um zu testen
+
+
+            
         }
 
         private Window m_window;
