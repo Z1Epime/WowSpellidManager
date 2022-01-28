@@ -66,8 +66,8 @@ namespace WowSpellidManager.Infrastructure.ViewModels.Wrapper
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
 
+        public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
             if (PropertyChanged != null)
