@@ -21,16 +21,16 @@ namespace WowSpellidManager.Domain.Exceptions
 
         public static void CheckGuid(Guid aGuid)
         {
-            if(Guid.TryParse(aGuid.ToString(), out var aGuid2))
+            if(!Guid.TryParse(aGuid.ToString(), out var aGuid2))
             {
                 throw new GuidNotValidException(nameof(aGuid2));
             }
         }
 
-        public static void CheckID(object aID)
+        public static void CheckID(string aID)
         {
-            if(int.TryParse("123", out _))
-                {
+            if(!Int32.TryParse(aID, out _))
+            {
                 throw new SpellIDNotValidException(nameof(aID));
             }
         } 

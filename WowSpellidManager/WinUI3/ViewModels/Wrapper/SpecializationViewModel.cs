@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -8,34 +8,35 @@ using System.Text;
 using System.Threading.Tasks;
 using WowSpellidManager.Domain.Models;
 
-namespace WowSpellidManager.Infrastructure.ViewModels.Wrapper
+namespace WowSpellidManager.WinUI3.ViewModels.Wrapper
 {
-    public class SpellViewModel : ViewModel, INotifyPropertyChanged
+    internal class SpecializationViewModel : ViewModel, INotifyPropertyChanged
     {
-        private Spell fSpell;
+        public Specialization Specialization;
 
         public string Description
         {
             get
             {
-                return fSpell.Description;
+                return Specialization.Description;
             }
             set
             {
                 NotifyPropertyChanged();
-                fSpell.Description = value;
+                Specialization.Description = value;
             }
         }
-        public int ID
+
+        public ObservableCollection<Spell> Spells
         {
             get
             {
-                return fSpell.ID;
+                return Specialization.Spells;
             }
             set
             {
                 NotifyPropertyChanged();
-                fSpell.ID = value;
+                Specialization.Spells = value;
             }
         }
 
@@ -43,12 +44,12 @@ namespace WowSpellidManager.Infrastructure.ViewModels.Wrapper
         {
             get
             {
-                return fSpell.Guid;
+                return Specialization.Guid;
             }
             set
             {
                 NotifyPropertyChanged();
-                fSpell.Guid = value;
+                Specialization.Guid = value;
             }
         }
 
@@ -56,17 +57,17 @@ namespace WowSpellidManager.Infrastructure.ViewModels.Wrapper
         {
             get
             {
-                return fSpell.Designation;
+                return Specialization.Designation;
             }
             set
             {
                 NotifyPropertyChanged();
-                fSpell.Designation = value;
+                Specialization.Designation = value;
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
 
+        public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
             if (PropertyChanged != null)
@@ -74,5 +75,6 @@ namespace WowSpellidManager.Infrastructure.ViewModels.Wrapper
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+
     }
 }

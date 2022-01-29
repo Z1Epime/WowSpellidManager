@@ -86,5 +86,13 @@ namespace WowSpellidManager.Domain.Models
             Description = aDescription;
             Specializations = new Specialization[4];
         }
+
+        /// <summary>
+        /// For json deserializing only
+        /// </summary>
+        public WowClass() : base()
+        {
+
+        }
     }
 }

@@ -34,7 +34,7 @@ namespace WowSpellidManager.Domain.Models
             }            
             set 
             {
-                ArgumentGuard.CheckID(value);
+                ArgumentGuard.CheckID(value.ToString());
                 fID = value; 
             }
         }
@@ -49,6 +49,14 @@ namespace WowSpellidManager.Domain.Models
         {
             Description = aDescription;
             ID = aID;
+        }
+
+        /// <summary>
+        /// For json deserializing only
+        /// </summary>
+        public Spell()
+        {
+
         }
 
     }

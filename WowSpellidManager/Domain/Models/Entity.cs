@@ -49,5 +49,12 @@ namespace WowSpellidManager.Domain.Models
             this.fDesignation = aDesignation;
         }
 
+        /// <summary>
+        /// For json deserializing only
+        /// </summary>
+        public Entity()
+        {
+
+        }
     }
 }

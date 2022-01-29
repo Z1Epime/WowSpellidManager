@@ -10,15 +10,24 @@
     <UseWinUI>true</UseWinUI>
   </PropertyGroup>
   <ItemGroup>
-    <None Remove="Application\resources\dictionaries\buttons.xaml" />
+    <Compile Remove="WNIUI\**" />
+    <Content Remove="WNIUI\**" />
+    <EmbeddedResource Remove="WNIUI\**" />
+    <None Remove="WNIUI\**" />
+    <Page Remove="WNIUI\**" />
+    <PRIResource Remove="WNIUI\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="WinUI3\resources\dictionaries\buttons.xaml" />
     <None Remove="resources\dictionaries\buttons.xaml" />
     <None Remove="resources\dictionaries\textboxes.xaml" />
   </ItemGroup>
   <ItemGroup>
-    <Page Remove="Application\App.xaml" />
+    <Page Remove="WinUI3\App.xaml" />
+    <Page Remove="WinUI3\Views\App.xaml" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="Application\App.xaml" />
+    <ApplicationDefinition Include="WinUI3\Views\App.xaml" />
   </ItemGroup>
 
   <ItemGroup>

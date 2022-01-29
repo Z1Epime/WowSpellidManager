@@ -64,5 +64,13 @@ namespace WowSpellidManager.Domain.Models
             Description = aDescription;
             Spells = new ObservableCollection<Spell>();
         }
+
+        /// <summary>
+        /// For json deserializing only
+        /// </summary>
+        public Specialization()
+        {
+
+        }
     }
 }

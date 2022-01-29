@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -7,35 +8,34 @@ using System.Text;
 using System.Threading.Tasks;
 using WowSpellidManager.Domain.Models;
 
-namespace WowSpellidManager.Infrastructure.ViewModels.Wrapper
+namespace WowSpellidManager.WinUI3.ViewModels.Wrapper
 {
-    internal class WowClassViewModel : ViewModel, INotifyPropertyChanged
+    public class SpellViewModel : ViewModel, INotifyPropertyChanged
     {
-        private WowClass fWowClass;
+        public Spell Spell;
 
         public string Description
         {
             get
             {
-                return fWowClass.Description;
+                return Spell.Description;
             }
             set
             {
                 NotifyPropertyChanged();
-                fWowClass.Description = value;
+                Spell.Description = value;
             }
         }
-
-        public Specialization[] Specializations
+        public int ID
         {
             get
             {
-                return fWowClass.Specializations;
+                return Spell.ID;
             }
             set
             {
                 NotifyPropertyChanged();
-                fWowClass.Specializations = value;
+                Spell.ID = value;
             }
         }
 
@@ -43,12 +43,12 @@ namespace WowSpellidManager.Infrastructure.ViewModels.Wrapper
         {
             get
             {
-                return fWowClass.Guid;
+                return Spell.Guid;
             }
             set
             {
                 NotifyPropertyChanged();
-                fWowClass.Guid = value;
+                Spell.Guid = value;
             }
         }
 
@@ -56,12 +56,12 @@ namespace WowSpellidManager.Infrastructure.ViewModels.Wrapper
         {
             get
             {
-                return fWowClass.Designation;
+                return Spell.Designation;
             }
             set
             {
                 NotifyPropertyChanged();
-                fWowClass.Designation = value;
+                Spell.Designation = value;
             }
         }
 
@@ -74,6 +74,5 @@ namespace WowSpellidManager.Infrastructure.ViewModels.Wrapper
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
-
     }
 }
