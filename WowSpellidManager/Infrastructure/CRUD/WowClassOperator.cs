@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,17 +11,16 @@ namespace WowSpellidManager.Infrastructure.CRUD
 {
     public class WowClassOperator
     {
-        DataOperationProvider fDataOperationProvider = new DataOperationProvider();
+        private static DataOperationProvider fDataOperationProvider = new DataOperationProvider();
 
-        public List<WowClass> GetWowClasses()
+        public ObservableCollection<WowClass> GetWowClasses()
         {
-            return DataProvider.DataHolder.WowClasses;
+            return DataHolder.DataProvider.DataHolder.WowClasses;
         }
 
         public void Save()
         {
-            DataProvider.DataParser.Save();
-            
+            DataHolder.DataProvider.DataParser.Save();
         }
     }
 }

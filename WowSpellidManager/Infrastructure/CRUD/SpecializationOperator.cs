@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,16 +11,16 @@ namespace WowSpellidManager.Infrastructure.CRUD
 {
     public class SpecializationOperator
     {
-        DataOperationProvider fDataOperationProvider = new DataOperationProvider();
+        private static DataOperationProvider fDataOperationProvider = new DataOperationProvider();
 
-        public List<Specialization> GetSpecializations()
+        public ObservableCollection<Specialization> GetSpecializations()
         {
-            return DataProvider.DataHolder.Specializations;
+            return DataHolder.DataProvider.DataHolder.Specializations;
         }
 
         public void Save()
         {
-            DataProvider.DataParser.Save();
+            DataHolder.DataProvider.DataParser.Save();
         }
     }
 }

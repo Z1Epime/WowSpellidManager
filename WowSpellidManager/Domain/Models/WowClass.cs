@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WowSpellidManager.Domain.Exceptions;
 
 namespace WowSpellidManager.Domain.Models
 {
@@ -13,6 +14,25 @@ namespace WowSpellidManager.Domain.Models
     /// </summary>
     public class WowClass : Entity
     {
+        /// <summary>
+        /// A constant integer to very that a WowClasses amount <br></br>
+        /// of specializations is not less than a specific number.
+        /// <para></para>
+        /// In World of Warcraft the Demonhunter class currently has 2 specializations <br></br>
+        /// and the Druid class has 4. Every other class has 3.
+        /// </summary>
+        public const int SPECIALIZATIONSMIN = 2;
+
+        /// <summary>
+        /// A constant integer to very that a WowClasses amount <br></br>
+        /// of specializations is not higher than a specific number.
+        /// <para></para>
+        /// In World of Warcraft the Demonhunter class currently has 2 specializations <br></br> 
+        /// and the Druid class has 4. Every other class has 3.
+        /// </summary>
+        public const int SPECIALIZATIONSMAX = 4;
+
+
         private Specialization[] fSpecializations;
         private string fDescription;
         public string Description
@@ -22,7 +42,8 @@ namespace WowSpellidManager.Domain.Models
                 return fDescription; 
             }
             set 
-            { 
+            {
+                ArgumentGuard.StringNullOrEmpty(value);
                 fDescription = value; 
             }
         }
@@ -35,6 +56,7 @@ namespace WowSpellidManager.Domain.Models
             }
             set 
             {
+                ArgumentGuard.CheckNumberOfSpecializations(value);
                 fSpecializations = value; 
             }
         }
@@ -63,6 +85,14 @@ namespace WowSpellidManager.Domain.Models
         {
             Description = aDescription;
             Specializations = new Specialization[4];
+        }
+
+        /// <summary>
+        /// For json deserializing only
+        /// </summary>
+        public WowClass() : base()
+        {
+
         }
     }
 }

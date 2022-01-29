@@ -6,15 +6,12 @@ using System.Threading.Tasks;
 using WowSpellidManager.Domain.Models;
 using WowSpellidManager.Infrastructure.CRUD;
 
-namespace WowSpellidManager.Infrastructure.ViewModels
+namespace WowSpellidManager.WinUI3.ViewModels
 {
     public abstract class ViewModel
     {
         protected DataOperationProvider fDataOperationProvider = new DataOperationProvider();
 
-        public void Save()
-        {
-            fDataOperationProvider.fSpellOperator.Save();
-        }
+        
     }
 }

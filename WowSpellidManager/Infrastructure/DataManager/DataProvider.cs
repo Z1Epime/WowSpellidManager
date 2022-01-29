@@ -3,26 +3,41 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WowSpellidManager.Domain.Exceptions;
 
 namespace WowSpellidManager.Infrastructure.DataManager
 {
-    internal class DataProvider
+    public class DataProvider
     {
-        private static DataHolder fDataHolder;
-        private static DataParser fDataParser;
-        public static DataHolder DataHolder 
+        private DataHolder fDataHolder;
+        private DataParser fDataParser = new DataParser();
+        public DataHolder DataHolder 
         {
             get
             { 
-                return fDataHolder; 
-            } 
+                if(fDataHolder == null)
+                {
+                    DataHolder tempHolder = fDataParser.Load();
+                    ArgumentGuard.CheckNull(tempHolder);
+                    fDataHolder = tempHolder;
+                }
+                return fDataHolder;
+            }
+            set
+            {
+                fDataHolder = value;
+            }
         }
 
-        public static DataParser DataParser
+        public DataParser DataParser
         {
             get
             {
                 return fDataParser;
+            }
+            set
+            {
+                fDataParser = value;
             }
         }
     }

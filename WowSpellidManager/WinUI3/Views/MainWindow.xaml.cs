@@ -13,32 +13,43 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
-using WowSpellidManager.Infrastructure.ViewModels;
+using WowSpellidManager.WinUI3.ViewModels;
+using WowSpellidManager.WinUI3.ViewModels.Helper;
+using WowSpellidManager.WinUI3.ViewModels.Wrapper;
 using WowSpellidManager.Infrastructure;
+using WowSpellidManager.Domain.Models;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 
-namespace WowSpellidManager
+namespace WowSpellidManager.WinUI3.Views
 {
     /// <summary>
     /// An empty window that can be used on its own or navigated to within a Frame.
     /// </summary>
     public sealed partial class MainWindow : Window
     {
-        SpellViewModel fSpellViewModel;
+        private HelperSpellViewModel fHelperSpellViewModel;
         public MainWindow()
         {
             this.InitializeComponent();
-            
-            fSpellViewModel = new SpellViewModel();
-            itemListView.DataContext = fSpellViewModel.Holder.Spells;
-            fSpellViewModel.AddSpell("Hammer of Justice", "5 Sec Stun, 1 min CD", 912476);
+            fHelperSpellViewModel = new HelperSpellViewModel();
+            itemListView.DataContext = fHelperSpellViewModel.GetSpells();
         }
 
         private void AddSpell_Click(object sender, RoutedEventArgs e)
         {
-            fSpellViewModel.AddSpell(designationBox.Text, descriptionBox.Text, Convert.ToInt32(idBox.Text));
+            fHelperSpellViewModel.AddSpell(designationBox.Text, descriptionBox.Text, idBox.Text);
+        }
+
+        private void itemListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            addSpellStackPanel.DataContext = itemListView.SelectedItem;
+        }
+
+        private void saveButton_Click(object sender, RoutedEventArgs e)
+        {
+            fHelperSpellViewModel.SaveSpells();
         }
     }
 }

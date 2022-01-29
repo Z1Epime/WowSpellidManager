@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WowSpellidManager.Domain.Exceptions;
 
 namespace WowSpellidManager.Domain.Models
 {
@@ -18,6 +19,7 @@ namespace WowSpellidManager.Domain.Models
             }
             set
             {
+                ArgumentGuard.CheckGuid(value);
                 fGuid = value;
             }
         }
@@ -30,6 +32,7 @@ namespace WowSpellidManager.Domain.Models
             }
             set 
             {
+                ArgumentGuard.StringNullOrEmpty(value);
                 fDesignation = value; 
             }
         }
@@ -46,5 +49,12 @@ namespace WowSpellidManager.Domain.Models
             this.fDesignation = aDesignation;
         }
 
+        /// <summary>
+        /// For json deserializing only
+        /// </summary>
+        public Entity()
+        {
+
+        }
     }
 }

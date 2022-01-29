@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -8,35 +7,35 @@ using System.Text;
 using System.Threading.Tasks;
 using WowSpellidManager.Domain.Models;
 
-namespace WowSpellidManager.Infrastructure.ViewModels.Wrapper
+namespace WowSpellidManager.WinUI3.ViewModels.Wrapper
 {
-    internal class SpecializationViewModel : ViewModel, INotifyPropertyChanged
+    internal class WowClassViewModel : ViewModel, INotifyPropertyChanged
     {
-        private Specialization fSpecialization;
+        public WowClass WowClass;
 
         public string Description
         {
             get
             {
-                return fSpecialization.Description;
+                return WowClass.Description;
             }
             set
             {
                 NotifyPropertyChanged();
-                fSpecialization.Description = value;
+                WowClass.Description = value;
             }
         }
 
-        public ObservableCollection<Spell> Spells
+        public Specialization[] Specializations
         {
             get
             {
-                return fSpecialization.Spells;
+                return WowClass.Specializations;
             }
             set
             {
                 NotifyPropertyChanged();
-                fSpecialization.Spells = value;
+                WowClass.Specializations = value;
             }
         }
 
@@ -44,12 +43,12 @@ namespace WowSpellidManager.Infrastructure.ViewModels.Wrapper
         {
             get
             {
-                return fSpecialization.Guid;
+                return WowClass.Guid;
             }
             set
             {
                 NotifyPropertyChanged();
-                fSpecialization.Guid = value;
+                WowClass.Guid = value;
             }
         }
 
@@ -57,12 +56,12 @@ namespace WowSpellidManager.Infrastructure.ViewModels.Wrapper
         {
             get
             {
-                return fSpecialization.Designation;
+                return WowClass.Designation;
             }
             set
             {
                 NotifyPropertyChanged();
-                fSpecialization.Designation = value;
+                WowClass.Designation = value;
             }
         }
 

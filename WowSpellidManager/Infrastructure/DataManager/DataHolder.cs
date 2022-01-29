@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,34 +8,48 @@ using WowSpellidManager.Domain.Models;
 
 namespace WowSpellidManager.Infrastructure.DataManager
 {
-    internal class DataHolder
+    public class DataHolder
     {
-        private List<Spell> fSpells;
-        private List<Specialization> fSpecializations;
-        private List<WowClass> fWowClasses;
+        public static DataProvider DataProvider { get; set; }
 
-        public List<Spell> Spells
+        private ObservableCollection<Spell> fSpells;
+        private ObservableCollection<Specialization> fSpecializations;
+        private ObservableCollection<WowClass> fWowClasses;
+
+        public ObservableCollection<Spell> Spells
         { 
             get 
             { 
-                return fSpells; 
-            } 
+                return fSpells;
+            }
+            set
+            {
+                fSpells = value;
+            }
         }
 
-        public List<Specialization> Specializations
+        public ObservableCollection<Specialization> Specializations
         { 
             get 
             { 
                 return fSpecializations; 
             }
+            set
+            {
+                fSpecializations = value;
+            }
         }
 
-        public List <WowClass> WowClasses 
+        public ObservableCollection<WowClass> WowClasses 
         { 
             get 
             { 
                 return fWowClasses; 
-            } 
+            }
+            set
+            {
+                fWowClasses = value;
+            }
         }
 
     }
