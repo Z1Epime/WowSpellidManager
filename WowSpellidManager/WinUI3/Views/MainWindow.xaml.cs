@@ -34,9 +34,19 @@ namespace WowSpellidManager.WinUI3.Views
         {
             this.InitializeComponent();
             fHelperSpellViewModel = new HelperSpellViewModel();
-            itemListView.DataContext = fHelperSpellViewModel.GetSpells();
+            classListView.DataContext = fHelperSpellViewModel.GetSpells();
         }
 
+        private void classListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //addSpellStackPanel.DataContext = itemListView.SelectedItem;
+        }
+
+
+
+
+
+        /*
         private void AddSpell_Click(object sender, RoutedEventArgs e)
         {
             fHelperSpellViewModel.AddSpell(designationBox.Text, descriptionBox.Text, idBox.Text);
@@ -44,12 +54,13 @@ namespace WowSpellidManager.WinUI3.Views
 
         private void itemListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            addSpellStackPanel.DataContext = itemListView.SelectedItem;
+            addSpellStackPanel.DataContext = classListView.SelectedItem;
         }
 
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
             fHelperSpellViewModel.SaveSpells();
         }
+        */
     }
 }
