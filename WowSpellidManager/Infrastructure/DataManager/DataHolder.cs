@@ -12,34 +12,7 @@ namespace WowSpellidManager.Infrastructure.DataManager
     {
         public static DataProvider DataProvider { get; set; }
 
-        private ObservableCollection<Spell> fSpells;
-        private ObservableCollection<Specialization> fSpecializations;
         private ObservableCollection<WowClass> fWowClasses;
-
-        public ObservableCollection<Spell> Spells
-        { 
-            get 
-            { 
-                return fSpells;
-            }
-            set
-            {
-                fSpells = value;
-            }
-        }
-
-        public ObservableCollection<Specialization> Specializations
-        { 
-            get 
-            { 
-                return fSpecializations; 
-            }
-            set
-            {
-                fSpecializations = value;
-            }
-        }
-
         public ObservableCollection<WowClass> WowClasses 
         { 
             get 

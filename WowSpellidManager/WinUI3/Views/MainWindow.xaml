@@ -8,8 +8,71 @@
     mc:Ignorable="d">
 
     <StackPanel Orientation="Horizontal">
+        <StackPanel x:Name="classListStackPanel">
+            <TextBlock x:Name="classesHeader" 
+                       Text="Classes"
+                       Style="{StaticResource SubtitleTextBlockStyle}"
+                       HorizontalAlignment="Center">
+            </TextBlock>
 
-        <StackPanel x:Name="listViewStackPanel" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <ListView x:Name="classListView"
+                  SelectionChanged="classListView_SelectionChanged"
+                      MaxHeight="550"
+                      MinHeight="350"
+                      ItemsSource="{Binding}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ContentControl Content="{Binding}" 
+                                            ContentTemplate="{StaticResource classListViewItem}"></ContentControl>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <AppBarSeparator></AppBarSeparator>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="optionsButton" 
+                        Style="{StaticResource AccentButtonStyle}"
+                        Content="Settings">
+                </Button>
+
+                <AppBarSeparator></AppBarSeparator>
+
+                <Button x:Name="quitButton" 
+                        Style="{StaticResource AccentButtonStyle}"
+                        Content="Quit"
+                        Click="quitButton_Click">
+                </Button>
+            </StackPanel>
+        </StackPanel>
+
+        <AppBarSeparator Style="{StaticResource width50Separator}"></AppBarSeparator>
+
+        <StackPanel>
+
+            <NavigationView x:Name="specializationView" 
+                        PaneDisplayMode="Top"
+                        IsSettingsVisible="False"
+                        IsBackButtonVisible="Collapsed"
+                        MenuItemsSource="{Binding Specializations}"
+                        MenuItemTemplate="{StaticResource navigationViewMenuItem}"
+                        SelectionChanged="specializationView_SelectionChanged"
+                        
+                        VerticalAlignment="Top"
+                        >
+                <Frame x:Name="specializationFrame" ></Frame>
+            </NavigationView>
+
+            <AppBarSeparator></AppBarSeparator>
+            
+            <Button x:Name="AddSpellButton" Style="{StaticResource AccentButtonStyle}"  Content="+ Spell" Click="AddSpellButton_Click"></Button>
+        </StackPanel>
+
+
+
+
+
+        <!--StackPanel x:Name="listViewStackPanel" HorizontalAlignment="Left" VerticalAlignment="Center">
             <TextBlock FontSize="35" 
                        HorizontalTextAlignment="Center" 
                        Margin="0,0,0,10">Classes</TextBlock>
@@ -43,10 +106,11 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </StackPanel>
+        </StackPanel-->
 
 
-        <StackPanel x:Name="addSpellStackPanel" 
+
+        <!--StackPanel x:Name="addClassStackPanel" 
                     BorderBrush="Black" 
                     BorderThickness="2" 
                     Orientation="Vertical" 
@@ -54,7 +118,7 @@
                     Margin="25,57,0,0"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center">
-            <TextBlock Text="Add spell:" FontSize="25" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Center"></TextBlock>
+            <TextBlock Text="Add class:" FontSize="25" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Center"></TextBlock>
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
@@ -70,19 +134,15 @@
 
                 <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center">Name:</TextBlock>
                 <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center">Description:</TextBlock>
-                <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center">ID:</TextBlock>
 
                 <TextBox x:Name="designationBox" Grid.Row="0" Grid.Column="1" MinWidth="150" Text="{Binding Designation}"></TextBox>
                 <TextBox x:Name="descriptionBox" Grid.Row="1" Grid.Column="1" Text="{Binding Description}"></TextBox>
-                <TextBox x:Name="idBox" Grid.Row="2" Grid.Column="1" Text="{Binding ID}"></TextBox>
 
             </Grid>
-            <Button Content="Add" HorizontalAlignment="Center" Margin="0,10,0,0" MinWidth="100" Click="AddSpell_Click"></Button>
+            <Button Content="Add" HorizontalAlignment="Center" Margin="0,10,0,0" MinWidth="100" Click="AddClass_Click"></Button>
         </StackPanel>
 
-        <Button x:Name="saveButton" Style="{StaticResource AccentButtonStyle}" Click="saveButton_Click">Save list</Button>
-
-
+        <Button x:Name="saveButton" Style="{StaticResource AccentButtonStyle}" Click="saveButton_Click">Save list</Button-->
 
     </StackPanel>
 </Window>

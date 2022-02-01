@@ -1,0 +1,54 @@
+﻿<Page
+    x:Class="WowSpellidManager.WinUI3.Views.SpecializationNavigationViewContentPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WowSpellidManager.WinUI3.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <StackPanel Orientation="Horizontal">
+
+
+        <StackPanel x:Name="spellListStackPanel">
+            <ListView x:Name="spellListView"
+                      ItemsSource="{Binding Spells}"
+                      SelectionChanged="spellListView_SelectionChanged"
+                      Width="300"
+                      MaxHeight="500"
+                      >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ContentControl Content="{Binding}" 
+                                            ContentTemplate="{StaticResource spellListViewItem}"></ContentControl>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+        
+        <AppBarSeparator Style="{StaticResource width50Separator}"></AppBarSeparator>
+
+        <StackPanel x:Name="spellDetailsStackPanel">
+            <TextBlock Text="{Binding Designation}" Style="{StaticResource TitleTextBlockStyle}" Grid.Column="0" Grid.Row="0"></TextBlock>
+            
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Description:" Style="{StaticResource BaseTextBlockStyle}" Grid.Column="0" Grid.Row="1"></TextBlock>
+                <TextBlock Text="{Binding Description}" Grid.Column="1" Grid.Row="1"></TextBlock>
+
+                <TextBlock Text="Spell ID:" Style="{StaticResource BaseTextBlockStyle}" Grid.Column="0" Grid.Row="2"></TextBlock>
+                <TextBlock Text="{Binding ID}" Grid.Column="1" Grid.Row="2"></TextBlock>
+
+            </Grid>
+        </StackPanel>
+    </StackPanel>
+</Page>

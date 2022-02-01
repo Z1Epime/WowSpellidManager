@@ -29,27 +29,60 @@ namespace WowSpellidManager.WinUI3.Views
     /// </summary>
     public sealed partial class MainWindow : Window
     {
-        private HelperSpellViewModel fHelperSpellViewModel;
+        private HelperWowClassViewModel fHelperWowClassViewModel;
         public MainWindow()
         {
             this.InitializeComponent();
-            fHelperSpellViewModel = new HelperSpellViewModel();
-            itemListView.DataContext = fHelperSpellViewModel.GetSpells();
+            fHelperWowClassViewModel = new HelperWowClassViewModel();
+            classListView.DataContext = fHelperWowClassViewModel.GetWowClasses();
+            AddSpellButton.Visibility = Visibility.Collapsed;
+            specializationView.Visibility = Visibility.Collapsed;
         }
 
-        private void AddSpell_Click(object sender, RoutedEventArgs e)
+        private void classListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            fHelperSpellViewModel.AddSpell(designationBox.Text, descriptionBox.Text, idBox.Text);
+            // addSpellStackPanel.DataContext = itemListView.SelectedItem;
+            specializationView.DataContext = classListView.SelectedItem;
+            specializationView.Visibility = Visibility.Visible;
+            AddSpellButton.Visibility = Visibility.Collapsed;
         }
 
+
+
+
+
+        /*
+        private void AddClass_Click(object sender, RoutedEventArgs e)
+        {
+            fHelperWowClassViewModel.AddWowClass(designationBox.Text, descriptionBox.Text);
+        }
+
+        
         private void itemListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            addSpellStackPanel.DataContext = itemListView.SelectedItem;
+            addClassStackPanel.DataContext = classListView.SelectedItem;
         }
 
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
-            fHelperSpellViewModel.SaveSpells();
+            fHelperWowClassViewModel.SaveWowClasses();
+        }
+        */
+
+        private void specializationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
+        {
+            specializationFrame.Content = new SpecializationNavigationViewContentPage(specializationView.SelectedItem);
+            AddSpellButton.Visibility = Visibility.Visible;
+        }
+
+        private void quitButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddSpellButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

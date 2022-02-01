@@ -33,7 +33,7 @@ namespace WowSpellidManager.Domain.Models
         public const int SPECIALIZATIONSMAX = 4;
 
 
-        private Specialization[] fSpecializations;
+        private List<Specialization> fSpecializations;
         private string fDescription;
         public string Description
         {
@@ -48,15 +48,16 @@ namespace WowSpellidManager.Domain.Models
             }
         }
 
-        public Specialization[] Specializations
+        public List<Specialization> Specializations
         { 
             get 
-            { 
+            {
+                // ArgumentGuard.CheckNumberOfSpecializations(fSpecializations);
+                // hm, try to add some validation here
                 return fSpecializations; 
             }
             set 
             {
-                ArgumentGuard.CheckNumberOfSpecializations(value);
                 fSpecializations = value; 
             }
         }
@@ -73,7 +74,7 @@ namespace WowSpellidManager.Domain.Models
         public WowClass(Guid aGuid, string aDesignation, string aDescription) : base(aGuid, aDesignation)
         {
             Description = aDescription;
-            Specializations = new Specialization[4];
+            Specializations = new List<Specialization>();
         }
 
         /// <summary>
@@ -84,7 +85,7 @@ namespace WowSpellidManager.Domain.Models
         public WowClass(string aDesignation, string aDescription) : base(aDesignation)
         {
             Description = aDescription;
-            Specializations = new Specialization[4];
+            Specializations = new List<Specialization>();
         }
 
         /// <summary>

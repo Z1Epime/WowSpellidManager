@@ -43,10 +43,10 @@ namespace WowSpellidManager.Domain.Exceptions
             }
         }
 
-        public static void CheckNumberOfSpecializations(Specialization[] aSpecializations)
+        public static void CheckNumberOfSpecializations(List<Specialization> aSpecializations)
         {
-            if(aSpecializations.Length < 2 ||
-                aSpecializations.Length > 4)
+            if(aSpecializations.Count < 2 ||
+                aSpecializations.Count > 4)
             {
                 throw new NumberOfSpecializationsInvalidException(nameof(aSpecializations));
             }
