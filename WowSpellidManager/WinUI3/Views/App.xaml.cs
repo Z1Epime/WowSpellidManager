@@ -52,15 +52,6 @@ namespace WowSpellidManager.WinUI3.Views
             m_window.Activate();
 
 
-            // TODO: ????? dont forget to delete the following after testing
-            
-           
-
-            //DataOperationProvider dataOperationProvider = new DataOperationProvider();
-            //dataOperationProvider.SpellOperator.Save();
-            // TODO: das bisschen ui was ich hab mit meiner neuen logik verbinden um zu testen
-
-
             
         }
 

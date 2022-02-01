@@ -22,8 +22,6 @@ namespace WowSpellidManager.Infrastructure.DataManager
             {
                 case "JSON":
                     JsonSaver.SaveWowClasses();
-                    JsonSaver.SaveSpecializations();
-                    JsonSaver.SaveSpells();
                     break;
 
                 default:
@@ -37,7 +35,7 @@ namespace WowSpellidManager.Infrastructure.DataManager
             {
                 case "JSON":
                     fDataHolder = new DataHolder();
-                    fDataHolder.Spells = JsonLoader.LoadSpells();
+                    fDataHolder.WowClasses = JsonLoader.LoadWowClasses();
                     break;
                 default:
                     throw new InvalidParsingMethodException("The parsing method is invalid!");

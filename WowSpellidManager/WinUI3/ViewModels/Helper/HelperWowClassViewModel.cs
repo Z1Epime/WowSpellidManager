@@ -9,10 +9,10 @@ using WowSpellidManager.WinUI3.ViewModels.Wrapper;
 
 namespace WowSpellidManager.WinUI3.ViewModels.Helper
 {
-    public class HelperSpellViewModel : ViewModel
+    public class HelperWowClassViewModel : ViewModel
     {
         
-
+        /*
         public ObservableCollection<SpellViewModel> GetSpells2()
         {
             ObservableCollection<SpellViewModel> spellViewModels = new ObservableCollection<SpellViewModel>();
@@ -26,19 +26,23 @@ namespace WowSpellidManager.WinUI3.ViewModels.Helper
 
             return spellViewModels;
         }
+        */
 
-        public ObservableCollection<Spell> GetSpells()
+        public ObservableCollection<WowClass> GetWowClasses()
         {
-            return fDataOperationProvider.SpellOperator.GetSpells();
+            return fDataOperationProvider.WowClassOperator.GetWowClasses();
         }
 
+        
 
-        public void AddSpell(string aDesignation, string aDescription, string aID)
+
+        public void AddWowClass(string aDesignation, string aDescription)
         {
-            fDataOperationProvider.SpellOperator.AddSpell(new Spell(aDesignation, aDescription, Convert.ToInt32(aID)));
+            fDataOperationProvider.WowClassOperator.AddWowClass(new WowClass(aDesignation, aDescription));
         }
+        
 
-        public void SaveSpells()
+        public void SaveWowClasses()
         {
             fDataOperationProvider.SpellOperator.Save();
         }

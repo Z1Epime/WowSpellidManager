@@ -15,12 +15,13 @@ namespace WowSpellidManager.Infrastructure.CRUD
 
         public ObservableCollection<Specialization> GetSpecializations()
         {
-            return DataHolder.DataProvider.DataHolder.Specializations;
+            //return DataHolder.DataProvider.DataHolder.Specializations;
+            return null;
         }
 
         public void Save()
         {
-            DataHolder.DataProvider.DataParser.Save();
+            //DataHolder.DataProvider.DataParser.Save();
         }
     }
 }

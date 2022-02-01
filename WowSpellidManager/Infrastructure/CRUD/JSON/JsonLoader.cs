@@ -15,7 +15,8 @@ namespace WowSpellidManager.Infrastructure.CRUD.JSON
     internal class JsonLoader
     {
         private static DataOperationProvider fDataOperationProvider = new DataOperationProvider();
-
+        
+        /*
         public static ObservableCollection<Spell> LoadSpells()
         {
 
@@ -31,6 +32,7 @@ namespace WowSpellidManager.Infrastructure.CRUD.JSON
             return (ObservableCollection<Spell>) spells;
         }
 
+        
         public static ObservableCollection<Specialization> LoadSpecializations()
         {
 
@@ -45,12 +47,13 @@ namespace WowSpellidManager.Infrastructure.CRUD.JSON
 
             return (ObservableCollection<Specialization>)specializations;
         }
+        */
 
         public static ObservableCollection<WowClass> LoadWowClasses()
         {
 
             string readContents;
-            using (StreamReader streamReader = new StreamReader(JsonSaver.fSPELLSPATH))
+            using (StreamReader streamReader = new StreamReader(JsonSaver.fWOWCLASSESPATH))
             {
                 readContents = streamReader.ReadToEnd();
             }

@@ -15,7 +15,8 @@ namespace WowSpellidManager.Infrastructure.CRUD
 
         public ObservableCollection<Spell> GetSpells()
         {
-            return DataHolder.DataProvider.DataHolder.Spells;
+            //return DataHolder.DataProvider.DataHolder.Spells;
+            return null;
         }
 
         public void Save()
@@ -25,7 +26,7 @@ namespace WowSpellidManager.Infrastructure.CRUD
         
         public void AddSpell(Spell aSpell)
         {
-            DataHolder.DataProvider.DataHolder.Spells.Add(aSpell);
+            //DataHolder.DataProvider.DataHolder.Spells.Add(aSpell);
         }
 
 

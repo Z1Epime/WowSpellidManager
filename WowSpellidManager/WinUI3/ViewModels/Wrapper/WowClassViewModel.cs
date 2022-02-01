@@ -26,7 +26,7 @@ namespace WowSpellidManager.WinUI3.ViewModels.Wrapper
             }
         }
 
-        public Specialization[] Specializations
+        public List<Specialization> Specializations
         {
             get
             {
