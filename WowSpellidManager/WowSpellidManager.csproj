@@ -23,7 +23,8 @@
     <None Remove="WinUI3\resources\dictionaries\buttons.xaml" />
     <None Remove="resources\dictionaries\buttons.xaml" />
     <None Remove="resources\dictionaries\textboxes.xaml" />
-    <None Remove="WinUI3\Views\MainPage.xaml" />
+    <None Remove="WinUI3\Views\ClassesView.xaml" />
+    <None Remove="WinUI3\Views\HomeView.xaml" />
     <None Remove="WinUI3\Views\SettingsView.xaml" />
     <None Remove="WinUI3\Views\SpecializationNavigationViewContentPage.xaml" />
   </ItemGroup>
@@ -43,7 +44,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Page Update="WinUI3\Views\MainPage.xaml">
+    <Page Update="WinUI3\Views\HomeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="WinUI3\Views\ClassesView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>

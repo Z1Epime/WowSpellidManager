@@ -21,20 +21,11 @@ namespace WowSpellidManager.WinUI3.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class SpecializationNavigationViewContentPage : Page
+    public sealed partial class HomeView : Page
     {
-        public SpecializationNavigationViewContentPage(object Specialization)
+        public HomeView()
         {
-            InitializeComponent();
-            spellListView.DataContext = Specialization;
-            spellDetailsStackPanel.DataContext = null;
-            spellDetailsStackPanel.Visibility = Visibility.Collapsed;
-        }
-
-        private void spellListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            spellDetailsStackPanel.DataContext = spellListView.SelectedItem;
-            spellDetailsStackPanel.Visibility = Visibility.Visible;
+            this.InitializeComponent();
         }
     }
 }

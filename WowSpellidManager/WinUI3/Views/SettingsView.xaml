@@ -5,19 +5,18 @@
     xmlns:local="using:WowSpellidManager.WinUI3.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    mc:Ignorable="d">
 
     <RelativePanel>
 
-        <StackPanel x:Name="FileSettingsStackPanel" RelativePanel.AlignRightWith="UserSettingsStackPanel">
-            <TextBlock x:Name="FileSettingsTitle" Text="File"></TextBlock>
+        <StackPanel x:Name="FileSettingsStackPanel" RelativePanel.AlignLeftWithPanel="True" Margin="25">
+            <TextBlock x:Name="FileSettingsTitle" Text="File" Style="{StaticResource HeaderTextBlockStyle}"></TextBlock>
             <AppBarSeparator></AppBarSeparator>
             <TextBox Header="File storage location"></TextBox>
         </StackPanel>
 
-        <StackPanel x:Name="UserSettingsStackPanel">
-            <TextBlock x:Name="UserSettingsTitle"></TextBlock>
+        <StackPanel x:Name="UserSettingsStackPanel" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="25">
+            <TextBlock x:Name="UserSettingsTitle" Text="User" Style="{StaticResource HeaderTextBlockStyle}"></TextBlock>
             <AppBarSeparator></AppBarSeparator>
 
             <StackPanel Orientation="Horizontal">

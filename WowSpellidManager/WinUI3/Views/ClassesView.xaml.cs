@@ -22,10 +22,10 @@ namespace WowSpellidManager.WinUI3.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class ClassesView : Page
     {
         private HelperWowClassViewModel fHelperWowClassViewModel;
-        public MainPage()
+        public ClassesView()
         {
             this.InitializeComponent();
             fHelperWowClassViewModel = new HelperWowClassViewModel();
@@ -66,7 +66,7 @@ namespace WowSpellidManager.WinUI3.Views
 
         private void specializationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
-            specializationFrame.Content = new SpecializationNavigationViewContentPage(specializationView.SelectedItem);
+            specializationFrame.Content = new SpecializationView(specializationView.SelectedItem);
             AddSpellButton.Visibility = Visibility.Visible;
         }
 
