@@ -18,6 +18,7 @@ using WowSpellidManager.WinUI3.ViewModels.Helper;
 using WowSpellidManager.WinUI3.ViewModels.Wrapper;
 using WowSpellidManager.Infrastructure;
 using WowSpellidManager.Domain.Models;
+using WowSpellidManager.WinUI3.Navigation;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -32,30 +33,31 @@ namespace WowSpellidManager.WinUI3.Views
         public MainWindow()
         {
             this.InitializeComponent();
-            ObservableCollection<NavigationOption> navigationoptions = new ObservableCollection<NavigationOption>();
-            navigationoptions.Add(new NavigationOption("Home", Symbol.Home));
-            navigationoptions.Add(new NavigationOption("Explore classes", Symbol.Library));
-            navigationoptions.Add(new NavigationOption("Settings", Symbol.Setting));
-            navigationoptions.Add(new NavigationOption("Quit", Symbol.Cancel));
-
-            mainNavigationView.MenuItemsSource = navigationoptions;
+            NavigationLists.LoadNavigationLists();
+            mainNavigationView.MenuItemsSource = NavigationLists.NavigationOptionsMain;
+            mainNavigationView.SelectedItem = NavigationLists.NavigationOptionsMain.FirstOrDefault();
         }
 
         private void mainNavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
-            string item = mainNavigationView.SelectedItem as string;
+            NavigationOption option = mainNavigationView.SelectedItem as NavigationOption;
 
-            if(item != null)
+            if(option != null)
             {
-                if (item.Equals("Settings", StringComparison.OrdinalIgnoreCase))
+                if (option.Name.Equals("Home", StringComparison.OrdinalIgnoreCase))
+                {
+                    mainFrame.Content = new HomeView();
+                } else if (option.Name.Equals("Classes", StringComparison.OrdinalIgnoreCase))
+                {
+                    mainFrame.Content = new ClassesView();
+                }
+                else if (option.Name.Equals("Settings", StringComparison.OrdinalIgnoreCase))
                 {
                     mainFrame.Content = new SettingsView();
-                } else if (item.Equals("Main", StringComparison.OrdinalIgnoreCase))
+                }
+                else if (option.Name.Equals("Quit", StringComparison.OrdinalIgnoreCase))
                 {
-                    mainFrame.Content = new MainPage();
-                } else if (item.Equals("Quit", StringComparison.OrdinalIgnoreCase))
-                {
-                    Console.WriteLine("nix");
+                    Application.Current.Exit();
                 }
             }
         }

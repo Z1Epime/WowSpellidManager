@@ -11,17 +11,35 @@ namespace WowSpellidManager.WinUI3.Navigation
 {
     public static class NavigationLists
     {
-        #region NavigationOptions
+        #region Fields
+        private static ObservableCollection<NavigationOption> fNavigationOptionsMain;
 
-        public static NavigationOption Home { get; set; }
-        public static NavigationOption Classes { get; set; }
-        public static NavigationOption Settings { get; set; }
-        public static NavigationOption Quit{ get; set; }
+        private static NavigationOption fHome;
+        private static NavigationOption fClasses;
+        private static NavigationOption fSettings;
+        private static NavigationOption fQuit;
 
         #endregion
 
-        #region NavigationLists
-        public static ObservableCollection<NavigationOption> NavigationOptionsMain { get; set; }
+        #region Properties
+        public static ObservableCollection<NavigationOption> NavigationOptionsMain
+        {
+            get
+            {
+                if (fNavigationOptionsMain == null)
+                {
+                    fNavigationOptionsMain = new ObservableCollection<NavigationOption>();
+                }
+                return fNavigationOptionsMain;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    fNavigationOptionsMain = value;
+                }
+            }
+        }
         #endregion
 
 
@@ -29,15 +47,15 @@ namespace WowSpellidManager.WinUI3.Navigation
         {
             NavigationOptionsMain.Clear();
 
-            Home = new NavigationOption("Home", Symbol.Home);
-            Classes = new NavigationOption("Classes", Symbol.Library);
-            Settings= new NavigationOption("Settings", Symbol.Setting);
-            Quit = new NavigationOption("Quit", Symbol.Cancel);
+            fHome = new NavigationOption("Home", Symbol.Home);
+            fClasses = new NavigationOption("Classes", Symbol.Library);
+            fSettings = new NavigationOption("Settings", Symbol.Setting);
+            fQuit = new NavigationOption("Quit", Symbol.Cancel);
 
-            NavigationOptionsMain.Add(Home);
-            NavigationOptionsMain.Add(Classes);
-            NavigationOptionsMain.Add(Settings);
-            NavigationOptionsMain.Add(Quit);
+            NavigationOptionsMain.Add(fHome);
+            NavigationOptionsMain.Add(fClasses);
+            NavigationOptionsMain.Add(fSettings);
+            NavigationOptionsMain.Add(fQuit);
         }
     }
 }
