@@ -29,60 +29,35 @@ namespace WowSpellidManager.WinUI3.Views
     /// </summary>
     public sealed partial class MainWindow : Window
     {
-        private HelperWowClassViewModel fHelperWowClassViewModel;
         public MainWindow()
         {
             this.InitializeComponent();
-            fHelperWowClassViewModel = new HelperWowClassViewModel();
-            classListView.DataContext = fHelperWowClassViewModel.GetWowClasses();
-            AddSpellButton.Visibility = Visibility.Collapsed;
-            specializationView.Visibility = Visibility.Collapsed;
+            ObservableCollection<NavigationOption> navigationoptions = new ObservableCollection<NavigationOption>();
+            navigationoptions.Add(new NavigationOption("Home", Symbol.Home));
+            navigationoptions.Add(new NavigationOption("Explore classes", Symbol.Library));
+            navigationoptions.Add(new NavigationOption("Settings", Symbol.Setting));
+            navigationoptions.Add(new NavigationOption("Quit", Symbol.Cancel));
+
+            mainNavigationView.MenuItemsSource = navigationoptions;
         }
 
-        private void classListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void mainNavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
-            // addSpellStackPanel.DataContext = itemListView.SelectedItem;
-            specializationView.DataContext = classListView.SelectedItem;
-            specializationView.Visibility = Visibility.Visible;
-            AddSpellButton.Visibility = Visibility.Collapsed;
-        }
+            string item = mainNavigationView.SelectedItem as string;
 
-
-
-
-
-        /*
-        private void AddClass_Click(object sender, RoutedEventArgs e)
-        {
-            fHelperWowClassViewModel.AddWowClass(designationBox.Text, descriptionBox.Text);
-        }
-
-        
-        private void itemListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            addClassStackPanel.DataContext = classListView.SelectedItem;
-        }
-
-        private void saveButton_Click(object sender, RoutedEventArgs e)
-        {
-            fHelperWowClassViewModel.SaveWowClasses();
-        }
-        */
-
-        private void specializationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
-        {
-            specializationFrame.Content = new SpecializationNavigationViewContentPage(specializationView.SelectedItem);
-            AddSpellButton.Visibility = Visibility.Visible;
-        }
-
-        private void quitButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void AddSpellButton_Click(object sender, RoutedEventArgs e)
-        {
-
+            if(item != null)
+            {
+                if (item.Equals("Settings", StringComparison.OrdinalIgnoreCase))
+                {
+                    mainFrame.Content = new SettingsView();
+                } else if (item.Equals("Main", StringComparison.OrdinalIgnoreCase))
+                {
+                    mainFrame.Content = new MainPage();
+                } else if (item.Equals("Quit", StringComparison.OrdinalIgnoreCase))
+                {
+                    Console.WriteLine("nix");
+                }
+            }
         }
     }
 }

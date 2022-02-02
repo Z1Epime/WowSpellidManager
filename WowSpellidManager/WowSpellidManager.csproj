@@ -23,6 +23,8 @@
     <None Remove="WinUI3\resources\dictionaries\buttons.xaml" />
     <None Remove="resources\dictionaries\buttons.xaml" />
     <None Remove="resources\dictionaries\textboxes.xaml" />
+    <None Remove="WinUI3\Views\MainPage.xaml" />
+    <None Remove="WinUI3\Views\SettingsView.xaml" />
     <None Remove="WinUI3\Views\SpecializationNavigationViewContentPage.xaml" />
   </ItemGroup>
   <ItemGroup>
@@ -38,6 +40,18 @@
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22000.194" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <Manifest Include="$(ApplicationManifest)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="WinUI3\Views\MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="WinUI3\Views\SettingsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
 
   <ItemGroup>
