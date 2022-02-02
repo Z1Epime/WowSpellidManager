@@ -25,8 +25,16 @@
         </Border>
     </DataTemplate>
 
-    <DataTemplate x:Name="navigationViewMenuItem">
+    <DataTemplate x:Name="navigationViewMenuItemClasses">
         <TextBlock Text="{Binding Designation}"></TextBlock>
+    </DataTemplate>
+    
+    <DataTemplate x:Name="navigationViewMenuItemMain">
+        <NavigationViewItem Content="{Binding Name}">
+            <NavigationViewItem.Icon>
+                <SymbolIcon Symbol="{Binding Glyph}"></SymbolIcon>
+            </NavigationViewItem.Icon>
+        </NavigationViewItem>
     </DataTemplate>
 
     <DataTemplate x:Name="spellListViewItem">
