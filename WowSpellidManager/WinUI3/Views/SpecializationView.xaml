@@ -25,30 +25,62 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackPanel>
-        
+
         <AppBarSeparator Style="{StaticResource width50Separator}"></AppBarSeparator>
 
-        <StackPanel x:Name="spellDetailsStackPanel">
-            <TextBlock Text="{Binding Designation}" Style="{StaticResource TitleTextBlockStyle}" Grid.Column="0" Grid.Row="0"></TextBlock>
-            
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
+        <RelativePanel>
+            <TextBlock x:Name="classTitleTextBlock"
+                       Text="{Binding Designation}" 
+                       Style="{StaticResource HeaderTextBlockStyle}"
+                       RelativePanel.AlignTopWithPanel="True"></TextBlock>
+            <StackPanel x:Name="spellDetailsHeaderStackPanel"  RelativePanel.Below="classTitleTextBlock">
+                <StackPanel>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
 
-                <TextBlock Text="Description:" Style="{StaticResource BaseTextBlockStyle}" Grid.Column="0" Grid.Row="1"></TextBlock>
-                <TextBlock Text="{Binding Description}" Grid.Column="1" Grid.Row="1"></TextBlock>
+                        <TextBlock x:Name="minorClassHeader"
+                               Style="{StaticResource BodyTextBlockStyle}"
+                               Grid.Column="0" 
+                               Grid.Row="0">
+                            <Run Text="{Binding Designation}"></Run>
+                            <Run Text=", "></Run>
+                        </TextBlock>
+                        <TextBlock x:Name="minorSpecializationHeader"
+                               Style="{StaticResource BodyTextBlockStyle}" 
+                               Text="{Binding Designation}" 
+                               Grid.Column="1" 
+                               Grid.Row="0">
+                        </TextBlock>
+                    </Grid>
+                </StackPanel>
+            </StackPanel>
 
-                <TextBlock Text="Spell ID:" Style="{StaticResource BaseTextBlockStyle}" Grid.Column="0" Grid.Row="2"></TextBlock>
-                <TextBlock Text="{Binding ID}" Grid.Column="1" Grid.Row="2"></TextBlock>
 
-            </Grid>
-        </StackPanel>
+
+            <StackPanel x:Name="spellDetailsStackPanel" RelativePanel.Below="spellDetailsHeaderStackPanel">
+                <AppBarSeparator></AppBarSeparator>
+
+                <StackPanel>
+                    <TextBlock Text="Description:" 
+                               Style="{StaticResource BaseTextBlockStyle}"></TextBlock>
+                    <TextBlock Text="{Binding Description}"></TextBlock>
+                </StackPanel>
+
+                <AppBarSeparator></AppBarSeparator>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Spell ID:" 
+                               Style="{StaticResource BaseTextBlockStyle}"></TextBlock>
+                    <TextBlock Text="{Binding ID}"></TextBlock>
+                </StackPanel>
+            </StackPanel>
+
+        </RelativePanel>
     </StackPanel>
 </Page>

@@ -23,18 +23,27 @@ namespace WowSpellidManager.WinUI3.Views
     /// </summary>
     public sealed partial class SpecializationView : Page
     {
-        public SpecializationView(object Specialization)
+        public SpecializationView(object aSpecialization, object aWowClass)
         {
             InitializeComponent();
-            spellListView.DataContext = Specialization;
-            spellDetailsStackPanel.DataContext = null;
+            spellListView.DataContext = aSpecialization;
+            spellDetailsHeaderStackPanel.DataContext = null;
+
             spellDetailsStackPanel.Visibility = Visibility.Collapsed;
+            classTitleTextBlock.Visibility = Visibility.Collapsed;
+            spellDetailsHeaderStackPanel.Visibility = Visibility.Collapsed;
+
+            minorClassHeader.DataContext = aWowClass;
+            minorSpecializationHeader.DataContext = aSpecialization;
         }
 
         private void spellListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            classTitleTextBlock.DataContext = spellListView.SelectedItem;
             spellDetailsStackPanel.DataContext = spellListView.SelectedItem;
             spellDetailsStackPanel.Visibility = Visibility.Visible;
+            classTitleTextBlock.Visibility = Visibility.Visible;
+            spellDetailsHeaderStackPanel.Visibility = Visibility.Visible;
         }
     }
 }
