@@ -66,7 +66,7 @@ namespace WowSpellidManager.WinUI3.Views
 
         private void specializationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
-            specializationFrame.Content = new SpecializationView(specializationView.SelectedItem);
+            specializationFrame.Content = new SpecializationView(specializationView.SelectedItem, classListView.SelectedItem);
             AddSpellButton.Visibility = Visibility.Visible;
         }
 
