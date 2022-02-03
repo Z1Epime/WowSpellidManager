@@ -10,11 +10,8 @@
     <StackPanel>
         <StackPanel Orientation="Horizontal">
             <StackPanel x:Name="classListStackPanel">
-                <TextBlock x:Name="classesHeader" 
-                       Text="Classes"
-                       Style="{StaticResource SubtitleTextBlockStyle}"
-                       HorizontalAlignment="Center">
-                </TextBlock>
+
+                <AppBarSeparator></AppBarSeparator>
 
                 <ListView x:Name="classListView"
                   SelectionChanged="classListView_SelectionChanged"
