@@ -12,6 +12,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using WowSpellidManager.WinUI3.ViewModels.Helper;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -23,9 +24,16 @@ namespace WowSpellidManager.WinUI3.Views
     /// </summary>
     public sealed partial class SettingsView : Page
     {
+        private HelperSettingsViewModel fHelperSettingsViewModel = new HelperSettingsViewModel();
         public SettingsView()
         {
             this.InitializeComponent();
+            fileLocation.DataContext = fHelperSettingsViewModel.GetSettings();
+        }
+
+        private void SaveSettingsButton_Click(object sender, RoutedEventArgs e)
+        {
+            fHelperSettingsViewModel.SaveSettings();
         }
     }
 }

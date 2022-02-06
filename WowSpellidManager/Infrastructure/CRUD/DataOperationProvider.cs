@@ -11,6 +11,7 @@ namespace WowSpellidManager.Infrastructure.CRUD
         private static SpellOperator fSpellOperator = new SpellOperator();
         private static SpecializationOperator fSpecializationOperator = new SpecializationOperator();
         private static WowClassOperator fWowClassOperator = new WowClassOperator();
+        private static SettingsOperator fSettingsOperator = new SettingsOperator();
         
         public SpellOperator SpellOperator
         {
@@ -47,6 +48,19 @@ namespace WowSpellidManager.Infrastructure.CRUD
             set 
             {
                 fWowClassOperator = value;
+            }
+        }
+
+        public SettingsOperator SettingsOperator
+        {
+            get
+            {
+                return fSettingsOperator;
+            }
+
+            set
+            {
+                fSettingsOperator = value;
             }
         }
     }

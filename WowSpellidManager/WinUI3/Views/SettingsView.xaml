@@ -10,19 +10,59 @@
     <RelativePanel>
 
         <StackPanel x:Name="FileSettingsStackPanel" RelativePanel.AlignLeftWithPanel="True" Margin="25">
-            <TextBlock x:Name="FileSettingsTitle" Text="File" Style="{StaticResource HeaderTextBlockStyle}"></TextBlock>
+            <TextBlock x:Name="FileSettingsTitle" 
+                       Text="File" 
+                       Style="{StaticResource HeaderTextBlockStyle}"></TextBlock>
             <AppBarSeparator></AppBarSeparator>
-            <TextBox Header="File storage location"></TextBox>
+            <TextBox x:Name="fileLocation"
+                     Header="File storage location"
+                     MaxWidth="300"
+                     Text="{Binding Path=SavingsPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     ></TextBox>
         </StackPanel>
 
-        <StackPanel x:Name="UserSettingsStackPanel" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="25">
+        <AppBarSeparator x:Name="FileUserSeparator" 
+                         RelativePanel.RightOf="FileSettingsStackPanel"
+                         Style="{StaticResource horizontalSettingsSeparator}"
+                         ></AppBarSeparator>
+
+
+        <StackPanel x:Name="UserSettingsStackPanel" RelativePanel.RightOf="FileUserSeparator" Margin="25">
             <TextBlock x:Name="UserSettingsTitle" Text="User" Style="{StaticResource HeaderTextBlockStyle}"></TextBlock>
             <AppBarSeparator></AppBarSeparator>
 
             <StackPanel Orientation="Horizontal">
                 <TextBox Header="Username"></TextBox>
-                <Image Width="50" Height="50" Source="E:\\VisualStudio Projects\\WowSpellidManager\\WowSpellidManager\\resources\\pics\\spells\\lightningBolt.JPEG"></Image>
             </StackPanel>
+        </StackPanel>
+
+        <AppBarSeparator x:Name="UserDesignSeparator" 
+                         Style="{StaticResource horizontalSettingsSeparator}"
+                         RelativePanel.RightOf="UserSettingsStackPanel"
+                         ></AppBarSeparator>
+        
+        <StackPanel x:Name="DesignSettingsStackPanel" RelativePanel.RightOf="UserDesignSeparator" Margin="25">
+            <TextBlock x:Name="DesignSettingsTitle" Text="Design" Style="{StaticResource HeaderTextBlockStyle}"></TextBlock>
+            <AppBarSeparator></AppBarSeparator>
+
+            <StackPanel Orientation="Horizontal">
+                
+                <ListView x:Name="DesignsListView"
+                          Style="{StaticResource ListViewDesigns}">
+                    
+                </ListView>
+                
+            </StackPanel>
+        </StackPanel>
+
+
+        <StackPanel x:Name="SaveSettingsStackPanel" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignBottomWithPanel="True" Margin="25">
+
+            <Button x:Name="SaveSettingsButton"
+                    Content="Save"
+                    Style="{StaticResource AccentButtonStyle}"
+                    Click="SaveSettingsButton_Click">
+            </Button>
         </StackPanel>
 
     </RelativePanel>

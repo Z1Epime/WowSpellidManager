@@ -35,6 +35,7 @@ namespace WowSpellidManager.Infrastructure.DataManager
             {
                 case "JSON":
                     fDataHolder = new DataHolder();
+                    fDataHolder.Settings = JsonLoader.LoadSettings();
                     fDataHolder.WowClasses = JsonLoader.LoadWowClasses();
                     break;
                 default:

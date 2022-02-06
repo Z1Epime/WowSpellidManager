@@ -6,5 +6,10 @@
     <Style x:Name="width50Separator" TargetType="AppBarSeparator">
         <Setter Property="Width" Value="50"></Setter>
     </Style>
-    
+
+    <Style x:Name="horizontalSettingsSeparator" TargetType="AppBarSeparator">
+        <Setter Property="Width" Value="100"></Setter>
+        <Setter Property="Height" Value="0"></Setter>
+    </Style>
+
 </ResourceDictionary>
