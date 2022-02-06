@@ -53,5 +53,17 @@ namespace WowSpellidManager.Infrastructure.CRUD.JSON
 
             }
         }
+
+        public static void SaveSettings()
+        {
+            JsonSerializer serializer = new JsonSerializer();
+            serializer.NullValueHandling = NullValueHandling.Ignore;
+
+            using (StreamWriter sw = new StreamWriter(fDataOperationProvider.SettingsOperator.GetSavingsPath() + "\\settings.JSON"))
+            using (JsonWriter writer = new JsonTextWriter(sw))
+            {
+                serializer.Serialize(writer, fDataOperationProvider.SettingsOperator.GetSavingsPath());
+            }
+        }
     }
 }
