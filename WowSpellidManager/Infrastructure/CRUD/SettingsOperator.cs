@@ -11,9 +11,9 @@ namespace WowSpellidManager.Infrastructure.CRUD
 {
     public class SettingsOperator
     {
-        public string GetSavingsPath()
+        public Settings GetSettings()
         {
-            return Settings.SavingsPath;
+            return DataHolder.DataProvider.DataHolder.Settings;
         }
 
         public void Save()

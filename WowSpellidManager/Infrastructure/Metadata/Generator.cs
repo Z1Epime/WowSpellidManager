@@ -21,6 +21,7 @@ namespace WowSpellidManager.Infrastructure.Metadata
             warrior.Specializations.Add(new Specialization("Arms", "tbd"));
             warrior.Specializations.Add(new Specialization("Fury", "tbd"));
             warrior.Specializations.Add(new Specialization("Protection", "tbd"));
+            warrior.Specializations[^1].Spells.Add(new Spell("Stormbolt", "k thx bye", 578335));
             wowClasses.Add(warrior);
 
             WowClass paladin = new WowClass("Paladin", "tbd");

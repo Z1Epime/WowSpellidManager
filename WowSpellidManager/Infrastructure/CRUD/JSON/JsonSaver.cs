@@ -15,6 +15,7 @@ namespace WowSpellidManager.Infrastructure.CRUD.JSON
         //public const string fSPELLSPATH = "E:\\VisualStudio Projects\\WowSpellidManager\\WowSpellidManager\\bin\\x86\\Debug\\net6.0-windows10.0.19041.0\\Data\\spells.JSON";
         // public const string fSPECIALIZATIONSPATH = "E:\\VisualStudio Projects\\WowSpellidManager\\WowSpellidManager\\bin\\x86\\Debug\\net6.0-windows10.0.19041.0\\Data\\specializations.JSON";
         public const string fWOWCLASSESPATH = "E:\\VisualStudio Projects\\WowSpellidManager\\WowSpellidManager\\bin\\x86\\Debug\\net6.0-windows10.0.19041.0\\Data\\wowclasses.JSON";
+        public const string fSETTINGSPATH = "E:\\VisualStudio Projects\\WowSpellidManager\\WowSpellidManager\\Settings\\settings.JSON";
         /*
         public static void SaveSpells()
         {
@@ -59,10 +60,10 @@ namespace WowSpellidManager.Infrastructure.CRUD.JSON
             JsonSerializer serializer = new JsonSerializer();
             serializer.NullValueHandling = NullValueHandling.Ignore;
 
-            using (StreamWriter sw = new StreamWriter(fDataOperationProvider.SettingsOperator.GetSavingsPath() + "\\settings.JSON"))
+            using (StreamWriter sw = new StreamWriter(fSETTINGSPATH))
             using (JsonWriter writer = new JsonTextWriter(sw))
             {
-                serializer.Serialize(writer, fDataOperationProvider.SettingsOperator.GetSavingsPath());
+                serializer.Serialize(writer, fDataOperationProvider.SettingsOperator.GetSettings());
             }
         }
     }

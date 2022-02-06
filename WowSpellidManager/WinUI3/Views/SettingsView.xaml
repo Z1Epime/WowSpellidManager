@@ -14,8 +14,11 @@
                        Text="File" 
                        Style="{StaticResource HeaderTextBlockStyle}"></TextBlock>
             <AppBarSeparator></AppBarSeparator>
-            <TextBox Header="File storage location"
-                     MaxWidth="300"></TextBox>
+            <TextBox x:Name="fileLocation"
+                     Header="File storage location"
+                     MaxWidth="300"
+                     Text="{Binding Path=SavingsPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     ></TextBox>
         </StackPanel>
 
         <AppBarSeparator x:Name="FileUserSeparator" 
@@ -50,6 +53,16 @@
                 </ListView>
                 
             </StackPanel>
+        </StackPanel>
+
+
+        <StackPanel x:Name="SaveSettingsStackPanel" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignBottomWithPanel="True" Margin="25">
+
+            <Button x:Name="SaveSettingsButton"
+                    Content="Save"
+                    Style="{StaticResource AccentButtonStyle}"
+                    Click="SaveSettingsButton_Click">
+            </Button>
         </StackPanel>
 
     </RelativePanel>

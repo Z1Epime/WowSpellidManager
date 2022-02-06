@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WowSpellidManager.Infrastructure.DataManager;
 using WowSpellidManager.Domain.Models;
+using WowSpellidManager.Infrastructure.Metadata;
 
 namespace WowSpellidManager.Infrastructure.CRUD.JSON
 {
@@ -51,17 +52,36 @@ namespace WowSpellidManager.Infrastructure.CRUD.JSON
 
         public static ObservableCollection<WowClass> LoadWowClasses()
         {
+            ObservableCollection<WowClass> wowClasses = new ObservableCollection<WowClass>();
 
+            if (File.Exists(JsonSaver.fWOWCLASSESPATH))
+            {
+                string readContents;
+                using (StreamReader streamReader = new StreamReader(JsonSaver.fWOWCLASSESPATH))
+                {
+                    readContents = streamReader.ReadToEnd();
+                }
+
+                wowClasses = JsonConvert.DeserializeObject<ObservableCollection<WowClass>>(readContents);
+            } else
+            {
+                wowClasses = Generator.Generate();
+            }
+           
+
+            return (ObservableCollection<WowClass>)wowClasses;
+        }
+
+        public static Settings LoadSettings()
+        {         
             string readContents;
-            using (StreamReader streamReader = new StreamReader(JsonSaver.fWOWCLASSESPATH))
+            using (StreamReader streamReader = new StreamReader(JsonSaver.fSETTINGSPATH))
             {
                 readContents = streamReader.ReadToEnd();
             }
 
-            ObservableCollection<WowClass> wowClasses = new ObservableCollection<WowClass>();
-            wowClasses = JsonConvert.DeserializeObject<ObservableCollection<WowClass>>(readContents);
-
-            return (ObservableCollection<WowClass>)wowClasses;
+            Settings settings = JsonConvert.DeserializeObject<Settings>(readContents);
+            return settings;
         }
     }
 }

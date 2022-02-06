@@ -8,17 +8,14 @@ namespace WowSpellidManager.Infrastructure.Metadata
 {
     public class Settings
     {
-        /// <summary>
-        /// Singleton
-        /// </summary>
-        private static string fSavingsPath;
-        public static string SavingsPath
+        private string fSavingsPath;
+        public string SavingsPath
         {
             get 
             {
                 if(fSavingsPath == null)
                 {
-                    return Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                    fSavingsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
                 }
                 return fSavingsPath; 
             }
