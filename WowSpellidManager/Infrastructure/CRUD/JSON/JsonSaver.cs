@@ -44,7 +44,7 @@ namespace WowSpellidManager.Infrastructure.CRUD.JSON
             JsonSerializer serializer = new JsonSerializer();
             serializer.NullValueHandling = NullValueHandling.Ignore;
 
-            using (StreamWriter sw = new StreamWriter(fWOWCLASSESPATH))
+            using (StreamWriter sw = new StreamWriter(fDataOperationProvider.SettingsOperator.GetSettings().SavingsPath + "\\wowclasses.json"))
             using (JsonWriter writer = new JsonTextWriter(sw))
             {
 

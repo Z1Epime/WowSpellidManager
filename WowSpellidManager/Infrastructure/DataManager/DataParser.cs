@@ -35,8 +35,8 @@ namespace WowSpellidManager.Infrastructure.DataManager
             {
                 case "JSON":
                     fDataHolder = new DataHolder();
-                    fDataHolder.WowClasses = JsonLoader.LoadWowClasses();
                     fDataHolder.Settings = JsonLoader.LoadSettings();
+                    fDataHolder.WowClasses = JsonLoader.LoadWowClasses();
                     break;
                 default:
                     throw new InvalidParsingMethodException("The parsing method is invalid!");

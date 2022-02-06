@@ -54,10 +54,15 @@ namespace WowSpellidManager.Infrastructure.CRUD.JSON
         {
             ObservableCollection<WowClass> wowClasses = new ObservableCollection<WowClass>();
 
-            if (File.Exists(JsonSaver.fWOWCLASSESPATH))
+
+            
+
+            
+
+            if (File.Exists(LoadSettings().SavingsPath + "\\WowSpellIDManager\\Data\\wowclasses.json"))
             {
                 string readContents;
-                using (StreamReader streamReader = new StreamReader(JsonSaver.fWOWCLASSESPATH))
+                using (StreamReader streamReader = new StreamReader(LoadSettings().SavingsPath + "\\WowSpellIDManager\\Data\\wowclasses.json"))
                 {
                     readContents = streamReader.ReadToEnd();
                 }
@@ -65,7 +70,12 @@ namespace WowSpellidManager.Infrastructure.CRUD.JSON
                 wowClasses = JsonConvert.DeserializeObject<ObservableCollection<WowClass>>(readContents);
             } else
             {
+                Directory.CreateDirectory(LoadSettings().SavingsPath + "\\WowSpellIDManager\\Data\\");
+                File.Create(LoadSettings().SavingsPath + "\\WowSpellIDManager\\Data\\wowclasses.json").Dispose();
                 wowClasses = Generator.Generate();
+
+                string json = JsonConvert.SerializeObject(wowClasses);
+                File.WriteAllText(LoadSettings().SavingsPath + "\\WowSpellIDManager\\Data\\wowclasses.json", json);
             }
            
 
