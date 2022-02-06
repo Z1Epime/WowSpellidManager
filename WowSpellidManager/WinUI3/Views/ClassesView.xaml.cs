@@ -79,5 +79,10 @@ namespace WowSpellidManager.WinUI3.Views
         {
 
         }
+
+        private void SAVE_Click(object sender, RoutedEventArgs e)
+        {
+            fHelperWowClassViewModel.SaveWowClasses();
+        }
     }
 }

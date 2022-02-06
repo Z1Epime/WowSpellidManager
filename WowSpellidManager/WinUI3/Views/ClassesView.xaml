@@ -91,6 +91,10 @@
                     Click="AddSpellButton_Click">
                 </Button>
             </StackPanel>
+            <Button Content="SAVE"
+                    x:Name="SAVE"
+                    Style="{StaticResource AccentButtonStyle}"
+                    Click="SAVE_Click"></Button>
         </StackPanel>
 
 
