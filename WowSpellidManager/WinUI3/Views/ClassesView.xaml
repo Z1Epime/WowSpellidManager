@@ -7,34 +7,37 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <StackPanel>
-        <StackPanel Orientation="Horizontal">
-            <StackPanel x:Name="classListStackPanel">
+    <RelativePanel>
 
-                <AppBarSeparator></AppBarSeparator>
+        <StackPanel x:Name="ClassListStackPanel" 
+                    RelativePanel.AlignLeftWithPanel="True" 
+                    RelativePanel.AlignTopWithPanel="True">
 
-                <ListView x:Name="classListView"
+            <AppBarSeparator></AppBarSeparator>
+
+            <ListView x:Name="classListView"
                   SelectionChanged="classListView_SelectionChanged"
                       MaxHeight="550"
                       MinHeight="350"
                       ItemsSource="{Binding}">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ContentControl Content="{Binding}" 
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ContentControl Content="{Binding}" 
                                             ContentTemplate="{StaticResource classListViewItem}"></ContentControl>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
 
-                <AppBarSeparator></AppBarSeparator>
+            <AppBarSeparator></AppBarSeparator>
 
-            </StackPanel>
+        </StackPanel>
 
-            <AppBarSeparator Style="{StaticResource width50Separator}"></AppBarSeparator>
+        <AppBarSeparator x:Name="WidthSeparator" 
+                         Style="{StaticResource width50Separator}" 
+                         RelativePanel.RightOf="ClassListStackPanel"></AppBarSeparator>
 
-            <StackPanel>
-
-                <NavigationView x:Name="specializationView" 
+        <StackPanel x:Name="SpecializationViewStackPanel" RelativePanel.RightOf="WidthSeparator">
+            <NavigationView x:Name="specializationView" 
                         PaneDisplayMode="Top"
                         IsSettingsVisible="False"
                         IsBackButtonVisible="Collapsed"
@@ -44,19 +47,58 @@
                         
                         VerticalAlignment="Top"
                         >
-                    <Frame x:Name="specializationFrame" ></Frame>
-                </NavigationView>
+                <Frame x:Name="specializationFrame" ></Frame>
+            </NavigationView>
+        </StackPanel>
 
+        <StackPanel x:Name="AddSpellStackPanel" 
+                    RelativePanel.Below="SpecializationViewStackPanel" 
+                    RelativePanel.RightOf="ClassListStackPanel"
+                    Margin="50,50,0,0">
+
+            <StackPanel>
+                <StackPanel.Resources>
+                    <Style TargetType="TextBox">
+                        <Setter Property="Width" Value="250"></Setter>
+                        <Setter Property="TextWrapping" Value="Wrap"></Setter>
+                    </Style>
+                </StackPanel.Resources>
+
+                <TextBlock x:Name="Title"
+                           Text="Add spell"
+                           Style="{StaticResource SubtitleTextBlockStyle}">
+                </TextBlock>
                 <AppBarSeparator></AppBarSeparator>
 
-                <Button x:Name="AddSpellButton" Style="{StaticResource AccentButtonStyle}"  Content="+ Spell" Click="AddSpellButton_Click"></Button>
+                <TextBox x:Name="SpellAddNameTextBox"
+                     Header="Name">
+                </TextBox>
+                <AppBarSeparator></AppBarSeparator>
+
+                <TextBox x:Name="SpellAddIDTextBox"
+                     Header="ID">
+                </TextBox>
+                <AppBarSeparator></AppBarSeparator>
+
+                <TextBox x:Name="SpellAddDescriptionTextBox"
+                     Header="Description">
+                </TextBox>
+                <AppBarSeparator></AppBarSeparator>
+
+                <Button x:Name="AddSpellButton" 
+                    Style="{StaticResource AccentButtonStyle}" 
+                    Content="+ Spell" 
+                    Click="AddSpellButton_Click">
+                </Button>
             </StackPanel>
+        </StackPanel>
 
 
 
 
 
-            <!--StackPanel x:Name="listViewStackPanel" HorizontalAlignment="Left" VerticalAlignment="Center">
+
+        <!--StackPanel x:Name="listViewStackPanel" HorizontalAlignment="Left" VerticalAlignment="Center">
             <TextBlock FontSize="35" 
                        HorizontalTextAlignment="Center" 
                        Margin="0,0,0,10">Classes</TextBlock>
@@ -94,7 +136,7 @@
 
 
 
-            <!--StackPanel x:Name="addClassStackPanel" 
+        <!--StackPanel x:Name="addClassStackPanel" 
                     BorderBrush="Black" 
                     BorderThickness="2" 
                     Orientation="Vertical" 
@@ -127,6 +169,5 @@
         </StackPanel>
 
         <Button x:Name="saveButton" Style="{StaticResource AccentButtonStyle}" Click="saveButton_Click">Save list</Button-->
-        </StackPanel>
-    </StackPanel>
+    </RelativePanel>
 </Page>
