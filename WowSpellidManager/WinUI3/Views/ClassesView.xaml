@@ -71,24 +71,24 @@
                 <AppBarSeparator></AppBarSeparator>
 
                 <TextBox x:Name="SpellAddNameTextBox"
-                     Header="Name">
+                         Header="Name">
                 </TextBox>
                 <AppBarSeparator></AppBarSeparator>
 
                 <TextBox x:Name="SpellAddIDTextBox"
-                     Header="ID">
+                         Header="ID">
                 </TextBox>
                 <AppBarSeparator></AppBarSeparator>
 
                 <TextBox x:Name="SpellAddDescriptionTextBox"
-                     Header="Description">
+                         Header="Description">
                 </TextBox>
                 <AppBarSeparator></AppBarSeparator>
 
                 <Button x:Name="AddSpellButton" 
-                    Style="{StaticResource AccentButtonStyle}" 
-                    Content="+ Spell" 
-                    Click="AddSpellButton_Click">
+                        Style="{StaticResource AccentButtonStyle}" 
+                        Content="+ Spell" 
+                        Click="AddSpellButton_Click">
                 </Button>
             </StackPanel>
             <Button Content="SAVE"

@@ -13,6 +13,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using WowSpellidManager.WinUI3.ViewModels.Helper;
+using WowSpellidManager.WinUI3.ViewModels.Validators;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -25,6 +26,7 @@ namespace WowSpellidManager.WinUI3.Views
     public sealed partial class ClassesView : Page
     {
         private HelperWowClassViewModel fHelperWowClassViewModel;
+        private AddSpellValidatorViewModel fAddSpellValidatorViewModel;
         public ClassesView()
         {
             this.InitializeComponent();
@@ -77,7 +79,8 @@ namespace WowSpellidManager.WinUI3.Views
 
         private void AddSpellButton_Click(object sender, RoutedEventArgs e)
         {
-
+            fAddSpellValidatorViewModel = new AddSpellValidatorViewModel();
+            fAddSpellValidatorViewModel.Validate(SpellAddNameTextBox.Text, SpellAddIDTextBox.Text, SpellAddDescriptionTextBox.Text);
         }
 
         private void SAVE_Click(object sender, RoutedEventArgs e)
