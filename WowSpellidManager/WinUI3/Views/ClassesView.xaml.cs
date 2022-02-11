@@ -30,7 +30,7 @@ namespace WowSpellidManager.WinUI3.Views
             this.InitializeComponent();
             fHelperWowClassViewModel = new HelperWowClassViewModel();
             classListView.DataContext = fHelperWowClassViewModel.GetWowClasses();
-            AddSpellButton.Visibility = Visibility.Collapsed;
+            AddSpellStackPanel.Visibility = Visibility.Collapsed;
             specializationView.Visibility = Visibility.Collapsed;
         }
 
@@ -39,7 +39,7 @@ namespace WowSpellidManager.WinUI3.Views
             // addSpellStackPanel.DataContext = itemListView.SelectedItem;
             specializationView.DataContext = classListView.SelectedItem;
             specializationView.Visibility = Visibility.Visible;
-            AddSpellButton.Visibility = Visibility.Collapsed;
+            AddSpellStackPanel.Visibility = Visibility.Collapsed;
         }
 
 
@@ -67,7 +67,7 @@ namespace WowSpellidManager.WinUI3.Views
         private void specializationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
             specializationFrame.Content = new SpecializationView(specializationView.SelectedItem, classListView.SelectedItem);
-            AddSpellButton.Visibility = Visibility.Visible;
+            AddSpellStackPanel.Visibility = Visibility.Visible;
         }
 
         private void quitButton_Click(object sender, RoutedEventArgs e)
@@ -78,6 +78,11 @@ namespace WowSpellidManager.WinUI3.Views
         private void AddSpellButton_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void SAVE_Click(object sender, RoutedEventArgs e)
+        {
+            fHelperWowClassViewModel.SaveWowClasses();
         }
     }
 }

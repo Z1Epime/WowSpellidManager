@@ -4,31 +4,42 @@
     xmlns:local="using:WowSpellidManager.resources.dictionaries">
 
     <DataTemplate x:Name="classListViewItem">
-        <Border BorderBrush="Black" BorderThickness="2" Margin="10">
-            <Grid Margin="6" Width="100">
-                <Grid.RowDefinitions>
-                    <RowDefinition ></RowDefinition>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" 
-                           Grid.Row="0" 
-                           FontSize="20" 
-                           Text="{Binding Designation}" 
-                           TextWrapping="WrapWholeWords" 
-                           AllowDrop="True"
-                           HorizontalAlignment="Center" 
-                           VerticalAlignment="Center"></TextBlock>
-            </Grid>
-        </Border>
+        <!--<Border BorderBrush="Black" BorderThickness="2" Margin="10">-->
+        
+        <Grid Margin="15">
+            <Grid.RowDefinitions>
+                <RowDefinition ></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            <SymbolIcon Symbol="Emoji2"
+                        Grid.Column="0"
+                        Grid.Row="0"></SymbolIcon>
+
+            <AppBarSeparator Grid.Column="1"></AppBarSeparator>
+            
+            <TextBlock Grid.Column="2" 
+                       Grid.Row="0" 
+                       FontSize="20" 
+                       Text="{Binding Designation}" 
+                       TextWrapping="WrapWholeWords" 
+                       AllowDrop="True"
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center">
+            </TextBlock>
+        </Grid>
+        
+        <!--</Border>-->
     </DataTemplate>
 
     <DataTemplate x:Name="navigationViewMenuItemClasses">
         <TextBlock Text="{Binding Designation}"></TextBlock>
     </DataTemplate>
-    
+
     <DataTemplate x:Name="navigationViewMenuItemMain">
         <NavigationViewItem Content="{Binding Name}">
             <NavigationViewItem.Icon>

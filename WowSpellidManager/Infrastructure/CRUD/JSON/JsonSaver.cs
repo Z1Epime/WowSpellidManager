@@ -44,7 +44,12 @@ namespace WowSpellidManager.Infrastructure.CRUD.JSON
             JsonSerializer serializer = new JsonSerializer();
             serializer.NullValueHandling = NullValueHandling.Ignore;
 
-            using (StreamWriter sw = new StreamWriter(fDataOperationProvider.SettingsOperator.GetSettings().SavingsPath + "\\wowclasses.json"))
+            if (!Directory.Exists(fDataOperationProvider.SettingsOperator.GetSettings().SavingsPath + "\\WowSpellIDManager\\Data\\"))
+            {
+                Directory.CreateDirectory(fDataOperationProvider.SettingsOperator.GetSettings().SavingsPath + "\\WowSpellIDManager\\Data\\");
+            }
+
+            using (StreamWriter sw = new StreamWriter(fDataOperationProvider.SettingsOperator.GetSettings().SavingsPath + "\\WowSpellIDManager\\Data\\wowclasses.json"))
             using (JsonWriter writer = new JsonTextWriter(sw))
             {
 
@@ -53,6 +58,7 @@ namespace WowSpellidManager.Infrastructure.CRUD.JSON
                 serializer.Serialize(writer, fDataOperationProvider.WowClassOperator.GetWowClasses());
 
             }
+
         }
 
         public static void SaveSettings()
