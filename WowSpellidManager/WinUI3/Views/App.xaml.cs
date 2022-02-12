@@ -28,7 +28,7 @@ namespace WowSpellidManager.WinUI3.Views
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
     public partial class App : Application
-    {
+    {     
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -36,6 +36,15 @@ namespace WowSpellidManager.WinUI3.Views
         public App()
         {
             this.InitializeComponent();
+
+            DataHolder.DataProvider = new DataProvider();
+            DataHolder.DataProvider.DataParser.fParsingMethod = "JSON";
+
+            if(DataHolder.DataProvider.DataHolder.Settings.IsDarkThemeActive)
+            {
+                App.Current.RequestedTheme = ApplicationTheme.Dark;
+            }
+
         }
 
         /// <summary>
@@ -45,13 +54,12 @@ namespace WowSpellidManager.WinUI3.Views
         /// <param name="args">Details about the launch request and process.</param>
         protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
-            DataHolder.DataProvider = new DataProvider();
-            DataHolder.DataProvider.DataParser.fParsingMethod = "JSON";
+            
 
             m_window = new MainWindow();
             m_window.Activate();
 
-
+            
             
         }
 

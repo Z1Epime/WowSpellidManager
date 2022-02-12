@@ -9,6 +9,7 @@ namespace WowSpellidManager.Infrastructure.Metadata
     public class Settings
     {
         private string fSavingsPath;
+        private bool fIsDarkThemeActive;
         public string SavingsPath
         {
             get 
@@ -22,6 +23,18 @@ namespace WowSpellidManager.Infrastructure.Metadata
             set 
             {
                 fSavingsPath = value; 
+            }
+        }
+
+        public bool IsDarkThemeActive
+        {
+            get 
+            {
+                return fIsDarkThemeActive;
+            }
+            set 
+            {
+                fIsDarkThemeActive = value; 
             }
         }
 

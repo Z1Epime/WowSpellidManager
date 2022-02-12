@@ -29,6 +29,7 @@ namespace WowSpellidManager.WinUI3.Views
         {
             this.InitializeComponent();
             fileLocation.DataContext = fHelperSettingsViewModel.GetSettings();
+            ToggleSwitchDarkTheme.DataContext = fHelperSettingsViewModel.GetSettings();
         }
 
         private void SaveSettingsButton_Click(object sender, RoutedEventArgs e)
