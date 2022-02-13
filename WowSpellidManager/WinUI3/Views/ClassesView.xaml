@@ -5,7 +5,8 @@
     xmlns:local="using:WowSpellidManager.WinUI3.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    xmlns:viewModel="clr-namespace:WowSpellidManager.WinUI3.ViewModels.Wrapper">
 
     <RelativePanel>
 
@@ -51,6 +52,21 @@
             </NavigationView>
         </StackPanel>
 
+        <SymbolIcon Symbol="ReportHacked"
+            Foreground="Red"
+            Visibility="{x:Bind viewModel:SpellViewModel.HasErrors, Mode=OneWay}">
+            <SymbolIcon.DataContext>
+                <viewModel:SpellViewModel></viewModel:SpellViewModel>
+            </SymbolIcon.DataContext>
+            <ToolTipService.ToolTip>
+                <TextBlock Text="{x:Bind viewModel:SpellViewModel.Errors, Mode=OneWay}"
+                    Foreground="Red" />
+            </ToolTipService.ToolTip>
+            
+        </SymbolIcon>
+        
+        
+        
         <StackPanel x:Name="AddSpellStackPanel" 
                     RelativePanel.Below="SpecializationViewStackPanel" 
                     RelativePanel.RightOf="ClassListStackPanel"
