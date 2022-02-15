@@ -4,8 +4,6 @@
     xmlns:local="using:WowSpellidManager.resources.dictionaries">
 
     <Style x:Name="ListViewDesigns" TargetType="ListView">
-        <Setter Property="BorderBrush" Value="Black"></Setter>
-        <Setter Property="BorderThickness" Value="1"></Setter>
         <Setter Property="Width" Value="200"></Setter>
         <Setter Property="Height" Value="300"></Setter>
     </Style>

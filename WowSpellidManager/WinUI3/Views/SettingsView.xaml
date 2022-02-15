@@ -26,7 +26,6 @@
                          Style="{StaticResource horizontalSettingsSeparator}"
                          ></AppBarSeparator>
 
-
         <StackPanel x:Name="UserSettingsStackPanel" RelativePanel.RightOf="FileUserSeparator" Margin="25">
             <TextBlock x:Name="UserSettingsTitle" Text="User" Style="{StaticResource HeaderTextBlockStyle}"></TextBlock>
             <AppBarSeparator></AppBarSeparator>
@@ -39,22 +38,28 @@
         <AppBarSeparator x:Name="UserDesignSeparator" 
                          Style="{StaticResource horizontalSettingsSeparator}"
                          RelativePanel.RightOf="UserSettingsStackPanel"
-                         ></AppBarSeparator>
-        
+                         >
+        </AppBarSeparator>
+
         <StackPanel x:Name="DesignSettingsStackPanel" RelativePanel.RightOf="UserDesignSeparator" Margin="25">
             <TextBlock x:Name="DesignSettingsTitle" Text="Design" Style="{StaticResource HeaderTextBlockStyle}"></TextBlock>
             <AppBarSeparator></AppBarSeparator>
 
-            <StackPanel Orientation="Horizontal">
-                
+            <StackPanel Orientation="Vertical">
+
+                <StackPanel>
+                    <ToggleSwitch x:Name="ToggleSwitchDarkTheme" 
+                              Header="Dark theme *"
+                              IsOn="{Binding IsDarkThemeActive,  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    </ToggleSwitch>
+                </StackPanel>
+
                 <ListView x:Name="DesignsListView"
                           Style="{StaticResource ListViewDesigns}">
-                    
                 </ListView>
-                
+
             </StackPanel>
         </StackPanel>
-
 
         <StackPanel x:Name="SaveSettingsStackPanel" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignBottomWithPanel="True" Margin="25">
 
@@ -63,6 +68,12 @@
                     Style="{StaticResource AccentButtonStyle}"
                     Click="SaveSettingsButton_Click">
             </Button>
+        </StackPanel>
+
+        
+        <StackPanel x:Name="StarInfoStackPanel" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True"
+                    Margin="20">
+            <TextBlock Text="* Requires restart"></TextBlock>
         </StackPanel>
 
     </RelativePanel>
