@@ -13,6 +13,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using WowSpellidManager.WinUI3.ViewModels.Helper;
+using WowSpellidManager.WinUI3.ViewModels.Validators;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -25,12 +26,13 @@ namespace WowSpellidManager.WinUI3.Views
     public sealed partial class ClassesView : Page
     {
         private HelperWowClassViewModel fHelperWowClassViewModel;
+        private AddSpellValidatorViewModel fAddSpellValidatorViewModel;
         public ClassesView()
         {
             this.InitializeComponent();
             fHelperWowClassViewModel = new HelperWowClassViewModel();
             classListView.DataContext = fHelperWowClassViewModel.GetWowClasses();
-            AddSpellButton.Visibility = Visibility.Collapsed;
+            AddSpellStackPanel.Visibility = Visibility.Collapsed;
             specializationView.Visibility = Visibility.Collapsed;
         }
 
@@ -39,7 +41,7 @@ namespace WowSpellidManager.WinUI3.Views
             // addSpellStackPanel.DataContext = itemListView.SelectedItem;
             specializationView.DataContext = classListView.SelectedItem;
             specializationView.Visibility = Visibility.Visible;
-            AddSpellButton.Visibility = Visibility.Collapsed;
+            AddSpellStackPanel.Visibility = Visibility.Collapsed;
         }
 
 
@@ -67,7 +69,7 @@ namespace WowSpellidManager.WinUI3.Views
         private void specializationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
             specializationFrame.Content = new SpecializationView(specializationView.SelectedItem, classListView.SelectedItem);
-            AddSpellButton.Visibility = Visibility.Visible;
+            AddSpellStackPanel.Visibility = Visibility.Visible;
         }
 
         private void quitButton_Click(object sender, RoutedEventArgs e)
@@ -77,7 +79,13 @@ namespace WowSpellidManager.WinUI3.Views
 
         private void AddSpellButton_Click(object sender, RoutedEventArgs e)
         {
+            fAddSpellValidatorViewModel = new AddSpellValidatorViewModel();
+            fAddSpellValidatorViewModel.Validate(SpellAddNameTextBox.Text, SpellAddIDTextBox.Text, SpellAddDescriptionTextBox.Text);
+        }
 
+        private void SAVE_Click(object sender, RoutedEventArgs e)
+        {
+            fHelperWowClassViewModel.SaveWowClasses();
         }
     }
 }
