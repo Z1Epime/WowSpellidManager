@@ -13,6 +13,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using WowSpellidManager.WinUI3.ViewModels.Helper;
+using WowSpellidManager.WinUI3.ViewModels.Validators.Errors;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -25,6 +26,8 @@ namespace WowSpellidManager.WinUI3.Views
     public sealed partial class SettingsView : Page
     {
         private HelperSettingsViewModel fHelperSettingsViewModel = new HelperSettingsViewModel();
+
+        private Error fSavingsPathError;
         public SettingsView()
         {
             this.InitializeComponent();
@@ -35,6 +38,28 @@ namespace WowSpellidManager.WinUI3.Views
         private void SaveSettingsButton_Click(object sender, RoutedEventArgs e)
         {
             fHelperSettingsViewModel.SaveSettings();
+        }
+
+        private void fileLocation_KeyUp(object sender, KeyRoutedEventArgs e)
+        {
+            Error error = fHelperSettingsViewModel.CheckDirectoryExists(fileLocation.Text);
+
+            SavingsPathErrorTextBlock.Text = "";
+
+            if (error != null)
+                SavingsPathErrorTextBlock.Text = error.Message;
+
+            fSavingsPathError = error;
+
+            ErrorChanged();    
+        }
+
+        private void ErrorChanged()
+        {
+            SaveSettingsButton.IsEnabled = false;
+
+            if (fSavingsPathError == null)
+                SaveSettingsButton.IsEnabled = true;
         }
     }
 }
