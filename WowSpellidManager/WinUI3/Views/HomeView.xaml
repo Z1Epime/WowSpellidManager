@@ -8,6 +8,6 @@
     mc:Ignorable="d">
 
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-        <TextBlock Style="{StaticResource TitleTextBlockStyle}" x:Name="HelloTextBlock" Text="Welcome to the club!"/>
+        <TextBlock Style="{StaticResource TitleTextBlockStyle}" x:Name="HelloTextBlock" Text="Hello!"/>
     </StackPanel>
 </Page>

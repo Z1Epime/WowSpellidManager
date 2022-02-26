@@ -52,21 +52,6 @@
             </NavigationView>
         </StackPanel>
 
-        <!--<SymbolIcon Symbol="ReportHacked"
-            Foreground="Red"
-            Visibility="{x:Bind viewModel:SpellViewModel.HasErrors, Mode=OneWay}">
-            <SymbolIcon.DataContext>
-                <viewModel:SpellViewModel></viewModel:SpellViewModel>
-            </SymbolIcon.DataContext>
-            <ToolTipService.ToolTip>
-                <TextBlock Text="{x:Bind viewModel:SpellViewModel.Errors, Mode=OneWay}"
-                    Foreground="Red" />
-            </ToolTipService.ToolTip>
-            
-        </SymbolIcon>-->
-
-
-
         <StackPanel x:Name="AddSpellStackPanel" 
                     RelativePanel.RightOf="ClassListStackPanel"
                     RelativePanel.AlignBottomWithPanel="True"
@@ -84,7 +69,7 @@
                            Text="Add spell"
                            Style="{StaticResource SubtitleTextBlockStyle}">
                 </TextBlock>
-                
+
                 <AppBarSeparator></AppBarSeparator>
 
                 <RelativePanel>
@@ -117,9 +102,6 @@
                     </TextBlock>
                 </RelativePanel>
 
-                
-                
-                
                 <AppBarSeparator></AppBarSeparator>
 
                 <RelativePanel>
@@ -135,7 +117,7 @@
                                RelativePanel.Below="SpellAddDescriptionTextBox">
                     </TextBlock>
                 </RelativePanel>
-                
+
                 <AppBarSeparator></AppBarSeparator>
 
                 <StackPanel>
@@ -144,91 +126,11 @@
                         Content="+ Spell" 
                         Click="AddSpellButton_Click">
                     </Button>
-
-                    
-                        
-                    
                 </StackPanel>
+                
             </StackPanel>
         </StackPanel>
 
-
-
-
-
-
-        <!--StackPanel x:Name="listViewStackPanel" HorizontalAlignment="Left" VerticalAlignment="Center">
-            <TextBlock FontSize="35" 
-                       HorizontalTextAlignment="Center" 
-                       Margin="0,0,0,10">Classes</TextBlock>
-            <ListView x:Name="itemListView"
-                      HorizontalAlignment="Center" 
-                      VerticalAlignment="Center"
-                      MaxHeight="700"
-                      Margin="25,0,0,0"
-                      ItemsSource="{Binding}"
-                      MinHeight="500"
-                      BorderBrush="Black"
-                      BorderThickness="1"
-                      SelectionChanged="itemListView_SelectionChanged"
-
-                      >
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <Border BorderBrush="Black" BorderThickness="2" Margin="0,20,0,0">
-                            <Grid Margin="6" Width="100">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition></RowDefinition>
-                                    <RowDefinition></RowDefinition>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Column="0" Grid.Row="1" FontSize="20" Text="{Binding Designation}" TextWrapping="WrapWholeWords" AllowDrop="True" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-                            </Grid>
-                        </Border>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackPanel-->
-
-
-
-        <!--StackPanel x:Name="addClassStackPanel" 
-                    BorderBrush="Black" 
-                    BorderThickness="2" 
-                    Orientation="Vertical" 
-                    Padding="10"
-                    Margin="25,57,0,0"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Center">
-            <TextBlock Text="Add class:" FontSize="25" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Center"></TextBlock>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-
-                <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center">Name:</TextBlock>
-                <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center">Description:</TextBlock>
-
-                <TextBox x:Name="designationBox" Grid.Row="0" Grid.Column="1" MinWidth="150" Text="{Binding Designation}"></TextBox>
-                <TextBox x:Name="descriptionBox" Grid.Row="1" Grid.Column="1" Text="{Binding Description}"></TextBox>
-
-            </Grid>
-            <Button Content="Add" HorizontalAlignment="Center" Margin="0,10,0,0" MinWidth="100" Click="AddClass_Click"></Button>
-        </StackPanel>
-
-        <Button x:Name="saveButton" Style="{StaticResource AccentButtonStyle}" Click="saveButton_Click">Save list</Button-->
-        
         <Button Content="Save"
                 x:Name="SAVE"
                 Style="{StaticResource AccentButtonStyle}"
