@@ -39,23 +39,8 @@
                          >  
         </AppBarSeparator>
 
-        <StackPanel x:Name="UserSettingsStackPanel" RelativePanel.RightOf="FileUserSeparator" Margin="25">
-            <TextBlock x:Name="UserSettingsTitle" Text="User" Style="{StaticResource HeaderTextBlockStyle}"></TextBlock>
-            <AppBarSeparator></AppBarSeparator>
-
-            <StackPanel Orientation="Horizontal">
-                <TextBox Header="Username"></TextBox>
-            </StackPanel>
-        </StackPanel>
-
-        <AppBarSeparator x:Name="UserDesignSeparator" 
-                         Style="{StaticResource horizontalSettingsSeparator}"
-                         RelativePanel.RightOf="UserSettingsStackPanel"
-                         >
-        </AppBarSeparator>
-
         <StackPanel x:Name="DesignSettingsStackPanel" 
-                    RelativePanel.RightOf="UserDesignSeparator" 
+                    RelativePanel.AlignHorizontalCenterWithPanel="true" 
                     Margin="25">
             <TextBlock x:Name="DesignSettingsTitle" Text="Design" Style="{StaticResource HeaderTextBlockStyle}"></TextBlock>
             <AppBarSeparator></AppBarSeparator>
