@@ -11,6 +11,13 @@ namespace WowSpellidManager.WinUI3.ViewModels.Validators.Rules
     {
         #region Methods
         /// <summary>
+        /// Uses the string.Empty method and returns an Error if the string.Empty returns true, null otherwise.
+        /// </summary>
+        /// <param name="aStringToCheck"></param>
+        /// <param name="aInputName"></param>
+        /// <returns>A new instance of the Error class if the string.Empty call returns true, and null otherwise.</returns>
+        public Error Empty(string aStringToCheck, string aInputName);
+        /// <summary>
         /// Checks if the string contains numbers. Returns "Error" if so and null otherwise.
         /// </summary>
         /// <param name="aStringToCheck"></param>
@@ -58,7 +65,7 @@ namespace WowSpellidManager.WinUI3.ViewModels.Validators.Rules
         /// <param name="aStringToCheck"></param>
         /// <param name="aInputName"></param>
         /// <returns></returns>
-        public Error OnlyLetters(string aStringToCheck, string aInputName);
+        public Error OnlyLettersAndCertainCharacters(string aStringToCheck, string aInputName);
 
         /// <summary>
         /// Checks if the string contains numbers only. Returns null if so and an "Error" otherwise.

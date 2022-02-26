@@ -15,7 +15,7 @@
                       ItemsSource="{Binding Spells}"
                       SelectionChanged="spellListView_SelectionChanged"
                       Width="300"
-                      MaxHeight="500"
+                      MaxHeight="250"
                       >
                 <ListView.ItemTemplate>
                     <DataTemplate>

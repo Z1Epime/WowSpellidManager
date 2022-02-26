@@ -52,7 +52,7 @@
             </NavigationView>
         </StackPanel>
 
-        <SymbolIcon Symbol="ReportHacked"
+        <!--<SymbolIcon Symbol="ReportHacked"
             Foreground="Red"
             Visibility="{x:Bind viewModel:SpellViewModel.HasErrors, Mode=OneWay}">
             <SymbolIcon.DataContext>
@@ -63,14 +63,14 @@
                     Foreground="Red" />
             </ToolTipService.ToolTip>
             
-        </SymbolIcon>
-        
-        
-        
+        </SymbolIcon>-->
+
+
+
         <StackPanel x:Name="AddSpellStackPanel" 
-                    RelativePanel.Below="SpecializationViewStackPanel" 
                     RelativePanel.RightOf="ClassListStackPanel"
-                    Margin="50,50,0,0">
+                    RelativePanel.AlignBottomWithPanel="True"
+                    Margin="50,50,0,10">
 
             <StackPanel>
                 <StackPanel.Resources>
@@ -84,33 +84,72 @@
                            Text="Add spell"
                            Style="{StaticResource SubtitleTextBlockStyle}">
                 </TextBlock>
+                
                 <AppBarSeparator></AppBarSeparator>
 
-                <TextBox x:Name="SpellAddNameTextBox"
-                         Header="Name">
-                </TextBox>
+                <RelativePanel>
+                    <TextBox x:Name="SpellAddNameTextBox"
+                         Header="Name"
+                         KeyUp="SpellAddNameTextBox_KeyUp">
+                    </TextBox>
+                    <TextBlock x:Name="NameErrorTextBlock" 
+                               TextWrapping="WrapWholeWords" 
+                               MaxWidth="300" 
+                               Foreground="Red"
+                               RelativePanel.Below="SpellAddNameTextBox">
+                    </TextBlock>
+                </RelativePanel>
+
+                <!-->TODO: Add global ErrorTextBlock style <-->
                 <AppBarSeparator></AppBarSeparator>
 
-                <TextBox x:Name="SpellAddIDTextBox"
-                         Header="ID">
-                </TextBox>
+                <RelativePanel>
+                    <TextBox x:Name="SpellAddIDTextBox"
+                         Header="ID"
+                         KeyUp="SpellAddIDTextBox_KeyUp"
+                         RelativePanel.AlignTopWithPanel="True">
+                    </TextBox>
+                    <TextBlock x:Name="IDErrorTextBlock" 
+                               TextWrapping="WrapWholeWords" 
+                               MaxWidth="300" 
+                               Foreground="Red"
+                               RelativePanel.Below="SpellAddIDTextBox">
+                    </TextBlock>
+                </RelativePanel>
+
+                
+                
+                
                 <AppBarSeparator></AppBarSeparator>
 
-                <TextBox x:Name="SpellAddDescriptionTextBox"
-                         Header="Description">
-                </TextBox>
+                <RelativePanel>
+                    <TextBox x:Name="SpellAddDescriptionTextBox"
+                             Header="Description"
+                             KeyUp="SpellAddDescriptionTextBox_KeyUp"
+                             RelativePanel.AlignTopWithPanel="True">
+                    </TextBox>
+                    <TextBlock x:Name="DescriptionErrorTextBlock" 
+                               TextWrapping="WrapWholeWords" 
+                               MaxWidth="300" 
+                               Foreground="Red"
+                               RelativePanel.Below="SpellAddDescriptionTextBox">
+                    </TextBlock>
+                </RelativePanel>
+                
                 <AppBarSeparator></AppBarSeparator>
 
-                <Button x:Name="AddSpellButton" 
+                <StackPanel>
+                    <Button x:Name="AddSpellButton" 
                         Style="{StaticResource AccentButtonStyle}" 
                         Content="+ Spell" 
                         Click="AddSpellButton_Click">
-                </Button>
+                    </Button>
+
+                    
+                        
+                    
+                </StackPanel>
             </StackPanel>
-            <Button Content="SAVE"
-                    x:Name="SAVE"
-                    Style="{StaticResource AccentButtonStyle}"
-                    Click="SAVE_Click"></Button>
         </StackPanel>
 
 
@@ -189,5 +228,15 @@
         </StackPanel>
 
         <Button x:Name="saveButton" Style="{StaticResource AccentButtonStyle}" Click="saveButton_Click">Save list</Button-->
+        
+        <Button Content="Save"
+                x:Name="SAVE"
+                Style="{StaticResource AccentButtonStyle}"
+                Click="SAVE_Click"
+                RelativePanel.Below="ClassListStackPanel"
+                RelativePanel.AlignHorizontalCenterWith="ClassListStackPanel"
+                Margin="25,0,0,10"
+                Width="75">
+        </Button>
     </RelativePanel>
 </Page>
