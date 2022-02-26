@@ -14,17 +14,30 @@
                        Text="File" 
                        Style="{StaticResource HeaderTextBlockStyle}"></TextBlock>
             <AppBarSeparator></AppBarSeparator>
-            <TextBox x:Name="fileLocation"
+
+            <RelativePanel>
+                <TextBox x:Name="fileLocation"
                      Header="File storage location"
                      MaxWidth="300"
                      Text="{Binding Path=SavingsPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                     ></TextBox>
+                     KeyUp="fileLocation_KeyUp"
+                     RelativePanel.AlignBottomWithPanel="True"
+                     >
+                </TextBox>
+            </RelativePanel>
+            <TextBlock x:Name="SavingsPathErrorTextBlock" 
+                           TextWrapping="WrapWholeWords" 
+                           MaxWidth="300" 
+                           Foreground="Red"        
+                           >
+            </TextBlock>
         </StackPanel>
 
         <AppBarSeparator x:Name="FileUserSeparator" 
                          RelativePanel.RightOf="FileSettingsStackPanel"
                          Style="{StaticResource horizontalSettingsSeparator}"
-                         ></AppBarSeparator>
+                         >  
+        </AppBarSeparator>
 
         <StackPanel x:Name="UserSettingsStackPanel" RelativePanel.RightOf="FileUserSeparator" Margin="25">
             <TextBlock x:Name="UserSettingsTitle" Text="User" Style="{StaticResource HeaderTextBlockStyle}"></TextBlock>
@@ -41,7 +54,9 @@
                          >
         </AppBarSeparator>
 
-        <StackPanel x:Name="DesignSettingsStackPanel" RelativePanel.RightOf="UserDesignSeparator" Margin="25">
+        <StackPanel x:Name="DesignSettingsStackPanel" 
+                    RelativePanel.RightOf="UserDesignSeparator" 
+                    Margin="25">
             <TextBlock x:Name="DesignSettingsTitle" Text="Design" Style="{StaticResource HeaderTextBlockStyle}"></TextBlock>
             <AppBarSeparator></AppBarSeparator>
 
@@ -70,7 +85,7 @@
             </Button>
         </StackPanel>
 
-        
+
         <StackPanel x:Name="StarInfoStackPanel" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True"
                     Margin="20">
             <TextBlock Text="* Requires restart"></TextBlock>
