@@ -15,49 +15,9 @@ namespace WowSpellidManager.Infrastructure.CRUD.JSON
 {
     internal class JsonLoader
     {
-        private static DataOperationProvider fDataOperationProvider = new DataOperationProvider();
-        
-        /*
-        public static ObservableCollection<Spell> LoadSpells()
-        {
-
-            string readContents;
-            using (StreamReader streamReader = new StreamReader(JsonSaver.fSPELLSPATH))
-            {
-                readContents = streamReader.ReadToEnd();
-            }
-
-            ObservableCollection<Spell> spells = new ObservableCollection<Spell>();
-            spells = JsonConvert.DeserializeObject<ObservableCollection<Spell>>(readContents);
-
-            return (ObservableCollection<Spell>) spells;
-        }
-
-        
-        public static ObservableCollection<Specialization> LoadSpecializations()
-        {
-
-            string readContents;
-            using (StreamReader streamReader = new StreamReader(JsonSaver.fSPELLSPATH))
-            {
-                readContents = streamReader.ReadToEnd();
-            }
-
-            ObservableCollection<Specialization> specializations = new ObservableCollection<Specialization>();
-            specializations = JsonConvert.DeserializeObject<ObservableCollection<Specialization>>(readContents);
-
-            return (ObservableCollection<Specialization>)specializations;
-        }
-        */
-
         public static ObservableCollection<WowClass> LoadWowClasses()
         {
             ObservableCollection<WowClass> wowClasses = new ObservableCollection<WowClass>();
-
-
-            
-
-            
 
             if (File.Exists(LoadSettings().SavingsPath + "\\WowSpellIDManager\\Data\\wowclasses.json"))
             {
@@ -78,7 +38,6 @@ namespace WowSpellidManager.Infrastructure.CRUD.JSON
                 File.WriteAllText(LoadSettings().SavingsPath + "\\WowSpellIDManager\\Data\\wowclasses.json", json);
             }
            
-
             return (ObservableCollection<WowClass>)wowClasses;
         }
 

@@ -12,7 +12,7 @@ namespace WowSpellidManager.Domain.Models
     /// </summary>
     public class Spell : Entity
     {
-        private int fID;
+        private long fID;
         private string fDescription;
         public string Description
         {
@@ -26,7 +26,7 @@ namespace WowSpellidManager.Domain.Models
                 fDescription = value; 
             }
         }
-        public int ID
+        public long ID
         { 
             get 
             { 
@@ -39,13 +39,13 @@ namespace WowSpellidManager.Domain.Models
             }
         }
 
-        public Spell(Guid aGuid, string aDesignation, string aDescription, int aID) : base(aGuid, aDesignation)
+        public Spell(Guid aGuid, string aDesignation, string aDescription, long aID) : base(aGuid, aDesignation)
         {
             Description = aDescription;
             ID = aID;
         }
 
-        public Spell(string aDesignation, string aDescription, int aID) : base(aDesignation)
+        public Spell(string aDesignation, string aDescription, long aID) : base(aDesignation)
         {
             Description = aDescription;
             ID = aID;

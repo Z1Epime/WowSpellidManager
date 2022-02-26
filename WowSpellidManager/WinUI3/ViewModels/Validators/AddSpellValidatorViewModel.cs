@@ -18,14 +18,14 @@ namespace WowSpellidManager.WinUI3.ViewModels.Validators
             fSpellChecker = new SpellChecker();
         }
 
-        public async void Validate(string aName, string aID, string aDescription)
+        public void Validate(string aName, string aID, string aDescription)
         {
-            Error error = fSpellChecker.CheckSpell(aName, aID, aDescription);
-            if (error != null)
-            {
+            //Error error = fSpellChecker.CheckSpell(aName, aID, aDescription);
+            //if (error != null)
+            //{
                 
                 
-            }
+            //}
         }
 
     }

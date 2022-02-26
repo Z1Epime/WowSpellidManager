@@ -11,6 +11,16 @@ namespace WowSpellidManager.WinUI3.ViewModels.Validators.Checkers
 {
     public class Checker : IStringRule
     {
+
+        public Error Empty(string aStringToCheck, string aInputName)
+        {
+            if (string.IsNullOrEmpty(aStringToCheck))
+            {
+                return new Error($"The {aInputName} has to contain something.");
+            }
+            return null;
+        }
+
         public Error Letters(string aStringToCheck, string aInputName)
         {
             if(aStringToCheck.Any(x => !char.IsLetter(x)))
@@ -18,7 +28,6 @@ namespace WowSpellidManager.WinUI3.ViewModels.Validators.Checkers
                 return new Error($"The {aInputName} cannot have letters.");
             }
             return null;
-
         }
 
         public Error MaxCharacters(string aStringToCheck, int aMaximum, string aInputName)
@@ -41,7 +50,7 @@ namespace WowSpellidManager.WinUI3.ViewModels.Validators.Checkers
 
         public Error Numbers(string aStringToCheck, string aInputName)
         {
-            if (aStringToCheck.Any(char.IsDigit))
+            if (Regex.Match(aStringToCheck, @"[\d]").Success)
             {
                 return new Error($"The {aInputName} cannot have numbers.");
             }
@@ -57,18 +66,18 @@ namespace WowSpellidManager.WinUI3.ViewModels.Validators.Checkers
             return null;
         }
 
-        public Error OnlyLetters(string aStringToCheck, string aInputName)
+        public Error OnlyLettersAndCertainCharacters(string aStringToCheck, string aInputName)
         {
-            if (!aStringToCheck.All(char.IsLetter))
+            if (!Regex.Match(aStringToCheck, @"[A-Z'’a-zö äüÖÄÜ-]").Success)
             {
-                return new Error($"The {aInputName} has to contain letters only.");
+                return new Error($"The {aInputName} has to contain the following characters only: letters, ö, ä, ü, -, ', ’");
             }
             return null;
         }
 
         public Error OnlyNumbers(string aStringToCheck, string aInputName)
         {
-            if (!aStringToCheck.All(char.IsLetter))
+            if (!aStringToCheck.All(char.IsDigit))
             {
                 return new Error($"The {aInputName} has to contain letters only.");
             }

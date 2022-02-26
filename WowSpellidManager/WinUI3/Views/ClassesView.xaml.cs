@@ -10,61 +10,47 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using WowSpellidManager.WinUI3.ViewModels.Helper;
 using WowSpellidManager.WinUI3.ViewModels.Validators;
-
-// To learn more about WinUI, the WinUI project structure,
-// and more about our project templates, see: http://aka.ms/winui-project-info.
+using WowSpellidManager.WinUI3.ViewModels.Validators.Checkers;
+using WowSpellidManager.WinUI3.ViewModels.Validators.Errors;
 
 namespace WowSpellidManager.WinUI3.Views
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class ClassesView : Page
     {
         private HelperWowClassViewModel fHelperWowClassViewModel;
-        private AddSpellValidatorViewModel fAddSpellValidatorViewModel;
+        private HelperSpellViewModel fHelperSpellViewModel = new HelperSpellViewModel();
+        private SpellChecker fSpellChecker;
+
+        private Error fNameError;
+        private Error fIDError;
+        private Error fDescriptionError;
+
         public ClassesView()
         {
             this.InitializeComponent();
             fHelperWowClassViewModel = new HelperWowClassViewModel();
+            fSpellChecker = new SpellChecker();
             classListView.DataContext = fHelperWowClassViewModel.GetWowClasses();
             AddSpellStackPanel.Visibility = Visibility.Collapsed;
             specializationView.Visibility = Visibility.Collapsed;
+
+            fNameError = new Error("moin");
+            fIDError = new Error("moin");
+            fDescriptionError = new Error("moin");
+            ErrorsChanged();
         }
 
         private void classListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            // addSpellStackPanel.DataContext = itemListView.SelectedItem;
             specializationView.DataContext = classListView.SelectedItem;
             specializationView.Visibility = Visibility.Visible;
             AddSpellStackPanel.Visibility = Visibility.Collapsed;
         }
-
-
-
-
-
-        /*
-        private void AddClass_Click(object sender, RoutedEventArgs e)
-        {
-            fHelperWowClassViewModel.AddWowClass(designationBox.Text, descriptionBox.Text);
-        }
-
-        
-        private void itemListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            addClassStackPanel.DataContext = classListView.SelectedItem;
-        }
-
-        private void saveButton_Click(object sender, RoutedEventArgs e)
-        {
-            fHelperWowClassViewModel.SaveWowClasses();
-        }
-        */
 
         private void specializationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
@@ -74,18 +60,65 @@ namespace WowSpellidManager.WinUI3.Views
 
         private void quitButton_Click(object sender, RoutedEventArgs e)
         {
-
+            // TODO: add confirmation popup to exit button
         }
 
         private void AddSpellButton_Click(object sender, RoutedEventArgs e)
         {
-            fAddSpellValidatorViewModel = new AddSpellValidatorViewModel();
-            fAddSpellValidatorViewModel.Validate(SpellAddNameTextBox.Text, SpellAddIDTextBox.Text, SpellAddDescriptionTextBox.Text);
+            fHelperSpellViewModel.AddSpell(SpellAddNameTextBox.Text, SpellAddIDTextBox.Text,
+                SpellAddDescriptionTextBox.Text, classListView.SelectedItem, specializationView.SelectedItem);
         }
 
         private void SAVE_Click(object sender, RoutedEventArgs e)
         {
             fHelperWowClassViewModel.SaveWowClasses();
         }
-    }
+
+        private void SpellAddNameTextBox_KeyUp(object sender, KeyRoutedEventArgs e)
+        {
+            NameErrorTextBlock.Text = "";
+
+            Error error = fSpellChecker.CheckName(SpellAddNameTextBox.Text);
+            if (error != null)
+                NameErrorTextBlock.Text = error.Message;
+
+            fNameError = error;
+            ErrorsChanged();
+        }
+
+        private void SpellAddIDTextBox_KeyUp(object sender, KeyRoutedEventArgs e)
+        {
+            IDErrorTextBlock.Text = "";
+
+            Error error = fSpellChecker.CheckID(SpellAddIDTextBox.Text);
+            if (error != null)
+                IDErrorTextBlock.Text = error.Message;
+
+            fIDError = error;
+            ErrorsChanged();
+        }
+
+        private void SpellAddDescriptionTextBox_KeyUp(object sender, KeyRoutedEventArgs e)
+        {
+            DescriptionErrorTextBlock.Text = "";
+
+            Error error = fSpellChecker.CheckDescription(SpellAddDescriptionTextBox.Text);
+            if (error != null)
+                DescriptionErrorTextBlock.Text = error.Message;
+
+            fDescriptionError = error;
+            ErrorsChanged();
+        }
+
+        private void ErrorsChanged()
+        {
+            AddSpellButton.IsEnabled = false;
+
+            if (fNameError == null)
+                if(fIDError == null)
+                    if(fDescriptionError == null)
+                        AddSpellButton.IsEnabled = true;
+                                 
+        }
+    }  
 }

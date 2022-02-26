@@ -9,13 +9,12 @@
 
     <StackPanel Orientation="Horizontal">
 
-
         <StackPanel x:Name="spellListStackPanel">
             <ListView x:Name="spellListView"
                       ItemsSource="{Binding Spells}"
                       SelectionChanged="spellListView_SelectionChanged"
                       Width="300"
-                      MaxHeight="500"
+                      MaxHeight="250"
                       >
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -60,8 +59,6 @@
                     </Grid>
                 </StackPanel>
             </StackPanel>
-
-
 
             <StackPanel x:Name="spellDetailsStackPanel" RelativePanel.Below="spellDetailsHeaderStackPanel">
                 <AppBarSeparator></AppBarSeparator>

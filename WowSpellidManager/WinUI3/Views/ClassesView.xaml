@@ -5,7 +5,8 @@
     xmlns:local="using:WowSpellidManager.WinUI3.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    xmlns:viewModel="clr-namespace:WowSpellidManager.WinUI3.ViewModels.Wrapper">
 
     <RelativePanel>
 
@@ -52,9 +53,9 @@
         </StackPanel>
 
         <StackPanel x:Name="AddSpellStackPanel" 
-                    RelativePanel.Below="SpecializationViewStackPanel" 
                     RelativePanel.RightOf="ClassListStackPanel"
-                    Margin="50,50,0,0">
+                    RelativePanel.AlignBottomWithPanel="True"
+                    Margin="50,50,0,10">
 
             <StackPanel>
                 <StackPanel.Resources>
@@ -68,110 +69,76 @@
                            Text="Add spell"
                            Style="{StaticResource SubtitleTextBlockStyle}">
                 </TextBlock>
+
                 <AppBarSeparator></AppBarSeparator>
 
-                <TextBox x:Name="SpellAddNameTextBox"
-                         Header="Name">
-                </TextBox>
+                <RelativePanel>
+                    <TextBox x:Name="SpellAddNameTextBox"
+                         Header="Name"
+                         KeyUp="SpellAddNameTextBox_KeyUp">
+                    </TextBox>
+                    <TextBlock x:Name="NameErrorTextBlock" 
+                               TextWrapping="WrapWholeWords" 
+                               MaxWidth="300" 
+                               Foreground="Red"
+                               RelativePanel.Below="SpellAddNameTextBox">
+                    </TextBlock>
+                </RelativePanel>
+
+                <!-->TODO: Add global ErrorTextBlock style <-->
                 <AppBarSeparator></AppBarSeparator>
 
-                <TextBox x:Name="SpellAddIDTextBox"
-                         Header="ID">
-                </TextBox>
+                <RelativePanel>
+                    <TextBox x:Name="SpellAddIDTextBox"
+                         Header="ID"
+                         KeyUp="SpellAddIDTextBox_KeyUp"
+                         RelativePanel.AlignTopWithPanel="True">
+                    </TextBox>
+                    <TextBlock x:Name="IDErrorTextBlock" 
+                               TextWrapping="WrapWholeWords" 
+                               MaxWidth="300" 
+                               Foreground="Red"
+                               RelativePanel.Below="SpellAddIDTextBox">
+                    </TextBlock>
+                </RelativePanel>
+
                 <AppBarSeparator></AppBarSeparator>
 
-                <TextBox x:Name="SpellAddDescriptionTextBox"
-                         Header="Description">
-                </TextBox>
+                <RelativePanel>
+                    <TextBox x:Name="SpellAddDescriptionTextBox"
+                             Header="Description"
+                             KeyUp="SpellAddDescriptionTextBox_KeyUp"
+                             RelativePanel.AlignTopWithPanel="True">
+                    </TextBox>
+                    <TextBlock x:Name="DescriptionErrorTextBlock" 
+                               TextWrapping="WrapWholeWords" 
+                               MaxWidth="300" 
+                               Foreground="Red"
+                               RelativePanel.Below="SpellAddDescriptionTextBox">
+                    </TextBlock>
+                </RelativePanel>
+
                 <AppBarSeparator></AppBarSeparator>
 
-                <Button x:Name="AddSpellButton" 
+                <StackPanel>
+                    <Button x:Name="AddSpellButton" 
                         Style="{StaticResource AccentButtonStyle}" 
                         Content="+ Spell" 
                         Click="AddSpellButton_Click">
-                </Button>
+                    </Button>
+                </StackPanel>
+                
             </StackPanel>
-            <Button Content="SAVE"
-                    x:Name="SAVE"
-                    Style="{StaticResource AccentButtonStyle}"
-                    Click="SAVE_Click"></Button>
         </StackPanel>
 
-
-
-
-
-
-        <!--StackPanel x:Name="listViewStackPanel" HorizontalAlignment="Left" VerticalAlignment="Center">
-            <TextBlock FontSize="35" 
-                       HorizontalTextAlignment="Center" 
-                       Margin="0,0,0,10">Classes</TextBlock>
-            <ListView x:Name="itemListView"
-                      HorizontalAlignment="Center" 
-                      VerticalAlignment="Center"
-                      MaxHeight="700"
-                      Margin="25,0,0,0"
-                      ItemsSource="{Binding}"
-                      MinHeight="500"
-                      BorderBrush="Black"
-                      BorderThickness="1"
-                      SelectionChanged="itemListView_SelectionChanged"
-
-                      >
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <Border BorderBrush="Black" BorderThickness="2" Margin="0,20,0,0">
-                            <Grid Margin="6" Width="100">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition></RowDefinition>
-                                    <RowDefinition></RowDefinition>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Column="0" Grid.Row="1" FontSize="20" Text="{Binding Designation}" TextWrapping="WrapWholeWords" AllowDrop="True" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-                            </Grid>
-                        </Border>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackPanel-->
-
-
-
-        <!--StackPanel x:Name="addClassStackPanel" 
-                    BorderBrush="Black" 
-                    BorderThickness="2" 
-                    Orientation="Vertical" 
-                    Padding="10"
-                    Margin="25,57,0,0"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Center">
-            <TextBlock Text="Add class:" FontSize="25" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Center"></TextBlock>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-
-                <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center">Name:</TextBlock>
-                <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center">Description:</TextBlock>
-
-                <TextBox x:Name="designationBox" Grid.Row="0" Grid.Column="1" MinWidth="150" Text="{Binding Designation}"></TextBox>
-                <TextBox x:Name="descriptionBox" Grid.Row="1" Grid.Column="1" Text="{Binding Description}"></TextBox>
-
-            </Grid>
-            <Button Content="Add" HorizontalAlignment="Center" Margin="0,10,0,0" MinWidth="100" Click="AddClass_Click"></Button>
-        </StackPanel>
-
-        <Button x:Name="saveButton" Style="{StaticResource AccentButtonStyle}" Click="saveButton_Click">Save list</Button-->
+        <Button Content="Save"
+                x:Name="SAVE"
+                Style="{StaticResource AccentButtonStyle}"
+                Click="SAVE_Click"
+                RelativePanel.Below="ClassListStackPanel"
+                RelativePanel.AlignHorizontalCenterWith="ClassListStackPanel"
+                Margin="25,0,0,10"
+                Width="75">
+        </Button>
     </RelativePanel>
 </Page>

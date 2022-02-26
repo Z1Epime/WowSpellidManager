@@ -10,8 +10,6 @@ namespace WowSpellidManager.WinUI3.ViewModels
 {
     public abstract class ViewModel
     {
-        protected DataOperationProvider fDataOperationProvider = new DataOperationProvider();
-
-        
+        protected DataOperationProvider fDataOperationProvider = new DataOperationProvider();    
     }
 }

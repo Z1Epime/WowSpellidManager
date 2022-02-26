@@ -16,34 +16,62 @@ namespace WowSpellidManager.WinUI3.ViewModels.Validators.Checkers
             fChecker = new Checker();
         }
 
-        /// <summary>
-        /// Checks input for a spell, returns an "Error" if incorrect input is found and returns null otherwise.
-        /// </summary>
-        /// <param name="aName"></param>
-        /// <param name="aID"></param>
-        /// <param name="aDescription"></param>
-        /// <returns></returns>
-        public Error CheckSpell(string aName, string aID, string aDescription)
+        public Error CheckEveryThing(string aName, string aID, string aDecription)
         {
             Error error;
 
-            // checking aName
-            error = fChecker.Numbers(aName, "spell name");
-            if(error != null) return error;
+            error = CheckName(aName);
+            if (error != null) return error;
 
-            error = fChecker.OnlyLetters(aName, "spell name");
-            if( error != null) return error;
+            error = CheckID(aID);
+            if (error != null) return error;
+
+            error = CheckDescription(aDecription);
+            if (error != null) return error;
+
+            return null;
+        }
+
+        public Error CheckName(string aName)
+        {
+            Error error;
+
+            error = fChecker.Empty(aName, "spell name");
+            if (error != null) return error;
+
+            error = fChecker.Numbers(aName, "spell name");
+            if (error != null) return error;
+
+            error = fChecker.OnlyLettersAndCertainCharacters(aName, "spell name");
+            if (error != null) return error;
 
             error = fChecker.MaxCharacters(aName, 50, "spell name");
             if (error != null) return error;
 
-            // checking aID
+            return null;
+        }
+        public Error CheckID(string aID)
+        {
+            Error error;
+
+            error = fChecker.Empty(aID, "spell id");
+            if (error != null) return error;
+
             error = fChecker.OnlyNumbers(aID, "spell id");
             if (error != null) return error;
 
-            // checking aDescription
+            return null;
+        }
+
+        public Error CheckDescription(string aDescription)
+        {
+            Error error;
+
+            error = fChecker.Empty(aDescription, "spell description");
+            if (error != null) return error;
+
             error = fChecker.MaxCharacters(aDescription, 256, "spell description");
-            if( (error != null) ) return error;
+            if ((error != null)) return error;
 
             return null;
         }
