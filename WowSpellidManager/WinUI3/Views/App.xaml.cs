@@ -58,6 +58,8 @@ namespace WowSpellidManager.WinUI3.Views
 
             m_window = new MainWindow();
             m_window.Activate();
+            // TODO: another reason to use string resources (.resx)
+            m_window.Title = "WowSpellIdManager";
 
             
             
