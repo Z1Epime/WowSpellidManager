@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "WowSpellidManager (Package)", "WowSpellidManager (Package)\WowSpellidManager (Package).wapproj", "{C11B13B0-60E1-4FD5-8993-5E846622210A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WowSpellidManager", "WowSpellidManager\WowSpellidManager.csproj", "{EF3AD48D-24E2-41AE-A903-060F8D57B25A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WowSpellidManager", "WowSpellidManager\WowSpellidManager.csproj", "{EF3AD48D-24E2-41AE-A903-060F8D57B25A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +15,9 @@ Global
 		Release|arm64 = Release|arm64
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
+		Test|arm64 = Test|arm64
+		Test|x64 = Test|x64
+		Test|x86 = Test|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{C11B13B0-60E1-4FD5-8993-5E846622210A}.Debug|arm64.ActiveCfg = Debug|arm64
@@ -35,6 +38,15 @@ Global
 		{C11B13B0-60E1-4FD5-8993-5E846622210A}.Release|x86.ActiveCfg = Release|x86
 		{C11B13B0-60E1-4FD5-8993-5E846622210A}.Release|x86.Build.0 = Release|x86
 		{C11B13B0-60E1-4FD5-8993-5E846622210A}.Release|x86.Deploy.0 = Release|x86
+		{C11B13B0-60E1-4FD5-8993-5E846622210A}.Test|arm64.ActiveCfg = Test|arm64
+		{C11B13B0-60E1-4FD5-8993-5E846622210A}.Test|arm64.Build.0 = Test|arm64
+		{C11B13B0-60E1-4FD5-8993-5E846622210A}.Test|arm64.Deploy.0 = Test|arm64
+		{C11B13B0-60E1-4FD5-8993-5E846622210A}.Test|x64.ActiveCfg = Test|x64
+		{C11B13B0-60E1-4FD5-8993-5E846622210A}.Test|x64.Build.0 = Test|x64
+		{C11B13B0-60E1-4FD5-8993-5E846622210A}.Test|x64.Deploy.0 = Test|x64
+		{C11B13B0-60E1-4FD5-8993-5E846622210A}.Test|x86.ActiveCfg = Debug|x86
+		{C11B13B0-60E1-4FD5-8993-5E846622210A}.Test|x86.Build.0 = Debug|x86
+		{C11B13B0-60E1-4FD5-8993-5E846622210A}.Test|x86.Deploy.0 = Debug|x86
 		{EF3AD48D-24E2-41AE-A903-060F8D57B25A}.Debug|arm64.ActiveCfg = Debug|arm64
 		{EF3AD48D-24E2-41AE-A903-060F8D57B25A}.Debug|arm64.Build.0 = Debug|arm64
 		{EF3AD48D-24E2-41AE-A903-060F8D57B25A}.Debug|x64.ActiveCfg = Debug|x64
@@ -47,6 +59,12 @@ Global
 		{EF3AD48D-24E2-41AE-A903-060F8D57B25A}.Release|x64.Build.0 = Release|x64
 		{EF3AD48D-24E2-41AE-A903-060F8D57B25A}.Release|x86.ActiveCfg = Release|x86
 		{EF3AD48D-24E2-41AE-A903-060F8D57B25A}.Release|x86.Build.0 = Release|x86
+		{EF3AD48D-24E2-41AE-A903-060F8D57B25A}.Test|arm64.ActiveCfg = Test|arm64
+		{EF3AD48D-24E2-41AE-A903-060F8D57B25A}.Test|arm64.Build.0 = Test|arm64
+		{EF3AD48D-24E2-41AE-A903-060F8D57B25A}.Test|x64.ActiveCfg = Test|x64
+		{EF3AD48D-24E2-41AE-A903-060F8D57B25A}.Test|x64.Build.0 = Test|x64
+		{EF3AD48D-24E2-41AE-A903-060F8D57B25A}.Test|x86.ActiveCfg = Debug|x86
+		{EF3AD48D-24E2-41AE-A903-060F8D57B25A}.Test|x86.Build.0 = Debug|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
