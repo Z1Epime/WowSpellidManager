@@ -72,9 +72,27 @@
                 <AppBarSeparator></AppBarSeparator>
 
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Spell ID:" 
-                               Style="{StaticResource BaseTextBlockStyle}"></TextBlock>
-                    <TextBlock Text="{Binding ID}"></TextBlock>
+                    <TextBlock x:Name="SpellIDText"
+                               Text="Spell ID:" 
+                               Style="{StaticResource BaseTextBlockStyle}"
+                               VerticalAlignment="Center">
+                    </TextBlock>
+
+                    <AppBarSeparator Style="{StaticResource horizontalSeparatorTiny}"></AppBarSeparator>
+                    
+                    <TextBlock x:Name="SpellIDTextBinded"
+                               Text="{Binding ID}"
+                               VerticalAlignment="Center">
+                    </TextBlock>
+
+                    <AppBarSeparator Style="{StaticResource horizontalSeparatorTiny}"></AppBarSeparator>
+
+                    <Button x:Name="CopySpellIdButton"
+                            Content="Copy"
+                            Click="CopySpellIdButton_Click"
+                            Style="{StaticResource AccentButtonStyle}"
+                            VerticalAlignment="Center">
+                    </Button>
                 </StackPanel>
             </StackPanel>
 
