@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.ApplicationModel.DataTransfer;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 
@@ -44,6 +45,16 @@ namespace WowSpellidManager.WinUI3.Views
             spellDetailsStackPanel.Visibility = Visibility.Visible;
             classTitleTextBlock.Visibility = Visibility.Visible;
             spellDetailsHeaderStackPanel.Visibility = Visibility.Visible;
+        }
+
+        private void CopySpellIdButton_Click(object sender, RoutedEventArgs e)
+        {
+            DataPackage datapackage = new DataPackage()
+            {
+                RequestedOperation = DataPackageOperation.Copy
+            };
+            datapackage.SetText(SpellIDTextBinded.Text);
+            Clipboard.SetContent(datapackage);
         }
     }
 }

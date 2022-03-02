@@ -12,4 +12,10 @@
         <Setter Property="Height" Value="0"></Setter>
     </Style>
 
+    <Style x:Name="horizontalSeparatorTiny" TargetType="AppBarSeparator">
+        <Setter Property="Width" Value="15"></Setter>
+        <Setter Property="Height" Value="1"></Setter>
+        <Setter Property="Background" Value="Transparent"></Setter>
+    </Style>
+
 </ResourceDictionary>
