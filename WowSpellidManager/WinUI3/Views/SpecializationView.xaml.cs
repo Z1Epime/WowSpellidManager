@@ -13,6 +13,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using WowSpellidManager.WinUI3.ViewModels.Helper;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -24,9 +25,12 @@ namespace WowSpellidManager.WinUI3.Views
     /// </summary>
     public sealed partial class SpecializationView : Page
     {
+        private object fSpecialization;
+        private HelperSpellViewModel fHelperSpellViewModel = new HelperSpellViewModel();
         public SpecializationView(object aSpecialization, object aWowClass)
         {
             InitializeComponent();
+            fSpecialization = aSpecialization;
             spellListView.DataContext = aSpecialization;
             spellDetailsHeaderStackPanel.DataContext = null;
 
@@ -55,6 +59,12 @@ namespace WowSpellidManager.WinUI3.Views
             };
             datapackage.SetText(SpellIDTextBinded.Text);
             Clipboard.SetContent(datapackage);
+        }
+
+        private void RemoveButton_Click(object sender, RoutedEventArgs e)
+        {
+            fHelperSpellViewModel.RemoveSpell(fSpecialization, spellListView.SelectedItem);
+            spellListView.SelectedItem = fHelperSpellViewModel.GetLastSpellOfSpecialization(fSpecialization);
         }
     }
 }

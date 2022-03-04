@@ -94,6 +94,10 @@
                             VerticalAlignment="Center">
                     </Button>
                 </StackPanel>
+                <AppBarSeparator Height="20"></AppBarSeparator>
+                <Button Style="{StaticResource AccentButtonStyle}" 
+                        Background="Red" 
+                        Click="RemoveButton_Click">Remove</Button>
             </StackPanel>
 
         </RelativePanel>
