@@ -26,7 +26,6 @@ namespace WowSpellidManager.WinUI3.Views
     public sealed partial class SettingsView : Page
     {
         private HelperSettingsViewModel fHelperSettingsViewModel = new HelperSettingsViewModel();
-
         private Error fSavingsPathError;
         public SettingsView()
         {
