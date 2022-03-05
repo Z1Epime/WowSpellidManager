@@ -7,29 +7,48 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+    <RelativePanel>
         <!--TODO: add string resources to use, for example here-->
-        <TextBlock x:Name="HelloTextBlock" 
+        <StackPanel Orientation="Vertical"
+                    RelativePanel.AlignHorizontalCenterWithPanel="True"
+                    RelativePanel.AlignVerticalCenterWithPanel="True">
+
+            <TextBlock x:Name="HelloTextBlock" 
                    Style="{StaticResource HeaderTextBlockStyle}">
             Hello!
-        </TextBlock>
-        
-        <TextBlock Style="{StaticResource SubheaderTextBlockStyle}">
-                Welcome to WowSpellIdManager!
-        </TextBlock>
+            </TextBlock>
 
-        <AppBarSeparator></AppBarSeparator>
-        
-        <TextBlock TextWrapping="WrapWholeWords" MaxWidth="800" Style="{StaticResource SubtitleTextBlockStyle}">
+            <TextBlock x:Name="WelcomeTextBlock"
+                   Style="{StaticResource SubheaderTextBlockStyle}">
+            Welcome to WowSpellIdManager!
+            </TextBlock>
+
+            <!--<AppBarSeparator></AppBarSeparator>-->
+
+            <TextBlock x:Name="DisclaimerTextBlock"
+                   TextWrapping="WrapWholeWords" 
+                   MaxWidth="800" 
+                   Style="{StaticResource SubtitleTextBlockStyle}">
             <Run>With this program, you can manage spell id's for every class and specialization in World of Warcraft.</Run>   
             
             <!--TODO: change this to alpha or beta ? or whatever ?-->
-            <Run>You are currently running an alpha version of the program, so expect major bugs and glitches.</Run>
-        </TextBlock>
-        
-        <TextBlock Style="{StaticResource SubtitleTextBlockStyle}" MaxWidth="800" TextWrapping="Wrap">
+            <Run>You are currently running an alpha version of the program, so don't be too surprised to see bugs / glitches.</Run>
+            </TextBlock>
+
+            <TextBlock x:Name="FeedbackTextBlock"
+                   Style="{StaticResource SubtitleTextBlockStyle}" 
+                   MaxWidth="800" 
+                   TextWrapping="Wrap">
             Feel free to send bug reports / feature requests at Discord Epi#3771 / wowspellidmanager@gmx.de
-        </TextBlock>
-        
-    </StackPanel>
+            </TextBlock>
+        </StackPanel>
+        <StackPanel x:Name="VersionStackPanel"
+                    RelativePanel.AlignBottomWithPanel="True"
+                    RelativePanel.AlignRightWithPanel="True"
+                    Margin="15">
+            <TextBlock>
+                v0.0.5 (Alpha)
+            </TextBlock>
+        </StackPanel>
+    </RelativePanel>
 </Page>

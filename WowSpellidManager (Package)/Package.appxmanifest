@@ -7,12 +7,12 @@
   IgnorableNamespaces="uap rescap">
 
   <Identity
-    Name="476a2045-c573-452b-a078-7c510e02ea25"
+    Name="WOWSPELLIDMANAGER"
     Publisher="CN=Epime"
-    Version="1.0.6.0" />
+    Version="0.0.5.0" />
 
   <Properties>
-    <DisplayName>WowSpellidManager (Package)</DisplayName>
+    <DisplayName>WowSpellidManager</DisplayName>
     <PublisherDisplayName>Epime</PublisherDisplayName>
     <Logo>Images\StoreLogo.png</Logo>
   </Properties>
@@ -41,6 +41,8 @@
           </uap:ShowNameOnTiles>
         </uap:DefaultTile>
         <uap:SplashScreen Image="Images\SplashScreen.png"/>
+        <uap:InitialRotationPreference>
+          <uap:Rotation Preference="landscape"/></uap:InitialRotationPreference>
       </uap:VisualElements>
     </Application>
   </Applications>
