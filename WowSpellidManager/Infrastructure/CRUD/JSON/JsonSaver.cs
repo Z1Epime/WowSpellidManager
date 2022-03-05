@@ -11,9 +11,8 @@ namespace WowSpellidManager.Infrastructure.CRUD.JSON
 {
     public class JsonSaver
     {
-        private static DataOperationProvider fDataOperationProvider = new DataOperationProvider();
-        public const string fWOWCLASSESPATH = "E:\\VisualStudio Projects\\WowSpellidManager\\WowSpellidManager\\bin\\x86\\Debug\\net6.0-windows10.0.19041.0\\Data\\wowclasses.JSON";
-        public const string fSETTINGSPATH = "E:\\VisualStudio Projects\\WowSpellidManager\\WowSpellidManager\\Settings\\settings.JSON";
+        public static DataOperationProvider fDataOperationProvider = new DataOperationProvider();
+        public static readonly string SETTINGSPATH = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\WowSpellIDManager\\Settings\\";
         public static void SaveWowClasses()
         {
             JsonSerializer serializer = new JsonSerializer();
@@ -36,7 +35,7 @@ namespace WowSpellidManager.Infrastructure.CRUD.JSON
             JsonSerializer serializer = new JsonSerializer();
             serializer.NullValueHandling = NullValueHandling.Ignore;
 
-            using (StreamWriter sw = new StreamWriter(fSETTINGSPATH))
+            using (StreamWriter sw = new StreamWriter(SETTINGSPATH +"settings.JSON"))
             using (JsonWriter writer = new JsonTextWriter(sw))
             {
                 serializer.Serialize(writer, fDataOperationProvider.SettingsOperator.GetSettings());
