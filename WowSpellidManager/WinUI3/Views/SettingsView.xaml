@@ -17,13 +17,28 @@
 
             <RelativePanel>
                 <TextBox x:Name="fileLocation"
-                     Header="File storage location"
                      MaxWidth="300"
                      Text="{Binding Path=SavingsPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                      KeyUp="fileLocation_KeyUp"
                      RelativePanel.AlignBottomWithPanel="True"
                      >
+                    <TextBox.Header>
+                        <StackPanel x:Name="FileStorageLocation"
+                                    Orientation="Horizontal">
+                            <TextBlock>
+                                File storage location
+                            </TextBlock>
+
+                            <AppBarSeparator Style="{StaticResource horizontalSeparatorTiny}" Width="50"></AppBarSeparator>
+                            <SymbolIcon x:Name="FileStorageLocationInfoSymbol"
+                                        Symbol="Help"
+                                        ToolTipService.ToolTip="A new folder will be crated in the given path : WowSpellIDManager"
+                                        >
+                            </SymbolIcon>
+                        </StackPanel>
+                    </TextBox.Header>
                 </TextBox>
+                
             </RelativePanel>
             <TextBlock x:Name="SavingsPathErrorTextBlock" 
                            TextWrapping="WrapWholeWords" 
@@ -36,7 +51,7 @@
         <AppBarSeparator x:Name="FileUserSeparator" 
                          RelativePanel.RightOf="FileSettingsStackPanel"
                          Style="{StaticResource horizontalSettingsSeparator}"
-                         >  
+                         >
         </AppBarSeparator>
 
         <StackPanel x:Name="DesignSettingsStackPanel" 
