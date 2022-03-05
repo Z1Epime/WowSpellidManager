@@ -44,12 +44,40 @@ namespace WowSpellidManager.Infrastructure.CRUD.JSON
         public static Settings LoadSettings()
         {         
             string readContents;
-            using (StreamReader streamReader = new StreamReader(JsonSaver.fSETTINGSPATH))
+
+            // Directory.CreateDirectory only creates a directory if it doesnt already exist
+            Directory.CreateDirectory(JsonSaver.SETTINGSPATH); 
+
+            if(!File.Exists(JsonSaver.SETTINGSPATH + "settings.JSON"))
+            {
+                File.Create(JsonSaver.SETTINGSPATH + "settings.JSON").Dispose();
+            }
+
+            using (StreamReader streamReader = new StreamReader(JsonSaver.SETTINGSPATH + "settings.JSON"))
             {
                 readContents = streamReader.ReadToEnd();
             }
 
+            if (String.IsNullOrEmpty(readContents))
+            {
+                readContents = JsonConvert.SerializeObject(new Settings()
+                {
+                    SavingsPath = DefaultSettings.DefaultSavingsPath,
+                    IsDarkThemeActive = DefaultSettings.DefaultDarkThemeActive
+                });
+            }
+
             Settings settings = JsonConvert.DeserializeObject<Settings>(readContents);
+
+            JsonSerializer serializer = new JsonSerializer();
+            serializer.NullValueHandling = NullValueHandling.Ignore;
+
+            using (StreamWriter sw = new StreamWriter(JsonSaver.SETTINGSPATH + "settings.JSON"))
+            using (JsonWriter writer = new JsonTextWriter(sw))
+            {
+                serializer.Serialize(writer, settings);
+            }
+
             return settings;
         }
     }

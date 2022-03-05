@@ -19,6 +19,7 @@ namespace WowSpellidManager.WinUI3.ViewModels.Helper
         public void SaveSettings()
         {
             fDataOperationProvider.SettingsOperator.Save();
+            fDataOperationProvider.WowClassOperator.Save();
         }
 
         public Error CheckDirectoryExists(string aDirectoryPath)
