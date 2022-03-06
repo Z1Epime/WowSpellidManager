@@ -11,20 +11,31 @@
     <Configurations>Debug;Release;Test</Configurations>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="WinUI3\resources\picsBITMAP\**" />
+    <Compile Remove="WinUI3\resources\picsPNG\**" />
     <Compile Remove="WNIUI\**" />
+    <Content Remove="WinUI3\resources\picsBITMAP\**" />
+    <Content Remove="WinUI3\resources\picsPNG\**" />
     <Content Remove="WNIUI\**" />
+    <EmbeddedResource Remove="WinUI3\resources\picsBITMAP\**" />
+    <EmbeddedResource Remove="WinUI3\resources\picsPNG\**" />
     <EmbeddedResource Remove="WNIUI\**" />
+    <None Remove="WinUI3\resources\picsBITMAP\**" />
+    <None Remove="WinUI3\resources\picsPNG\**" />
     <None Remove="WNIUI\**" />
+    <Page Remove="WinUI3\resources\picsBITMAP\**" />
+    <Page Remove="WinUI3\resources\picsPNG\**" />
     <Page Remove="WNIUI\**" />
+    <PRIResource Remove="WinUI3\resources\picsBITMAP\**" />
+    <PRIResource Remove="WinUI3\resources\picsPNG\**" />
     <PRIResource Remove="WNIUI\**" />
   </ItemGroup>
   <ItemGroup>
-    <None Remove="resources\dictionaries\listViewItems.xaml" />
-    <None Remove="resources\dictionaries\listViews.xaml" />
-    <None Remove="resources\dictionaries\separators.xaml" />
+    <None Remove="WinUI3\resources\dictionaries\listViewItems.xaml" />
+    <None Remove="WinUI3\resources\dictionaries\listViews.xaml" />
+    <None Remove="WinUI3\resources\dictionaries\separators.xaml" />
     <None Remove="WinUI3\resources\dictionaries\buttons.xaml" />
-    <None Remove="resources\dictionaries\buttons.xaml" />
-    <None Remove="resources\dictionaries\textboxes.xaml" />
+    <None Remove="WinUI3\resources\dictionaries\textboxes.xaml" />
     <None Remove="WinUI3\Views\ClassesView.xaml" />
     <None Remove="WinUI3\Views\HomeView.xaml" />
     <None Remove="WinUI3\Views\SpecializationNavigationViewContentPage.xaml" />
@@ -46,6 +57,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\WowSpellidManager.Domain\WowSpellidManager.Domain.csproj" />
+    <ProjectReference Include="..\WowSpellidManager.Infrastructure\WowSpellidManager.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -58,12 +74,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Page Update="resources\dictionaries\listViews.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
 
   <ItemGroup>
@@ -91,31 +101,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Page Update="resources\dictionaries\separators.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Page Update="resources\dictionaries\listViewItems.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Page Update="resources\dictionaries\textboxes.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-
-  <ItemGroup>
     <Page Update="Application\resources\dictionaries\buttons.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Page Update="resources\dictionaries\buttons.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>

@@ -9,7 +9,7 @@ using WowSpellidManager.Domain.Models;
 
 namespace WowSpellidManager.Domain.Exceptions
 {
-    internal class ArgumentGuard
+    public class ArgumentGuard
     {
         public static void CheckNull(object aObject)
         {

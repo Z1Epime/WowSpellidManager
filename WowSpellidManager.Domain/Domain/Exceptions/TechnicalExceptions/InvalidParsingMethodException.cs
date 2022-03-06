@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WowSpellidManager.Domain.Exceptions
 {
-    internal class InvalidParsingMethodException : Exception
+    public class InvalidParsingMethodException : Exception
     {
         public InvalidParsingMethodException(string message) : base(message)
         {
