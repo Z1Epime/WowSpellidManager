@@ -11,7 +11,7 @@
 
         <StackPanel x:Name="FileSettingsStackPanel" RelativePanel.AlignLeftWithPanel="True" Margin="25">
             <TextBlock x:Name="FileSettingsTitle" 
-                       Text="File" 
+                       x:Uid="File"
                        Style="{StaticResource HeaderTextBlockStyle}"></TextBlock>
             <AppBarSeparator></AppBarSeparator>
 
@@ -25,16 +25,19 @@
                     <TextBox.Header>
                         <StackPanel x:Name="FileStorageLocation"
                                     Orientation="Horizontal">
-                            <TextBlock>
-                                File storage location
+                            <TextBlock
+                                x:Uid="Location">
                             </TextBlock>
 
                             <AppBarSeparator Style="{StaticResource horizontalSeparatorTiny}" Width="50"></AppBarSeparator>
                             <SymbolIcon x:Name="FileStorageLocationInfoSymbol"
-                                        Symbol="Help"
-                                        ToolTipService.ToolTip="A new folder will be crated in the given path : WowSpellIDManager"
-                                        >
+                                        Symbol="Help">
+                                <!--ToolTipService.ToolTip="{Binding ElementName=ToolTipTextBlockNotVisible}">-->
                             </SymbolIcon>
+                            <TextBlock x:Name="ToolTipTextBlockNotVisible" 
+                                       x:Uid="ToolTipLocation" 
+                                       Visibility="Collapsed">
+                            </TextBlock>
                         </StackPanel>
                     </TextBox.Header>
                 </TextBox>
@@ -57,16 +60,22 @@
         <StackPanel x:Name="DesignSettingsStackPanel" 
                     RelativePanel.AlignHorizontalCenterWithPanel="true" 
                     Margin="25">
-            <TextBlock x:Name="DesignSettingsTitle" Text="Design" Style="{StaticResource HeaderTextBlockStyle}"></TextBlock>
+            <TextBlock x:Name="DesignSettingsTitle" 
+                       x:Uid="Design"
+                       Style="{StaticResource HeaderTextBlockStyle}"></TextBlock>
             <AppBarSeparator></AppBarSeparator>
 
             <StackPanel Orientation="Vertical">
 
                 <StackPanel>
-                    <ToggleSwitch x:Name="ToggleSwitchDarkTheme" 
-                              Header="Dark theme *"
+                    <ToggleSwitch x:Name="ToggleSwitchDarkTheme"   
                               IsOn="{Binding IsDarkThemeActive,  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                        <!--Header="{Binding ElementName=ToggleSwitchHeaderNameNotVisible}"-->
                     </ToggleSwitch>
+                    <TextBlock x:Name="ToggleSwitchHeaderNameNotVisible"
+                               x:Uid="DarkTheme"
+                               Visibility="Collapsed">
+                    </TextBlock>
                 </StackPanel>
 
                 <ListView x:Name="DesignsListView"
@@ -79,16 +88,19 @@
         <StackPanel x:Name="SaveSettingsStackPanel" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignBottomWithPanel="True" Margin="25">
 
             <Button x:Name="SaveSettingsButton"
-                    Content="Save"
                     Style="{StaticResource AccentButtonStyle}"
-                    Click="SaveSettingsButton_Click">
+                    Click="SaveSettingsButton_Click"
+                    x:Uid="Save">
             </Button>
         </StackPanel>
 
 
-        <StackPanel x:Name="StarInfoStackPanel" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True"
+        <StackPanel x:Name="StarInfoStackPanel" 
+                    RelativePanel.AlignBottomWithPanel="True" 
+                    RelativePanel.AlignRightWithPanel="True"
                     Margin="20">
-            <TextBlock Text="* Requires restart"></TextBlock>
+            <TextBlock x:Uid="AsteriskRestart">
+            </TextBlock>
         </StackPanel>
 
     </RelativePanel>

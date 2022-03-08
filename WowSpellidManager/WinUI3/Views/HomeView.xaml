@@ -8,47 +8,41 @@
     mc:Ignorable="d">
 
     <RelativePanel>
-        <!--TODO: add string resources to use, for example here-->
         <StackPanel Orientation="Vertical"
                     RelativePanel.AlignHorizontalCenterWithPanel="True"
                     RelativePanel.AlignVerticalCenterWithPanel="True">
 
             <TextBlock x:Name="HelloTextBlock" 
-                   Style="{StaticResource HeaderTextBlockStyle}">
-            Hello!
+                       Style="{StaticResource HeaderTextBlockStyle}"
+                       x:Uid="Hello">
             </TextBlock>
 
             <TextBlock x:Name="WelcomeTextBlock"
-                   Style="{StaticResource SubheaderTextBlockStyle}">
-            Welcome to WowSpellIdManager!
+                       x:Uid="Welcome"
+                       Style="{StaticResource SubheaderTextBlockStyle}">
             </TextBlock>
-
-            <!--<AppBarSeparator></AppBarSeparator>-->
 
             <TextBlock x:Name="DisclaimerTextBlock"
                    TextWrapping="WrapWholeWords" 
                    MaxWidth="800" 
                    Style="{StaticResource SubtitleTextBlockStyle}">
-            <Run>With this program, you can manage spell id's for every class and specialization in World of Warcraft.</Run>   
+                <Run x:Uid="Disclaimer1"></Run>   
             
-            <!--TODO: change this to alpha or beta ? or whatever ?-->
-            <Run>You are currently running an alpha version of the program, so don't be too surprised to see bugs / glitches.</Run>
+                <Run x:Uid="Disclaimer2"></Run>
             </TextBlock>
 
             <TextBlock x:Name="FeedbackTextBlock"
-                   Style="{StaticResource SubtitleTextBlockStyle}" 
-                   MaxWidth="800" 
-                   TextWrapping="Wrap">
-            Feel free to send bug reports / feature requests at Discord Epi#3771 / wowspellidmanager@gmx.de
+                       x:Uid="Disclaimer3"
+                       Style="{StaticResource SubtitleTextBlockStyle}" 
+                       MaxWidth="800" 
+                       TextWrapping="Wrap">
             </TextBlock>
         </StackPanel>
         <StackPanel x:Name="VersionStackPanel"
                     RelativePanel.AlignBottomWithPanel="True"
                     RelativePanel.AlignRightWithPanel="True"
                     Margin="15">
-            <TextBlock>
-                v0.0.5 (Alpha)
-            </TextBlock>
+            <TextBlock x:Uid="Version"></TextBlock>
         </StackPanel>
     </RelativePanel>
 </Page>

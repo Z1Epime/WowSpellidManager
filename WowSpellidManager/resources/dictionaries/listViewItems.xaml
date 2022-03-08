@@ -41,7 +41,7 @@
     </DataTemplate>
 
     <DataTemplate x:Name="navigationViewMenuItemMain">
-        <NavigationViewItem Content="{Binding Name}">
+        <NavigationViewItem Content="{Binding DisplayName}">
             <NavigationViewItem.Icon>
                 <SymbolIcon Symbol="{Binding Glyph}"></SymbolIcon>
             </NavigationViewItem.Icon>

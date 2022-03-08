@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Resources;
 using WowSpellidManager.WinUI3.Views;
 
 namespace WowSpellidManager.WinUI3.Navigation
@@ -47,10 +48,15 @@ namespace WowSpellidManager.WinUI3.Navigation
         {
             NavigationOptionsMain.Clear();
 
-            fHome = new NavigationOption("Home", Symbol.Home);
-            fClasses = new NavigationOption("Classes", Symbol.Library);
-            fSettings = new NavigationOption("Settings", Symbol.Setting);
-            fQuit = new NavigationOption("Quit", Symbol.Cancel);
+            //if (Windows.UI.Core.CoreWindow.GetForCurrentThread() != null)
+
+            // TODO: experimental ?
+            ResourceLoader resourceLoader = ResourceLoader.GetForViewIndependentUse();
+
+            fHome = new NavigationOption("Home", resourceLoader.GetString("Home"), Symbol.Home);
+            fClasses = new NavigationOption("Classes", resourceLoader.GetString("Classes"), Symbol.Library);
+            fSettings = new NavigationOption("Settings", resourceLoader.GetString("Settings"), Symbol.Setting);
+            fQuit = new NavigationOption("Quit", resourceLoader.GetString("Quit"), Symbol.Cancel);
 
             NavigationOptionsMain.Add(fHome);
             NavigationOptionsMain.Add(fClasses);
