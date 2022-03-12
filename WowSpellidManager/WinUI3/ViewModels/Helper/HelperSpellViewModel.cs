@@ -26,5 +26,10 @@ namespace WowSpellidManager.WinUI3.ViewModels.Helper
         {
             return ((SpecializationViewModel)aSpecialization).Spells.LastOrDefault();
         }
+
+        public bool HasSpells(object aSpecialization)
+        {
+            return ((SpecializationViewModel)aSpecialization).Spells.Any();
+        }
     }
 }
