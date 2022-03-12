@@ -5,13 +5,14 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Resources;
 using WowSpellidManager.Domain.Models;
 
 namespace WowSpellidManager.WinUI3.ViewModels.Wrapper
 {
-    internal class WowClassViewModel : ViewModel, INotifyPropertyChanged
+    public class WowClassViewModel
     {
-        public WowClass WowClass;
+        public WowClass WowClass { get; set; }
 
         public string Description
         {
@@ -21,21 +22,19 @@ namespace WowSpellidManager.WinUI3.ViewModels.Wrapper
             }
             set
             {
-                NotifyPropertyChanged();
                 WowClass.Description = value;
             }
         }
 
-        public List<Specialization> Specializations
+        public List<SpecializationViewModel> Specializations
         {
             get
             {
-                return WowClass.Specializations;
+                return WrapSpecialization(WowClass.Specializations);
             }
             set
             {
-                NotifyPropertyChanged();
-                WowClass.Specializations = value;
+                WowClass.Specializations = UnwrapSpecialization(value);
             }
         }
 
@@ -47,7 +46,6 @@ namespace WowSpellidManager.WinUI3.ViewModels.Wrapper
             }
             set
             {
-                NotifyPropertyChanged();
                 WowClass.Guid = value;
             }
         }
@@ -56,24 +54,37 @@ namespace WowSpellidManager.WinUI3.ViewModels.Wrapper
         {
             get
             {
-                return WowClass.Designation;
+                return new ResourceLoader().GetString(WowClass.Designation);
             }
             set
             {
-                NotifyPropertyChanged();
                 WowClass.Designation = value;
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        public WowClassViewModel(WowClass aWowClass)
         {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
+            WowClass = aWowClass;
         }
 
+        public List<SpecializationViewModel> WrapSpecialization(List<Specialization> aSpecializations)
+        {
+            var list = new List<SpecializationViewModel>();
+            foreach (var specialization in aSpecializations)
+            {
+                list.Add(new SpecializationViewModel(specialization));
+            }
+            return list;
+        }
+
+        public List<Specialization> UnwrapSpecialization(List<SpecializationViewModel> aSpecializationViewModels)
+        {
+            var list = new List<Specialization>();
+            foreach (var specialitaionVM in aSpecializationViewModels)
+            {
+                list.Add(specialitaionVM.Specialization);
+            }
+            return list;
+        }
     }
 }

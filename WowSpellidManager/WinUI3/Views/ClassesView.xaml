@@ -66,7 +66,7 @@
                 </StackPanel.Resources>
 
                 <TextBlock x:Name="Title"
-                           Text="Add spell"
+                           x:Uid="AddSpell"
                            Style="{StaticResource SubtitleTextBlockStyle}">
                 </TextBlock>
 
@@ -74,7 +74,7 @@
 
                 <RelativePanel>
                     <TextBox x:Name="SpellAddNameTextBox"
-                         Header="Name"
+                         x:Uid="Name"
                          KeyUp="SpellAddNameTextBox_KeyUp">
                     </TextBox>
                     <TextBlock x:Name="NameErrorTextBlock" 
@@ -90,7 +90,7 @@
 
                 <RelativePanel>
                     <TextBox x:Name="SpellAddIDTextBox"
-                         Header="ID"
+                         x:Uid="ID"
                          KeyUp="SpellAddIDTextBox_KeyUp"
                          RelativePanel.AlignTopWithPanel="True">
                     </TextBox>
@@ -106,7 +106,7 @@
 
                 <RelativePanel>
                     <TextBox x:Name="SpellAddDescriptionTextBox"
-                             Header="Description"
+                             x:Uid="Description"
                              KeyUp="SpellAddDescriptionTextBox_KeyUp"
                              RelativePanel.AlignTopWithPanel="True">
                     </TextBox>
@@ -123,7 +123,7 @@
                 <StackPanel>
                     <Button x:Name="AddSpellButton" 
                         Style="{StaticResource AccentButtonStyle}" 
-                        Content="+ Spell" 
+                        x:Uid="AddSpellButton"
                         Click="AddSpellButton_Click">
                     </Button>
                 </StackPanel>
@@ -131,7 +131,7 @@
             </StackPanel>
         </StackPanel>
 
-        <Button Content="Save"
+        <Button x:Uid="Save"
                 x:Name="SAVE"
                 Style="{StaticResource AccentButtonStyle}"
                 Click="SAVE_Click"

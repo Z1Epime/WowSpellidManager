@@ -58,10 +58,10 @@
     <PackageCertificateThumbprint>DF0EAEFAAAB7A21A05A526C03C43B472C9EEE4CF</PackageCertificateThumbprint>
     <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
     <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
-    <AppxPackageDir>E:\output\wsim</AppxPackageDir>
+    <AppxPackageDir>D:\output</AppxPackageDir>
     <GenerateTestArtifacts>True</GenerateTestArtifacts>
     <AppxBundlePlatforms>x86|x64|arm64</AppxBundlePlatforms>
-    <AppInstallerUri>E:\output\installer</AppInstallerUri>
+    <AppInstallerUri>D:\output2</AppInstallerUri>
     <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">

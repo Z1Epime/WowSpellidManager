@@ -18,6 +18,8 @@ using Windows.Foundation.Collections;
 using WowSpellidManager.Infrastructure.DataManager;
 using WowSpellidManager.Infrastructure.CRUD;
 using WowSpellidManager.WinUI3.Views;
+using Windows.ApplicationModel.Resources.Core;
+using Windows.ApplicationModel.Resources;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -59,7 +61,7 @@ namespace WowSpellidManager.WinUI3.Views
             m_window = new MainWindow();
             m_window.Activate();
             // TODO: another reason to use string resources (.resx)
-            m_window.Title = "WowSpellIdManager";
+            m_window.Title = new ResourceLoader().GetString("AppTitle");
 
             
             

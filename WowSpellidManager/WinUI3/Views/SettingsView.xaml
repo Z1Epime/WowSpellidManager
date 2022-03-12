@@ -31,8 +31,8 @@
 
                             <AppBarSeparator Style="{StaticResource horizontalSeparatorTiny}" Width="50"></AppBarSeparator>
                             <SymbolIcon x:Name="FileStorageLocationInfoSymbol"
-                                        Symbol="Help">
-                                <!--ToolTipService.ToolTip="{Binding ElementName=ToolTipTextBlockNotVisible}">-->
+                                        Symbol="Help"
+                                        ToolTipService.ToolTip="{Binding ElementName=ToolTipTextBlockNotVisible, Path=Text}">
                             </SymbolIcon>
                             <TextBlock x:Name="ToolTipTextBlockNotVisible" 
                                        x:Uid="ToolTipLocation" 
@@ -69,8 +69,12 @@
 
                 <StackPanel>
                     <ToggleSwitch x:Name="ToggleSwitchDarkTheme"   
-                              IsOn="{Binding IsDarkThemeActive,  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-                        <!--Header="{Binding ElementName=ToggleSwitchHeaderNameNotVisible}"-->
+                                  IsOn="{Binding IsDarkThemeActive,  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                  >
+                        <ToggleSwitch.Header>
+                            <TextBlock x:Uid="DarkTheme">
+                            </TextBlock>
+                        </ToggleSwitch.Header>
                     </ToggleSwitch>
                     <TextBlock x:Name="ToggleSwitchHeaderNameNotVisible"
                                x:Uid="DarkTheme"
@@ -93,7 +97,6 @@
                     x:Uid="Save">
             </Button>
         </StackPanel>
-
 
         <StackPanel x:Name="StarInfoStackPanel" 
                     RelativePanel.AlignBottomWithPanel="True" 
