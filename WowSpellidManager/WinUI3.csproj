@@ -35,9 +35,24 @@
     <None Remove="WinUI3\resources\dictionaries\listViews.xaml" />
     <None Remove="WinUI3\resources\dictionaries\separators.xaml" />
     <None Remove="WinUI3\resources\dictionaries\buttons.xaml" />
+    <None Remove="resources\dictionaries\buttons.xaml" />
+    <None Remove="resources\dictionaries\textboxes.xaml" />
+    <None Remove="WinUI3\ViewModels\resources\Strings\Classes\de-DE\Resources.resw" />
+    <None Remove="WinUI3\ViewModels\resources\Strings\Classes\en-US\Resources.resw" />
+    <None Remove="WinUI3\ViewModels\resources\Strings\Specializations\de-DE\Resources.resw" />
+    <None Remove="WinUI3\ViewModels\resources\Strings\Specializations\en-US\Resources.resw" />
     <None Remove="WinUI3\resources\dictionaries\textboxes.xaml" />
     <None Remove="WinUI3\Views\ClassesView.xaml" />
+    <None Remove="WinUI3\Views\Home.resw" />
     <None Remove="WinUI3\Views\HomeView.xaml" />
+    <None Remove="WinUI3\Views\resources\Strings\App\en-US\Resources.resw" />
+    <None Remove="WinUI3\Views\resources\Strings\Home\de-DE\Resources.resw" />
+    <None Remove="WinUI3\Views\resources\Strings\Classes\de-DE\Resources.resw" />
+    <None Remove="WinUI3\Views\resources\Strings\Classes\en-US\Resources.resw" />
+    <None Remove="WinUI3\Views\resources\Strings\Settings\de-DE\Resources.resw" />
+    <None Remove="WinUI3\Views\resources\Strings\Settings\en-US\Resources.resw" />
+    <None Remove="WinUI3\Views\resources\Strings\MainNavigation\de-DE\Resources.resw" />
+    <None Remove="WinUI3\Views\resources\Strings\MainNavigation\en-US\Resources.resw" />
     <None Remove="WinUI3\Views\SpecializationNavigationViewContentPage.xaml" />
   </ItemGroup>
   <ItemGroup>
