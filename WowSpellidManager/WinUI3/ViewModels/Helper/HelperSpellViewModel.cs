@@ -14,7 +14,7 @@ namespace WowSpellidManager.WinUI3.ViewModels.Helper
         public void AddSpell(string aSpellName, string aSpellID, string aSpellDescription, object aClass, object aSpecialization)
         {
             fDataOperationProvider.SpellOperator.AddSpell(new Spell(aSpellName, aSpellDescription, 
-                Convert.ToInt64(aSpellID)), ((WowClassViewModel)aClass).WowClass, ((SpecializationViewModel)aSpecialization).Specialization);
+                aSpellID), ((WowClassViewModel)aClass).WowClass, ((SpecializationViewModel)aSpecialization).Specialization);
         }
 
         public void RemoveSpell(object aSpecialization, object aSpell)

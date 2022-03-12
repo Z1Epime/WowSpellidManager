@@ -10,7 +10,7 @@ namespace WowSpellidManager.WinUI3.ViewModels.Validators.Checkers
     public class SpellChecker
     {
         private Checker fChecker;
-
+        // TODO: add constants for max values etc. here
         public SpellChecker()
         {
             fChecker = new Checker();
@@ -58,6 +58,9 @@ namespace WowSpellidManager.WinUI3.ViewModels.Validators.Checkers
             if (error != null) return error;
 
             error = fChecker.OnlyNumbers(aID, "spell id");
+            if (error != null) return error;
+
+            error = fChecker.MaxCharacters(aID, 12, "spell id");
             if (error != null) return error;
 
             return null;
