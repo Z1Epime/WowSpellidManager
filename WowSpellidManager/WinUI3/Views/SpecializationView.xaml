@@ -64,7 +64,7 @@
                 <AppBarSeparator></AppBarSeparator>
 
                 <StackPanel>
-                    <TextBlock Text="Description:" 
+                    <TextBlock x:Uid="DescriptionDetails"
                                Style="{StaticResource BaseTextBlockStyle}"></TextBlock>
                     <TextBlock Text="{Binding Description}"></TextBlock>
                 </StackPanel>
@@ -73,7 +73,7 @@
 
                 <StackPanel Orientation="Horizontal">
                     <TextBlock x:Name="SpellIDText"
-                               Text="Spell ID:" 
+                               x:Uid="SpellidDetails"
                                Style="{StaticResource BaseTextBlockStyle}"
                                VerticalAlignment="Center">
                     </TextBlock>
@@ -88,7 +88,7 @@
                     <AppBarSeparator Style="{StaticResource horizontalSeparatorTiny}"></AppBarSeparator>
 
                     <Button x:Name="CopySpellIdButton"
-                            Content="Copy"
+                            x:Uid="Copy"
                             Click="CopySpellIdButton_Click"
                             Style="{StaticResource AccentButtonStyle}"
                             VerticalAlignment="Center">
@@ -97,7 +97,9 @@
                 <AppBarSeparator Height="20"></AppBarSeparator>
                 <Button Style="{StaticResource AccentButtonStyle}" 
                         Background="Red" 
-                        Click="RemoveButton_Click">Remove</Button>
+                        Click="RemoveButton_Click"
+                        x:Uid="Remove">
+                </Button>
             </StackPanel>
 
         </RelativePanel>

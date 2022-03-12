@@ -14,17 +14,17 @@ namespace WowSpellidManager.WinUI3.ViewModels.Helper
         public void AddSpell(string aSpellName, string aSpellID, string aSpellDescription, object aClass, object aSpecialization)
         {
             fDataOperationProvider.SpellOperator.AddSpell(new Spell(aSpellName, aSpellDescription, 
-                Convert.ToInt64(aSpellID)), (WowClass) aClass, (Specialization) aSpecialization);
+                Convert.ToInt64(aSpellID)), ((WowClassViewModel)aClass).WowClass, ((SpecializationViewModel)aSpecialization).Specialization);
         }
 
         public void RemoveSpell(object aSpecialization, object aSpell)
         {
-            (aSpecialization as Specialization).Spells.Remove(aSpell as Spell);
+            ((SpecializationViewModel)aSpecialization).Spells.Remove(aSpell as Spell);
         }
         
         public Spell GetLastSpellOfSpecialization(object aSpecialization)
         {
-            return (aSpecialization as Specialization).Spells.LastOrDefault();
+            return ((SpecializationViewModel)aSpecialization).Spells.LastOrDefault();
         }
     }
 }

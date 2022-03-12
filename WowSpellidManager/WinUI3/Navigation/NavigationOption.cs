@@ -16,6 +16,10 @@ namespace WowSpellidManager.WinUI3.Navigation
         /// </summary>
         public string Name { get; set; }
         /// <summary>
+        /// The name of the NavigationOption visible in the UI
+        /// </summary>
+        public string DisplayName { get; set; }
+        /// <summary>
         /// The Glyph (a symbol) of the NavigationOption
         /// </summary>
         public Symbol Glyph { get; set; }
@@ -24,14 +28,14 @@ namespace WowSpellidManager.WinUI3.Navigation
 
 
         #region Constructors
-
         /// <summary>
         /// Constructor
         /// </summary>
-        public NavigationOption(string aName, Symbol aGlyph)
+        public NavigationOption(string aName, string aDisplayName,  Symbol aGlyph)
         {
             Name = aName;
             Glyph = aGlyph;
+            DisplayName = aDisplayName;
         }
 
         #endregion

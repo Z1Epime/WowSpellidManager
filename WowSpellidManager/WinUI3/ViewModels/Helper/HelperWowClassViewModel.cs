@@ -11,16 +11,41 @@ namespace WowSpellidManager.WinUI3.ViewModels.Helper
 {
     public class HelperWowClassViewModel : ViewModel
     {
-        public ObservableCollection<WowClass> GetWowClasses()
-        {
-            return fDataOperationProvider.WowClassOperator.GetWowClasses();
+        public ObservableCollection<WowClassViewModel> GetWowClasses()
+        {    
+            var wowClasses = new ObservableCollection<WowClassViewModel>();
+
+            foreach(var @class in fDataOperationProvider.WowClassOperator.GetWowClasses())
+            {
+                wowClasses.Add(new WowClassViewModel(@class));
+
+                var specquery = from spec in @class.Specializations
+                                select spec;
+                var specializationVMs = new ObservableCollection<SpecializationViewModel>();
+
+                foreach (var specialization in specquery)
+                {
+                    specializationVMs.Add(new SpecializationViewModel(specialization));
+
+                    var spellquery = from spellq in specialization.Spells
+                                     select spellq;
+                    var spellVMs = new ObservableCollection<SpellViewModel>();
+
+                    foreach (var spell in spellquery)
+                    {
+                        spellVMs.Add(new SpellViewModel(spell));
+                    }
+                }
+            }
+
+            return wowClasses;
         }
 
         public void AddWowClass(string aDesignation, string aDescription)
         {
             fDataOperationProvider.WowClassOperator.AddWowClass(new WowClass(aDesignation, aDescription));
         }
-        
+
         public void SaveWowClasses()
         {
             fDataOperationProvider.SpellOperator.Save();
