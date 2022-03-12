@@ -32,14 +32,14 @@ namespace WowSpellidManager.Infrastructure.CRUD
             {
                 if (specialization.Designation.Equals("Retribution"))
                 {
-                    specialization.Spells.Add(new Spell("Hammer of Justice", "STUNLOCK", 35976));
-                    specialization.Spells.Add(new Spell("Avenging Wrath", "BIG DAM", 437326));
-                    specialization.Spells.Add(new Spell("Blinding Light", "Area of effect desorient", 553736));
+                    specialization.Spells.Add(new Spell("Hammer of Justice", "STUNLOCK", "35976"));
+                    specialization.Spells.Add(new Spell("Avenging Wrath", "BIG DAM", "437326"));
+                    specialization.Spells.Add(new Spell("Blinding Light", "Area of effect desorient", "553736"));
                 }
 
                 if (specialization.Designation.Equals("Holy"))
                 {
-                    specialization.Spells.Add(new Spell("Word of Glory", "heal", 33625));
+                    specialization.Spells.Add(new Spell("Word of Glory", "heal", "33625"));
                 }
 
             }
@@ -53,15 +53,15 @@ namespace WowSpellidManager.Infrastructure.CRUD
             {
                 if (specialization.Designation.Equals("Arms"))
                 {
-                    specialization.Spells.Add(new Spell("Stormbolt", "30 yard 4 sec stun", 99024));
-                    specialization.Spells.Add(new Spell("Die by the sword", "parry, 40% dmg reduce", 2454200));
-                    specialization.Spells.Add(new Spell("Avatar", "DAM INCREASE", 32134));
+                    specialization.Spells.Add(new Spell("Stormbolt", "30 yard 4 sec stun", "99024"));
+                    specialization.Spells.Add(new Spell("Die by the sword", "parry, 40% dmg reduce", "2454200"));
+                    specialization.Spells.Add(new Spell("Avatar", "DAM INCREASE", "32134"));
                 }
 
                 if (specialization.Designation.Equals("Protection"))
                 {
-                    specialization.Spells.Add(new Spell("Shield Wall", "big deff", 47379));
-                    specialization.Spells.Add(new Spell("Shockwave", "aoe stun", 5446191));
+                    specialization.Spells.Add(new Spell("Shield Wall", "big deff", "47379"));
+                    specialization.Spells.Add(new Spell("Shockwave", "aoe stun", "5446191"));
                 }
 
             }
