@@ -12,7 +12,7 @@ namespace WowSpellidManager.Domain.Models
     /// </summary>
     public class Spell : Entity
     {
-        private long fID;
+        private string fID;
         private string fDescription;
         public string Description
         {
@@ -26,7 +26,7 @@ namespace WowSpellidManager.Domain.Models
                 fDescription = value; 
             }
         }
-        public long ID
+        public string ID
         { 
             get 
             { 
@@ -34,18 +34,18 @@ namespace WowSpellidManager.Domain.Models
             }            
             set 
             {
-                ArgumentGuard.CheckID(value.ToString());
+                ArgumentGuard.CheckID(value);
                 fID = value; 
             }
         }
 
-        public Spell(Guid aGuid, string aDesignation, string aDescription, long aID) : base(aGuid, aDesignation)
+        public Spell(Guid aGuid, string aDesignation, string aDescription, string aID) : base(aGuid, aDesignation)
         {
             Description = aDescription;
             ID = aID;
         }
 
-        public Spell(string aDesignation, string aDescription, long aID) : base(aDesignation)
+        public Spell(string aDesignation, string aDescription, string aID) : base(aDesignation)
         {
             Description = aDescription;
             ID = aID;
