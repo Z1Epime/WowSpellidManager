@@ -14,6 +14,7 @@ namespace WowSpellidManager.WinUI3.Navigation
     {
         #region Fields
         private static ObservableCollection<NavigationOption> fNavigationOptionsMain;
+        private static ObservableCollection<NavigationOption> fFooterNavigationOptionsMain;
 
         private static NavigationOption fHome;
         private static NavigationOption fClasses;
@@ -41,6 +42,25 @@ namespace WowSpellidManager.WinUI3.Navigation
                 }
             }
         }
+
+        public static ObservableCollection<NavigationOption> FooterNavigationOptionsMain
+        {
+            get
+            {
+                if (fFooterNavigationOptionsMain == null)
+                {
+                    fFooterNavigationOptionsMain = new ObservableCollection<NavigationOption>();
+                }
+                return fFooterNavigationOptionsMain;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    fFooterNavigationOptionsMain = value;
+                }
+            }
+        }
         #endregion
 
 
@@ -56,12 +76,24 @@ namespace WowSpellidManager.WinUI3.Navigation
             fHome = new NavigationOption("Home", resourceLoader.GetString("Home"), Symbol.Home);
             fClasses = new NavigationOption("Classes", resourceLoader.GetString("Classes"), Symbol.Library);
             fSettings = new NavigationOption("Settings", resourceLoader.GetString("Settings"), Symbol.Setting);
-            fQuit = new NavigationOption("Quit", resourceLoader.GetString("Quit"), Symbol.Cancel);
 
             NavigationOptionsMain.Add(fHome);
             NavigationOptionsMain.Add(fClasses);
             NavigationOptionsMain.Add(fSettings);
-            NavigationOptionsMain.Add(fQuit);
+        }
+
+        public static void LoadFooterNavigationLists()
+        {
+            FooterNavigationOptionsMain.Clear();
+
+            //if (Windows.UI.Core.CoreWindow.GetForCurrentThread() != null)
+
+            // TODO: experimental ?
+            ResourceLoader resourceLoader = ResourceLoader.GetForViewIndependentUse();
+
+            fQuit = new NavigationOption("Quit", resourceLoader.GetString("Quit"), Symbol.Cancel);
+
+            FooterNavigationOptionsMain.Add(fQuit);
         }
     }
 }
