@@ -65,6 +65,12 @@ namespace WowSpellidManager.WinUI3.Views
         {
             fHelperSpellViewModel.RemoveSpell(fSpecialization, spellListView.SelectedItem);
             spellListView.SelectedItem = fHelperSpellViewModel.GetLastSpellOfSpecialization(fSpecialization);
+
+            if (!fHelperSpellViewModel.HasSpells(fSpecialization)) 
+            {
+                spellDetailsStackPanel.Visibility = Visibility.Collapsed;
+                spellDetailsHeaderStackPanel.Visibility = Visibility.Collapsed;
+            } 
         }
     }
 }

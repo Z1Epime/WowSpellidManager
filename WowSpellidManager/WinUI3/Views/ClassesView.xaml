@@ -14,10 +14,10 @@
                     RelativePanel.AlignLeftWithPanel="True" 
                     RelativePanel.AlignTopWithPanel="True">
 
-            <AppBarSeparator></AppBarSeparator>
+            <AppBarSeparator Style="{StaticResource InvisibleSeparator}"></AppBarSeparator>
 
             <ListView x:Name="classListView"
-                  SelectionChanged="classListView_SelectionChanged"
+                      SelectionChanged="classListView_SelectionChanged"
                       MaxHeight="550"
                       MinHeight="350"
                       ItemsSource="{Binding}">
@@ -29,7 +29,7 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-            <AppBarSeparator></AppBarSeparator>
+            <AppBarSeparator Style="{StaticResource InvisibleSeparator}"></AppBarSeparator>
 
         </StackPanel>
 
