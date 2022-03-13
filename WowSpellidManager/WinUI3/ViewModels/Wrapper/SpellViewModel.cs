@@ -27,7 +27,7 @@ namespace WowSpellidManager.WinUI3.ViewModels.Wrapper
                 Spell.Description = value;
             }
         }
-        public long ID
+        public string ID
         {
             get
             {

@@ -29,7 +29,7 @@ namespace WowSpellidManager.Domain.Exceptions
 
         public static void CheckID(string aID)
         {
-            if(!Int32.TryParse(aID, out _))
+            if(!Int64.TryParse(aID, out _))
             {
                 throw new SpellIDNotValidException(nameof(aID));
             }
