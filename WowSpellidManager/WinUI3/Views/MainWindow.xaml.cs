@@ -34,6 +34,9 @@ namespace WowSpellidManager.WinUI3.Views
         {
             this.InitializeComponent();
             NavigationLists.LoadNavigationLists();
+            NavigationLists.LoadFooterNavigationLists();
+
+            mainNavigationView.FooterMenuItemsSource = NavigationLists.FooterNavigationOptionsMain;
             mainNavigationView.MenuItemsSource = NavigationLists.NavigationOptionsMain;
             mainNavigationView.SelectedItem = NavigationLists.NavigationOptionsMain.FirstOrDefault();
         }
