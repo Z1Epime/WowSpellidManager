@@ -5,17 +5,27 @@
 
     <Style x:Name="width50Separator" TargetType="AppBarSeparator">
         <Setter Property="Width" Value="50"></Setter>
+        <Setter Property="Background" Value="Transparent"></Setter>
+        <Setter Property="Foreground" Value="Transparent"></Setter>
     </Style>
 
     <Style x:Name="horizontalSettingsSeparator" TargetType="AppBarSeparator">
         <Setter Property="Width" Value="100"></Setter>
         <Setter Property="Height" Value="0"></Setter>
+        <Setter Property="Background" Value="Transparent"></Setter>
+        <Setter Property="Foreground" Value="Transparent"></Setter>
     </Style>
 
     <Style x:Name="horizontalSeparatorTiny" TargetType="AppBarSeparator">
         <Setter Property="Width" Value="15"></Setter>
         <Setter Property="Height" Value="1"></Setter>
         <Setter Property="Background" Value="Transparent"></Setter>
+        <Setter Property="Foreground" Value="Transparent"></Setter>
+    </Style>
+
+    <Style x:Name="InvisibleSeparator" TargetType="AppBarSeparator">
+        <Setter Property="Background" Value="Transparent"></Setter>
+        <Setter Property="Foreground" Value="Transparent"></Setter>
     </Style>
 
 </ResourceDictionary>
