@@ -22,32 +22,18 @@
     <None Remove="resources\dictionaries\listViewItems.xaml" />
     <None Remove="resources\dictionaries\listViews.xaml" />
     <None Remove="resources\dictionaries\separators.xaml" />
-    <None Remove="WinUI3\resources\dictionaries\buttons.xaml" />
     <None Remove="resources\dictionaries\buttons.xaml" />
     <None Remove="resources\dictionaries\textboxes.xaml" />
-    <None Remove="WinUI3\ViewModels\resources\Strings\Classes\de-DE\Resources.resw" />
-    <None Remove="WinUI3\ViewModels\resources\Strings\Classes\en-US\Resources.resw" />
-    <None Remove="WinUI3\ViewModels\resources\Strings\Specializations\de-DE\Resources.resw" />
-    <None Remove="WinUI3\ViewModels\resources\Strings\Specializations\en-US\Resources.resw" />
-    <None Remove="WinUI3\Views\ClassesView.xaml" />
-    <None Remove="WinUI3\Views\Home.resw" />
-    <None Remove="WinUI3\Views\HomeView.xaml" />
-    <None Remove="WinUI3\Views\resources\Strings\App\en-US\Resources.resw" />
-    <None Remove="WinUI3\Views\resources\Strings\Home\de-DE\Resources.resw" />
-    <None Remove="WinUI3\Views\resources\Strings\Classes\de-DE\Resources.resw" />
-    <None Remove="WinUI3\Views\resources\Strings\Classes\en-US\Resources.resw" />
-    <None Remove="WinUI3\Views\resources\Strings\Settings\de-DE\Resources.resw" />
-    <None Remove="WinUI3\Views\resources\Strings\Settings\en-US\Resources.resw" />
-    <None Remove="WinUI3\Views\resources\Strings\MainNavigation\de-DE\Resources.resw" />
-    <None Remove="WinUI3\Views\resources\Strings\MainNavigation\en-US\Resources.resw" />
-    <None Remove="WinUI3\Views\SpecializationNavigationViewContentPage.xaml" />
+    <None Remove="ViewModels\resources\Strings\Classes\de-DE\Resources.resw" />
+    <None Remove="ViewModels\resources\Strings\Classes\en-US\Resources.resw" />
+    <None Remove="ViewModels\resources\Strings\Specializations\de-DE\Resources.resw" />
+    <None Remove="ViewModels\resources\Strings\Specializations\en-US\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
-    <Page Remove="WinUI3\App.xaml" />
-    <Page Remove="WinUI3\Views\App.xaml" />
+    <Page Remove="Views\App.xaml" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="WinUI3\Views\App.xaml" />
+    <ApplicationDefinition Include="Views\App.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -56,6 +42,11 @@
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22000.194" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <Manifest Include="$(ApplicationManifest)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WowSpellidManager.Domain\WowSpellidManager.Domain.csproj" />
+    <ProjectReference Include="..\WowSpellidManager.Infrastructure\WowSpellidManager.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -75,30 +66,6 @@
 
   <ItemGroup>
     <Page Update="resources\dictionaries\listViews.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Page Update="WinUI3\Views\HomeView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Page Update="WinUI3\Views\ClassesView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Page Update="WinUI3\Views\SettingsView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Page Update="WinUI3\Views\SpecializationNavigationViewContentPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>

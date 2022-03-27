@@ -1,18 +1,20 @@
 {
   "runtimeTarget": {
-    "name": ".NETCoreApp,Version=v6.0/win10-arm64",
+    "name": ".NETCoreApp,Version=v6.0/win10-x86",
     "signature": ""
   },
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {},
-    ".NETCoreApp,Version=v6.0/win10-arm64": {
+    ".NETCoreApp,Version=v6.0/win10-x86": {
       "WowSpellidManager/1.0.0": {
         "dependencies": {
           "Microsoft.Toolkit.Mvvm": "7.1.2",
           "Microsoft.Windows.SDK.BuildTools": "10.0.22000.194",
           "Microsoft.WindowsAppSDK": "1.0.0",
           "Newtonsoft.Json": "13.0.1",
+          "WowSpellidManager.Domain": "1.0.0",
+          "WowSpellidManager.Infrastructure": "1.0.0",
           "runtimepack.Microsoft.Windows.SDK.NET.Ref": "10.0.19041.23"
         },
         "runtime": {
@@ -79,7 +81,7 @@
           }
         },
         "native": {
-          "runtimes/win10-arm64/native/Microsoft.WindowsAppRuntime.Bootstrap.dll": {
+          "runtimes/win10-x86/native/Microsoft.WindowsAppRuntime.Bootstrap.dll": {
             "fileVersion": "0.0.0.0"
           }
         }
@@ -90,6 +92,20 @@
             "assemblyVersion": "13.0.0.0",
             "fileVersion": "13.0.1.25517"
           }
+        }
+      },
+      "WowSpellidManager.Domain/1.0.0": {
+        "runtime": {
+          "WowSpellidManager.Domain.dll": {}
+        }
+      },
+      "WowSpellidManager.Infrastructure/1.0.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1",
+          "WowSpellidManager.Domain": "1.0.0"
+        },
+        "runtime": {
+          "WowSpellidManager.Infrastructure.dll": {}
         }
       }
     }
@@ -132,6 +148,16 @@
       "sha512": "sha512-ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
       "path": "newtonsoft.json/13.0.1",
       "hashPath": "newtonsoft.json.13.0.1.nupkg.sha512"
+    },
+    "WowSpellidManager.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "WowSpellidManager.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

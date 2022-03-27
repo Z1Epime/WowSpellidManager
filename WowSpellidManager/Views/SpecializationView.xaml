@@ -1,0 +1,107 @@
+﻿<Page
+    x:Class="WowSpellidManager.Views.SpecializationView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WowSpellidManager.WinUI3.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <StackPanel Orientation="Horizontal">
+
+        <StackPanel x:Name="spellListStackPanel">
+            <ListView x:Name="spellListView"
+                      ItemsSource="{Binding Spells}"
+                      SelectionChanged="spellListView_SelectionChanged"
+                      Width="300"
+                      MaxHeight="250"
+                      >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ContentControl Content="{Binding}" 
+                                            ContentTemplate="{StaticResource spellListViewItem}"></ContentControl>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+
+        <AppBarSeparator Style="{StaticResource width50Separator}"></AppBarSeparator>
+
+        <RelativePanel>
+            <TextBlock x:Name="classTitleTextBlock"
+                       Text="{Binding Designation}" 
+                       Style="{StaticResource HeaderTextBlockStyle}"
+                       RelativePanel.AlignTopWithPanel="True"></TextBlock>
+            <StackPanel x:Name="spellDetailsHeaderStackPanel"  RelativePanel.Below="classTitleTextBlock">
+                <StackPanel>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock x:Name="minorClassHeader"
+                               Style="{StaticResource BodyTextBlockStyle}"
+                               Grid.Column="0" 
+                               Grid.Row="0">
+                            <Run Text="{Binding Designation}"></Run>
+                            <Run Text=", "></Run>
+                        </TextBlock>
+                        <TextBlock x:Name="minorSpecializationHeader"
+                               Style="{StaticResource BodyTextBlockStyle}" 
+                               Text="{Binding Designation}" 
+                               Grid.Column="1" 
+                               Grid.Row="0">
+                        </TextBlock>
+                    </Grid>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel x:Name="spellDetailsStackPanel" RelativePanel.Below="spellDetailsHeaderStackPanel">
+                <AppBarSeparator></AppBarSeparator>
+
+                <StackPanel>
+                    <TextBlock x:Uid="DescriptionDetails"
+                               Style="{StaticResource BaseTextBlockStyle}"></TextBlock>
+                    <TextBlock Text="{Binding Description}"></TextBlock>
+                </StackPanel>
+
+                <AppBarSeparator></AppBarSeparator>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:Name="SpellIDText"
+                               x:Uid="SpellidDetails"
+                               Style="{StaticResource BaseTextBlockStyle}"
+                               VerticalAlignment="Center">
+                    </TextBlock>
+
+                    <AppBarSeparator Style="{StaticResource horizontalSeparatorTiny}"></AppBarSeparator>
+                    
+                    <TextBlock x:Name="SpellIDTextBinded"
+                               Text="{Binding ID}"
+                               VerticalAlignment="Center">
+                    </TextBlock>
+
+                    <AppBarSeparator Style="{StaticResource horizontalSeparatorTiny}"></AppBarSeparator>
+
+                    <Button x:Name="CopySpellIdButton"
+                            x:Uid="Copy"
+                            Click="CopySpellIdButton_Click"
+                            Style="{StaticResource AccentButtonStyle}"
+                            VerticalAlignment="Center">
+                    </Button>
+                </StackPanel>
+                <AppBarSeparator Height="20"></AppBarSeparator>
+                <Button Style="{StaticResource AccentButtonStyle}" 
+                        Background="Red" 
+                        Click="RemoveButton_Click"
+                        x:Uid="Remove">
+                </Button>
+            </StackPanel>
+
+        </RelativePanel>
+    </StackPanel>
+</Page>
