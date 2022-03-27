@@ -130,7 +130,7 @@
     <value>Hello!</value>
   </data>
   <data name="Version.Text" xml:space="preserve">
-    <value>v0.0.5 (Alpha)</value>
+    <value>v0.0.6 (Alpha)</value>
     <comment>Only available in english</comment>
   </data>
   <data name="Welcome.Text" xml:space="preserve">
