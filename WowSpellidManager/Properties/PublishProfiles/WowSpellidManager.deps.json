@@ -1,12 +1,12 @@
 {
   "runtimeTarget": {
-    "name": ".NETCoreApp,Version=v6.0/win10-x86",
+    "name": ".NETCoreApp,Version=v6.0/win10-arm64",
     "signature": ""
   },
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {},
-    ".NETCoreApp,Version=v6.0/win10-x86": {
+    ".NETCoreApp,Version=v6.0/win10-arm64": {
       "WowSpellidManager/1.0.0": {
         "dependencies": {
           "Microsoft.Toolkit.Mvvm": "7.1.2",
@@ -81,7 +81,7 @@
           }
         },
         "native": {
-          "runtimes/win10-x86/native/Microsoft.WindowsAppRuntime.Bootstrap.dll": {
+          "runtimes/win10-arm64/native/Microsoft.WindowsAppRuntime.Bootstrap.dll": {
             "fileVersion": "0.0.0.0"
           }
         }
