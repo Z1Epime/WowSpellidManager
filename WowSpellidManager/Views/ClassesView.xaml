@@ -1,0 +1,144 @@
+﻿<Page
+    x:Class="WowSpellidManager.Views.ClassesView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WowSpellidManager.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:viewModel="clr-namespace:WowSpellidManager.ViewModels.Wrapper">
+
+    <RelativePanel>
+
+        <StackPanel x:Name="ClassListStackPanel" 
+                    RelativePanel.AlignLeftWithPanel="True" 
+                    RelativePanel.AlignTopWithPanel="True">
+
+            <AppBarSeparator Style="{StaticResource InvisibleSeparator}"></AppBarSeparator>
+
+            <ListView x:Name="classListView"
+                      SelectionChanged="classListView_SelectionChanged"
+                      MaxHeight="550"
+                      MinHeight="350"
+                      ItemsSource="{Binding}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ContentControl Content="{Binding}" 
+                                            ContentTemplate="{StaticResource classListViewItem}"></ContentControl>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <AppBarSeparator Style="{StaticResource InvisibleSeparator}"></AppBarSeparator>
+
+        </StackPanel>
+
+        <AppBarSeparator x:Name="WidthSeparator" 
+                         Style="{StaticResource width50Separator}" 
+                         RelativePanel.RightOf="ClassListStackPanel"></AppBarSeparator>
+
+        <StackPanel x:Name="SpecializationViewStackPanel" RelativePanel.RightOf="WidthSeparator">
+            <NavigationView x:Name="specializationView" 
+                        PaneDisplayMode="Top"
+                        IsSettingsVisible="False"
+                        IsBackButtonVisible="Collapsed"
+                        MenuItemsSource="{Binding Specializations}"
+                        MenuItemTemplate="{StaticResource navigationViewMenuItemClasses}"
+                        SelectionChanged="specializationView_SelectionChanged"
+                        
+                        VerticalAlignment="Top"
+                        >
+                <Frame x:Name="specializationFrame" ></Frame>
+            </NavigationView>
+        </StackPanel>
+
+        <StackPanel x:Name="AddSpellStackPanel" 
+                    RelativePanel.RightOf="ClassListStackPanel"
+                    RelativePanel.AlignBottomWithPanel="True"
+                    Margin="50,50,0,10">
+
+            <StackPanel>
+                <StackPanel.Resources>
+                    <Style TargetType="TextBox">
+                        <Setter Property="Width" Value="250"></Setter>
+                        <Setter Property="TextWrapping" Value="Wrap"></Setter>
+                    </Style>
+                </StackPanel.Resources>
+
+                <TextBlock x:Name="Title"
+                           x:Uid="AddSpell"
+                           Style="{StaticResource SubtitleTextBlockStyle}">
+                </TextBlock>
+
+                <AppBarSeparator></AppBarSeparator>
+
+                <RelativePanel>
+                    <TextBox x:Name="SpellAddNameTextBox"
+                         x:Uid="Name"
+                         KeyUp="SpellAddNameTextBox_KeyUp">
+                    </TextBox>
+                    <TextBlock x:Name="NameErrorTextBlock" 
+                               TextWrapping="WrapWholeWords" 
+                               MaxWidth="300" 
+                               Foreground="Red"
+                               RelativePanel.Below="SpellAddNameTextBox">
+                    </TextBlock>
+                </RelativePanel>
+
+                <!-->TODO: Add global ErrorTextBlock style <-->
+                <AppBarSeparator></AppBarSeparator>
+
+                <RelativePanel>
+                    <TextBox x:Name="SpellAddIDTextBox"
+                         x:Uid="ID"
+                         KeyUp="SpellAddIDTextBox_KeyUp"
+                         RelativePanel.AlignTopWithPanel="True">
+                    </TextBox>
+                    <TextBlock x:Name="IDErrorTextBlock" 
+                               TextWrapping="WrapWholeWords" 
+                               MaxWidth="300" 
+                               Foreground="Red"
+                               RelativePanel.Below="SpellAddIDTextBox">
+                    </TextBlock>
+                </RelativePanel>
+
+                <AppBarSeparator></AppBarSeparator>
+
+                <RelativePanel>
+                    <TextBox x:Name="SpellAddDescriptionTextBox"
+                             x:Uid="Description"
+                             KeyUp="SpellAddDescriptionTextBox_KeyUp"
+                             RelativePanel.AlignTopWithPanel="True">
+                    </TextBox>
+                    <TextBlock x:Name="DescriptionErrorTextBlock" 
+                               TextWrapping="WrapWholeWords" 
+                               MaxWidth="300" 
+                               Foreground="Red"
+                               RelativePanel.Below="SpellAddDescriptionTextBox">
+                    </TextBlock>
+                </RelativePanel>
+
+                <AppBarSeparator></AppBarSeparator>
+
+                <StackPanel>
+                    <Button x:Name="AddSpellButton" 
+                        Style="{StaticResource AccentButtonStyle}" 
+                        x:Uid="AddSpellButton"
+                        Click="AddSpellButton_Click">
+                    </Button>
+                </StackPanel>
+                
+            </StackPanel>
+        </StackPanel>
+
+        <Button x:Uid="Save"
+                x:Name="SAVE"
+                Style="{StaticResource AccentButtonStyle}"
+                Click="SAVE_Click"
+                RelativePanel.Below="ClassListStackPanel"
+                RelativePanel.AlignHorizontalCenterWith="ClassListStackPanel"
+                Margin="25,0,0,10"
+                Width="75">
+        </Button>
+    </RelativePanel>
+</Page>
