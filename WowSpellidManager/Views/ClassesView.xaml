@@ -14,7 +14,7 @@
                     RelativePanel.AlignLeftWithPanel="True" 
                     RelativePanel.AlignTopWithPanel="True">
 
-            <AppBarSeparator Style="{StaticResource InvisibleSeparator}"></AppBarSeparator>
+            <AppBarSeparator Style="{StaticResource InvisibleSeparator}" Height="10"></AppBarSeparator>
 
             <ListView x:Name="classListView"
                       SelectionChanged="classListView_SelectionChanged"
