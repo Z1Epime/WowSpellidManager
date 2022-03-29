@@ -58,6 +58,10 @@ namespace WowSpellidManager.Views
                 {
                     mainFrame.Content = new SettingsView();
                 }
+                else if (option.Name.Equals("About", StringComparison.OrdinalIgnoreCase))
+                {
+                    mainFrame.Content = new AboutView();
+                }
                 else if (option.Name.Equals("Quit", StringComparison.OrdinalIgnoreCase))
                 {
                     Application.Current.Exit();

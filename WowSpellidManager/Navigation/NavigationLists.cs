@@ -20,6 +20,7 @@ namespace WowSpellidManager.Navigation
         private static NavigationOption fClasses;
         private static NavigationOption fSettings;
         private static NavigationOption fQuit;
+        private static NavigationOption fAbout;
 
         #endregion
 
@@ -76,10 +77,12 @@ namespace WowSpellidManager.Navigation
             fHome = new NavigationOption("Home", resourceLoader.GetString("Home"), Symbol.Home);
             fClasses = new NavigationOption("Classes", resourceLoader.GetString("Classes"), Symbol.Library);
             fSettings = new NavigationOption("Settings", resourceLoader.GetString("Settings"), Symbol.Setting);
+            fAbout = new NavigationOption("About", resourceLoader.GetString("About"), Symbol.Account);
 
             NavigationOptionsMain.Add(fHome);
             NavigationOptionsMain.Add(fClasses);
             NavigationOptionsMain.Add(fSettings);
+            NavigationOptionsMain.Add(fAbout);
         }
 
         public static void LoadFooterNavigationLists()

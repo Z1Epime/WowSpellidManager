@@ -117,19 +117,32 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="About" xml:space="preserve">
-    <value>About</value>
+  <data name="AboutDisclaimer1.Text" xml:space="preserve">
+    <value>You are currently running an alpha version of the program, so don't be too surprised to see bugs / glitches.</value>
   </data>
-  <data name="Classes" xml:space="preserve">
-    <value>Classes</value>
+  <data name="AboutDisclaimer2.Text" xml:space="preserve">
+    <value>Feel free to send bug reports / feature requests at Discord Epi#3771 / wowspellidmanager@gmx.de</value>
   </data>
-  <data name="Home" xml:space="preserve">
-    <value>Home</value>
+  <data name="AboutVersion.Text" xml:space="preserve">
+    <value>v0.0.6 (Alpha)</value>
+    <comment>Only available in english</comment>
   </data>
-  <data name="Quit" xml:space="preserve">
-    <value>Quit</value>
+  <data name="AlphaInfo.Text" xml:space="preserve">
+    <value>Information regarding the programs state</value>
   </data>
-  <data name="Settings" xml:space="preserve">
-    <value>Settings</value>
+  <data name="CopyRight1.Text" xml:space="preserve">
+    <value> © 2022 Z1Epime all rights reserved</value>
+  </data>
+  <data name="CopyRight2.Text" xml:space="preserve">
+    <value>wowspellidmanager@gmx.de</value>
+  </data>
+  <data name="CopyRightHeader.Text" xml:space="preserve">
+    <value>Copyright</value>
+  </data>
+  <data name="VersionHeader.Text" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="VersionReleaseDate.Text" xml:space="preserve">
+    <value>March 27, 2022</value>
   </data>
 </root>

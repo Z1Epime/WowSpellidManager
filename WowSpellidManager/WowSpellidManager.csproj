@@ -24,11 +24,15 @@
     <None Remove="resources\dictionaries\listViews.xaml" />
     <None Remove="resources\dictionaries\separators.xaml" />
     <None Remove="resources\dictionaries\buttons.xaml" />
+    <None Remove="resources\dictionaries\stackpanel.xaml" />
     <None Remove="resources\dictionaries\textboxes.xaml" />
     <None Remove="ViewModels\resources\Strings\Classes\de-DE\Resources.resw" />
     <None Remove="ViewModels\resources\Strings\Classes\en-US\Resources.resw" />
     <None Remove="ViewModels\resources\Strings\Specializations\de-DE\Resources.resw" />
     <None Remove="ViewModels\resources\Strings\Specializations\en-US\Resources.resw" />
+    <None Remove="Views\AboutView.xaml" />
+    <None Remove="Views\resources\Strings\About\de-DE\Resources.resw" />
+    <None Remove="Views\resources\Strings\About\en-US\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
     <Page Remove="Views\App.xaml" />
@@ -63,6 +67,18 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="resources\dictionaries\stackpanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Views\AboutView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
 
   <ItemGroup>
