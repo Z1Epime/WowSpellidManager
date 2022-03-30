@@ -58,7 +58,7 @@
     <PackageCertificateThumbprint>D4DFADFD6E625017B425C072792E2F36318E129D</PackageCertificateThumbprint>
     <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
     <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
-    <AppxPackageDir>C:\WowSpellidManager\deploy\container\</AppxPackageDir>
+    <AppxPackageDir>D:\output\</AppxPackageDir>
     <GenerateTestArtifacts>True</GenerateTestArtifacts>
     <AppxBundlePlatforms>x86|x64|arm64</AppxBundlePlatforms>
     <AppInstallerUri>D:\output2</AppInstallerUri>
