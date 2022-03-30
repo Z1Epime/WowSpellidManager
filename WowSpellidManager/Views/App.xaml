@@ -13,6 +13,7 @@
                 <ResourceDictionary Source="/resources/dictionaries/separators.xaml"/>
                 <ResourceDictionary Source="/resources/dictionaries/listViews.xaml"/>
                 <ResourceDictionary Source="/resources/dictionaries/stackpanel.xaml"/>
+                <ResourceDictionary Source="/resources/dictionaries/textblocks.xaml"/>
                 <!-- Other merged dictionaries here -->
             </ResourceDictionary.MergedDictionaries>
             <!-- Other app resources here -->
