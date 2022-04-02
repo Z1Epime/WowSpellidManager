@@ -79,7 +79,7 @@ namespace WowSpellidManager.ViewModels.Validators.Checkers
         {
             if (!aStringToCheck.All(char.IsDigit))
             {
-                return new Error($"The {aInputName} has to contain letters only.");
+                return new Error($"The {aInputName} has to contain numbers only.");
             }
             return null;
         }
