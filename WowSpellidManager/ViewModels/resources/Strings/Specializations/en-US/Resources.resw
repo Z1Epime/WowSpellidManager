@@ -189,7 +189,7 @@
     <value>Outlaw</value>
   </data>
   <data name="Protection" xml:space="preserve">
-    <value>Protecion</value>
+    <value>Protection</value>
     <comment>Is used for Warrior and Paladin</comment>
   </data>
   <data name="Restoration" xml:space="preserve">

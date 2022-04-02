@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WowSpellidManager.Domain.Models;
+using WowSpellidManager.Infrastructure.Metadata;
 using WowSpellidManager.ViewModels;
 using WowSpellidManager.ViewModels.Wrapper;
 
@@ -18,7 +19,9 @@ namespace WowSpellidManager.ViewModels.Helper
 
             foreach (var @class in fDataOperationProvider.WowClassOperator.GetWowClasses())
             {
-                wowClasses.Add(new WowClassViewModel(@class));
+                var vm = new WowClassViewModel(@class);
+                vm.Image = WowClassImagePaths.GetPath(vm.Designation);
+                wowClasses.Add(vm);
 
                 var specquery = from spec in @class.Specializations
                                 select spec;

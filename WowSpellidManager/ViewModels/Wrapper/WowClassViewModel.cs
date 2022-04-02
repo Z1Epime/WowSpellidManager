@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media.Imaging;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -61,6 +63,8 @@ namespace WowSpellidManager.ViewModels.Wrapper
                 WowClass.Designation = value;
             }
         }
+
+        public string Image { get; set; }
 
         public WowClassViewModel(WowClass aWowClass)
         {

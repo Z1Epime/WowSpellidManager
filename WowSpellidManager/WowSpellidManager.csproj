@@ -12,11 +12,17 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="ViewModels\resources\Images\**" />
     <Compile Remove="WNIUI\**" />
+    <Content Remove="ViewModels\resources\Images\**" />
     <Content Remove="WNIUI\**" />
+    <EmbeddedResource Remove="ViewModels\resources\Images\**" />
     <EmbeddedResource Remove="WNIUI\**" />
+    <None Remove="ViewModels\resources\Images\**" />
     <None Remove="WNIUI\**" />
+    <Page Remove="ViewModels\resources\Images\**" />
     <Page Remove="WNIUI\**" />
+    <PRIResource Remove="ViewModels\resources\Images\**" />
     <PRIResource Remove="WNIUI\**" />
   </ItemGroup>
   <ItemGroup>

@@ -24,7 +24,7 @@ namespace WowSpellidManager.Domain.Models
         public const int SPECIALIZATIONSMIN = 2;
 
         /// <summary>
-        /// A constant integer to very that a WowClasses amount <br></br>
+        /// A constant integer to verify that a WowClasses amount <br></br>
         /// of specializations is not higher than a specific number.
         /// <para></para>
         /// In World of Warcraft the Demonhunter class currently has 2 specializations <br></br> 
