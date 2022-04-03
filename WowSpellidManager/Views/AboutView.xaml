@@ -40,7 +40,7 @@
                        Style="{StaticResource HeaderTextBlockStyle}"
                        >
             </TextBlock>
-            
+
             <TextBlock x:Name="VersionTextBlock"
                    TextWrapping="WrapWholeWords" 
                    Style="{StaticResource BodyTextBlockStyle}">
@@ -55,19 +55,34 @@
                     RelativePanel.AlignBottomWithPanel="True"
                     RelativePanel.AlignLeftWithPanel="True"
                     >
-            <TextBlock x:Name="CopyRightHeaderTextBlock"
+            <StackPanel Orientation="Vertical">
+                <TextBlock x:Name="CopyRightHeaderTextBlock"
                        x:Uid="CopyRightHeader"
                        Style="{StaticResource HeaderTextBlockStyle}"
                        >
-            </TextBlock>
-            <TextBlock x:Name="CopyRightTextBlock"
+                </TextBlock>
+                <TextBlock x:Name="CopyRightTextBlock"
                    TextWrapping="WrapWholeWords" 
                    Style="{StaticResource BodyTextBlockStyle}">
                 <Run x:Uid="CopyRight1"></Run>
-                <LineBreak></LineBreak>
-                <Run x:Uid="CopyRight2"></Run>
-            </TextBlock>
+                </TextBlock>
+            </StackPanel>
+
+            <AppBarSeparator Style="{StaticResource InvisibleSeparator}"></AppBarSeparator>
+            
+            <StackPanel x:Name="CopyRightWowStackPanel">
+                <TextBlock x:Name="WowCopyRightTextBlock"
+                       x:Uid="WowCopyRight"
+                       Style="{StaticResource BodyTextBlockStyle}"
+                       TextWrapping="WrapWholeWords"
+                       Width="450"
+                       >
+                </TextBlock>
+            </StackPanel>
+
         </StackPanel>
+
+        
 
     </RelativePanel>
 </Page>

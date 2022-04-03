@@ -141,4 +141,8 @@
   <data name="VersionReleaseDate.Text" xml:space="preserve">
     <value>27. März 2022</value>
   </data>
+  <data name="WowCopyRight.Text" xml:space="preserve">
+    <value>World of Warcraft®
+©2004 Blizzard Entertainment, Inc. Alle Rechte vorbehalten. World of Warcraft, Warcraft und Blizzard Entertainment sind Marken oder eingetragene Marken von Blizzard Entertainment, Inc. in den USA und/oder in anderen Ländern.</value>
+  </data>
 </root>

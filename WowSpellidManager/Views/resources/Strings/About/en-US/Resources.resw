@@ -131,10 +131,7 @@
     <value>Information regarding the programs state</value>
   </data>
   <data name="CopyRight1.Text" xml:space="preserve">
-    <value> © 2022 Z1Epime all rights reserved</value>
-  </data>
-  <data name="CopyRight2.Text" xml:space="preserve">
-    <value>wowspellidmanager@gmx.de</value>
+    <value>WowSpellidManager © 2022 Z1Epime all rights reserved</value>
   </data>
   <data name="CopyRightHeader.Text" xml:space="preserve">
     <value>Copyright</value>
@@ -144,5 +141,9 @@
   </data>
   <data name="VersionReleaseDate.Text" xml:space="preserve">
     <value>March 27, 2022</value>
+  </data>
+  <data name="WowCopyRight.Text" xml:space="preserve">
+    <value>World of Warcraft®
+©2004 Blizzard Entertainment, Inc. All rights reserved. World of Warcraft, Warcraft and Blizzard Entertainment are trademarks or registered trademarks of Blizzard Entertainment, Inc. in the U.S. and/or other countries.</value>
   </data>
 </root>
