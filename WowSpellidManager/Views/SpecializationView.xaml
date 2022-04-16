@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <StackPanel Orientation="Horizontal">
+    <StackPanel Orientation="Horizontal" Margin="0,0,20,10">
 
         <StackPanel x:Name="spellListStackPanel">
             <ListView x:Name="spellListView"
@@ -66,7 +66,9 @@
                 <StackPanel>
                     <TextBlock x:Uid="DescriptionDetails"
                                Style="{StaticResource BaseTextBlockStyle}"></TextBlock>
-                    <TextBlock Text="{Binding Description}"></TextBlock>
+                    <TextBlock Text="{Binding Description}"
+                               Style="{StaticResource DescriptionTextBlockStyle}">
+                    </TextBlock>
                 </StackPanel>
 
                 <AppBarSeparator></AppBarSeparator>

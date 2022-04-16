@@ -24,16 +24,16 @@ namespace WowSpellidManager.Infrastructure.CRUD
             DataHolder.DataProvider.DataParser.Save();
         }
         
-        public void AddSpell(Spell aSpell, WowClass aClass, Specialization aSpecialization)
+        public void AddSpell(Spell aSpell, Guid aClassGuid, Guid aSpecializationGuid)
         {
             // TODO: use linq here
             foreach(var wowClass in DataHolder.DataProvider.DataHolder.WowClasses)
             {
-                if(wowClass == aClass)
+                if(wowClass.Guid == aClassGuid)
                 {
                     foreach(var spec in wowClass.Specializations)
                     {
-                        if(spec == aSpecialization)
+                        if(spec.Guid == aSpecializationGuid)
                         {
                             spec.Spells.Add(aSpell);
                         }

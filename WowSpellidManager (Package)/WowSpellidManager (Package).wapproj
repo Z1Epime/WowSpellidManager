@@ -49,7 +49,7 @@
   <PropertyGroup>
     <ProjectGuid>c11b13b0-60e1-4fd5-8993-5e846622210a</ProjectGuid>
     <TargetPlatformVersion>10.0.19041.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <TargetPlatformMinVersion>10.0.19041.0</TargetPlatformMinVersion>
     <AssetTargetFallback>net6.0-windows$(TargetPlatformVersion);$(AssetTargetFallback)</AssetTargetFallback>
     <DefaultLanguage>en-US</DefaultLanguage>
     <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
@@ -58,7 +58,7 @@
     <PackageCertificateThumbprint>D4DFADFD6E625017B425C072792E2F36318E129D</PackageCertificateThumbprint>
     <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
     <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
-    <AppxPackageDir>C:\WowSpellidManager\deploy\container\</AppxPackageDir>
+    <AppxPackageDir>D:\output\</AppxPackageDir>
     <GenerateTestArtifacts>True</GenerateTestArtifacts>
     <AppxBundlePlatforms>x86|x64|arm64</AppxBundlePlatforms>
     <AppInstallerUri>D:\output2</AppInstallerUri>
@@ -107,12 +107,219 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\LockScreenLogo.scale-200.png" />
+    <Content Include="Images\myImages\LargeTile.scale-100.png" />
+    <Content Include="Images\myImages\LargeTile.scale-125.png" />
+    <Content Include="Images\myImages\LargeTile.scale-150.png" />
+    <Content Include="Images\myImages\LargeTile.scale-200.png" />
+    <Content Include="Images\myImages\LargeTile.scale-400.png" />
+    <Content Include="Images\myImages\SmallTile.scale-100.png" />
+    <Content Include="Images\myImages\SmallTile.scale-125.png" />
+    <Content Include="Images\myImages\SmallTile.scale-150.png" />
+    <Content Include="Images\myImages\SmallTile.scale-200.png" />
+    <Content Include="Images\myImages\SmallTile.scale-400.png" />
+    <Content Include="Images\myImages\SplashScreen.scale-100.png" />
+    <Content Include="Images\myImages\SplashScreen.scale-125.png" />
+    <Content Include="Images\myImages\SplashScreen.scale-150.png" />
+    <Content Include="Images\myImages\SplashScreen.scale-200.png" />
+    <Content Include="Images\myImages\SplashScreen.scale-400.png" />
+    <Content Include="Images\myImages\Square150x150Logo.scale-100.png" />
+    <Content Include="Images\myImages\Square150x150Logo.scale-125.png" />
+    <Content Include="Images\myImages\Square150x150Logo.scale-150.png" />
+    <Content Include="Images\myImages\Square150x150Logo.scale-200.png" />
+    <Content Include="Images\myImages\Square150x150Logo.scale-400.png" />
+    <Content Include="Images\myImages\Square44x44Logo.altform-lightunplated_targetsize-16.png" />
+    <Content Include="Images\myImages\Square44x44Logo.altform-lightunplated_targetsize-24.png" />
+    <Content Include="Images\myImages\Square44x44Logo.altform-lightunplated_targetsize-256.png" />
+    <Content Include="Images\myImages\Square44x44Logo.altform-lightunplated_targetsize-32.png" />
+    <Content Include="Images\myImages\Square44x44Logo.altform-lightunplated_targetsize-48.png" />
+    <Content Include="Images\myImages\Square44x44Logo.altform-unplated_targetsize-16.png" />
+    <Content Include="Images\myImages\Square44x44Logo.altform-unplated_targetsize-24.png" />
+    <Content Include="Images\myImages\Square44x44Logo.altform-unplated_targetsize-256.png" />
+    <Content Include="Images\myImages\Square44x44Logo.altform-unplated_targetsize-32.png" />
+    <Content Include="Images\myImages\Square44x44Logo.altform-unplated_targetsize-48.png" />
+    <Content Include="Images\myImages\Square44x44Logo.scale-100.png" />
+    <Content Include="Images\myImages\Square44x44Logo.scale-125.png" />
+    <Content Include="Images\myImages\Square44x44Logo.scale-150.png" />
+    <Content Include="Images\myImages\Square44x44Logo.scale-200.png" />
+    <Content Include="Images\myImages\Square44x44Logo.scale-400.png" />
+    <Content Include="Images\myImages\Square44x44Logo.targetsize-16.png" />
+    <Content Include="Images\myImages\Square44x44Logo.targetsize-24.png" />
+    <Content Include="Images\myImages\Square44x44Logo.targetsize-256.png" />
+    <Content Include="Images\myImages\Square44x44Logo.targetsize-32.png" />
+    <Content Include="Images\myImages\Square44x44Logo.targetsize-48.png" />
+    <Content Include="Images\myImages\StoreLogo.scale-100.png" />
+    <Content Include="Images\myImages\StoreLogo.scale-125.png" />
+    <Content Include="Images\myImages\StoreLogo.scale-150.png" />
+    <Content Include="Images\myImages\StoreLogo.scale-200.png" />
+    <Content Include="Images\myImages\StoreLogo.scale-400.png" />
+    <Content Include="Images\myImages\WideTile.scale-100.png" />
+    <Content Include="Images\myImages\WideTile.scale-125.png" />
+    <Content Include="Images\myImages\WideTile.scale-150.png" />
+    <Content Include="Images\myImages\WideTile.scale-200.png" />
+    <Content Include="Images\myImages\WideTile.scale-400.png" />
+    <Content Include="Images\specializations\deathknight\blood.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\specializations\deathknight\frost.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\specializations\deathknight\unholy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\specializations\druid\balance.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\specializations\druid\feral.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\specializations\druid\guardian.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\specializations\druid\restoration.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\specializations\demonhunter\havoc.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\specializations\hunter\beastmastery.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\specializations\hunter\marksman.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\specializations\hunter\survival.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\specializations\mage\arcane.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\specializations\mage\fire.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\specializations\mage\frost.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\specializations\monk\brewmaster.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\specializations\monk\mistweaver.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\specializations\monk\windwalker.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\specializations\paladin\holy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\specializations\paladin\protection.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\specializations\paladin\retribution.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\specializations\priest\discipline.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\specializations\priest\holy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\specializations\priest\shadow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\specializations\rogue\assasination.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\specializations\rogue\outlaw.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\specializations\rogue\subtlety.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\specializations\shaman\elemental.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\specializations\shaman\enhancement.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\specializations\shaman\restoration.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\specializations\demonhunter\vengeance.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\specializations\warlock\affliction.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\specializations\warlock\demonology.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\specializations\warlock\destruction.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\specializations\warrior\arms.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\specializations\warrior\fury.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\specializations\warrior\protection.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\SplashScreen.scale-200.png" />
     <Content Include="Images\Square150x150Logo.scale-200.png" />
     <Content Include="Images\Square44x44Logo.scale-200.png" />
     <Content Include="Images\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Images\StoreLogo.png" />
     <Content Include="Images\Wide310x150Logo.scale-200.png" />
+    <Content Include="Images\WowClasses\deathknight.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\WowClasses\demonhunter.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\WowClasses\druid.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\WowClasses\hunter.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\WowClasses\ico\bb7e457619d2db29d4ffe2b59ff4ea94.zip" />
+    <Content Include="Images\WowClasses\ico\deathknight.ico" />
+    <Content Include="Images\WowClasses\ico\demonhunter.ico" />
+    <Content Include="Images\WowClasses\ico\druid.ico" />
+    <Content Include="Images\WowClasses\ico\hunter.ico" />
+    <Content Include="Images\WowClasses\ico\mage.ico" />
+    <Content Include="Images\WowClasses\ico\monk.ico" />
+    <Content Include="Images\WowClasses\ico\paladin.ico" />
+    <Content Include="Images\WowClasses\ico\priest.ico" />
+    <Content Include="Images\WowClasses\ico\rogue.ico" />
+    <Content Include="Images\WowClasses\ico\shaman.ico" />
+    <Content Include="Images\WowClasses\ico\warlock.ico" />
+    <Content Include="Images\WowClasses\ico\warrior.ico" />
+    <Content Include="Images\WowClasses\mage.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\WowClasses\monk.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\WowClasses\paladin.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\WowClasses\priest.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\WowClasses\rogue.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\WowClasses\shaman.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\WowClasses\warlock.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\WowClasses\warrior.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="WowSpellidManager %28Package%29_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -129,6 +336,9 @@
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="[10.0.22000.194]">
       <IncludeAssets>build</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\WowClasses\png\" />
   </ItemGroup>
   <Import Project="$(WapProjPath)\Microsoft.DesktopBridge.targets" />
 </Project>

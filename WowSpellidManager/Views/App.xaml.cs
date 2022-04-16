@@ -56,15 +56,9 @@ namespace WowSpellidManager.Views
         /// <param name="args">Details about the launch request and process.</param>
         protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
-            
-
             m_window = new MainWindow();
             m_window.Activate();
-            // TODO: another reason to use string resources (.resx)
-            m_window.Title = new ResourceLoader().GetString("AppTitle");
-
-            
-            
+            m_window.Title = new ResourceLoader().GetString("AppTitle");       
         }
 
         private Window m_window;

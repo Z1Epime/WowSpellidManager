@@ -10,13 +10,20 @@
     <UseWinUI>true</UseWinUI>
     <Configurations>Debug;Release;Test</Configurations>
     <PlatformTarget>AnyCPU</PlatformTarget>
+    <SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="ViewModels\resources\Images\**" />
     <Compile Remove="WNIUI\**" />
+    <Content Remove="ViewModels\resources\Images\**" />
     <Content Remove="WNIUI\**" />
+    <EmbeddedResource Remove="ViewModels\resources\Images\**" />
     <EmbeddedResource Remove="WNIUI\**" />
+    <None Remove="ViewModels\resources\Images\**" />
     <None Remove="WNIUI\**" />
+    <Page Remove="ViewModels\resources\Images\**" />
     <Page Remove="WNIUI\**" />
+    <PRIResource Remove="ViewModels\resources\Images\**" />
     <PRIResource Remove="WNIUI\**" />
   </ItemGroup>
   <ItemGroup>
@@ -24,11 +31,16 @@
     <None Remove="resources\dictionaries\listViews.xaml" />
     <None Remove="resources\dictionaries\separators.xaml" />
     <None Remove="resources\dictionaries\buttons.xaml" />
+    <None Remove="resources\dictionaries\stackpanel.xaml" />
+    <None Remove="resources\dictionaries\textblocks.xaml" />
     <None Remove="resources\dictionaries\textboxes.xaml" />
     <None Remove="ViewModels\resources\Strings\Classes\de-DE\Resources.resw" />
     <None Remove="ViewModels\resources\Strings\Classes\en-US\Resources.resw" />
     <None Remove="ViewModels\resources\Strings\Specializations\de-DE\Resources.resw" />
     <None Remove="ViewModels\resources\Strings\Specializations\en-US\Resources.resw" />
+    <None Remove="Views\AboutView.xaml" />
+    <None Remove="Views\resources\Strings\About\de-DE\Resources.resw" />
+    <None Remove="Views\resources\Strings\About\en-US\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
     <Page Remove="Views\App.xaml" />
@@ -63,6 +75,24 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="resources\dictionaries\textblocks.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="resources\dictionaries\stackpanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Views\AboutView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
 
   <ItemGroup>

@@ -26,7 +26,7 @@ namespace WowSpellidManager.Views
     public sealed partial class SpecializationView : Page
     {
         private object fSpecialization;
-        private HelperSpellViewModel fHelperSpellViewModel = new HelperSpellViewModel();
+        private SpellHelper fHelperSpellViewModel = new SpellHelper();
         public SpecializationView(object aSpecialization, object aWowClass)
         {
             InitializeComponent();

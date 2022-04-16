@@ -28,4 +28,10 @@
         <Setter Property="Foreground" Value="Transparent"></Setter>
     </Style>
 
+    <Style x:Name="ClassImageSeparator" TargetType="AppBarSeparator">
+        <Setter Property="Background" Value="Transparent"></Setter>
+        <Setter Property="Foreground" Value="Transparent"></Setter>
+        <Setter Property="Width" Value="15"></Setter>
+    </Style>
+
 </ResourceDictionary>

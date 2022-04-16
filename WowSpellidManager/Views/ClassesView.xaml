@@ -10,17 +10,24 @@
 
     <RelativePanel>
 
-        <StackPanel x:Name="ClassListStackPanel" 
+        <Grid x:Name="ClassListStackGrid" 
                     RelativePanel.AlignLeftWithPanel="True" 
-                    RelativePanel.AlignTopWithPanel="True">
+                    RelativePanel.AlignTopWithPanel="True"
+                    >
+            <Grid.RowDefinitions>
+                <RowDefinition Height = "auto"/>
+                <RowDefinition Height = "*"/>
+                <RowDefinition Height = "auto"/>
+                <RowDefinition Height = "auto"/>
+            </Grid.RowDefinitions>
 
-            <AppBarSeparator Style="{StaticResource InvisibleSeparator}"></AppBarSeparator>
+            <AppBarSeparator Style="{StaticResource InvisibleSeparator}" Grid.Row="0" Height="10"></AppBarSeparator>
 
             <ListView x:Name="classListView"
                       SelectionChanged="classListView_SelectionChanged"
-                      MaxHeight="550"
-                      MinHeight="350"
-                      ItemsSource="{Binding}">
+                      Height="auto"           
+                      ItemsSource="{Binding}"
+                      Grid.Row="1">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ContentControl Content="{Binding}" 
@@ -29,13 +36,22 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-            <AppBarSeparator Style="{StaticResource InvisibleSeparator}"></AppBarSeparator>
+            <AppBarSeparator Style="{StaticResource InvisibleSeparator}" Grid.Row="2"></AppBarSeparator>
 
-        </StackPanel>
+            <Button x:Uid="Save"
+                x:Name="SAVE"
+                Style="{StaticResource AccentButtonStyle}"
+                Click="SAVE_Click"   
+                Margin="25,0,0,10"
+                Width="75"
+                Grid.Row="3">
+            </Button>
+
+        </Grid>
 
         <AppBarSeparator x:Name="WidthSeparator" 
                          Style="{StaticResource width50Separator}" 
-                         RelativePanel.RightOf="ClassListStackPanel"></AppBarSeparator>
+                         RelativePanel.RightOf="ClassListStackGrid"></AppBarSeparator>
 
         <StackPanel x:Name="SpecializationViewStackPanel" RelativePanel.RightOf="WidthSeparator">
             <NavigationView x:Name="specializationView" 
@@ -53,7 +69,7 @@
         </StackPanel>
 
         <StackPanel x:Name="AddSpellStackPanel" 
-                    RelativePanel.RightOf="ClassListStackPanel"
+                    RelativePanel.RightOf="ClassListStackGrid"
                     RelativePanel.AlignBottomWithPanel="True"
                     Margin="50,50,0,10">
 
@@ -131,14 +147,6 @@
             </StackPanel>
         </StackPanel>
 
-        <Button x:Uid="Save"
-                x:Name="SAVE"
-                Style="{StaticResource AccentButtonStyle}"
-                Click="SAVE_Click"
-                RelativePanel.Below="ClassListStackPanel"
-                RelativePanel.AlignHorizontalCenterWith="ClassListStackPanel"
-                Margin="25,0,0,10"
-                Width="75">
-        </Button>
+       
     </RelativePanel>
 </Page>

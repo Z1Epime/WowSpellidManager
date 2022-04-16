@@ -15,12 +15,13 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            
-            <SymbolIcon Symbol="Emoji2"
-                        Grid.Column="0"
-                        Grid.Row="0"></SymbolIcon>
 
-            <AppBarSeparator Grid.Column="1"></AppBarSeparator>
+            <Image Source="{Binding Image}"
+                        Grid.Column="0"
+                        Grid.Row="0" Width="45">
+            </Image>
+
+            <AppBarSeparator Grid.Column="1" Style="{StaticResource ClassImageSeparator}"></AppBarSeparator>
 
             <TextBlock Grid.Column="2" 
                        Grid.Row="0" 
@@ -32,12 +33,38 @@
                        VerticalAlignment="Center">
             </TextBlock>
         </Grid>
-        
+
         <!--</Border>-->
     </DataTemplate>
 
     <DataTemplate x:Name="navigationViewMenuItemClasses">
-        <TextBlock Text="{Binding Designation}"></TextBlock>
+        <!--<Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition ></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="{Binding Designation}" 
+                       Grid.Row="0" 
+                       Grid.Column="0">
+            </TextBlock>
+
+            <Image Source="{Binding Image}" Grid.Row="0" Grid.Column="1" Width="45"></Image>
+            
+        </Grid>-->
+        <StackPanel Orientation="Horizontal">
+
+            <Image Source="{Binding Image}" Width="35" ></Image>
+            <AppBarSeparator Foreground="Transparent" Background="Transparent"></AppBarSeparator>
+            <TextBlock Text="{Binding Designation}" >
+            </TextBlock>
+
+            
+        </StackPanel>
     </DataTemplate>
 
     <DataTemplate x:Name="navigationViewMenuItemMain">

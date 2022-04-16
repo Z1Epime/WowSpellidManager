@@ -15,57 +15,12 @@ namespace WowSpellidManager.ViewModels.Wrapper
 {
     public class SpellViewModel
     {
-        public Spell Spell { get; set; }
-        public string Description
-        {
-            get
-            {
-                return Spell.Description;
-            }
-            set
-            {
-                Spell.Description = value;
-            }
-        }
-        public string ID
-        {
-            get
-            {
-                return Spell.ID;
-            }
-            set
-            {
-                Spell.ID = value;
-            }
-        }
+        public string Description { get; set; }
 
-        public Guid Guid
-        {
-            get
-            {
-                return Spell.Guid;
-            }
-            set
-            {
-                Spell.Guid = value;
-            }
-        }
+        public string ID { get; set; }
 
-        public string Designation
-        {
-            get
-            {
-                return Spell.Designation;
-            }
-            set
-            {
-                Spell.Designation = value;
-            }
-        }
+        public Guid Guid { get; set; }
 
-        public SpellViewModel(Spell aSpell)
-        {
-            Spell = aSpell;
-        }
+        public string Designation { get; set; }
     }
 }
