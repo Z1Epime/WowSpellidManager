@@ -132,8 +132,8 @@
   <data name="Balance" xml:space="preserve">
     <value>Balance</value>
   </data>
-  <data name="Beastmaster" xml:space="preserve">
-    <value>Beastmaster</value>
+  <data name="Beast Mastery" xml:space="preserve">
+    <value>Beast Mastery</value>
   </data>
   <data name="Blood" xml:space="preserve">
     <value>Blood</value>
@@ -202,8 +202,8 @@
   <data name="Shadow" xml:space="preserve">
     <value>Shadow</value>
   </data>
-  <data name="Subtley" xml:space="preserve">
-    <value>Subtley</value>
+  <data name="Subtlety" xml:space="preserve">
+    <value>Subtlety</value>
   </data>
   <data name="Survival" xml:space="preserve">
     <value>Survival</value>

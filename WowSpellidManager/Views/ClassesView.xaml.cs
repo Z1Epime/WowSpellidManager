@@ -22,8 +22,8 @@ namespace WowSpellidManager.Views
 {
     public sealed partial class ClassesView : Page
     {
-        private HelperWowClassViewModel fHelperWowClassViewModel;
-        private HelperSpellViewModel fHelperSpellViewModel = new HelperSpellViewModel();
+        private WowClassHelper fHelperWowClassViewModel;
+        private SpellHelper fHelperSpellViewModel = new SpellHelper();
         private SpellChecker fSpellChecker;
 
         private Error fNameError;
@@ -33,7 +33,7 @@ namespace WowSpellidManager.Views
         public ClassesView()
         {
             this.InitializeComponent();
-            fHelperWowClassViewModel = new HelperWowClassViewModel();
+            fHelperWowClassViewModel = new WowClassHelper();
             fSpellChecker = new SpellChecker();
             classListView.DataContext = fHelperWowClassViewModel.GetWowClasses();
             AddSpellStackPanel.Visibility = Visibility.Collapsed;

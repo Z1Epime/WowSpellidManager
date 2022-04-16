@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WowSpellidManager.Domain.Metadata;
 
 namespace WowSpellidManager.Infrastructure.Metadata
 {
@@ -23,50 +24,50 @@ namespace WowSpellidManager.Infrastructure.Metadata
 
         public static string GetPath(string aWowClassDesignation)
         {
-            if(aWowClassDesignation.Equals("deathknight", StringComparison.OrdinalIgnoreCase))
+            if(aWowClassDesignation.Equals(WowNames.DEATHKNIGHT, StringComparison.OrdinalIgnoreCase))
             {
                 return Deathknight;
-            } else if(aWowClassDesignation.Equals("demonhunter", StringComparison.OrdinalIgnoreCase))
+            } else if(aWowClassDesignation.Equals(WowNames.DEMONHUNTER, StringComparison.OrdinalIgnoreCase))
             {
                 return DemonHunter;
             }
-            else if (aWowClassDesignation.Equals("druid", StringComparison.OrdinalIgnoreCase))
+            else if (aWowClassDesignation.Equals(WowNames.DRUID, StringComparison.OrdinalIgnoreCase))
             {
                 return Druid;
             }
-            else if (aWowClassDesignation.Equals("hunter", StringComparison.OrdinalIgnoreCase))
+            else if (aWowClassDesignation.Equals(WowNames.HUNTER, StringComparison.OrdinalIgnoreCase))
             {
                 return Hunter;
             }
-            else if (aWowClassDesignation.Equals("mage", StringComparison.OrdinalIgnoreCase))
+            else if (aWowClassDesignation.Equals(WowNames.MAGE, StringComparison.OrdinalIgnoreCase))
             {
                 return Mage;
             }
-            else if (aWowClassDesignation.Equals("monk", StringComparison.OrdinalIgnoreCase))
+            else if (aWowClassDesignation.Equals(WowNames.MONK, StringComparison.OrdinalIgnoreCase))
             {
                 return Monk;
             }
-            else if (aWowClassDesignation.Equals("paladin", StringComparison.OrdinalIgnoreCase))
+            else if (aWowClassDesignation.Equals(WowNames.PALADIN, StringComparison.OrdinalIgnoreCase))
             {
                 return Paladin;
             }
-            else if (aWowClassDesignation.Equals("priest", StringComparison.OrdinalIgnoreCase))
+            else if (aWowClassDesignation.Equals(WowNames.PRIEST, StringComparison.OrdinalIgnoreCase))
             {
                 return Priest;
             }
-            else if (aWowClassDesignation.Equals("rogue", StringComparison.OrdinalIgnoreCase))
+            else if (aWowClassDesignation.Equals(WowNames.ROGUE, StringComparison.OrdinalIgnoreCase))
             {
                 return Rogue;
             }
-            else if (aWowClassDesignation.Equals("shaman", StringComparison.OrdinalIgnoreCase))
+            else if (aWowClassDesignation.Equals(WowNames.SHAMAN, StringComparison.OrdinalIgnoreCase))
             {
                 return Shaman;
             }
-            else if (aWowClassDesignation.Equals("warlock", StringComparison.OrdinalIgnoreCase))
+            else if (aWowClassDesignation.Equals(WowNames.WARLOCK, StringComparison.OrdinalIgnoreCase))
             {
                 return Warlock;
             }
-            else if (aWowClassDesignation.Equals("warrior", StringComparison.OrdinalIgnoreCase))
+            else if (aWowClassDesignation.Equals(WowNames.WARRIOR, StringComparison.OrdinalIgnoreCase))
             {
                 return Warrior;
             }
