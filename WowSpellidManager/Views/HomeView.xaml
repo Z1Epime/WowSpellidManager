@@ -38,11 +38,5 @@
                        TextWrapping="Wrap">
             </TextBlock>
         </StackPanel>
-        <StackPanel x:Name="VersionStackPanel"
-                    RelativePanel.AlignBottomWithPanel="True"
-                    RelativePanel.AlignRightWithPanel="True"
-                    Margin="15">
-            <TextBlock x:Uid="Version"></TextBlock>
-        </StackPanel>
     </RelativePanel>
 </Page>
