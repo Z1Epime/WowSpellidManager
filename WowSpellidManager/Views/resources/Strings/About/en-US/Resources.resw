@@ -124,7 +124,7 @@
     <value>Feel free to send bug reports / feature requests at Discord Epi#3771 / wowspellidmanager@gmx.de</value>
   </data>
   <data name="AboutVersion.Text" xml:space="preserve">
-    <value>v0.0.6 (Alpha)</value>
+    <value>v0.0.7 (Alpha)</value>
     <comment>Only available in english</comment>
   </data>
   <data name="AlphaInfo.Text" xml:space="preserve">
@@ -140,7 +140,7 @@
     <value>Version</value>
   </data>
   <data name="VersionReleaseDate.Text" xml:space="preserve">
-    <value>March 27, 2022</value>
+    <value>April 16, 2022</value>
   </data>
   <data name="WowCopyRight.Text" xml:space="preserve">
     <value>World of Warcraft®

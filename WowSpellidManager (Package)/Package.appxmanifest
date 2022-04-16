@@ -9,7 +9,7 @@
   <Identity
     Name="WOWSPELLIDMANAGER"
     Publisher="CN=Epime"
-    Version="0.0.6.0" />
+    Version="0.0.7.0" />
 
   <Properties>
     <DisplayName>WowSpellidManager</DisplayName>
