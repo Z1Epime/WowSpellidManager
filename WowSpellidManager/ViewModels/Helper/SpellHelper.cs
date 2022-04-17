@@ -26,7 +26,7 @@ namespace WowSpellidManager.ViewModels.Helper
                     {
                         if (spec.Guid == (aSpecialization as SpecializationViewModel).Guid)
                         {
-                            spec.Spells.Add(new SpellViewModel() { ID = spell.ID, Designation = spell.Designation, Description = spell.Description, Guid = spell.Guid });
+                            spec.Spells.Add(new SpellViewModel() { ID = spell.ID, Designation = spell.Designation, Description = spell.AdditionalInfo, Guid = spell.Guid });
                         }
                     }
                 }

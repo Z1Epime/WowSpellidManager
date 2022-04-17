@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WowSpellidManager.Domain.Exceptions;
+using WowSpellidManager.Domain.Models.Spells;
 
 namespace WowSpellidManager.Domain.Models
 {
@@ -13,9 +14,12 @@ namespace WowSpellidManager.Domain.Models
     /// </summary>
     public class Specialization : Entity
     {
-
+        #region Fields
         private ObservableCollection<Spell> fSpells;
         private string fDescription;
+        #endregion
+
+        #region Properties
         public string Description
         {
             get
@@ -41,7 +45,9 @@ namespace WowSpellidManager.Domain.Models
                 fSpells = value;
             }
         }
+        #endregion
 
+        #region Constructors
         /// <summary>
         /// 
         /// </summary>
@@ -72,5 +78,6 @@ namespace WowSpellidManager.Domain.Models
         {
 
         }
+        #endregion
     }
 }

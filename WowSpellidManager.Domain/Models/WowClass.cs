@@ -14,6 +14,7 @@ namespace WowSpellidManager.Domain.Models
     /// </summary>
     public class WowClass : Entity
     {
+        #region Constants
         /// <summary>
         /// A constant integer to very that a WowClasses amount <br></br>
         /// of specializations is not less than a specific number.
@@ -31,10 +32,14 @@ namespace WowSpellidManager.Domain.Models
         /// and the Druid class has 4. Every other class has 3.
         /// </summary>
         public const int SPECIALIZATIONSMAX = 4;
+        #endregion
 
-
+        #region Fields
         private List<Specialization> fSpecializations;
         private string fDescription;
+        #endregion
+
+        #region Properties
         public string Description
         {
             get 
@@ -49,21 +54,21 @@ namespace WowSpellidManager.Domain.Models
         }
 
         public List<Specialization> Specializations
-        { 
-            get 
+        {
+            get
             {
                 // ArgumentGuard.CheckNumberOfSpecializations(fSpecializations);
                 // hm, try to add some validation here
-                return fSpecializations; 
+                return fSpecializations;
             }
-            set 
+            set
             {
-                fSpecializations = value; 
+                fSpecializations = value;
             }
         }
+        #endregion
 
-       
-
+        #region Constructors
         /// <summary>
         /// 
         /// </summary>
@@ -95,5 +100,6 @@ namespace WowSpellidManager.Domain.Models
         {
 
         }
+        #endregion
     }
 }

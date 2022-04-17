@@ -39,7 +39,7 @@ namespace WowSpellidManager.ViewModels.Helper
                         Spells = new ObservableCollection<SpellViewModel>(spec.Spells.Select(spell => new SpellViewModel()
                         {
                             Designation = spell.Designation,
-                            Description = spell.Description,
+                            Description = spell.AdditionalInfo,
                             Guid = spell.Guid,
                             ID = spell.ID
                         }).ToList())

@@ -9,14 +9,19 @@ namespace WowSpellidManager.Domain.Models
 {
     public class Entity
     {
+        #region Fields
         private Guid fGuid;
         private string fDesignation;
+        #endregion
+
+        #region Properties
         public Guid Guid
         {
             get
             {
                 return fGuid;
             }
+
             set
             {
                 ArgumentGuard.CheckGuid(value);
@@ -30,13 +35,16 @@ namespace WowSpellidManager.Domain.Models
             { 
                 return fDesignation; 
             }
+
             set 
             {
                 ArgumentGuard.StringNullOrEmpty(value);
                 fDesignation = value; 
             }
         }
+        #endregion
 
+        #region Constructors
         public Entity(Guid aGuid, string aDesignation)
         {
             fGuid = aGuid;
@@ -56,5 +64,6 @@ namespace WowSpellidManager.Domain.Models
         {
 
         }
+        #endregion
     }
 }
