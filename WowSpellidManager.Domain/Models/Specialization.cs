@@ -16,23 +16,9 @@ namespace WowSpellidManager.Domain.Models
     {
         #region Fields
         private ObservableCollection<Spell> fSpells;
-        private string fDescription;
         #endregion
 
         #region Properties
-        public string Description
-        {
-            get
-            {
-                return fDescription;
-            }
-            set
-            {
-                ArgumentGuard.StringNullOrEmpty(value);
-                fDescription = value;
-            }
-        }
-
         public ObservableCollection<Spell> Spells
         {
             get
@@ -55,9 +41,8 @@ namespace WowSpellidManager.Domain.Models
         /// If no Guid is known the other constructor should be of use.</param>
         /// <param name="aDesignation">The name of the World of Warcraft class specialization as a string which will be set in the constructor of the derived class.</param>
         /// <param name="aDescription">The description of the World of Warcraft class specialization as a string.</param>
-        public Specialization(Guid aGuid, string aDesignation, string aDescription) : base(aGuid, aDesignation)
+        public Specialization(Guid aGuid, string aDesignation) : base(aGuid, aDesignation)
         {
-            Description = aDescription;
             Spells = new ObservableCollection<Spell>();
         }
         /// <summary>
@@ -65,9 +50,8 @@ namespace WowSpellidManager.Domain.Models
         /// </summary>
         /// <param name="aDesignation">The name of the World of Warcraft class specialization as a string which will be set in the constructor of the derived class.</param>
         /// <param name="aDescription">The description of the World of Warcraft class specialization as a string.</param>
-        public Specialization(string aDesignation, string aDescription) : base(aDesignation)
+        public Specialization(string aDesignation) : base(aDesignation)
         {
-            Description = aDescription;
             Spells = new ObservableCollection<Spell>();
         }
 

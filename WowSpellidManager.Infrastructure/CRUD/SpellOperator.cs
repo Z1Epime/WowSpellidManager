@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WowSpellidManager.Domain.Models;
+using WowSpellidManager.Domain.Models.Spells;
 using WowSpellidManager.Infrastructure.DataManager;
 
 namespace WowSpellidManager.Infrastructure.CRUD

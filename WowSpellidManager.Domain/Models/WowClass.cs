@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WowSpellidManager.Domain.Exceptions;
+using WowSpellidManager.Domain.Models.Spells;
 
 namespace WowSpellidManager.Domain.Models
 {
@@ -36,23 +37,10 @@ namespace WowSpellidManager.Domain.Models
 
         #region Fields
         private List<Specialization> fSpecializations;
-        private string fDescription;
+        private List<Spell> fSpells;
         #endregion
 
         #region Properties
-        public string Description
-        {
-            get 
-            { 
-                return fDescription; 
-            }
-            set 
-            {
-                ArgumentGuard.StringNullOrEmpty(value);
-                fDescription = value; 
-            }
-        }
-
         public List<Specialization> Specializations
         {
             get
@@ -66,6 +54,21 @@ namespace WowSpellidManager.Domain.Models
                 fSpecializations = value;
             }
         }
+
+        /// <summary>
+        /// A collection of spells in which spells which are equal across all specializations are meant to be in.
+        /// </summary>
+        public List<Spell> Spells
+        {
+            get
+            {
+                return fSpells;
+            }
+            set
+            {
+                fSpells = value;
+            }
+        }
         #endregion
 
         #region Constructors
@@ -76,9 +79,8 @@ namespace WowSpellidManager.Domain.Models
         /// If no Guid is known the other constructor should be of use.</param>
         /// <param name="aDesignation">The name of the World of Warcraft class as a string which will be set in the constructor of the derived class.</param>
         /// <param name="aDescription">The description of the World of Warcraft class as a string.</param>
-        public WowClass(Guid aGuid, string aDesignation, string aDescription) : base(aGuid, aDesignation)
+        public WowClass(Guid aGuid, string aDesignation) : base(aGuid, aDesignation)
         {
-            Description = aDescription;
             Specializations = new List<Specialization>();
         }
 
@@ -87,9 +89,8 @@ namespace WowSpellidManager.Domain.Models
         /// </summary>
         /// <param name="aDesignation">The name of the World of Warcraft class as a string which will be set in the constructor of the derived class.</param>
         /// <param name="aDescription">The description of the World of Warcraft class as a string.</param>
-        public WowClass(string aDesignation, string aDescription) : base(aDesignation)
+        public WowClass(string aDesignation) : base(aDesignation)
         {
-            Description = aDescription;
             Specializations = new List<Specialization>();
         }
 
