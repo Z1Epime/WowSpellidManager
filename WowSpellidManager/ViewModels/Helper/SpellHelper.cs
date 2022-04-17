@@ -16,7 +16,7 @@ namespace WowSpellidManager.ViewModels.Helper
         private DataOperationProvider fDataOperationProvider = new DataOperationProvider();
         public void AddSpell(string aSpellName, string aSpellID, string aSpellDescription, object aClass, object aSpecialization)
         {
-            var spell = new Spell(aSpellName, aSpellDescription, aSpellID);
+            var spell = new Spell(aSpellName, null, aSpellID, false, false, false);
 
             foreach (var @class in WowClassHelper.ViewModels)
             {
@@ -26,7 +26,7 @@ namespace WowSpellidManager.ViewModels.Helper
                     {
                         if (spec.Guid == (aSpecialization as SpecializationViewModel).Guid)
                         {
-                            spec.Spells.Add(new SpellViewModel() { ID = spell.ID, Designation = spell.Designation, Description = spell.AdditionalInfo, Guid = spell.Guid });
+                            spec.Spells.Add(new SpellViewModel() { ID = spell.ID, Designation = spell.Designation, AdditionalInfo = spell.AdditionalInfo, Guid = spell.Guid });
                         }
                     }
                 }

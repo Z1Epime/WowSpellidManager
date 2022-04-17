@@ -141,7 +141,6 @@ namespace WowSpellidManager.Domain.Models.Spells
 
             set
             {
-                ArgumentGuard.StringNullOrEmpty(value);
                 fAdditionalInfo = value;
             }
         }

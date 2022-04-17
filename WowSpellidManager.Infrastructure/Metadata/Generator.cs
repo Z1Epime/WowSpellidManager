@@ -18,76 +18,76 @@ namespace WowSpellidManager.Infrastructure.Metadata
         {
             ObservableCollection<WowClass> wowClasses = new ObservableCollection<WowClass>();
 
-            WowClass warrior = new WowClass(WowNames.WARRIOR, "tbd");
-            warrior.Specializations.Add(new Specialization(WowNames.WARRIOR_ARMS, "tbd"));
-            warrior.Specializations.Add(new Specialization(WowNames.WARRIOR_FURY, "tbd"));
-            warrior.Specializations.Add(new Specialization(WowNames.WARRIOR_PROTECTION, "tbd"));
+            WowClass warrior = new WowClass(WowNames.WARRIOR);
+            warrior.Specializations.Add(new Specialization(WowNames.WARRIOR_ARMS));
+            warrior.Specializations.Add(new Specialization(WowNames.WARRIOR_FURY));
+            warrior.Specializations.Add(new Specialization(WowNames.WARRIOR_PROTECTION));
             wowClasses.Add(warrior);
 
-            WowClass paladin = new WowClass(WowNames.PALADIN, "tbd");
-            paladin.Specializations.Add(new Specialization(WowNames.PALADIN_RETRIBUTION, "tbd"));
-            paladin.Specializations.Add(new Specialization(WowNames.PALADIN_HOLY, "tbd"));
-            paladin.Specializations.Add(new Specialization(WowNames.PALADIN_PROTECTION, "tbd"));
+            WowClass paladin = new WowClass(WowNames.PALADIN);
+            paladin.Specializations.Add(new Specialization(WowNames.PALADIN_RETRIBUTION));
+            paladin.Specializations.Add(new Specialization(WowNames.PALADIN_HOLY));
+            paladin.Specializations.Add(new Specialization(WowNames.PALADIN_PROTECTION));
             wowClasses.Add(paladin);
 
-            WowClass hunter = new WowClass(WowNames.HUNTER, "tbd");
-            hunter.Specializations.Add(new Specialization(WowNames.HUNTER_SURVIVAL, "tbd"));
-            hunter.Specializations.Add(new Specialization(WowNames.HUNTER_MARKSMAN, "tbd"));
-            hunter.Specializations.Add(new Specialization(WowNames.HUNTER_BEASTMASTERY, "tbd"));
+            WowClass hunter = new WowClass(WowNames.HUNTER);
+            hunter.Specializations.Add(new Specialization(WowNames.HUNTER_SURVIVAL));
+            hunter.Specializations.Add(new Specialization(WowNames.HUNTER_MARKSMAN));
+            hunter.Specializations.Add(new Specialization(WowNames.HUNTER_BEASTMASTERY));
             wowClasses.Add(hunter);
 
-            WowClass rogue = new WowClass(WowNames.ROGUE, "tbd");
-            rogue.Specializations.Add(new Specialization(WowNames.ROGUE_ASSASINATION, "tbd"));
-            rogue.Specializations.Add(new Specialization(WowNames.ROGUE_SUBTLETY, "tbd"));
-            rogue.Specializations.Add(new Specialization(WowNames.ROGUE_OUTLAW, "tbd"));
+            WowClass rogue = new WowClass(WowNames.ROGUE);
+            rogue.Specializations.Add(new Specialization(WowNames.ROGUE_ASSASINATION));
+            rogue.Specializations.Add(new Specialization(WowNames.ROGUE_SUBTLETY));
+            rogue.Specializations.Add(new Specialization(WowNames.ROGUE_OUTLAW));
             wowClasses.Add(rogue);
 
-            WowClass priest = new WowClass(WowNames.PRIEST, "tbd");
-            priest.Specializations.Add(new Specialization(WowNames.PRIEST_HOLY, "tbd"));
-            priest.Specializations.Add(new Specialization(WowNames.PRIEST_DISCIPLINE, "tbd"));
-            priest.Specializations.Add(new Specialization(WowNames.PRIEST_SHADOW, "tbd"));
+            WowClass priest = new WowClass(WowNames.PRIEST);
+            priest.Specializations.Add(new Specialization(WowNames.PRIEST_HOLY));
+            priest.Specializations.Add(new Specialization(WowNames.PRIEST_DISCIPLINE));
+            priest.Specializations.Add(new Specialization(WowNames.PRIEST_SHADOW));
             wowClasses.Add(priest);
 
-            WowClass shaman = new WowClass(WowNames.SHAMAN, "tbd");
-            shaman.Specializations.Add(new Specialization(WowNames.SHAMAN_ELEMENTAL, "tbd"));
-            shaman.Specializations.Add(new Specialization(WowNames.SHAMAN_ENHANCEMENT, "tbd"));
-            shaman.Specializations.Add(new Specialization(WowNames.SHAMAN_RESTORATION, "tbd"));
+            WowClass shaman = new WowClass(WowNames.SHAMAN);
+            shaman.Specializations.Add(new Specialization(WowNames.SHAMAN_ELEMENTAL));
+            shaman.Specializations.Add(new Specialization(WowNames.SHAMAN_ENHANCEMENT));
+            shaman.Specializations.Add(new Specialization(WowNames.SHAMAN_RESTORATION));
             wowClasses.Add(shaman);
 
-            WowClass mage = new WowClass(WowNames.MAGE, "tbd");
-            mage.Specializations.Add(new Specialization(WowNames.MAGE_FROST, "tbd"));
-            mage.Specializations.Add(new Specialization(WowNames.MAGE_FIRE, "tbd"));
-            mage.Specializations.Add(new Specialization(WowNames.MAGE_ARCANE, "tbd"));
+            WowClass mage = new WowClass(WowNames.MAGE);
+            mage.Specializations.Add(new Specialization(WowNames.MAGE_FROST));
+            mage.Specializations.Add(new Specialization(WowNames.MAGE_FIRE));
+            mage.Specializations.Add(new Specialization(WowNames.MAGE_ARCANE));
             wowClasses.Add(mage);
 
-            WowClass warlock = new WowClass(WowNames.WARLOCK, "tbd");
-            warlock.Specializations.Add(new Specialization(WowNames.WARLOCK_DEMONOLOGY, "tbd"));
-            warlock.Specializations.Add(new Specialization(WowNames.WARLOCK_AFFLICTION, "tbd"));
-            warlock.Specializations.Add(new Specialization(WowNames.WARLOCK_DESTRUCTION, "tbd"));
+            WowClass warlock = new WowClass(WowNames.WARLOCK);
+            warlock.Specializations.Add(new Specialization(WowNames.WARLOCK_DEMONOLOGY));
+            warlock.Specializations.Add(new Specialization(WowNames.WARLOCK_AFFLICTION));
+            warlock.Specializations.Add(new Specialization(WowNames.WARLOCK_DESTRUCTION));
             wowClasses.Add(warlock);
 
-            WowClass monk = new WowClass(WowNames.MONK, "tbd");
-            monk.Specializations.Add(new Specialization(WowNames.MONK_WINDWALKER, "tbd"));
-            monk.Specializations.Add(new Specialization(WowNames.MONK_MISTWEAVER, "tbd"));
-            monk.Specializations.Add(new Specialization(WowNames.MONK_BREWMASTER, "tbd"));
+            WowClass monk = new WowClass(WowNames.MONK);
+            monk.Specializations.Add(new Specialization(WowNames.MONK_WINDWALKER));
+            monk.Specializations.Add(new Specialization(WowNames.MONK_MISTWEAVER));
+            monk.Specializations.Add(new Specialization(WowNames.MONK_BREWMASTER));
             wowClasses.Add(monk);
 
-            WowClass druid = new WowClass(WowNames.DRUID, "tbd");
-            druid.Specializations.Add(new Specialization(WowNames.DRUID_FERAL, "tbd"));
-            druid.Specializations.Add(new Specialization(WowNames.DRUID_GUARDIAN, "tbd"));
-            druid.Specializations.Add(new Specialization(WowNames.DRUID_RESTORATION, "tbd"));
-            druid.Specializations.Add(new Specialization(WowNames.DRUID_BALANCE, "tbd"));
+            WowClass druid = new WowClass(WowNames.DRUID);
+            druid.Specializations.Add(new Specialization(WowNames.DRUID_FERAL));
+            druid.Specializations.Add(new Specialization(WowNames.DRUID_GUARDIAN));
+            druid.Specializations.Add(new Specialization(WowNames.DRUID_RESTORATION));
+            druid.Specializations.Add(new Specialization(WowNames.DRUID_BALANCE));
             wowClasses.Add(druid);
 
-            WowClass demonhunter = new WowClass(WowNames.DEMONHUNTER, "tbd");
-            demonhunter.Specializations.Add(new Specialization(WowNames.DEMONHUNTER_VENGEANCE, "tbd"));
-            demonhunter.Specializations.Add(new Specialization(WowNames.DEMONHUNTER_HAVOC, "tbd"));
+            WowClass demonhunter = new WowClass(WowNames.DEMONHUNTER);
+            demonhunter.Specializations.Add(new Specialization(WowNames.DEMONHUNTER_VENGEANCE));
+            demonhunter.Specializations.Add(new Specialization(WowNames.DEMONHUNTER_HAVOC));
             wowClasses.Add(demonhunter);
 
-            WowClass deathknight = new WowClass(WowNames.DEATHKNIGHT, "tbd");
-            deathknight.Specializations.Add(new Specialization(WowNames.DEATHKNIGHT_FROST, "tbd"));
-            deathknight.Specializations.Add(new Specialization(WowNames.DEATHKNIGHT_UNHOLY, "tbd"));
-            deathknight.Specializations.Add(new Specialization(WowNames.DEATHKNIGHT_BLOOD, "tbd"));
+            WowClass deathknight = new WowClass(WowNames.DEATHKNIGHT);
+            deathknight.Specializations.Add(new Specialization(WowNames.DEATHKNIGHT_FROST));
+            deathknight.Specializations.Add(new Specialization(WowNames.DEATHKNIGHT_UNHOLY));
+            deathknight.Specializations.Add(new Specialization(WowNames.DEATHKNIGHT_BLOOD));
             wowClasses.Add(deathknight);
 
 

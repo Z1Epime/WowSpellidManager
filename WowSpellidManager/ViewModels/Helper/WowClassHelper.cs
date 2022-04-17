@@ -26,7 +26,6 @@ namespace WowSpellidManager.ViewModels.Helper
             {
                 ViewModels.Add(new WowClassViewModel()
                 {
-                    Description = @class.Description,
                     Designation = new ResourceLoader().GetString(@class.Designation),
                     Guid = @class.Guid,
                     Image = WowClassImagePaths.GetPath(@class.Designation),
@@ -34,12 +33,11 @@ namespace WowSpellidManager.ViewModels.Helper
                     {
                         Designation = new ResourceLoader().GetString(spec.Designation),
                         Guid = spec.Guid,
-                        Description = spec.Description,
                         Image = SpecializationImagePaths.GetPath(@class.Designation, spec.Designation),
                         Spells = new ObservableCollection<SpellViewModel>(spec.Spells.Select(spell => new SpellViewModel()
                         {
                             Designation = spell.Designation,
-                            Description = spell.AdditionalInfo,
+                            AdditionalInfo = spell.AdditionalInfo,
                             Guid = spell.Guid,
                             ID = spell.ID
                         }).ToList())
@@ -48,11 +46,6 @@ namespace WowSpellidManager.ViewModels.Helper
             }
 
             return ViewModels;
-        }
-
-        public void AddWowClass(string aDesignation, string aDescription)
-        {
-            fDataOperationProvider.WowClassOperator.AddWowClass(new WowClass(aDesignation, aDescription));
         }
 
         public void SaveWowClasses()
