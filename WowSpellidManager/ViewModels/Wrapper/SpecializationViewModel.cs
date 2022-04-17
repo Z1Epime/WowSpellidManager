@@ -13,8 +13,6 @@ namespace WowSpellidManager.ViewModels.Wrapper
 {
     public class SpecializationViewModel
     {
-        public string Description { get; set; }
-
         public ObservableCollection<SpellViewModel> Spells { get; set; }
 
         public Guid Guid { get; set; }

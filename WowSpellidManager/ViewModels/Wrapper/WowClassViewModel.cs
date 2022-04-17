@@ -15,9 +15,9 @@ namespace WowSpellidManager.ViewModels.Wrapper
 {
     public class WowClassViewModel
     {
-        public string Description { get; set; }
-
         public ObservableCollection<SpecializationViewModel> Specializations { get; set; }
+
+        public ObservableCollection<SpellViewModel> Spells { get; set; }
 
         public Guid Guid { get; set; }
 
