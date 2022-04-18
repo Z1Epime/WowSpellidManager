@@ -7,17 +7,14 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
-                <ResourceDictionary Source="/resources/dictionaries/buttons.xaml"/>
-                <ResourceDictionary Source="/resources/dictionaries/textboxes.xaml"/>
-                <ResourceDictionary Source="/resources/dictionaries/listViewItems.xaml"/>
-                <ResourceDictionary Source="/resources/dictionaries/separators.xaml"/>
-                <ResourceDictionary Source="/resources/dictionaries/listViews.xaml"/>
-                <ResourceDictionary Source="/resources/dictionaries/stackpanel.xaml"/>
-                <ResourceDictionary Source="/resources/dictionaries/textblocks.xaml"/>
                 <ResourceDictionary Source="/Views/Styles/HomeView.xaml"/>
                 <ResourceDictionary Source="/Views/Styles/SettingsView.xaml"/>
                 <ResourceDictionary Source="/Views/Styles/MainWindow.xaml"/>
                 <ResourceDictionary Source="/Views/Styles/AboutView.xaml"/>
+                <ResourceDictionary Source="/Views/Styles/ClassesView/ClassesView.xaml"/>
+                <ResourceDictionary Source="/Views/Styles/ClassesView/ClassView.xaml"/>
+                <ResourceDictionary Source="/Views/Styles/ClassesView/SpecializationView.xaml"/>
+                <ResourceDictionary Source="/Views/Styles/ClassesView/SpellView.xaml"/>
                 <!-- Other merged dictionaries here -->
             </ResourceDictionary.MergedDictionaries>
             <!-- Other app resources here -->

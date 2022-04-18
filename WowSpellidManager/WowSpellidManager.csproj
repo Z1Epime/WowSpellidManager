@@ -27,13 +27,6 @@
     <PRIResource Remove="WNIUI\**" />
   </ItemGroup>
   <ItemGroup>
-    <None Remove="resources\dictionaries\listViewItems.xaml" />
-    <None Remove="resources\dictionaries\listViews.xaml" />
-    <None Remove="resources\dictionaries\separators.xaml" />
-    <None Remove="resources\dictionaries\buttons.xaml" />
-    <None Remove="resources\dictionaries\stackpanel.xaml" />
-    <None Remove="resources\dictionaries\textblocks.xaml" />
-    <None Remove="resources\dictionaries\textboxes.xaml" />
     <None Remove="ViewModels\resources\Strings\Classes\de-DE\Resources.resw" />
     <None Remove="ViewModels\resources\Strings\Classes\en-US\Resources.resw" />
     <None Remove="ViewModels\resources\Strings\Specializations\de-DE\Resources.resw" />
@@ -46,6 +39,10 @@
     <None Remove="Views\SpecializationView.xaml" />
     <None Remove="Views\SpellView.xaml" />
     <None Remove="Views\Styles\AboutView.xaml" />
+    <None Remove="Views\Styles\ClassesView\ClassesView.xaml" />
+    <None Remove="Views\Styles\ClassesView\ClassView.xaml" />
+    <None Remove="Views\Styles\ClassesView\SpecializationView.xaml" />
+    <None Remove="Views\Styles\ClassesView\SpellView.xaml" />
     <None Remove="Views\Styles\HomeView.xaml" />
     <None Remove="Views\Styles\MainWindow.xaml" />
     <None Remove="Views\Styles\SettingsView.xaml" />
@@ -83,6 +80,24 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Views\Styles\ClassesView\SpellView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Views\Styles\ClassesView\SpecializationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Views\Styles\ClassesView\ClassView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
 
   <ItemGroup>
@@ -128,43 +143,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Page Update="resources\dictionaries\textblocks.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Page Update="resources\dictionaries\stackpanel.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-
-  <ItemGroup>
     <Page Update="Views\AboutView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Page Update="resources\dictionaries\listViews.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Page Update="resources\dictionaries\separators.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Page Update="resources\dictionaries\listViewItems.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Page Update="resources\dictionaries\textboxes.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
@@ -176,13 +155,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Page Update="resources\dictionaries\buttons.xaml">
+    <Page Update="Views\Styles\HomeView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
 
   <ItemGroup>
-    <Page Update="Views\Styles\HomeView.xaml">
+    <Page Update="Views\Styles\ClassesView\ClassesView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>

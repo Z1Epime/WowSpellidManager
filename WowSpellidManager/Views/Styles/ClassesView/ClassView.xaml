@@ -1,0 +1,24 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WowSpellidManager.Views.Styles.ClassesView">
+
+    <Style x:Name="SpecializationNavigationView"
+           TargetType="NavigationView">
+        <Setter Property="IsSettingsVisible" Value="False"></Setter>
+        <Setter Property="IsBackButtonVisible" Value="Collapsed"></Setter>
+        <Setter Property="PaneDisplayMode" Value="Top"></Setter>
+        <Setter Property="MenuItemTemplate" Value="{StaticResource SpecializationNavigationViewMenuItem}"></Setter>
+    </Style>
+
+    <DataTemplate x:Name="SpecializationNavigationViewMenuItem">
+        <NavigationViewItem>
+            <StackPanel Orientation="Horizontal">
+                <Image Source="{Binding Image}" Height="30"></Image>
+                <AppBarSeparator></AppBarSeparator>
+                <TextBlock Text="{Binding Designation}"></TextBlock>
+            </StackPanel>
+        </NavigationViewItem>
+    </DataTemplate>
+
+</ResourceDictionary>

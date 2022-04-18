@@ -31,17 +31,17 @@ namespace WowSpellidManager.Views
             this.InitializeComponent();
             fSpec = aSpecialization;
             //SpellsListView.MenuItemsSource = GenerateSpellNavigationOptionsCollection(((SpecializationViewModel)aSpecialization).Spells);
-            SpellsListView.MenuItemsSource = ((SpecializationViewModel)aSpecialization).Spells;
+            SpellNavigationView.MenuItemsSource = ((SpecializationViewModel)aSpecialization).Spells;
         }
 
         private void SpellsListView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
-            SpellFrame.Content = new SpellView(fSpec, SpellsListView.SelectedItem, SpellsListView);
+            SpellFrame.Content = new SpellView(fSpec, SpellNavigationView.SelectedItem, SpellNavigationView);
         }
 
         private void RemoveButton_Click(object sender, RoutedEventArgs e)
         {
-            ((SpecializationViewModel)fSpec).Spells.Remove((SpellViewModel)SpellsListView.SelectedItem);
+            ((SpecializationViewModel)fSpec).Spells.Remove((SpellViewModel)SpellNavigationView.SelectedItem);
         }
 
         //private ObservableCollection<SpellNavigationOption> GenerateSpellNavigationOptionsCollection(ObservableCollection<SpellViewModel> aSpellViewModels)

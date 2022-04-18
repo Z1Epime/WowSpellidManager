@@ -14,25 +14,19 @@
             <RowDefinition Height = "auto"/>
             <RowDefinition Height = "auto"/>
         </Grid.RowDefinitions>
-        <AppBarSeparator Grid.Row="0"></AppBarSeparator>
 
-        <NavigationView x:Name="SpellsListView"
-                        PaneDisplayMode="Left"
-                        IsSettingsVisible="False"
-                        IsBackButtonVisible="Collapsed"
-                        IsPaneToggleButtonVisible="False"
-                        MenuItemTemplate="{StaticResource SpellNavigationViewMenuItem}"
-                        Height="auto"
+        <AppBarSeparator Style="{StaticResource SpecializationViewUpperSeparator}"></AppBarSeparator>
+
+        <NavigationView x:Name="SpellNavigationView"
+                        Style="{StaticResource SpellNavigationView}"
                         SelectionChanged="SpellsListView_SelectionChanged" 
-                        Grid.Row="1"
-                    >
+                        >
             <Frame x:Name="SpellFrame"></Frame>
         </NavigationView>
 
-        <AppBarSeparator Grid.Row="2">
-        </AppBarSeparator>
+        <AppBarSeparator Style="{StaticResource SpecializationViewCenterSeparator}"></AppBarSeparator>
 
-        <RelativePanel Grid.Row="3">
+        <RelativePanel Style="{StaticResource SpellViewButtonsRelativePanel}">
 
             <Button x:Name="AddSpellButton"
                     Style="{StaticResource AccentButtonStyle}"

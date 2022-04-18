@@ -9,11 +9,8 @@
     xmlns:viewModel="clr-namespace:WowSpellidManager.ViewModels.Wrapper">
 
     <NavigationView x:Name="ClassNavigationView"
-                    IsSettingsVisible="False"
-                    IsBackButtonVisible="Collapsed"
+                    Style="{StaticResource ClassNavigationView}"
                     SelectionChanged="ClassNavigationView_SelectionChanged"
-                    MenuItemTemplate="{StaticResource ClassesnavigationViewMenuItem}"
-                    PaneDisplayMode="Top"
                     >
         <Frame x:Name="classesFrame"></Frame>
     </NavigationView>

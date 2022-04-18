@@ -19,7 +19,7 @@
     <Style x:Name="CopyRightStackPanel"
            TargetType="StackPanel">
         <Setter Property="RelativePanel.AlignBottomWithPanel" Value="True"></Setter>
-        <Setter Property="RelativePanel.AlignLeftWithPane" Value="True"></Setter>
+        <Setter Property="RelativePanel.AlignLeftWithPanel" Value="True"></Setter>
         <Setter Property="Margin" Value="25"></Setter>
     </Style>
 

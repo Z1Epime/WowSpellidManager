@@ -19,9 +19,7 @@
         </TextBlock>
 
         <StackPanel x:Name="GeneralInfoStackPanel"
-                    RelativePanel.Below="TitleTextBlock"
-                    RelativePanel.AlignHorizontalCenterWith="TitleTextBlock"
-                    RelativePanel.AlignVerticalCenterWithPanel="True">
+                    Style="{StaticResource GeneralInfoStackPanel}">
 
             <TextBlock x:Name="Spellid"
                        Style="{StaticResource BaseTextBlockStyle}"
