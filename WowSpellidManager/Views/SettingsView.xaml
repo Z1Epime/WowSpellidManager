@@ -9,7 +9,8 @@
 
     <RelativePanel>
 
-        <StackPanel x:Name="FileSettingsStackPanel" RelativePanel.AlignLeftWithPanel="True" Margin="25">
+        <StackPanel x:Name="FileSettingsStackPanel"
+                    Style="{StaticResource SettingsViewMainStackPanel}">
             <TextBlock x:Name="FileSettingsTitle" 
                        x:Uid="File"
                        Style="{StaticResource HeaderTextBlockStyle}"></TextBlock>
@@ -17,26 +18,25 @@
 
             <RelativePanel>
                 <TextBox x:Name="fileLocation"
-                     MaxWidth="300"
-                     Text="{Binding Path=SavingsPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                     KeyUp="fileLocation_KeyUp"
-                     RelativePanel.AlignBottomWithPanel="True"
-                     >
+                         Style="{StaticResource FileLocationTextBox}"
+                         Text="{Binding Path=SavingsPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         KeyUp="fileLocation_KeyUp">
                     <TextBox.Header>
                         <StackPanel x:Name="FileStorageLocation"
-                                    Orientation="Horizontal">
+                                    Style="{StaticResource FileStorageLocationStackPanel}">
                             <TextBlock
                                 x:Uid="Location">
                             </TextBlock>
 
-                            <AppBarSeparator Style="{StaticResource horizontalSeparatorTiny}" Width="50"></AppBarSeparator>
+                            <AppBarSeparator Style="{StaticResource FileStorageSeparator}"></AppBarSeparator>
+                            
                             <SymbolIcon x:Name="FileStorageLocationInfoSymbol"
                                         Symbol="Help"
                                         ToolTipService.ToolTip="{Binding ElementName=ToolTipTextBlockNotVisible, Path=Text}">
                             </SymbolIcon>
                             <TextBlock x:Name="ToolTipTextBlockNotVisible" 
                                        x:Uid="ToolTipLocation" 
-                                       Visibility="Collapsed">
+                                       Style="{StaticResource FileStorageLocationToolTipTextBlock}">
                             </TextBlock>
                         </StackPanel>
                     </TextBox.Header>
@@ -44,29 +44,25 @@
                 
             </RelativePanel>
             <TextBlock x:Name="SavingsPathErrorTextBlock" 
-                           TextWrapping="WrapWholeWords" 
-                           MaxWidth="300" 
-                           Foreground="Red"        
-                           >
+                       Style="{StaticResource SavingsPathErrorTextBlock}"
+                       >
             </TextBlock>
         </StackPanel>
 
-        <AppBarSeparator x:Name="FileUserSeparator" 
-                         RelativePanel.RightOf="FileSettingsStackPanel"
-                         Style="{StaticResource horizontalSettingsSeparator}"
+        <AppBarSeparator x:Name="FileUserSeparator"
+                         Style="{StaticResource FileUserSeparator}"
                          >
         </AppBarSeparator>
 
         <StackPanel x:Name="DesignSettingsStackPanel" 
-                    RelativePanel.AlignHorizontalCenterWithPanel="true" 
-                    Margin="25">
+                    Style="{StaticResource DesignSettingsStackPanel}">
             <TextBlock x:Name="DesignSettingsTitle" 
                        x:Uid="Design"
                        Style="{StaticResource HeaderTextBlockStyle}"></TextBlock>
             <AppBarSeparator></AppBarSeparator>
 
-            <StackPanel Orientation="Vertical">
-
+            <StackPanel x:Name="DesignSettingsInnerStackPanel" 
+                        Style="{StaticResource DesignSettingsInnerStackPanel}">
                 <StackPanel>
                     <ToggleSwitch x:Name="ToggleSwitchDarkTheme"   
                                   IsOn="{Binding IsDarkThemeActive,  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
@@ -78,18 +74,14 @@
                     </ToggleSwitch>
                     <TextBlock x:Name="ToggleSwitchHeaderNameNotVisible"
                                x:Uid="DarkTheme"
-                               Visibility="Collapsed">
+                               Style="{StaticResource ToggleSwitchHeaderNameNotVisible}">
                     </TextBlock>
                 </StackPanel>
-
-                <ListView x:Name="DesignsListView"
-                          Style="{StaticResource ListViewDesigns}">
-                </ListView>
-
             </StackPanel>
         </StackPanel>
 
-        <StackPanel x:Name="SaveSettingsStackPanel" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignBottomWithPanel="True" Margin="25">
+        <StackPanel x:Name="SaveSettingsStackPanel"
+                    Style="{StaticResource SaveSettingsStackPanel}">
 
             <Button x:Name="SaveSettingsButton"
                     Style="{StaticResource AccentButtonStyle}"
@@ -99,9 +91,7 @@
         </StackPanel>
 
         <StackPanel x:Name="StarInfoStackPanel" 
-                    RelativePanel.AlignBottomWithPanel="True" 
-                    RelativePanel.AlignRightWithPanel="True"
-                    Margin="20">
+                    Style="{StaticResource StarInfoStackPanel}">
             <TextBlock x:Uid="AsteriskRestart">
             </TextBlock>
         </StackPanel>

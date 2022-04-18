@@ -5,7 +5,7 @@
 
     <DataTemplate x:Name="classListViewItem">
         <!--<Border BorderBrush="Black" BorderThickness="2" Margin="10">-->
-        
+
         <Grid Margin="15">
             <Grid.RowDefinitions>
                 <RowDefinition ></RowDefinition>
@@ -63,7 +63,7 @@
             <TextBlock Text="{Binding Designation}" >
             </TextBlock>
 
-            
+
         </StackPanel>
     </DataTemplate>
 
@@ -72,6 +72,32 @@
             <NavigationViewItem.Icon>
                 <SymbolIcon Symbol="{Binding Glyph}"></SymbolIcon>
             </NavigationViewItem.Icon>
+        </NavigationViewItem>
+    </DataTemplate>
+
+    <DataTemplate x:Name="ClassesnavigationViewMenuItem">
+        <NavigationViewItem>
+            <StackPanel Orientation="Horizontal">
+                <Image Source="{Binding Image}" Height="30"></Image>
+                <AppBarSeparator></AppBarSeparator>
+                <TextBlock Text="{Binding Designation}"></TextBlock>
+            </StackPanel>
+        </NavigationViewItem>
+    </DataTemplate>
+
+    <DataTemplate x:Name="SpellNavigationViewMenuItem">
+        <NavigationViewItem>
+            <TextBlock Text="{Binding Designation}"></TextBlock>
+        </NavigationViewItem>
+    </DataTemplate>
+
+    <DataTemplate x:Name="SpecializationNavigationViewMenuItem">
+        <NavigationViewItem>
+            <StackPanel Orientation="Horizontal">
+                <Image Source="{Binding Image}" Height="30"></Image>
+                <AppBarSeparator></AppBarSeparator>
+                <TextBlock Text="{Binding Designation}"></TextBlock>
+            </StackPanel>
         </NavigationViewItem>
     </DataTemplate>
 

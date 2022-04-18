@@ -10,9 +10,7 @@
     <RelativePanel>
 
         <StackPanel x:Name="DisclaimerStackPanel"
-                    Style="{StaticResource DisclaimerStyle}"
-                    RelativePanel.AlignTopWithPanel="True"
-                    RelativePanel.AlignLeftWithPanel="True"
+                    Style="{StaticResource DisclaimerStackPanel}"
                     >
             <TextBlock x:Name="DisclaimerHeader"
                        x:Uid="AlphaInfo"
@@ -21,9 +19,9 @@
 
             <StackPanel>
                 <TextBlock x:Name="DisclaimerTextBlock"
-                    TextWrapping="WrapWholeWords" 
-                    MaxWidth="800" 
-                    Style="{StaticResource SubtitleTextBlockStyle}">
+                           TextWrapping="WrapWholeWords" 
+                           MaxWidth="800" 
+                           Style="{StaticResource SubtitleTextBlockStyle}">
                 <Run x:Uid="AboutDisclaimer1"></Run>   
                 <Run x:Uid="AboutDisclaimer2"></Run>
                 </TextBlock>
@@ -32,8 +30,7 @@
         </StackPanel>
 
         <StackPanel x:Name="VersionStackPanel"
-                    Style="{StaticResource VersionStyle}"
-                    RelativePanel.Below="DisclaimerStackPanel"
+                    Style="{StaticResource VersionStackPanel}"
                     >
             <TextBlock x:Name="VersionHeaderTextBlock"
                        x:Uid="VersionHeader"
@@ -42,8 +39,8 @@
             </TextBlock>
 
             <TextBlock x:Name="VersionTextBlock"
-                   TextWrapping="WrapWholeWords" 
-                   Style="{StaticResource BodyTextBlockStyle}">
+                       TextWrapping="WrapWholeWords" 
+                       Style="{StaticResource BodyTextBlockStyle}">
                 <Run x:Uid="AboutVersion"></Run>
                 <LineBreak></LineBreak>
                 <Run x:Uid="VersionReleaseDate"></Run>
@@ -51,38 +48,33 @@
         </StackPanel>
 
         <StackPanel x:Name="CopyRightStackPanel"
-                    Style="{StaticResource CopyRightStyle}"
-                    RelativePanel.AlignBottomWithPanel="True"
-                    RelativePanel.AlignLeftWithPanel="True"
+                    Style="{StaticResource CopyRightStackPanel}"
                     >
             <StackPanel Orientation="Vertical">
                 <TextBlock x:Name="CopyRightHeaderTextBlock"
-                       x:Uid="CopyRightHeader"
-                       Style="{StaticResource HeaderTextBlockStyle}"
-                       >
+                           x:Uid="CopyRightHeader"
+                           Style="{StaticResource HeaderTextBlockStyle}"
+                           >
                 </TextBlock>
                 <TextBlock x:Name="CopyRightTextBlock"
-                   TextWrapping="WrapWholeWords" 
-                   Style="{StaticResource BodyTextBlockStyle}">
+                           TextWrapping="WrapWholeWords" 
+                           Style="{StaticResource BodyTextBlockStyle}">
                 <Run x:Uid="CopyRight1"></Run>
                 </TextBlock>
             </StackPanel>
 
             <AppBarSeparator Style="{StaticResource InvisibleSeparator}"></AppBarSeparator>
-            
+
             <StackPanel x:Name="CopyRightWowStackPanel">
                 <TextBlock x:Name="WowCopyRightTextBlock"
-                       x:Uid="WowCopyRight"
-                       Style="{StaticResource BodyTextBlockStyle}"
-                       TextWrapping="WrapWholeWords"
-                       Width="450"
-                       >
+                           x:Uid="WowCopyRight"
+                           Style="{StaticResource BodyTextBlockStyle}"
+                           TextWrapping="WrapWholeWords"
+                           Width="450"
+                           >
                 </TextBlock>
             </StackPanel>
-
+            
         </StackPanel>
-
-        
-
     </RelativePanel>
 </Page>

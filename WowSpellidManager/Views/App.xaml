@@ -14,6 +14,10 @@
                 <ResourceDictionary Source="/resources/dictionaries/listViews.xaml"/>
                 <ResourceDictionary Source="/resources/dictionaries/stackpanel.xaml"/>
                 <ResourceDictionary Source="/resources/dictionaries/textblocks.xaml"/>
+                <ResourceDictionary Source="/Views/Styles/HomeView.xaml"/>
+                <ResourceDictionary Source="/Views/Styles/SettingsView.xaml"/>
+                <ResourceDictionary Source="/Views/Styles/MainWindow.xaml"/>
+                <ResourceDictionary Source="/Views/Styles/AboutView.xaml"/>
                 <!-- Other merged dictionaries here -->
             </ResourceDictionary.MergedDictionaries>
             <!-- Other app resources here -->

@@ -1,0 +1,13 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WowSpellidManager.Views.Styles">
+
+    <Style x:Name="HomeViewMainStackPanel"
+           TargetType="StackPanel">
+        <Setter Property="Orientation" Value="Vertical"></Setter>
+        <Setter Property="RelativePanel.AlignHorizontalCenterWithPanel" Value="True"></Setter>
+        <Setter Property="RelativePanel.AlignVerticalCenterWithPanel" Value="True"></Setter>
+    </Style>
+    
+</ResourceDictionary>

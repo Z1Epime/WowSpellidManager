@@ -1,0 +1,31 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WowSpellidManager.Views.Styles">
+
+    <Style x:Name="DisclaimerStackPanel"
+           TargetType="StackPanel">
+        <Setter Property="RelativePanel.AlignTopWithPanel" Value="True"></Setter>
+        <Setter Property="RelativePanel.AlignLeftWithPanel" Value="True"></Setter>
+        <Setter Property="Margin" Value="25"></Setter>
+    </Style>
+
+    <Style x:Name="VersionStackPanel"
+           TargetType="StackPanel">
+        <Setter Property="RelativePanel.Below" Value="DisclaimerStackPanel"></Setter>
+        <Setter Property="Margin" Value="25"></Setter>
+    </Style>
+
+    <Style x:Name="CopyRightStackPanel"
+           TargetType="StackPanel">
+        <Setter Property="RelativePanel.AlignBottomWithPanel" Value="True"></Setter>
+        <Setter Property="RelativePanel.AlignLeftWithPane" Value="True"></Setter>
+        <Setter Property="Margin" Value="25"></Setter>
+    </Style>
+
+    <Style x:Name="InvisibleSeparator" TargetType="AppBarSeparator">
+        <Setter Property="Background" Value="Transparent"></Setter>
+        <Setter Property="Foreground" Value="Transparent"></Setter>
+    </Style>
+
+</ResourceDictionary>

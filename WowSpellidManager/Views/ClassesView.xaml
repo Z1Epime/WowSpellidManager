@@ -8,7 +8,17 @@
     mc:Ignorable="d"
     xmlns:viewModel="clr-namespace:WowSpellidManager.ViewModels.Wrapper">
 
-    <RelativePanel>
+    <NavigationView x:Name="ClassNavigationView"
+                    IsSettingsVisible="False"
+                    IsBackButtonVisible="Collapsed"
+                    SelectionChanged="ClassNavigationView_SelectionChanged"
+                    MenuItemTemplate="{StaticResource ClassesnavigationViewMenuItem}"
+                    PaneDisplayMode="Top"
+                    >
+        <Frame x:Name="classesFrame"></Frame>
+    </NavigationView>
+    
+    <!--<RelativePanel>
 
         <Grid x:Name="ClassListStackGrid" 
                     RelativePanel.AlignLeftWithPanel="True" 
@@ -101,7 +111,7 @@
                     </TextBlock>
                 </RelativePanel>
 
-                <!-->TODO: Add global ErrorTextBlock style <-->
+                >TODO: Add global ErrorTextBlock style <
                 <AppBarSeparator></AppBarSeparator>
 
                 <RelativePanel>
@@ -148,5 +158,5 @@
         </StackPanel>
 
        
-    </RelativePanel>
+    </RelativePanel>-->
 </Page>

@@ -8,11 +8,8 @@
     mc:Ignorable="d">
 
     <NavigationView x:Name="mainNavigationView" 
-                    PaneDisplayMode="Left"
                     SelectionChanged="mainNavigationView_SelectionChanged"
-                    IsSettingsVisible="False"
-                    IsBackButtonVisible="Collapsed"
-                    MenuItemTemplate="{StaticResource navigationViewMenuItemMain}"
+                    Style="{StaticResource MainNavigationView}"
                     >
         <Frame x:Name="mainFrame"></Frame>
     </NavigationView>

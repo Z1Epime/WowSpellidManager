@@ -56,7 +56,7 @@ namespace WowSpellidManager.Views
                 }
                 else if (option.Name.Equals("Settings", StringComparison.OrdinalIgnoreCase))
                 {
-                    mainFrame.Content = new SettingsView();
+                    mainFrame.Content = new SettingsView(mainNavigationView);
                 }
                 else if (option.Name.Equals("About", StringComparison.OrdinalIgnoreCase))
                 {

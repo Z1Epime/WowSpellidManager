@@ -1,0 +1,83 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WowSpellidManager.Views.Styles">
+
+    <Style x:Name="SettingsViewMainStackPanel"
+           TargetType="StackPanel">
+        <Setter Property="RelativePanel.AlignLeftWithPanel" Value="True"></Setter>
+        <Setter Property="Margin" Value="25"></Setter>
+    </Style>
+
+    <Style x:Name="FileLocationTextBox"
+           TargetType="TextBox">
+        <Setter Property="MaxWidth" Value="300"></Setter>
+        <Setter Property="RelativePanel.AlignBottomWithPanel" Value="True"></Setter>
+    </Style>
+
+    <Style x:Name="FileStorageLocationStackPanel"
+           TargetType="StackPanel">
+        <Setter Property="Orientation" Value="Horizontal"></Setter>
+    </Style>
+
+    <Style x:Name="FileStorageSeparator"
+           TargetType="AppBarSeparator">
+        <Setter Property="Width" Value="50"></Setter>
+        <Setter Property="Height" Value="1"></Setter>
+        <Setter Property="Background" Value="Transparent"></Setter>
+        <Setter Property="Foreground" Value="Transparent"></Setter>
+    </Style>
+
+    <Style x:Name="FileUserSeparator"
+           TargetType="AppBarSeparator">
+        <Setter Property="RelativePanel.RightOf" Value="FileSettingsStackPanel"></Setter>
+        <Setter Property="Width" Value="100"></Setter>
+        <Setter Property="Height" Value="0"></Setter>
+        <Setter Property="Background" Value="Transparent"></Setter>
+        <Setter Property="Foreground" Value="Transparent"></Setter>
+    </Style>
+
+
+    <Style x:Name="FileStorageLocationToolTipTextBlock"
+           TargetType="TextBlock">
+        <Setter Property="Visibility" Value="Collapsed"></Setter>
+    </Style>
+
+    <Style x:Name="SavingsPathErrorTextBlock"
+           TargetType="TextBlock">
+        <Setter Property="TextWrapping" Value="WrapWholeWords"></Setter>
+        <Setter Property="MaxWidth" Value="300"></Setter>
+        <Setter Property="Foreground" Value="Red"></Setter>
+    </Style>
+
+    <Style x:Name="DesignSettingsStackPanel"
+           TargetType="StackPanel">
+        <Setter Property="RelativePanel.AlignHorizontalCenterWithPanel" Value="True"></Setter>
+        <Setter Property="Margin" Value="25"></Setter>
+    </Style>
+
+    <Style x:Name="DesignSettingsInnerStackPanel"
+           TargetType="StackPanel">
+        <Setter Property="Orientation" Value="Vertical"></Setter>
+    </Style>
+
+    <Style x:Name="ToggleSwitchHeaderNameNotVisible"
+           TargetType="TextBlock">
+        <Setter Property="Visibility" Value="Collapsed"></Setter>
+    </Style>
+
+    <Style x:Name="SaveSettingsStackPanel"
+           TargetType="StackPanel">
+        <Setter Property="RelativePanel.AlignLeftWithPanel" Value="True"></Setter>
+        <Setter Property="RelativePanel.AlignBottomWithPanel" Value="True"></Setter>
+        <Setter Property="Margin" Value="25"></Setter>
+    </Style>
+
+    <Style x:Name="StarInfoStackPanel"
+           TargetType="StackPanel">
+        <Setter Property="RelativePanel.AlignBottomWithPanel" Value="True"></Setter>
+        <Setter Property="RelativePanel.AlignRightWithPanel" Value="True"></Setter>
+        <Setter Property="Margin" Value="20"></Setter>
+    </Style>
+
+</ResourceDictionary>

@@ -8,9 +8,7 @@
     mc:Ignorable="d">
 
     <RelativePanel>
-        <StackPanel Orientation="Vertical"
-                    RelativePanel.AlignHorizontalCenterWithPanel="True"
-                    RelativePanel.AlignVerticalCenterWithPanel="True">
+        <StackPanel Style="{StaticResource HomeViewMainStackPanel}">
 
             <TextBlock x:Name="HelloTextBlock" 
                        Style="{StaticResource HeaderTextBlockStyle}"
@@ -23,11 +21,10 @@
             </TextBlock>
 
             <TextBlock x:Name="DisclaimerTextBlock"
-                   TextWrapping="WrapWholeWords" 
-                   MaxWidth="800" 
-                   Style="{StaticResource SubtitleTextBlockStyle}">
-                <Run x:Uid="Disclaimer1"></Run>   
-            
+                       TextWrapping="WrapWholeWords" 
+                       MaxWidth="800" 
+                       Style="{StaticResource SubtitleTextBlockStyle}">
+                <Run x:Uid="Disclaimer1"></Run>              
                 <Run x:Uid="Disclaimer2"></Run>
             </TextBlock>
 
