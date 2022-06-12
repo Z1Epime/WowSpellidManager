@@ -1,0 +1,22 @@
+﻿<Application
+    x:Class="WowSpellidManager.WinUI2.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WowSpellidManager.WinUI2">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Views/Styles/HomeView.xaml"/>
+                <ResourceDictionary Source="/Views/Styles/SettingsView.xaml"/>
+                <ResourceDictionary Source="/Views/Styles/MainWindow.xaml"/>
+                <ResourceDictionary Source="/Views/Styles/AboutView.xaml"/>
+                <ResourceDictionary Source="/Views/Styles/ClassesView/ClassesView.xaml"/>
+                <ResourceDictionary Source="/Views/Styles/ClassesView/ClassView.xaml"/>
+                <ResourceDictionary Source="/Views/Styles/ClassesView/SpecializationView.xaml"/>
+                <ResourceDictionary Source="/Views/Styles/ClassesView/SpellView.xaml"/>
+                <!-- Other merged dictionaries here -->
+            </ResourceDictionary.MergedDictionaries>
+            <!-- Other app resources here -->
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

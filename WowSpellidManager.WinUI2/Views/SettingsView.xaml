@@ -1,0 +1,100 @@
+﻿<Page
+    x:Class="WowSpellidManager.Views.SettingsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WowSpellidManager.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <RelativePanel>
+
+        <StackPanel x:Name="FileSettingsStackPanel"
+                    Style="{StaticResource SettingsViewMainStackPanel}">
+            <TextBlock x:Name="FileSettingsTitle" 
+                       x:Uid="File"
+                       Style="{StaticResource HeaderTextBlockStyle}"></TextBlock>
+            <AppBarSeparator></AppBarSeparator>
+
+            <RelativePanel>
+                <TextBox x:Name="fileLocation"
+                         Style="{StaticResource FileLocationTextBox}"
+                         Text="{Binding Path=SavingsPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         KeyUp="fileLocation_KeyUp">
+                    <TextBox.Header>
+                        <StackPanel x:Name="FileStorageLocation"
+                                    Style="{StaticResource FileStorageLocationStackPanel}">
+                            <TextBlock
+                                x:Uid="Location">
+                            </TextBlock>
+
+                            <AppBarSeparator Style="{StaticResource FileStorageSeparator}"></AppBarSeparator>
+                            
+                            <SymbolIcon x:Name="FileStorageLocationInfoSymbol"
+                                        Symbol="Help"
+                                        ToolTipService.ToolTip="{Binding ElementName=ToolTipTextBlockNotVisible, Path=Text}">
+                            </SymbolIcon>
+                            <TextBlock x:Name="ToolTipTextBlockNotVisible" 
+                                       x:Uid="ToolTipLocation" 
+                                       Style="{StaticResource FileStorageLocationToolTipTextBlock}">
+                            </TextBlock>
+                        </StackPanel>
+                    </TextBox.Header>
+                </TextBox>
+                
+            </RelativePanel>
+            <TextBlock x:Name="SavingsPathErrorTextBlock" 
+                       Style="{StaticResource SavingsPathErrorTextBlock}"
+                       >
+            </TextBlock>
+        </StackPanel>
+
+        <AppBarSeparator x:Name="FileUserSeparator"
+                         Style="{StaticResource FileUserSeparator}"
+                         >
+        </AppBarSeparator>
+
+        <StackPanel x:Name="DesignSettingsStackPanel" 
+                    Style="{StaticResource DesignSettingsStackPanel}">
+            <TextBlock x:Name="DesignSettingsTitle" 
+                       x:Uid="Design"
+                       Style="{StaticResource HeaderTextBlockStyle}"></TextBlock>
+            <AppBarSeparator></AppBarSeparator>
+
+            <StackPanel x:Name="DesignSettingsInnerStackPanel" 
+                        Style="{StaticResource DesignSettingsInnerStackPanel}">
+                <StackPanel>
+                    <ToggleSwitch x:Name="ToggleSwitchDarkTheme"   
+                                  IsOn="{Binding IsDarkThemeActive,  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                  >
+                        <ToggleSwitch.Header>
+                            <TextBlock x:Uid="DarkTheme">
+                            </TextBlock>
+                        </ToggleSwitch.Header>
+                    </ToggleSwitch>
+                    <TextBlock x:Name="ToggleSwitchHeaderNameNotVisible"
+                               x:Uid="DarkTheme"
+                               Style="{StaticResource ToggleSwitchHeaderNameNotVisible}">
+                    </TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel x:Name="SaveSettingsStackPanel"
+                    Style="{StaticResource SaveSettingsStackPanel}">
+
+            <Button x:Name="SaveSettingsButton"
+                    Style="{StaticResource AccentButtonStyle}"
+                    Click="SaveSettingsButton_Click"
+                    x:Uid="Save">
+            </Button>
+        </StackPanel>
+
+        <StackPanel x:Name="StarInfoStackPanel" 
+                    Style="{StaticResource StarInfoStackPanel}">
+            <TextBlock x:Uid="AsteriskRestart">
+            </TextBlock>
+        </StackPanel>
+
+    </RelativePanel>
+</Page>

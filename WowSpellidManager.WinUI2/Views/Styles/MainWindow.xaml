@@ -1,0 +1,22 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WowSpellidManager.Views.Styles">
+
+    <Style x:Name="MainNavigationView"
+           TargetType="NavigationView">
+        <Setter Property="PaneDisplayMode" Value="Left"></Setter>
+        <Setter Property="IsSettingsVisible" Value="False"></Setter>
+        <Setter Property="IsBackButtonVisible" Value="Collapsed"></Setter>
+        <Setter Property="MenuItemTemplate" Value="{StaticResource MainNavigationViewMenuItem}"></Setter>
+    </Style>
+
+    <DataTemplate x:Name="MainNavigationViewMenuItem">
+        <NavigationViewItem Content="{Binding DisplayName}">
+            <NavigationViewItem.Icon>
+                <SymbolIcon Symbol="{Binding Glyph}"></SymbolIcon>
+            </NavigationViewItem.Icon>
+        </NavigationViewItem>
+    </DataTemplate>
+
+</ResourceDictionary>

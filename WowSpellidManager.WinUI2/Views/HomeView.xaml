@@ -1,0 +1,39 @@
+﻿<Page
+    x:Class="WowSpellidManager.Views.HomeView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WowSpellidManager.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <RelativePanel>
+        <StackPanel Style="{StaticResource HomeViewMainStackPanel}">
+
+            <TextBlock x:Name="HelloTextBlock" 
+                       Style="{StaticResource HeaderTextBlockStyle}"
+                       x:Uid="Hello">
+            </TextBlock>
+
+            <TextBlock x:Name="WelcomeTextBlock"
+                       x:Uid="Welcome"
+                       Style="{StaticResource SubheaderTextBlockStyle}">
+            </TextBlock>
+
+            <TextBlock x:Name="DisclaimerTextBlock"
+                       TextWrapping="WrapWholeWords" 
+                       MaxWidth="800" 
+                       Style="{StaticResource SubtitleTextBlockStyle}">
+                <Run x:Uid="Disclaimer1"></Run>              
+                <Run x:Uid="Disclaimer2"></Run>
+            </TextBlock>
+
+            <TextBlock x:Name="FeedbackTextBlock"
+                       x:Uid="Disclaimer3"
+                       Style="{StaticResource SubtitleTextBlockStyle}" 
+                       MaxWidth="800" 
+                       TextWrapping="Wrap">
+            </TextBlock>
+        </StackPanel>
+    </RelativePanel>
+</Page>

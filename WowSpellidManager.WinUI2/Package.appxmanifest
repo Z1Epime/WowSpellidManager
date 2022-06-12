@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:iot="http://schemas.microsoft.com/appx/manifest/iot/windows10"
+  xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+  IgnorableNamespaces="uap mp iot rescap">
+
+  <Identity
+    Name="23b17aef-fba8-41c6-9c1e-067556a332e9"
+    Publisher="CN=Epime"
+    Version="1.0.0.0" />
+
+  <mp:PhoneIdentity PhoneProductId="23b17aef-fba8-41c6-9c1e-067556a332e9" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+
+  <Properties>
+    <DisplayName>WowSpellidManager.WinUI2</DisplayName>
+    <PublisherDisplayName>Epime</PublisherDisplayName>
+    <Logo>Assets\Images\myimages\StoreLogo.png</Logo>
+  </Properties>
+
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+  </Dependencies>
+
+  <Resources>
+    <Resource Language="x-generate"/>
+  </Resources>
+
+  <Applications>
+    <Application Id="App"
+      Executable="$targetnametoken$.exe"
+      EntryPoint="WowSpellidManager.WinUI2.App">
+      <uap:VisualElements
+        DisplayName="WowSpellidManager.WinUI2"
+        Square150x150Logo="Assets\Images\myimages\Square150x150Logo.png"
+        Square44x44Logo="Assets\Images\myimages\Square44x44Logo.png"
+        Description="WowSpellidManager.WinUI2"
+        BackgroundColor="transparent">
+        <uap:DefaultTile Wide310x150Logo="Assets\Images\myimages\WideTile.png" Square71x71Logo="Assets\Images\myimages\SmallTile.png">
+          <uap:ShowNameOnTiles>
+            <uap:ShowOn Tile="square150x150Logo"/>
+            <uap:ShowOn Tile="wide310x150Logo"/>
+          </uap:ShowNameOnTiles>
+        </uap:DefaultTile >
+        <uap:SplashScreen Image="Assets\Images\myimages\SplashScreen.png" />
+      </uap:VisualElements>
+    </Application>
+  </Applications>
+
+  <Capabilities>
+    <rescap:Capability Name="broadFileSystemAccess" />
+</Capabilities>
+</Package>

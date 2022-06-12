@@ -1,0 +1,452 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{624B3DC4-524B-44CA-96D6-B26CA31AFA69}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WowSpellidManager.WinUI2</RootNamespace>
+    <AssemblyName>WowSpellidManager.WinUI2</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.19041.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.19041.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
+    <AppxPackageSigningEnabled>false</AppxPackageSigningEnabled>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>8.0</LangVersion>
+    <NullableContextOptions>enable</NullableContextOptions>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM64'">
+    <OutputPath>bin\ARM64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation\NavigationLists.cs" />
+    <Compile Include="Navigation\NavigationOption.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\Helper\SettingsHelper.cs" />
+    <Compile Include="ViewModels\Helper\SpellHelper.cs" />
+    <Compile Include="ViewModels\Helper\WowClassHelper.cs" />
+    <Compile Include="ViewModels\Validators\Checkers\Checker.cs" />
+    <Compile Include="ViewModels\Validators\Checkers\SpellChecker.cs" />
+    <Compile Include="ViewModels\Validators\Errors\Error.cs" />
+    <Compile Include="ViewModels\Validators\Rules\IStringRule.cs" />
+    <Compile Include="ViewModels\Wrapper\SpecializationViewModel.cs" />
+    <Compile Include="ViewModels\Wrapper\SpellViewModel.cs" />
+    <Compile Include="ViewModels\Wrapper\WowClassViewModel.cs" />
+    <Compile Include="Views\AboutView.xaml.cs">
+      <DependentUpon>AboutView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddSpellPopUpView.xaml.cs">
+      <DependentUpon>AddSpellPopUpView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ClassesView.xaml.cs">
+      <DependentUpon>ClassesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ClassView.xaml.cs">
+      <DependentUpon>ClassView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HomeView.xaml.cs">
+      <DependentUpon>HomeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettingsView.xaml.cs">
+      <DependentUpon>SettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SpecializationView.xaml.cs">
+      <DependentUpon>SpecializationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SpecializationView2.xaml.cs" />
+    <Compile Include="Views\SpellView.xaml.cs">
+      <DependentUpon>SpellView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Images\LockScreenLogo.scale-200.png" />
+    <Content Include="Assets\Images\myimages\LargeTile.scale-100.png" />
+    <Content Include="Assets\Images\myimages\LargeTile.scale-125.png" />
+    <Content Include="Assets\Images\myimages\LargeTile.scale-150.png" />
+    <Content Include="Assets\Images\myimages\LargeTile.scale-200.png" />
+    <Content Include="Assets\Images\myimages\LargeTile.scale-400.png" />
+    <Content Include="Assets\Images\myimages\SmallTile.scale-100.png" />
+    <Content Include="Assets\Images\myimages\SmallTile.scale-125.png" />
+    <Content Include="Assets\Images\myimages\SmallTile.scale-150.png" />
+    <Content Include="Assets\Images\myimages\SmallTile.scale-200.png" />
+    <Content Include="Assets\Images\myimages\SmallTile.scale-400.png" />
+    <Content Include="Assets\Images\myimages\SplashScreen.scale-100.png" />
+    <Content Include="Assets\Images\myimages\SplashScreen.scale-125.png" />
+    <Content Include="Assets\Images\myimages\SplashScreen.scale-150.png" />
+    <Content Include="Assets\Images\myimages\SplashScreen.scale-200.png" />
+    <Content Include="Assets\Images\myimages\SplashScreen.scale-400.png" />
+    <Content Include="Assets\Images\myimages\Square150x150Logo.scale-100.png" />
+    <Content Include="Assets\Images\myimages\Square150x150Logo.scale-125.png" />
+    <Content Include="Assets\Images\myimages\Square150x150Logo.scale-150.png" />
+    <Content Include="Assets\Images\myimages\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Images\myimages\Square150x150Logo.scale-400.png" />
+    <Content Include="Assets\Images\myimages\Square44x44Logo.altform-lightunplated_targetsize-16.png" />
+    <Content Include="Assets\Images\myimages\Square44x44Logo.altform-lightunplated_targetsize-24.png" />
+    <Content Include="Assets\Images\myimages\Square44x44Logo.altform-lightunplated_targetsize-256.png" />
+    <Content Include="Assets\Images\myimages\Square44x44Logo.altform-lightunplated_targetsize-32.png" />
+    <Content Include="Assets\Images\myimages\Square44x44Logo.altform-lightunplated_targetsize-48.png" />
+    <Content Include="Assets\Images\myimages\Square44x44Logo.altform-unplated_targetsize-16.png" />
+    <Content Include="Assets\Images\myimages\Square44x44Logo.altform-unplated_targetsize-24.png" />
+    <Content Include="Assets\Images\myimages\Square44x44Logo.altform-unplated_targetsize-256.png" />
+    <Content Include="Assets\Images\myimages\Square44x44Logo.altform-unplated_targetsize-32.png" />
+    <Content Include="Assets\Images\myimages\Square44x44Logo.altform-unplated_targetsize-48.png" />
+    <Content Include="Assets\Images\myimages\Square44x44Logo.scale-100.png" />
+    <Content Include="Assets\Images\myimages\Square44x44Logo.scale-125.png" />
+    <Content Include="Assets\Images\myimages\Square44x44Logo.scale-150.png" />
+    <Content Include="Assets\Images\myimages\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Images\myimages\Square44x44Logo.scale-400.png" />
+    <Content Include="Assets\Images\myimages\Square44x44Logo.targetsize-16.png" />
+    <Content Include="Assets\Images\myimages\Square44x44Logo.targetsize-24.png" />
+    <Content Include="Assets\Images\myimages\Square44x44Logo.targetsize-256.png" />
+    <Content Include="Assets\Images\myimages\Square44x44Logo.targetsize-32.png" />
+    <Content Include="Assets\Images\myimages\Square44x44Logo.targetsize-48.png" />
+    <Content Include="Assets\Images\myimages\StoreLogo.scale-100.png" />
+    <Content Include="Assets\Images\myimages\StoreLogo.scale-125.png" />
+    <Content Include="Assets\Images\myimages\StoreLogo.scale-150.png" />
+    <Content Include="Assets\Images\myimages\StoreLogo.scale-200.png" />
+    <Content Include="Assets\Images\myimages\StoreLogo.scale-400.png" />
+    <Content Include="Assets\Images\myimages\WideTile.scale-100.png" />
+    <Content Include="Assets\Images\myimages\WideTile.scale-125.png" />
+    <Content Include="Assets\Images\myimages\WideTile.scale-150.png" />
+    <Content Include="Assets\Images\myimages\WideTile.scale-200.png" />
+    <Content Include="Assets\Images\myimages\WideTile.scale-400.png" />
+    <Content Include="Assets\Images\SmallTile.scale-100.png" />
+    <Content Include="Assets\Images\specializations\deathknight\blood.png" />
+    <Content Include="Assets\Images\specializations\deathknight\frost.png" />
+    <Content Include="Assets\Images\specializations\deathknight\unholy.png" />
+    <Content Include="Assets\Images\specializations\demonhunter\havoc.PNG" />
+    <Content Include="Assets\Images\specializations\demonhunter\vengeance.PNG" />
+    <Content Include="Assets\Images\specializations\druid\balance.png" />
+    <Content Include="Assets\Images\specializations\druid\feral.png" />
+    <Content Include="Assets\Images\specializations\druid\guardian.png" />
+    <Content Include="Assets\Images\specializations\druid\restoration.png" />
+    <Content Include="Assets\Images\specializations\hunter\beastmastery.png" />
+    <Content Include="Assets\Images\specializations\hunter\marksman.png" />
+    <Content Include="Assets\Images\specializations\hunter\survival.png" />
+    <Content Include="Assets\Images\specializations\mage\arcane.png" />
+    <Content Include="Assets\Images\specializations\mage\fire.png" />
+    <Content Include="Assets\Images\specializations\mage\frost.png" />
+    <Content Include="Assets\Images\specializations\monk\brewmaster.png" />
+    <Content Include="Assets\Images\specializations\monk\mistweaver.png" />
+    <Content Include="Assets\Images\specializations\monk\windwalker.png" />
+    <Content Include="Assets\Images\specializations\paladin\holy.png" />
+    <Content Include="Assets\Images\specializations\paladin\protection.png" />
+    <Content Include="Assets\Images\specializations\paladin\retribution.png" />
+    <Content Include="Assets\Images\specializations\priest\discipline.png" />
+    <Content Include="Assets\Images\specializations\priest\holy.png" />
+    <Content Include="Assets\Images\specializations\priest\shadow.png" />
+    <Content Include="Assets\Images\specializations\rogue\assasination.png" />
+    <Content Include="Assets\Images\specializations\rogue\outlaw.png" />
+    <Content Include="Assets\Images\specializations\rogue\subtlety.png" />
+    <Content Include="Assets\Images\specializations\shaman\elemental.png" />
+    <Content Include="Assets\Images\specializations\shaman\enhancement.png" />
+    <Content Include="Assets\Images\specializations\shaman\restoration.png" />
+    <Content Include="Assets\Images\specializations\warlock\affliction.png" />
+    <Content Include="Assets\Images\specializations\warlock\demonology.png" />
+    <Content Include="Assets\Images\specializations\warlock\destruction.png" />
+    <Content Include="Assets\Images\specializations\warrior\arms.png" />
+    <Content Include="Assets\Images\specializations\warrior\fury.png" />
+    <Content Include="Assets\Images\specializations\warrior\protection.png" />
+    <Content Include="Assets\Images\SplashScreen.scale-200.png" />
+    <Content Include="Assets\Images\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Images\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Images\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Content Include="Assets\Images\StoreLogo.png" />
+    <Content Include="Assets\Images\Wide310x150Logo.scale-200.png" />
+    <Content Include="Assets\Images\WowClasses\deathknight.png" />
+    <Content Include="Assets\Images\WowClasses\demonhunter.png" />
+    <Content Include="Assets\Images\WowClasses\druid.png" />
+    <Content Include="Assets\Images\WowClasses\hunter.png" />
+    <Content Include="Assets\Images\WowClasses\ico\deathknight.ico" />
+    <Content Include="Assets\Images\WowClasses\ico\demonhunter.ico" />
+    <Content Include="Assets\Images\WowClasses\ico\druid.ico" />
+    <Content Include="Assets\Images\WowClasses\ico\hunter.ico" />
+    <Content Include="Assets\Images\WowClasses\ico\mage.ico" />
+    <Content Include="Assets\Images\WowClasses\ico\monk.ico" />
+    <Content Include="Assets\Images\WowClasses\ico\paladin.ico" />
+    <Content Include="Assets\Images\WowClasses\ico\priest.ico" />
+    <Content Include="Assets\Images\WowClasses\ico\rogue.ico" />
+    <Content Include="Assets\Images\WowClasses\ico\shaman.ico" />
+    <Content Include="Assets\Images\WowClasses\ico\warlock.ico" />
+    <Content Include="Assets\Images\WowClasses\ico\warrior.ico" />
+    <Content Include="Assets\Images\WowClasses\mage.png" />
+    <Content Include="Assets\Images\WowClasses\monk.png" />
+    <Content Include="Assets\Images\WowClasses\paladin.png" />
+    <Content Include="Assets\Images\WowClasses\priest.png" />
+    <Content Include="Assets\Images\WowClasses\rogue.png" />
+    <Content Include="Assets\Images\WowClasses\shaman.png" />
+    <Content Include="Assets\Images\WowClasses\warlock.png" />
+    <Content Include="Assets\Images\WowClasses\warrior.png" />
+    <Content Include="Properties\Default.rd.xml" />
+    <Content Include="Assets\LockScreenLogo.scale-200.png" />
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AboutView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AddSpellPopUpView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ClassesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ClassView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\HomeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SettingsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SpecializationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SpellView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Styles\AboutView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Styles\ClassesView\ClassesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Styles\ClassesView\ClassView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Styles\ClassesView\SpecializationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Styles\ClassesView\SpellView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Styles\HomeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Styles\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Styles\SettingsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>6.2.13</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Views\resources\Strings\About\de-DE\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Views\resources\Strings\About\en-US\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Views\resources\Strings\App\en-US\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Views\resources\Strings\Classes\de-DE\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Views\resources\Strings\Classes\en-US\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Views\resources\Strings\Home\de-DE\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Views\resources\Strings\Home\en-US\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Views\resources\Strings\MainNavigation\de-DE\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Views\resources\Strings\MainNavigation\en-US\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Views\resources\Strings\Settings\de-DE\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Views\resources\Strings\Settings\en-US\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WowSpellidManager.DomainUWP\WowSpellidManager.DomainUWP.csproj">
+      <Project>{aafc5271-e476-49da-a7b5-d9c345962762}</Project>
+      <Name>WowSpellidManager.DomainUWP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WowSpellidManager.InfrastructureUWP\WowSpellidManager.InfrastructureUWP.csproj">
+      <Project>{8d8898ff-e5bd-4ce5-8f25-dda60cf4bb51}</Project>
+      <Name>WowSpellidManager.InfrastructureUWP</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="ViewModels\resources\Strings\Classes\de-DE\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="ViewModels\resources\Strings\Classes\en-US\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="ViewModels\resources\Strings\Specializations\de-DE\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="ViewModels\resources\Strings\Specializations\en-US\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Images\WowClasses\ico\bb7e457619d2db29d4ffe2b59ff4ea94.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\Images\WowClasses\png\" />
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
