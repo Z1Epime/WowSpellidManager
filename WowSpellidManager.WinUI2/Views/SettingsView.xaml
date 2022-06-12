@@ -14,7 +14,7 @@
             <TextBlock x:Name="FileSettingsTitle" 
                        x:Uid="File"
                        Style="{StaticResource HeaderTextBlockStyle}"></TextBlock>
-            <AppBarSeparator></AppBarSeparator>
+            <AppBarSeparator Style="{StaticResource SeparatorInvisibility}"></AppBarSeparator>
 
             <RelativePanel>
                 <TextBox x:Name="fileLocation"
@@ -59,7 +59,7 @@
             <TextBlock x:Name="DesignSettingsTitle" 
                        x:Uid="Design"
                        Style="{StaticResource HeaderTextBlockStyle}"></TextBlock>
-            <AppBarSeparator></AppBarSeparator>
+            <AppBarSeparator Style="{StaticResource SeparatorInvisibility}"></AppBarSeparator>
 
             <StackPanel x:Name="DesignSettingsInnerStackPanel" 
                         Style="{StaticResource DesignSettingsInnerStackPanel}">

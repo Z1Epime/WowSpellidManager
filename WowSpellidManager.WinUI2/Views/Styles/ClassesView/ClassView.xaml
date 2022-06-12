@@ -15,10 +15,18 @@
         <NavigationViewItem>
             <StackPanel Orientation="Horizontal">
                 <Image Source="{Binding Image}" Height="30"></Image>
-                <AppBarSeparator></AppBarSeparator>
+                <AppBarSeparator Style="{StaticResource SpecializationNavigationItemSeparator}"></AppBarSeparator>
                 <TextBlock Text="{Binding Designation}"></TextBlock>
             </StackPanel>
         </NavigationViewItem>
     </DataTemplate>
 
+    <Style x:Name="SpecializationNavigationItemSeparator"
+           TargetType="AppBarSeparator">
+        <Setter Property="Background" Value="Transparent"></Setter>
+        <Setter Property="Foreground" Value="Transparent"></Setter>
+        <Setter Property="Width" Value="10"></Setter>
+        <Setter Property="Height" Value="10"></Setter>
+    </Style>
+    
 </ResourceDictionary>

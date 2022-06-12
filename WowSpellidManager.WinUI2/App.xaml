@@ -10,6 +10,7 @@
                 <ResourceDictionary Source="/Views/Styles/SettingsView.xaml"/>
                 <ResourceDictionary Source="/Views/Styles/MainWindow.xaml"/>
                 <ResourceDictionary Source="/Views/Styles/AboutView.xaml"/>
+                <ResourceDictionary Source="/Views/Styles/Global.xaml"/>
                 <ResourceDictionary Source="/Views/Styles/ClassesView/ClassesView.xaml"/>
                 <ResourceDictionary Source="/Views/Styles/ClassesView/ClassView.xaml"/>
                 <ResourceDictionary Source="/Views/Styles/ClassesView/SpecializationView.xaml"/>
