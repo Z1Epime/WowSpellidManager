@@ -1,0 +1,374 @@
+﻿<Page
+    x:Class="WowSpellidManager.WinUI2.Views.EditSpellView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WowSpellidManager.WinUI2.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:Interactions="using:Microsoft.Xaml.Interactions.Core" 
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <ScrollViewer>
+
+
+        <RelativePanel>
+
+
+            <RelativePanel
+                    x:Name="EditMenuHeaderRelativePanel"
+                    RelativePanel.AlignTopWithPanel="True"
+                    RelativePanel.AlignLeftWithPanel="True">
+                <TextBlock 
+                   Style="{StaticResource SubheaderTextBlockStyle}"
+                       RelativePanel.AlignTopWithPanel="True"
+                       RelativePanel.AlignLeftWithPanel="True">
+            Edit spell
+                </TextBlock>
+            </RelativePanel>
+
+
+
+            <RelativePanel x:Name="nameIdStackPanel"
+                           RelativePanel.Below="EditMenuHeaderRelativePanel"
+                           RelativePanel.AlignLeftWithPanel="true"
+                           Margin="0,15,0,15"
+                           BorderBrush="DimGray" 
+                           BorderThickness="5"
+                           Padding="5"
+                    >
+                <TextBlock x:Name="GeneralHeaderTextBlock" 
+                       Style="{StaticResource SubtitleTextBlockStyle}"
+                       RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True">
+                General
+                </TextBlock>
+
+                <TextBox x:Name="spellNameTextBox"
+                     Header="Name"
+                     MinWidth="200"
+                     MaxWidth="250"
+                     RelativePanel.Below="GeneralHeaderTextBlock"
+                     RelativePanel.AlignLeftWithPanel="True"
+                         Text="{Binding Designation}"
+                 >
+                </TextBox>
+
+                <TextBox x:Name="spellidTextBox"
+                     Header="ID"
+                     Width="120"
+                     MaxLength="10"
+                     Margin="10,0,0,0"
+                     RelativePanel.RightOf="spellNameTextBox"
+                     RelativePanel.AlignTopWith="spellNameTextBox"
+                         Text="{Binding ID}"
+                 >
+                </TextBox>
+            </RelativePanel>
+
+
+            <RelativePanel x:Name="CooldownRelativePanel"
+                           RelativePanel.AlignLeftWithPanel="True"
+                           RelativePanel.Below="nameIdStackPanel"
+                           BorderBrush="DimGray" 
+                           BorderThickness="5"
+                           Padding="5"
+                           >
+
+                <TextBlock x:Name="CooldownHeaderTextBlock"
+                       Style="{StaticResource SubtitleTextBlockStyle}"
+                       RelativePanel.AlignTopWithPanel="True"
+                       RelativePanel.AlignLeftWithPanel="True">
+                Cooldown
+                </TextBlock>
+
+                <CheckBox Content="Cooldown" x:Name="CooldownCheckBox"
+                          RelativePanel.RightOf="CooldownHeaderTextBlock"
+                          RelativePanel.AlignTopWith="CooldownHeaderTextBlock" Margin="10,0,0,0"
+                          IsChecked="{Binding HasCooldown}">
+                    <Interactivity:Interaction.Behaviors>
+                        <Interactions:DataTriggerBehavior Binding="{Binding IsChecked, ElementName=CooldownCheckBox}" ComparisonCondition="Equal" Value="true">
+                            <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=CooldownStackPanel}" PropertyName="Visibility" Value="Visible"/>
+                        </Interactions:DataTriggerBehavior>
+                        <Interactions:DataTriggerBehavior Binding="{Binding IsChecked, ElementName=CooldownCheckBox}" ComparisonCondition="Equal" Value="false">
+                            <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=CooldownStackPanel}" PropertyName="Visibility" Value="Collapsed"/>
+                        </Interactions:DataTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                </CheckBox>
+
+                <StackPanel Orientation="Horizontal"
+                        x:Name="CooldownStackPanel"
+                        RelativePanel.Below="CooldownHeaderTextBlock"
+                            
+                        RelativePanel.AlignLeftWith="CooldownHeaderTextBlock" Margin="0,10,0,0">
+                    <StackPanel>
+                        
+                        <RelativePanel>
+                            <TextBox
+                             x:Name="TimeTextBox"
+                             RelativePanel.AlignRightWithPanel="True"
+                             Width="100"
+                                     Text="{Binding Cooldown.Number}">
+                            </TextBox>
+                            <TextBlock x:Name="TimeTextBlock"
+                           RelativePanel.LeftOf="TimeTextBox"
+                                       RelativePanel.AlignVerticalCenterWith="TimeTextBox"
+                                       Margin="5">
+                            Duration
+                            </TextBlock>
+
+                        
+                            <ComboBox
+                                Margin="0,5,0,0"
+                              RelativePanel.AlignRightWithPanel="True"
+                              x:Name="UnitComboBoxCooldown"
+                                RelativePanel.Below="TimeTextBox"
+                              Width="100">
+                                <ComboBox.Items>
+                                    <ComboBoxItem x:Name="ComboBoxItemMinute">Minute</ComboBoxItem>
+                                    <ComboBoxItem x:Name="ComboBoxItemSecond">Second</ComboBoxItem>
+                                    <ComboBoxItem x:Name="ComboBoxItemHour">Hour</ComboBoxItem>
+                                </ComboBox.Items>
+                            </ComboBox>
+                            <TextBlock x:Name="UnitTextBlock"
+                           RelativePanel.LeftOf="UnitComboBoxCooldown"
+                           RelativePanel.AlignVerticalCenterWith="UnitComboBoxCooldown"
+                                       RelativePanel.Below="TimeTextBox"
+                                       Margin="5">
+                    Unit
+                            </TextBlock>
+
+                        </RelativePanel>
+
+                    </StackPanel>
+
+                    <AppBarSeparator Background="Transparent" Foreground="Transparent" Width="20"></AppBarSeparator>
+
+                    <StackPanel>
+
+                        <CheckBox x:Name="ChargesCheckBox" Content="Charges" IsChecked="{Binding HasCharges}">
+                            <Interactivity:Interaction.Behaviors>
+
+                                <Interactions:DataTriggerBehavior Binding="{Binding IsChecked, ElementName=ChargesCheckBox}" ComparisonCondition="Equal" Value="true">
+                                    <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=ChargesRelativePanel}" PropertyName="Visibility" Value="Visible"/>
+                                </Interactions:DataTriggerBehavior>
+                                <Interactions:DataTriggerBehavior Binding="{Binding IsChecked, ElementName=ChargesCheckBox}" ComparisonCondition="Equal" Value="false">
+                                    <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=ChargesRelativePanel}" PropertyName="Visibility" Value="Collapsed"/>
+                                </Interactions:DataTriggerBehavior>
+
+                            </Interactivity:Interaction.Behaviors>
+                        </CheckBox>
+
+                        <RelativePanel x:Name="ChargesRelativePanel" Visibility="Collapsed">
+                            <TextBlock x:Name="NumberTextBlock"
+                               RelativePanel.AlignLeftWithPanel="True"
+                               RelativePanel.AlignVerticalCenterWithPanel="True"
+                                       Margin="0,5,5,5">Number
+                            </TextBlock>
+
+                            <TextBox MaxLength="2"
+                             RelativePanel.RightOf="NumberTextBlock"
+                                     RelativePanel.AlignVerticalCenterWith="NumberTextBlock"
+                                     Text="{Binding Charges}">
+                            </TextBox>
+                        </RelativePanel>
+                    </StackPanel>
+
+                </StackPanel>
+
+
+            </RelativePanel>
+
+
+            <RelativePanel x:Name="CastRelativePanel"
+                           RelativePanel.Below="CooldownRelativePanel"
+                           RelativePanel.AlignLeftWithPanel="True"
+                           Margin="0,10,0,0"
+                           BorderBrush="DimGray" 
+                           BorderThickness="5"
+                           Padding="5">
+
+                <TextBlock x:Name="CastHeaderTextBlock"
+                       Style="{StaticResource SubtitleTextBlockStyle}"
+                       RelativePanel.AlignTopWithPanel="True"
+                       RelativePanel.AlignLeftWithPanel="True">
+                Cast
+                </TextBlock>
+
+                <StackPanel x:Name="RadioButtonsCast"
+                          RelativePanel.Below="CastHeaderTextBlock"
+                          RelativePanel.AlignLeftWith="CastHeaderTextBlock" Orientation="Horizontal">
+
+                    <RadioButton Content="Instant Cast" x:Name="InstantCastRadioButton">
+                        <Interactivity:Interaction.Behaviors>
+
+                            <Interactions:DataTriggerBehavior Binding="{Binding IsChecked, ElementName=InstantCastRadioButton}" ComparisonCondition="Equal" Value="true">
+                                <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=BaseCastTimeTextBox}" PropertyName="Visibility" Value="Collapsed"/>
+                                <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=DurationTextBox}" PropertyName="Visibility" Value="Collapsed"/>
+                                <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=UnitComboBoxDuration}" PropertyName="Visibility" Value="Collapsed"/>
+                            </Interactions:DataTriggerBehavior>
+
+
+                        </Interactivity:Interaction.Behaviors>
+                    </RadioButton>
+                    <RadioButton Content="Normal Cast" x:Name="NormalCastRadioButton">
+                        <Interactivity:Interaction.Behaviors>
+
+                            <Interactions:DataTriggerBehavior Binding="{Binding IsChecked, ElementName=NormalCastRadioButton}" ComparisonCondition="Equal" Value="true">
+                                <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=BaseCastTimeTextBox}" PropertyName="Visibility" Value="Visible"/>
+                                <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=UnitComboBoxDuration}" PropertyName="Visibility" Value="Visible"/>
+                                <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=DurationTextBox}" PropertyName="Visibility" Value="Collapsed"/>
+                            </Interactions:DataTriggerBehavior>
+
+                        </Interactivity:Interaction.Behaviors>
+                    </RadioButton>
+                    <RadioButton Content="Channeling" x:Name="ChannelingRadioButton">
+                        <Interactivity:Interaction.Behaviors>
+                            <Interactions:DataTriggerBehavior Binding="{Binding IsChecked, ElementName=ChannelingRadioButton}" ComparisonCondition="Equal" Value="true">
+                                <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=DurationTextBox}" PropertyName="Visibility" Value="Visible"/>
+                                <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=UnitComboBoxDuration}" PropertyName="Visibility" Value="Visible"/>
+                                <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=BaseCastTimeTextBox}" PropertyName="Visibility" Value="Collapsed"/>
+                            </Interactions:DataTriggerBehavior>
+
+                        </Interactivity:Interaction.Behaviors>
+                    </RadioButton>
+
+                </StackPanel>
+
+                <CheckBox x:Name="OffGlobalCheckBox" RelativePanel.Below="DurationStackPanel"
+                      RelativePanel.AlignLeftWith="RadioButtonsCast" IsChecked="{Binding Cast.IsOffGlobal}">Off global</CheckBox>
+
+                <StackPanel x:Name="DurationStackPanel"
+                        RelativePanel.Below="RadioButtonsCast" RelativePanel.AlignLeftWithPanel="True" Orientation="Horizontal">
+
+                    <TextBox x:Name="DurationTextBox" Header="Duration" MaxWidth="100" Margin="0,0,10,0" Visibility="Collapsed" Text="{Binding Cast.Time}"></TextBox>
+
+                    <TextBox x:Name="BaseCastTimeTextBox" Header="Base cast time" MaxWidth="100" Margin="0,0,10,0" Visibility="Collapsed" Text="{Binding Cast.Time}"></TextBox>
+
+                </StackPanel>
+
+                <ComboBox x:Name="UnitComboBoxDuration"
+                      Header="Unit" RelativePanel.RightOf="DurationStackPanel" RelativePanel.AlignTopWith="DurationStackPanel"
+                          Visibility="Collapsed">
+                    <ComboBoxItem x:Name="UnitComboBoxItemMinute" >Minute</ComboBoxItem>
+                    <ComboBoxItem x:Name="UnitComboBoxItemSecond" >Second</ComboBoxItem>
+                    <ComboBoxItem x:Name="UnitComboBoxItemHour" >Hour</ComboBoxItem>
+                </ComboBox>
+
+
+                <RelativePanel x:Name="OtherRelativePanel" RelativePanel.Below="OffGlobalCheckBox" RelativePanel.AlignLeftWithPanel="True">
+
+                    <CheckBox x:Name="RangeCheckBox" Content="Range" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignLeftWithPanel="True"
+                               IsChecked="True">
+                        <Interactivity:Interaction.Behaviors>
+                            <Interactions:EventTriggerBehavior EventName="Checked" SourceObject="{Binding ElementName=RangeCheckBox}">
+                                <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=RangeTextBox}" 
+                                                       PropertyName="Visibility" 
+                                                       Value="Visible"/>
+                            </Interactions:EventTriggerBehavior>
+                            <Interactions:EventTriggerBehavior EventName="Checked" SourceObject="{Binding ElementName=RangeCheckBox}">
+                                <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=UnitComboBoxRange}" 
+                                                       PropertyName="Visibility" 
+                                                       Value="Visible"/>
+                            </Interactions:EventTriggerBehavior>
+
+                            <Interactions:EventTriggerBehavior EventName="Unchecked" SourceObject="{Binding ElementName=RangeCheckBox}">
+                                <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=RangeTextBox}" 
+                                                       PropertyName="Visibility" 
+                                                       Value="Collapsed"/>
+                            </Interactions:EventTriggerBehavior>
+
+                            <Interactions:EventTriggerBehavior EventName="Unchecked" SourceObject="{Binding ElementName=RangeCheckBox}">
+                                <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=UnitComboBoxRange}" 
+                                                       PropertyName="Visibility" 
+                                                       Value="Collapsed"/>
+                            </Interactions:EventTriggerBehavior>
+
+                        </Interactivity:Interaction.Behaviors>
+                    </CheckBox>
+
+                    <TextBox x:Name="RangeTextBox"
+                         RelativePanel.RightOf="RangeCheckBox"
+                         RelativePanel.AlignVerticalCenterWith="RangeCheckBox"
+                             Header="Number"
+                             Visibility="Visible"
+                             Text="40"
+                                 Margin="-25,0,15,0">
+                    </TextBox>
+
+                    <ComboBox RelativePanel.RightOf="RangeTextBox"
+                          RelativePanel.AlignVerticalCenterWith="RangeTextBox"
+                          x:Name="UnitComboBoxRange"
+                              Visibility="Visible"
+                          Header="Unit"
+                              SelectedIndex="0">
+                        <ComboBox.Items>
+                            <ComboBoxItem>Yard</ComboBoxItem>
+                            <ComboBoxItem>Mile</ComboBoxItem>
+                        </ComboBox.Items>
+                    </ComboBox>
+
+                </RelativePanel>
+
+            </RelativePanel>
+
+            <RelativePanel x:Name="AvailabilityRelativePanel"
+                           RelativePanel.Below="CastRelativePanel"
+                           RelativePanel.AlignLeftWithPanel="True"
+                           Margin="0,10,0,0"
+                           BorderBrush="DimGray" 
+                           BorderThickness="5"
+                           Padding="5">
+
+                <TextBlock x:Name="AvailabilityTextBlock"
+                    RelativePanel.AlignTopWithPanel="True"
+                           RelativePanel.AlignLeftWithPanel="True"
+                   Style="{StaticResource SubtitleTextBlockStyle}">
+            Availability
+                </TextBlock>
+
+                <StackPanel x:Name="Expander"
+                    RelativePanel.Below="AvailabilityTextBlock"
+                    RelativePanel.AlignLeftWith="AvailabilityTextBlock">
+                    <RelativePanel>
+                        <RadioButton x:Name="Talent" RelativePanel.AlignLeftWithPanel="True">Talent</RadioButton>
+                        <RadioButton x:Name="PVPTalent" RelativePanel.RightOf="Talent" RelativePanel.AlignVerticalCenterWith="Talent">PvP-Talent</RadioButton>
+                        <RadioButton x:Name="Baseline" RelativePanel.Below="Talent" RelativePanel.AlignLeftWithPanel="True" IsChecked="True">Baseline</RadioButton>
+                        <RadioButton x:Name="Other" RelativePanel.Below="PVPTalent" RelativePanel.RightOf="Baseline">Other</RadioButton>
+                    </RelativePanel>
+                </StackPanel>
+
+            </RelativePanel>
+
+            <RelativePanel x:Name="AdditionalInfoRelativePanel"
+                           RelativePanel.Below="AvailabilityRelativePanel"
+                           RelativePanel.AlignLeftWithPanel="True"
+                           BorderBrush="DimGray" 
+                           BorderThickness="5"
+                           Margin="0,10,0,0"
+                           Padding="5">
+
+                <TextBlock x:Name="AdditionInfoTextBlock"
+                           Style="{StaticResource SubtitleTextBlockStyle}"
+                           RelativePanel.AlignTopWithPanel="True"
+                           RelativePanel.AlignLeftWithPanel="True">
+                    Additional Info
+                </TextBlock>
+
+                
+                <RichEditBox x:Name="AdditionalInfoTextBox"
+                         RelativePanel.AlignLeftWithPanel="True"
+                         RelativePanel.Below="AdditionInfoTextBlock"
+                         TextWrapping="Wrap"
+                         MinWidth="200"
+                         MaxWidth="400"
+                         MaxHeight="250"
+                         >
+
+                </RichEditBox>
+
+            </RelativePanel>
+
+        </RelativePanel>
+    </ScrollViewer>
+</Page>

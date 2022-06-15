@@ -151,6 +151,9 @@
     <Compile Include="Views\ClassView.xaml.cs">
       <DependentUpon>ClassView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\EditSpellView.xaml.cs">
+      <DependentUpon>EditSpellView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
     </Compile>
@@ -160,7 +163,6 @@
     <Compile Include="Views\SpecializationView.xaml.cs">
       <DependentUpon>SpecializationView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SpecializationView2.xaml.cs" />
     <Compile Include="Views\SpellView.xaml.cs">
       <DependentUpon>SpellView.xaml</DependentUpon>
     </Compile>
@@ -323,6 +325,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\EditSpellView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\HomeView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -379,6 +385,9 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.13</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Uwp.Managed">
+      <Version>2.0.1</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

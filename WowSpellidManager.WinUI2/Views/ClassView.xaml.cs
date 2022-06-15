@@ -9,6 +9,7 @@ using Windows.Foundation.Collections;
 using Windows.UI.Xaml.Controls;
 using WowSpellidManager.ViewModels.Wrapper;
 using Windows.Storage;
+using WowSpellidManager.WinUI2.Views;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -28,7 +29,8 @@ namespace WowSpellidManager.Views
 
         private async void SpecializationNavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
-            specializationsFrame.Content = new SpecializationView(SpecializationNavigationView.SelectedItem);
+            //specializationsFrame.Content = new SpecializationView(SpecializationNavigationView.SelectedItem);
+            specializationsFrame.Content = new EditSpellView();
         }
     }
 }
