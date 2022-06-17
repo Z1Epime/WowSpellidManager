@@ -174,7 +174,7 @@ namespace WowSpellidManager.Domain.Models.Spells
 
             set
             {
-                Availability = value;
+                fAvailability = value;
             }
         }
           
