@@ -28,12 +28,26 @@ namespace WowSpellidManager.Views
         public SpellView(object aSpec, object aSpell, object aSpellNavigationView)
         {
             this.InitializeComponent();
-            this.DataContext = aSpell;
             // TODO: this.Visibility = Visibility.Visible;
             fSpec = aSpec;
+            ((SpellViewModel)aSpell).Cooldown = new Domain.Models.Spells.Cooldown(2, "min");
+            ((SpellViewModel)aSpell).Charges = 2;
+            ((SpellViewModel)aSpell).Cast = new Domain.Models.Spells.Cast() { Time = 2, IsChanneling = false, IsOffGlobal = true };
+            ((SpellViewModel)aSpell).IsTalent = false;
+            ((SpellViewModel)aSpell).IsPvPTalent = true;
+            ((SpellViewModel)aSpell).Cast = new Domain.Models.Spells.Cast(null, false, false);
+            ((SpellViewModel)aSpell).Charges = null;
+            ((SpellViewModel)aSpell).Cost = new Domain.Models.Spells.Resource("Mana", 50);
+            ((SpellViewModel)aSpell).IsPassive = false;
+            ((SpellViewModel)aSpell).Range = new Domain.Models.Spells.Range(40, "Yard");
+            ((SpellViewModel)aSpell).AdditionalInfo = "sehfiuoseifuhseiofuhseifouhseiopfuesifopusehfiopueshfiu";
+            ((SpellViewModel)aSpell).ToolTipText = "afsejofpjseofpisejfopisepofijseopiföjseofpijseofsjefsiejfespfijseofipjafsejofpjseofpisejfopisepofijseopiföjseofpijseofsjefsiejfespfijseofipjafsejofpjseofpisejfopisepo";
+
             fSpell = aSpell;
             this.aSpellNavigationView = aSpellNavigationView;
             fSpellHelper = new SpellHelper();
+            this.DataContext = fSpell;
         }
+
     }
 }

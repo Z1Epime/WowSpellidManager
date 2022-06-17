@@ -10,6 +10,7 @@ using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using WowSpellidManager.ViewModels.Wrapper;
+using WowSpellidManager.WinUI2.Views;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -38,6 +39,25 @@ namespace WowSpellidManager.Views
         private void RemoveButton_Click(object sender, RoutedEventArgs e)
         {
             ((SpecializationViewModel)fSpec).Spells.Remove((SpellViewModel)SpellNavigationView.SelectedItem);
+        }
+
+        private async void AddSpellButton_Click(object sender, RoutedEventArgs e)
+        {
+            ContentDialog dialog = new ContentDialog();
+            dialog.XamlRoot = this.Content.XamlRoot;
+            dialog.Title = "Add a spell:";
+            dialog.CloseButtonText = "Cancel";
+            dialog.DefaultButton = ContentDialogButton.Primary;
+            dialog.PrimaryButtonText = "Add";
+            dialog.Content = new AddSpellView();
+
+            var result = await dialog.ShowAsync();
+
+            var view = (AddSpellView)dialog.Content;
+            if (result == ContentDialogResult.Primary)
+            {
+                ((SpecializationViewModel)fSpec).Spells.Add(new SpellViewModel() { ID = view.ID, Designation = view.SpellName });
+            }
         }
 
         //private ObservableCollection<SpellNavigationOption> GenerateSpellNavigationOptionsCollection(ObservableCollection<SpellViewModel> aSpellViewModels)
