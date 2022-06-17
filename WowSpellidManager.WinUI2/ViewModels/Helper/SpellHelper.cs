@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WowSpellidManager.Domain.Models.Spells;
+using WowSpellidManager.DomainUWP.Models.Spells;
 using WowSpellidManager.Infrastructure.CRUD;
 using WowSpellidManager.ViewModels;
 using WowSpellidManager.ViewModels.Wrapper;
@@ -16,7 +17,7 @@ namespace WowSpellidManager.ViewModels.Helper
         private DataOperationProvider fDataOperationProvider = new DataOperationProvider();
         public void AddSpell(string aSpellName, string aSpellID, string aSpellDescription, object aClass, object aSpecialization)
         {
-            var spell = new Spell(aSpellName, null, aSpellID, false, false, false);
+            var spell = new Spell(aSpellName, null, aSpellID, false, Availability.Talent);
 
             foreach (var @class in WowClassHelper.ViewModels)
             {
