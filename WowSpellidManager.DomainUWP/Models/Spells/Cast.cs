@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WowSpellidManager.DomainUWP.Models.Spells;
 
 namespace WowSpellidManager.Domain.Models.Spells
 {
     /// <summary>
     /// Represents the cast of a spell. A spell can either be instant cast, <br></br>
-    /// have a cast time or has to be channeled. <br></br>
+    /// have a cast time or has to be channeled. That is determined by the CastType enumeration type. <br></br>
     /// For simplification purposes this class does not inherit from Entity. Note that this class does not have a GUID.
     /// </summary>
     public class Cast
     {
         #region Fields
         private int? fTime;
-        private bool fIsChanneling;
+        private CastType fCastType;
         private bool fIsOffGlobal;
         #endregion
 
@@ -37,18 +38,18 @@ namespace WowSpellidManager.Domain.Models.Spells
         }
 
         /// <summary>
-        /// Determines wether the spell is needed to be channeled or casted.
+        /// Determines in which way the spell is cast.
         /// </summary>
-        public bool IsChanneling
+        public CastType CastType
         {
             get
             {
-                return fIsChanneling;
+                return fCastType;
             }
 
             set
             {
-                fIsChanneling = value;
+                fCastType = value;
             }
         }
 
@@ -75,10 +76,10 @@ namespace WowSpellidManager.Domain.Models.Spells
         /// </summary>
         /// <param name="aTime"></param>
         /// <param name="aIsChanneling"></param>
-        public Cast(int? aTime, bool aIsChanneling, bool aIsOffGlobal)
+        public Cast(int? aTime, CastType aCastType, bool aIsOffGlobal)
         {
             Time = aTime;
-            IsChanneling = aIsChanneling;
+            CastType = aCastType;
             IsOffGlobal = aIsOffGlobal;
         }
 
