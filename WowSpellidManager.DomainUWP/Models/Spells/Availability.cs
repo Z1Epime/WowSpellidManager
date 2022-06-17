@@ -11,5 +11,6 @@ namespace WowSpellidManager.DomainUWP.Models.Spells
         Talent = 0,
         HonorTalent = 1,
         Baseline = 2,
+        Other = 3,
     }
 }
