@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WowSpellidManager.Domain.Exceptions;
+using WowSpellidManager.DomainUWP.Models.Spells;
 
 namespace WowSpellidManager.Domain.Models.Spells
 {
@@ -21,9 +22,8 @@ namespace WowSpellidManager.Domain.Models.Spells
         private Range? fRange;
         private string fToolTipText;
         private Cast fCast;
-        private bool fIsTalent;
-        private bool fIsPvPTalent;
         private bool fIsPassive;
+        private Availability fAvailability;
         #endregion
 
 
@@ -163,36 +163,21 @@ namespace WowSpellidManager.Domain.Models.Spells
         }
 
         /// <summary>
-        /// Determines wether is spell is recieved through a talent or not.
+        /// Determines how the player acquires the spell.
         /// </summary>
-        public bool IsTalent
+        public Availability Availability
         {
             get
             {
-                return fIsTalent;
-            }
-            
-            set
-            {
-                fIsTalent = value;
-            }
-        }
-
-        /// <summary>
-        /// Determines wether is spell is recieved through a pvp talent (aka honor talent) or not.
-        /// </summary>
-        public bool IsPvPTalent
-        {
-            get
-            {
-                return fIsPvPTalent;
+                return fAvailability;
             }
 
             set
             {
-                fIsPvPTalent = value;
+                Availability = value;
             }
         }
+          
 
         /// <summary>
         /// Determines wether is spell is a passive or not.
@@ -213,38 +198,36 @@ namespace WowSpellidManager.Domain.Models.Spells
 
         #region Constructors
         public Spell(Guid aGuid, string aDesignation, Cast aCast, string aID, bool aIsPassive,
-            bool aIsTalent, bool aIsPvPTalent, Range? aRange = null, int? aCharges = null, 
+            Availability aAvailability, Range? aRange = null, int? aCharges = null, 
             string aToolTipText = null, Cooldown? aCooldown = null, Resource? aCost = null, 
             string aAdditionalInfo = null) : base(aGuid, aDesignation)
         {
             Cast = aCast;
             IsPassive = aIsPassive;
-            IsTalent = aIsTalent;
             Range = aRange;
             Charges = aCharges;
             Cost = aCost;
             ToolTipText = aToolTipText;
             Cooldown = aCooldown;
-            IsPvPTalent = aIsPvPTalent;
             AdditionalInfo = aAdditionalInfo;
+            Availability = aAvailability;
             ID = aID;
         }
 
         public Spell(string aDesignation, Cast aCast, string aID, bool aIsPassive, 
-            bool aIsTalent, bool aIsPvPTalent, Range? aRange = null, int? aCharges = null,
+            Availability aAvailability, Range? aRange = null, int? aCharges = null,
             string aToolTipText = null, Cooldown? aCooldown = null, Resource? aCost = null,
             string aAdditionalInfo = null) : base(aDesignation)
         {
             Cast = aCast;
             IsPassive = aIsPassive;
-            IsTalent = aIsTalent;
             Range = aRange;
             Charges = aCharges;
             Cost = aCost;
             ToolTipText = aToolTipText;
             Cooldown = aCooldown;
-            IsPvPTalent = aIsPvPTalent;
             AdditionalInfo = aAdditionalInfo;
+            Availability = aAvailability;
             ID = aID;
         }
 
