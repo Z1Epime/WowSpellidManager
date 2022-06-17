@@ -145,6 +145,9 @@
     <Compile Include="Views\AddSpellPopUpView.xaml.cs">
       <DependentUpon>AddSpellPopUpView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\AddSpellView.xaml.cs">
+      <DependentUpon>AddSpellView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ClassesView.xaml.cs">
       <DependentUpon>ClassesView.xaml</DependentUpon>
     </Compile>
@@ -316,6 +319,10 @@
     <Page Include="Views\AddSpellPopUpView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AddSpellView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ClassesView.xaml">
       <Generator>MSBuild:Compile</Generator>

@@ -34,6 +34,7 @@
                     Margin="20"
                     RelativePanel.AlignLeftWithPanel="True"
                     RelativePanel.AlignVerticalCenterWithPanel="True"
+                    Click="AddSpellButton_Click"
                 >Add spell
             </Button>
 

@@ -29,8 +29,8 @@ namespace WowSpellidManager.Views
 
         private async void SpecializationNavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
-            //specializationsFrame.Content = new SpecializationView(SpecializationNavigationView.SelectedItem);
-            specializationsFrame.Content = new EditSpellView();
+            specializationsFrame.Content = new SpecializationView(SpecializationNavigationView.SelectedItem);
+            //specializationsFrame.Content = new EditSpellView();
         }
     }
 }
