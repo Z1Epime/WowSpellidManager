@@ -32,8 +32,6 @@ namespace WowSpellidManager.Views
             fSpec = aSpec;
             ((SpellViewModel)aSpell).Cooldown = new Domain.Models.Spells.Cooldown(2, "min");
             ((SpellViewModel)aSpell).Charges = 2;
-            ((SpellViewModel)aSpell).IsTalent = false;
-            ((SpellViewModel)aSpell).IsPvPTalent = true;
             ((SpellViewModel)aSpell).Cast = new Domain.Models.Spells.Cast(null, DomainUWP.Models.Spells.CastType.Cast, false);
             ((SpellViewModel)aSpell).Charges = null;
             ((SpellViewModel)aSpell).Cost = new Domain.Models.Spells.Resource("Mana", 50);
