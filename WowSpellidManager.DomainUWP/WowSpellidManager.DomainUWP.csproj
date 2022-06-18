@@ -133,6 +133,8 @@
     <Compile Include="Models\Entity.cs" />
     <Compile Include="Models\Specialization.cs" />
     <Compile Include="Models\Spells\Cast.cs" />
+    <Compile Include="Models\Spells\Availability.cs" />
+    <Compile Include="Models\Spells\CastType.cs" />
     <Compile Include="Models\Spells\Cooldown.cs" />
     <Compile Include="Models\Spells\Range.cs" />
     <Compile Include="Models\Spells\Resource.cs" />

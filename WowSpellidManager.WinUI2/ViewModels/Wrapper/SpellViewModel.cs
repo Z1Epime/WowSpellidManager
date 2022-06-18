@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Windows.ApplicationModel.Resources;
 using WowSpellidManager.Domain.Models;
 using WowSpellidManager.Domain.Models.Spells;
+using WowSpellidManager.DomainUWP.Models.Spells;
 
 namespace WowSpellidManager.ViewModels.Wrapper
 {
@@ -36,9 +37,7 @@ namespace WowSpellidManager.ViewModels.Wrapper
 
         public Cast Cast { get; set; }
 
-        public bool IsTalent { get; set; }
-        
-        public bool IsPvPTalent { get; set; }
+        public Availability Availability { get; set; }
 
         public bool IsPassive { get; set; }
     }
