@@ -15,7 +15,7 @@ namespace WowSpellidManager.ViewModels.Helper
     public class SpellHelper
     {
         private DataOperationProvider fDataOperationProvider = new DataOperationProvider();
-        public void AddSpell(string aSpellName, string aSpellID, string aSpellDescription, object aClass, object aSpecialization)
+        public void AddSpell(string aSpellName, string aSpellID, object aClass, object aSpecialization)
         {
             var spell = new Spell(aSpellName, null, aSpellID, false, Availability.Talent);
 

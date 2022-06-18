@@ -21,15 +21,17 @@ namespace WowSpellidManager.Views
     /// </summary>
     public sealed partial class ClassView : Page
     {
-        public ClassView(object aSpecialization)
+        private object fWowClass;
+        public ClassView(object aWowClass)
         {
             this.InitializeComponent();
-            SpecializationNavigationView.MenuItemsSource = ((WowClassViewModel)aSpecialization).Specializations;
+            fWowClass = aWowClass;
+            SpecializationNavigationView.MenuItemsSource = ((WowClassViewModel)aWowClass).Specializations;
         }
 
         private async void SpecializationNavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
-            specializationsFrame.Content = new SpecializationView(SpecializationNavigationView.SelectedItem);
+            specializationsFrame.Content = new SpecializationView(fWowClass, SpecializationNavigationView.SelectedItem);
             //specializationsFrame.Content = new EditSpellView();
         }
     }

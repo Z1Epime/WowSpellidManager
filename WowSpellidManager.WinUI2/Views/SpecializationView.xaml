@@ -43,6 +43,7 @@
                     RelativePanel.AlignVerticalCenterWithPanel="True"
                     Style="{StaticResource AccentButtonStyle}"
                     FontSize="25"
+                    Click="SaveButton_Click"
                     >
                 Save
             </Button>

@@ -9,6 +9,8 @@ using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using WowSpellidManager.Infrastructure.CRUD;
+using WowSpellidManager.ViewModels.Helper;
 using WowSpellidManager.ViewModels.Wrapper;
 using WowSpellidManager.WinUI2.Views;
 
@@ -23,10 +25,14 @@ namespace WowSpellidManager.Views
     public sealed partial class SpecializationView : Page
     {
         private object fSpec;
-        public SpecializationView(object aSpecialization)
+        private object fWowClass;
+        private SpellHelper fSpellHelper;
+        public SpecializationView(object aWowClass, object aSpecialization)
         {
             this.InitializeComponent();
+            fSpellHelper = new SpellHelper();
             fSpec = aSpecialization;
+            fWowClass = aWowClass;
             //SpellsListView.MenuItemsSource = GenerateSpellNavigationOptionsCollection(((SpecializationViewModel)aSpecialization).Spells);
             SpellNavigationView.MenuItemsSource = ((SpecializationViewModel)aSpecialization).Spells;
         }
@@ -56,8 +62,14 @@ namespace WowSpellidManager.Views
             var view = (AddSpellView)dialog.Content;
             if (result == ContentDialogResult.Primary)
             {
-                ((SpecializationViewModel)fSpec).Spells.Add(new SpellViewModel() { ID = view.ID, Designation = view.SpellName });
+                fSpellHelper.AddSpell(view.SpellName, view.ID, fWowClass, fSpec);
+                //((SpecializationViewModel)fSpec).Spells.Add(new SpellViewModel() { ID = view.ID, Designation = view.SpellName });
             }
+        }
+
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            new DataOperationProvider().WowClassOperator.Save();
         }
 
         //private ObservableCollection<SpellNavigationOption> GenerateSpellNavigationOptionsCollection(ObservableCollection<SpellViewModel> aSpellViewModels)

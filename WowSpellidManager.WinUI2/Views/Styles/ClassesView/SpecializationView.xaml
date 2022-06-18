@@ -26,9 +26,7 @@
     <DataTemplate x:Name="SpellNavigationViewMenuItem">
         <NavigationViewItem>
             <StackPanel>
-                <AppBarSeparator></AppBarSeparator>
                 <TextBlock Text="{Binding Designation}" TextWrapping="Wrap"></TextBlock>
-                <AppBarSeparator></AppBarSeparator>
             </StackPanel>
         </NavigationViewItem>
     </DataTemplate>
