@@ -18,6 +18,7 @@ namespace WowSpellidManager.Domain.Models.Spells
         private int? fTime;
         private CastType fCastType;
         private bool fIsOffGlobal;
+        private TimeUnit fUnit;
         #endregion
 
         #region Properties
@@ -68,6 +69,22 @@ namespace WowSpellidManager.Domain.Models.Spells
                 fIsOffGlobal = value;
             }
         }
+
+        /// <summary>
+        /// The unit of the time of cast.
+        /// </summary>
+        public TimeUnit Unit
+        {
+            get
+            {
+                return fUnit;
+            }
+
+            set
+            {
+                fUnit = value;
+            }
+        }
         #endregion
 
         #region Constructors 
@@ -76,10 +93,11 @@ namespace WowSpellidManager.Domain.Models.Spells
         /// </summary>
         /// <param name="aTime"></param>
         /// <param name="aIsChanneling"></param>
-        public Cast(int? aTime, CastType aCastType, bool aIsOffGlobal)
+        public Cast(int? aTime, CastType aCastType, TimeUnit aUnit, bool aIsOffGlobal)
         {
             Time = aTime;
             CastType = aCastType;
+            Unit = aUnit;
             IsOffGlobal = aIsOffGlobal;
         }
 

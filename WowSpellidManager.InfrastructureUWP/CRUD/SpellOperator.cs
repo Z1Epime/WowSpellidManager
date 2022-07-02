@@ -19,6 +19,24 @@ namespace WowSpellidManager.Infrastructure.CRUD
             return null;
         }
 
+        public Spell GetSpell(Guid aSpellGuid)
+        {
+            foreach(var wowClass in DataHolder.DataProvider.DataHolder.WowClasses)
+            {
+                foreach (var spec in wowClass.Specializations)
+                {
+                    foreach (var spell in spec.Spells)
+                    {
+                        if (spell.Guid == aSpellGuid)
+                        {
+                            return spell;
+                        }
+                    }
+                }
+            }
+            return null;
+        }
+
         public void Save()
         {
             DataHolder.DataProvider.DataParser.Save();

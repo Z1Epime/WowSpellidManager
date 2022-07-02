@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using WowSpellidManager.Domain.Exceptions.BusinessExceptions;
 using WowSpellidManager.Domain.Exceptions.TechnicalExceptions;
 using WowSpellidManager.Domain.Models;
+using WowSpellidManager.DomainUWP.Models.Helper;
 
 namespace WowSpellidManager.Domain.Exceptions
 {
@@ -27,11 +28,11 @@ namespace WowSpellidManager.Domain.Exceptions
             }
         }
 
-        public static void CheckID(string aID)
+        public static void CheckID(IDHolder aID)
         {
-            if(!Int64.TryParse(aID, out _))
+            if(!Int64.TryParse(aID.ID, out _))
             {
-                throw new SpellIDNotValidException(nameof(aID));
+                throw new SpellIDNotValidException(nameof(aID.ID));
             }
         } 
 

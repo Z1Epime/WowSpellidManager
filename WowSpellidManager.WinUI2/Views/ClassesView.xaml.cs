@@ -12,6 +12,7 @@ using WowSpellidManager.ViewModels.Validators.Checkers;
 using WowSpellidManager.ViewModels.Validators.Errors;
 using WowSpellidManager.ViewModels.Validators;
 using Windows.UI.Xaml.Controls;
+using WowSpellidManager.ViewModels.Wrapper;
 
 namespace WowSpellidManager.Views
 {
@@ -51,7 +52,7 @@ namespace WowSpellidManager.Views
 
         private void ClassNavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
-            classesFrame.Content = new ClassView(ClassNavigationView.SelectedItem);
+            classesFrame.Content = new ClassView((WowClassViewModel)ClassNavigationView.SelectedItem);
         }
 
         //private void specializationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)

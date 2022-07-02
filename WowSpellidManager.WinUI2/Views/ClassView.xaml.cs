@@ -21,8 +21,8 @@ namespace WowSpellidManager.Views
     /// </summary>
     public sealed partial class ClassView : Page
     {
-        private object fWowClass;
-        public ClassView(object aWowClass)
+        private WowClassViewModel fWowClass;
+        public ClassView(WowClassViewModel aWowClass)
         {
             this.InitializeComponent();
             fWowClass = aWowClass;
@@ -31,7 +31,7 @@ namespace WowSpellidManager.Views
 
         private async void SpecializationNavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
-            specializationsFrame.Content = new SpecializationView(fWowClass, SpecializationNavigationView.SelectedItem);
+            specializationsFrame.Content = new SpecializationView((WowClassViewModel)fWowClass, (SpecializationViewModel)SpecializationNavigationView.SelectedItem);
             //specializationsFrame.Content = new EditSpellView();
         }
     }

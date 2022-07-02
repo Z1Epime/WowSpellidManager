@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using WowSpellidManager.DomainUWP.Models.Spells;
 
 namespace WowSpellidManager.Domain.Models.Spells
 {
@@ -10,12 +13,14 @@ namespace WowSpellidManager.Domain.Models.Spells
     /// This class represents the cooldown of a spell in World of Warcraft. <br></br>
     /// For simplification purposes this class does not inherit from Entity. Note that this class does not have a GUID.
     /// </summary>
-    public class Cooldown
+    public class Cooldown : INotifyPropertyChanged
     {
         #region Fields
         private double fNumber;
-        private string fUnit;
+        private TimeUnit fUnit;
         #endregion
+
+        public static int InstanceCounter = 0;
 
         #region Properties
         /// <summary>
@@ -31,13 +36,14 @@ namespace WowSpellidManager.Domain.Models.Spells
             set
             {
                 fNumber = value;
+                NotifyPropertyChanged("Number");              
             }
         }
 
         /// <summary>
         /// The specified unit of the cooldown (minutes, seconds, hours etc.).
         /// </summary>
-        public string Unit
+        public TimeUnit SelectedMyEnumType
         {
             get
             {
@@ -46,7 +52,11 @@ namespace WowSpellidManager.Domain.Models.Spells
 
             set
             {
-                fUnit = value;
+                if (fUnit != value)
+                {
+                    fUnit = value;
+                    NotifyPropertyChanged();
+                }
             }
         }
         #endregion
@@ -57,7 +67,7 @@ namespace WowSpellidManager.Domain.Models.Spells
         /// </summary>
         /// <param name="aNumber"></param>
         /// <param name="aUnit"></param>
-        public Cooldown(double aNumber, string aUnit)
+        public Cooldown(double aNumber, TimeUnit aUnit)
         {
             fNumber = aNumber;
             fUnit = aUnit;
@@ -68,8 +78,20 @@ namespace WowSpellidManager.Domain.Models.Spells
         /// </summary>
         public Cooldown()
         {
-
+            InstanceCounter++;
         }
         #endregion
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        // This method is called by the Set accessor of each property.  
+        // The CallerMemberName attribute that is applied to the optional propertyName  
+        // parameter causes the property name of the caller to be substituted as an argument.  
+        public void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
     }
 }

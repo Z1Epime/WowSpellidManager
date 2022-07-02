@@ -154,6 +154,7 @@
     <Compile Include="Views\ClassView.xaml.cs">
       <DependentUpon>ClassView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Converter\BoolToVisibilityConverter.cs" />
     <Compile Include="Views\EditSpellView.xaml.cs">
       <DependentUpon>EditSpellView.xaml</DependentUpon>
     </Compile>

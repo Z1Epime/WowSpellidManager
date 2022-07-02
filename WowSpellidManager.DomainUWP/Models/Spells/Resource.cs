@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WowSpellidManager.DomainUWP.Models.Spells;
 
 namespace WowSpellidManager.Domain.Models.Spells
 {
@@ -14,14 +15,14 @@ namespace WowSpellidManager.Domain.Models.Spells
     {
         #region Fields
         private double fAmount;
-        private string fDesignation;
+        private ResourceType fDesignation;
         #endregion
 
         #region Properties
         /// <summary>
         /// The designation (name) of the resource that is needed to cast a spell a single time.
         /// </summary>
-        public string Designation
+        public ResourceType Designation
         {
             get
             {
@@ -57,7 +58,7 @@ namespace WowSpellidManager.Domain.Models.Spells
         /// </summary>
         /// <param name="aDesignation">See property (in Entity class) "Designation"</param>
         /// <param name="aAmount">See propertie "Amount"</param>
-        public Resource(string aDesignation, double aAmount)
+        public Resource(ResourceType aDesignation, double aAmount)
         {
             fDesignation = aDesignation;
             Amount = aAmount;

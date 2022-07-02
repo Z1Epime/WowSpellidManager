@@ -19,12 +19,14 @@ namespace WowSpellidManager.Infrastructure.CRUD.JSON
         public static void SaveWowClasses()
         {
             JsonSerializer serializer = new JsonSerializer();
-            serializer.NullValueHandling = NullValueHandling.Ignore;
+            serializer.NullValueHandling = NullValueHandling.Include;
 
             if (!Directory.Exists(fDataOperationProvider.SettingsOperator.GetSettings().SavingsPath + "\\WowSpellIDManager\\Data\\"))
             {
                 Directory.CreateDirectory(fDataOperationProvider.SettingsOperator.GetSettings().SavingsPath + "\\WowSpellIDManager\\Data\\");
             }
+
+            var aafa = fDataOperationProvider.WowClassOperator.GetWowClasses();
 
             using (StreamWriter sw = new StreamWriter(fDataOperationProvider.SettingsOperator.GetSettings().SavingsPath + "\\WowSpellIDManager\\Data\\wowclasses.json"))
             using (JsonWriter writer = new JsonTextWriter(sw))

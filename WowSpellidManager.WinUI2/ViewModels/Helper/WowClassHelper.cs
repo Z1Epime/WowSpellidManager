@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Resources;
 using WowSpellidManager.Domain.Models;
+using WowSpellidManager.Domain.Models.Spells;
+using WowSpellidManager.DomainUWP.Models.Helper;
 using WowSpellidManager.Infrastructure.CRUD;
 using WowSpellidManager.Infrastructure.Metadata;
 using WowSpellidManager.ViewModels;
@@ -24,27 +26,76 @@ namespace WowSpellidManager.ViewModels.Helper
 
             foreach (var @class in fDataOperationProvider.WowClassOperator.GetWowClasses())
             {
-                var helper = WowClassImagePaths.GetPath(@class.Designation);
+                var helper = WowClassImagePaths.GetPath(@class.Designation.Designation);
                 ViewModels.Add(new WowClassViewModel()
                 {
-                    Designation = new ResourceLoader().GetString(@class.Designation),
+                    Designation = new ResourceLoader().GetString(@class.Designation.Designation),
                     Guid = @class.Guid,
-                    Image = WowClassImagePaths.GetPath(@class.Designation),
+                    Image = WowClassImagePaths.GetPath(@class.Designation.Designation),
                     Specializations = new ObservableCollection<SpecializationViewModel>(@class.Specializations.Select(spec => new SpecializationViewModel()
                     {
-                        Designation = new ResourceLoader().GetString(spec.Designation),
+                        Designation = new ResourceLoader().GetString(spec.Designation.Designation),
                         Guid = spec.Guid,
-                        Image = SpecializationImagePaths.GetPath(@class.Designation, spec.Designation),
+                        Image = SpecializationImagePaths.GetPath(@class.Designation.Designation, spec.Designation.Designation),
                         Spells = new ObservableCollection<SpellViewModel>(spec.Spells.Select(spell => new SpellViewModel()
                         {
                             Designation = spell.Designation,
                             AdditionalInfo = spell.AdditionalInfo,
                             Guid = spell.Guid,
-                            ID = spell.ID
+                            ID = spell.ID,
+                            Availability = spell.Availability,
+                            Cast = spell.Cast,
+                            Charges = spell.Charges,
+                            Cooldown = spell.Cooldown,
+                            ToolTipText = spell.ToolTipText,
+                            Range = spell.Range,
+                            IsPassive = spell.IsPassive,
+                            Cost = spell.Cost,
                         }).ToList())
                     }).ToList())
                 });
             }
+
+            //foreach (var @class in fDataOperationProvider.WowClassOperator.GetWowClasses())
+            //{
+            //    foreach (var spec in @class.Specializations)
+            //    {
+            //        foreach (var spell in spec.Spells)
+            //        {
+            //            if (spell.Designation == "asd")
+            //            {
+
+
+            //                foreach (var @class2 in ViewModels)
+            //                {
+            //                    foreach (var spec2 in @class2.Specializations)
+            //                    {
+            //                        foreach (var spell2 in spec2.Spells)
+            //                        {
+            //                            if (spell2.Designation == "asd")
+            //                            {
+
+            //                                if (ReferenceEquals(spell.ID, spell2.ID))
+            //                                {
+            //                                    Console.WriteLine("They are !");
+            //                                }
+
+            //                                if (ReferenceEquals(spell.Designation, spell2.Designation))
+            //                                {
+            //                                    Console.WriteLine("They are !");
+            //                                }
+
+
+            //                            }
+            //                        }
+            //                    }
+            //                }
+
+
+            //            }
+            //        }
+            //    }
+            //}
 
             return ViewModels;
         }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WowSpellidManager.Domain.Exceptions;
+using WowSpellidManager.DomainUWP.Models.Helper;
 
 namespace WowSpellidManager.Domain.Models
 {
@@ -11,7 +12,7 @@ namespace WowSpellidManager.Domain.Models
     {
         #region Fields
         private Guid fGuid;
-        private string fDesignation;
+        private DesignationHolder fDesignation;
         #endregion
 
         #region Properties
@@ -29,7 +30,7 @@ namespace WowSpellidManager.Domain.Models
             }
         }
 
-        public string Designation
+        public DesignationHolder Designation
         {
             get 
             { 
@@ -38,20 +39,20 @@ namespace WowSpellidManager.Domain.Models
 
             set 
             {
-                ArgumentGuard.StringNullOrEmpty(value);
+                ArgumentGuard.StringNullOrEmpty(((DesignationHolder)value).Designation);
                 fDesignation = value; 
             }
         }
         #endregion
 
         #region Constructors
-        public Entity(Guid aGuid, string aDesignation)
+        public Entity(Guid aGuid, DesignationHolder aDesignation)
         {
             fGuid = aGuid;
             fDesignation = aDesignation;
         }
 
-        public Entity(string aDesignation)
+        public Entity(DesignationHolder aDesignation)
         {
             fGuid = Guid.NewGuid();
             this.fDesignation = aDesignation;

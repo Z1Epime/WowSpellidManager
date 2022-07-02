@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WowSpellidManager.Domain.Exceptions;
+using WowSpellidManager.DomainUWP.Models.Helper;
 using WowSpellidManager.DomainUWP.Models.Spells;
 
 namespace WowSpellidManager.Domain.Models.Spells
@@ -14,7 +15,7 @@ namespace WowSpellidManager.Domain.Models.Spells
     public class Spell : Entity
     {
         #region Fields
-        private string fID;
+        private IDHolder fID;
         private string? fAdditionalInfo;
         private Resource? fCost;
         private Cooldown? fCooldown;
@@ -101,6 +102,10 @@ namespace WowSpellidManager.Domain.Models.Spells
         {
             get
             {
+                //if (fCooldown == null)
+                //    fCooldown = new Cooldown();
+                //if (fCooldown == null)
+                //    fCooldown = new Wrapper<Cooldown>();
                 return fCooldown;
             }
 
@@ -148,7 +153,7 @@ namespace WowSpellidManager.Domain.Models.Spells
         /// <summary>
         /// The id of a spell / buff / debuff which is unique throughout the program and wow.
         /// </summary>
-        public string ID
+        public IDHolder ID
         {
             get
             {
@@ -197,7 +202,7 @@ namespace WowSpellidManager.Domain.Models.Spells
         #endregion
 
         #region Constructors
-        public Spell(Guid aGuid, string aDesignation, Cast aCast, string aID, bool aIsPassive,
+        public Spell(Guid aGuid, DesignationHolder aDesignation, Cast aCast, IDHolder aID, bool aIsPassive,
             Availability aAvailability, Range? aRange = null, int? aCharges = null, 
             string aToolTipText = null, Cooldown? aCooldown = null, Resource? aCost = null, 
             string aAdditionalInfo = null) : base(aGuid, aDesignation)
@@ -214,7 +219,7 @@ namespace WowSpellidManager.Domain.Models.Spells
             ID = aID;
         }
 
-        public Spell(string aDesignation, Cast aCast, string aID, bool aIsPassive, 
+        public Spell(DesignationHolder aDesignation, Cast aCast, IDHolder aID, bool aIsPassive, 
             Availability aAvailability, Range? aRange = null, int? aCharges = null,
             string aToolTipText = null, Cooldown? aCooldown = null, Resource? aCost = null,
             string aAdditionalInfo = null) : base(aDesignation)

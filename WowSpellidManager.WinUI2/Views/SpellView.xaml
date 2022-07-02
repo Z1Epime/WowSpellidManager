@@ -11,184 +11,186 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <RelativePanel>
-        <RelativePanel x:Name="SpellToolTipRelativePanel"
+        <RelativePanel x:Name="SpellInfoRelativePanel">
+
+            <RelativePanel x:Name="SpellToolTipRelativePanel"
                        RelativePanel.AlignTopWithPanel="True"
                        RelativePanel.AlignLeftWithPanel="True"
                        BorderBrush="DimGray"
                        BorderThickness="5"
                        Margin="10"
                        Width="350">
-            <RelativePanel x:Name="TopArea"
+                <RelativePanel x:Name="TopArea"
                            RelativePanel.AlignTopWithPanel="True"
                            Width="340"
                            >
-                <RelativePanel x:Name="TopLeftArea"
+                    <RelativePanel x:Name="TopLeftArea"
                                RelativePanel.AlignTopWithPanel="True"
                                RelativePanel.AlignLeftWithPanel="True">
-                    <TextBlock x:Name="NameTextBlock" 
+                        <TextBlock x:Name="NameTextBlock" 
                                RelativePanel.AlignTopWithPanel="True"
                                RelativePanel.AlignLeftWithPanel="True"
-                               Text="Summon Demonic Tyrant"
-                               FontWeight="Bold">
-                    </TextBlock>
+                               FontWeight="Bold"
+                               Text="{Binding Designation}">
+                        </TextBlock>
 
-                    <TextBlock x:Name="ResourceValueTextBlock"
+                        <TextBlock x:Name="ResourceValueTextBlock"
                                RelativePanel.Below="NameTextBlock"
                                RelativePanel.AlignLeftWith="NameTextBlock"
-                               Margin="0,0,5,0">
-                        500
-                    </TextBlock>
+                               Margin="0,0,5,0"
+                               Text="{Binding Cost.Amount}">
 
-                    <TextBlock x:Name="ResourceNameTextBlock"
+                        </TextBlock>
+
+                        <TextBlock x:Name="ResourceNameTextBlock"
                                RelativePanel.Below="NameTextBlock"
                                RelativePanel.RightOf="ResourceValueTextBlock"
-                               RelativePanel.AlignVerticalCenterWith="ResourceValueTextBlock">
-                        Mana
-                    </TextBlock>
+                               RelativePanel.AlignVerticalCenterWith="ResourceValueTextBlock"
+                               Text="{Binding Cost.Designation}">
+                        </TextBlock>
 
-                    <RelativePanel x:Name="CastRelativePanel"
+                        <RelativePanel x:Name="CastRelativePanel"
                                    RelativePanel.Below="ResourceNameTextBlock"
                                    RelativePanel.AlignLeftWith="ResourceValueTextBlock">
 
-                        <TextBlock x:Name="CastTextBlock" 
+                            <TextBlock x:Name="CastTextBlock" 
                                    RelativePanel.AlignLeftWithPanel="True"
                                    RelativePanel.AlignVerticalCenterWithPanel="True">
-                            2 sec cast
-                        </TextBlock>
+                            <Run Text="{Binding Cast.Time}"></Run>
+                            </TextBlock>
 
-                    </RelativePanel>
+                        </RelativePanel>
 
-                    <RelativePanel x:Name="ChargesRelativePanel"
+                        <RelativePanel x:Name="ChargesRelativePanel"
                                    RelativePanel.Below="CastRelativePanel"
                                    RelativePanel.AlignLeftWith="CastRelativePanel">
 
-                        <TextBlock x:Name="ChargesValueTextBlock"
+                            <TextBlock x:Name="ChargesValueTextBlock"
                                    RelativePanel.AlignLeftWithPanel="True"
-                                   Margin="0,0,5,0">
-                            2
-                        </TextBlock>
+                                   Margin="0,0,5,0"
+                                   Text="{Binding Charges}">
+                            </TextBlock>
 
-                        <TextBlock x:Name="ChargesTextBlock"
+                            <TextBlock x:Name="ChargesTextBlock"
                                    RelativePanel.RightOf="ChargesValueTextBlock"
                                    RelativePanel.AlignVerticalCenterWith="ChargesValueTextBlock">
                             charges
+                            </TextBlock>
+
+                        </RelativePanel>
+                    </RelativePanel>
+
+                    <RelativePanel x:Name="TopRightArea"
+                               RelativePanel.AlignTopWithPanel="True"
+                               RelativePanel.AlignRightWithPanel="True">
+
+                        <TextBlock x:Name="AvailabilityTextBlock"
+                               RelativePanel.AlignTopWithPanel="True"
+                               RelativePanel.AlignRightWithPanel="True"
+                               Text="{Binding Availability}">
                         </TextBlock>
 
-                    </RelativePanel>
-                </RelativePanel>
-
-                <RelativePanel x:Name="TopRightArea"
-                               RelativePanel.AlignTopWithPanel="True"
-                               RelativePanel.AlignRightWithPanel="True">
-
-                    <TextBlock x:Name="AvailabilityTextBlock"
-                               RelativePanel.AlignTopWithPanel="True"
-                               RelativePanel.AlignRightWithPanel="True">
-                        Talent
-                    </TextBlock>
-
-                    <TextBlock x:Name="PassiveTextBlock"
+                        <TextBlock x:Name="PassiveTextBlock"
                                RelativePanel.Below="AvailabilityTextBlock"
-                               RelativePanel.AlignRightWith="AvailabilityTextBlock">
-                        Passive
-                    </TextBlock>
+                               RelativePanel.AlignRightWith="AvailabilityTextBlock"
+                               Text="{Binding IsPassive}">
+                        </TextBlock>
 
-                    <RelativePanel x:Name="RangeRelativePanel"
+                        <RelativePanel x:Name="RangeRelativePanel"
                                    RelativePanel.Below="PassiveTextBlock"
                                    RelativePanel.AlignRightWith="PassiveTextBlock">
 
-                        <TextBlock x:Name="RangeValueTextBlock"
+                            <TextBlock x:Name="RangeValueTextBlock"
                                    RelativePanel.AlignTopWithPanel="True"
                                    RelativePanel.AlignLeftWithPanel="True"
-                                   Margin="0,0,5,0">
-                            40
-                        </TextBlock>
+                                   Margin="0,0,5,0"
+                                   Text="{Binding Range.Number}">
+                            </TextBlock>
 
-                        <TextBlock x:Name="RangeUnitTextBlock"
+                            <TextBlock x:Name="RangeUnitTextBlock"
                                    RelativePanel.RightOf="RangeValueTextBlock"
                                    RelativePanel.AlignVerticalCenterWith="RangeValueTextBlock"
-                                   Margin="0,0,5,0">
-                            yard
-                        </TextBlock>
+                                   Margin="0,0,5,0"
+                                   Text="{Binding Range.Unit}">
+                            </TextBlock>
 
-                        <TextBlock x:Name="RangeTextTextBlock"
+                            <TextBlock x:Name="RangeTextTextBlock"
                                    RelativePanel.RightOf="RangeUnitTextBlock"
                                    RelativePanel.AlignVerticalCenterWith="RangeUnitTextBlock">
                             range
-                        </TextBlock>
+                            </TextBlock>
 
-                    </RelativePanel>
+                        </RelativePanel>
 
-                    <RelativePanel x:Name="CooldownRelativePanel"
+                        <RelativePanel x:Name="CooldownRelativePanel"
                                    RelativePanel.Below="RangeRelativePanel"
                                    RelativePanel.AlignRightWithPanel="True">
 
-                        <TextBlock x:Name="CooldownValueTextBlock"
+                            <TextBlock x:Name="CooldownValueTextBlock"
                                    RelativePanel.AlignLeftWithPanel="True"
-                                   Margin="0,0,5,0">
-                            30
-                        </TextBlock>
+                                   Margin="0,0,5,0"
+                                   Text="{Binding Cooldown.Number}">
+                            </TextBlock>
 
-                        <TextBlock x:Name="CooldownUnitTextBlock"
+                            <TextBlock x:Name="CooldownUnitTextBlock"
                                    RelativePanel.RightOf="CooldownValueTextBlock"
                                    RelativePanel.AlignVerticalCenterWith="CooldownValueTextBlock"
-                                   Margin="0,0,5,0">
-                            sec
-                        </TextBlock>
+                                   Margin="0,0,5,0"
+                                   Text="{Binding Cooldown.Unit}">
+                            </TextBlock>
 
-                        <TextBlock x:Name="CooldownTextTextBlock"
+                            <TextBlock x:Name="CooldownTextTextBlock"
                                    RelativePanel.RightOf="CooldownUnitTextBlock"
                                    RelativePanel.AlignVerticalCenterWith="CooldownUnitTextBlock">
                             cooldown
-                        </TextBlock>
+                            </TextBlock>
 
+                        </RelativePanel>
                     </RelativePanel>
+
                 </RelativePanel>
 
-            </RelativePanel>
-
-            <RelativePanel x:Name="CenterArea"
+                <RelativePanel x:Name="CenterArea"
                            RelativePanel.Below="TopArea">
 
-                <TextBlock x:Name="ToolTipTextBlock" 
-                           TextWrapping="Wrap">
-                    seofpsoefspeofunhjpseoifujnhspeoifjnhsepoöifjnseopöfijns
-                    seoüpifjsepo9üifjsepoifjnseopifjspeoijfspeoifjsopeij
-                </TextBlock>
+                    <TextBlock x:Name="ToolTipTextBlock" 
+                           TextWrapping="Wrap"
+                           Text="{Binding ToolTipText}">
+                    </TextBlock>
 
-            </RelativePanel>
+                </RelativePanel>
 
-            <RelativePanel x:Name="BottomArea"
+                <RelativePanel x:Name="BottomArea"
                            RelativePanel.Below="CenterArea">
-                <RelativePanel x:Name="BottomLeftArea">
-                    <RelativePanel x:Name="GenerateResourceRelativePanel">
+                    <RelativePanel x:Name="BottomLeftArea">
+                        <RelativePanel x:Name="GenerateResourceRelativePanel">
 
-                        <TextBlock x:Name="GenerateResourceTextTextBlock"
+                            <TextBlock x:Name="GenerateResourceTextTextBlock"
                                    RelativePanel.AlignLeftWithPanel="True"
                                    Margin="0,0,5,0">
                             Generates
-                        </TextBlock>
+                            </TextBlock>
 
-                        <TextBlock x:Name="GenerateResourceNumberTextBlock"
+                            <TextBlock x:Name="GenerateResourceNumberTextBlock"
                                    RelativePanel.RightOf="GenerateResourceTextTextBlock"
                                    RelativePanel.AlignVerticalCenterWith="GenerateResourceTextTextBlock"
                                    Margin="0,0,5,0">
                             5
-                        </TextBlock>
+                            </TextBlock>
 
-                        <TextBlock x:Name="GenerateResourceResourceTextBlock"
+                            <TextBlock x:Name="GenerateResourceResourceTextBlock"
                                    RelativePanel.RightOf="GenerateResourceNumberTextBlock"
                                    RelativePanel.AlignVerticalCenterWith="GenerateResourceNumberTextBlock">
                             Soul Shards
-                        </TextBlock>
+                            </TextBlock>
 
+                        </RelativePanel>
                     </RelativePanel>
                 </RelativePanel>
+
             </RelativePanel>
 
-        </RelativePanel>
-
-        <RelativePanel x:Name="SpellidRelativePanel"
+            <RelativePanel x:Name="SpellidRelativePanel"
                        RelativePanel.Below="SpellToolTipRelativePanel"
                        RelativePanel.AlignLeftWith="SpellToolTipRelativePanel"
                        Margin="10,10,0,0"
@@ -197,28 +199,28 @@
                        BorderThickness="5"
                        Padding="10"
                        >
-            <TextBlock x:Name="SpellidHeaderTextBlock"
+                <TextBlock x:Name="SpellidHeaderTextBlock"
                        RelativePanel.AlignLeftWithPanel="True"
                        RelativePanel.AlignTopWithPanel="True"
                        Text="Spell ID"
                        Style="{StaticResource SubtitleTextBlockStyle}">
-            </TextBlock>
-            <TextBlock x:Name="SpellidTextBlock" 
+                </TextBlock>
+                <TextBlock x:Name="SpellidTextBlock" 
                        Text="{Binding ID}"
                        RelativePanel.Below="SpellidHeaderTextBlock"
                        RelativePanel.AlignLeftWithPanel="True">
-            </TextBlock>
+                </TextBlock>
 
-            <Button x:Name="CopySpellidButton"
+                <Button x:Name="CopySpellidButton"
                     Style="{StaticResource AccentButtonStyle}"
                     RelativePanel.RightOf="SpellidHeaderTextBlock"
                     RelativePanel.AlignRightWithPanel="True">
-                Copy
-            </Button>
+                    Copy
+                </Button>
 
-        </RelativePanel>
+            </RelativePanel>
 
-        <RelativePanel x:Name="AdditionalInfoRelativePanel"
+            <RelativePanel x:Name="AdditionalInfoRelativePanel"
                        RelativePanel.Below="SpellidRelativePanel"
                        RelativePanel.AlignLeftWith="SpellidRelativePanel"
                        Margin="10,20,0,0"
@@ -226,59 +228,93 @@
                        BorderBrush="DimGray"
                        BorderThickness="5"
                        Padding="10">
-            <TextBlock x:Name="AdditionInfoHeaderTextBlock" 
+                <TextBlock x:Name="AdditionInfoHeaderTextBlock" 
                        Text="Additional Information" 
                        Style="{StaticResource SubtitleTextBlockStyle}"
                        RelativePanel.AlignLeftWithPanel="True"
                        RelativePanel.AlignTopWithPanel="True">
-            </TextBlock>
-            <TextBlock x:Name="AdditionalInfoTextBlock" 
+                </TextBlock>
+                <TextBlock x:Name="AdditionalInfoTextBlock" 
                        Text="{Binding AdditionalInfo}" 
                        TextWrapping="Wrap"
                        RelativePanel.Below="AdditionInfoHeaderTextBlock"
                        RelativePanel.AlignLeftWithPanel="True">
-            </TextBlock>
-        </RelativePanel>
+                </TextBlock>
 
+
+            </RelativePanel>
+        </RelativePanel>
+        
         <StackPanel x:Name="ToggleEditStackPanel"
                     RelativePanel.AlignBottomWithPanel="True"
                     RelativePanel.AlignLeftWithPanel="True"
                     Margin="10"
                     Orientation="Horizontal">
-            
-            <ToggleButton x:Name="ToggleEditButton">
+
+            <Button x:Name="EditButton"
+                    Style="{StaticResource AccentButtonStyle}">
                 <SymbolIcon Symbol="Edit"></SymbolIcon>
                 <Interactivity:Interaction.Behaviors>
-                    <Interactions:EventTriggerBehavior EventName="Checked" SourceObject="{Binding ElementName=ToggleEditButton}">
-                        <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=InfoStackPanel}" 
-                                                       PropertyName="Visibility" 
-                                                       Value="Visible"/>
-                    </Interactions:EventTriggerBehavior>
-                    <Interactions:EventTriggerBehavior EventName="Unchecked" SourceObject="{Binding ElementName=ToggleEditButton}">
-                        <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=InfoStackPanel}" 
-                                                       PropertyName="Visibility" 
-                                                       Value="Collapsed"/>
-                    </Interactions:EventTriggerBehavior>
 
-                    <Interactions:EventTriggerBehavior EventName="Unchecked" SourceObject="{Binding ElementName=ToggleEditButton}">
-                        <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=SpellInfoRelativePanel}" 
-                                                       PropertyName="Visibility" 
-                                                       Value="Visible"/>
-                    </Interactions:EventTriggerBehavior>
-                    <Interactions:EventTriggerBehavior EventName="Checked" SourceObject="{Binding ElementName=ToggleEditButton}">
-                        <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=SpellInfoRelativePanel}" 
-                                                       PropertyName="Visibility" 
-                                                       Value="Collapsed"/>
+                    <Interactions:EventTriggerBehavior EventName="Click" SourceObject="{Binding ElementName=EditButton}">
+                        <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=AcceptButton}" PropertyName="Visibility" Value="Visible"/>
+                        <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=EditButton}" PropertyName="Visibility" Value="Collapsed"/>
+                        <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=SpellInfoRelativePanel}" PropertyName="Visibility" Value="Collapsed"/>
+                        <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=EditSpellStackPanel}" PropertyName="Visibility" Value="Visible"/>
+                        <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=CancelEditButton}" PropertyName="Visibility" Value="Visible"/>
                     </Interactions:EventTriggerBehavior>
 
                 </Interactivity:Interaction.Behaviors>
-            </ToggleButton>
-            
+            </Button>
+
+            <Button x:Name="AcceptButton"
+                    Style="{StaticResource AccentButtonStyle}"
+                    RelativePanel.AlignBottomWithPanel="True"
+                    RelativePanel.AlignLeftWithPanel="True"
+                    RelativePanel.RightOf="ToggleEditButton"
+                    Content="Accept"
+                    Visibility="Collapsed"
+                    Margin="0,0,25,0">
+                <Interactivity:Interaction.Behaviors>
+
+                    <Interactions:EventTriggerBehavior EventName="Click" SourceObject="{Binding ElementName=AcceptButton}">
+                        <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=AcceptButton}" PropertyName="Visibility" Value="Collapsed"/>
+                        <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=EditButton}" PropertyName="Visibility" Value="Visible"/>
+                        <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=EditSpellStackPanel}" PropertyName="Visibility" Value="Collapsed"/>
+                        <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=SpellInfoRelativePanel}" PropertyName="Visibility" Value="Visible"/>
+                        <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=CancelEditButton}" PropertyName="Visibility" Value="Collapsed"/>
+                    </Interactions:EventTriggerBehavior>
+
+                </Interactivity:Interaction.Behaviors>
+            </Button>
+
+            <Button x:Name="CancelEditButton"
+                    Style="{StaticResource AccentButtonStyle}"
+                    Background="Red"
+                    RelativePanel.AlignBottomWithPanel="True"
+                    RelativePanel.AlignLeftWithPanel="True"
+                    RelativePanel.RightOf="AcceptButton"
+                    Content="Cancel"
+                    Visibility="Collapsed">
+                <Interactivity:Interaction.Behaviors>
+
+                    <Interactions:EventTriggerBehavior EventName="Click" SourceObject="{Binding ElementName=CancelEditButton}">
+                        <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=AcceptButton}" PropertyName="Visibility" Value="Collapsed"/>
+                        <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=EditButton}" PropertyName="Visibility" Value="Visible"/>
+                        <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=EditSpellStackPanel}" PropertyName="Visibility" Value="Collapsed"/>
+                        <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=SpellInfoRelativePanel}" PropertyName="Visibility" Value="Visible"/>
+                        <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=CancelEditButton}" PropertyName="Visibility" Value="Collapsed"/>
+                    </Interactions:EventTriggerBehavior>
+
+                </Interactivity:Interaction.Behaviors>
+            </Button>
+
         </StackPanel>
 
-        <StackPanel x:Name="InfoStackPanel" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" 
+        <StackPanel x:Name="EditSpellStackPanel" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" 
                     Visibility="Collapsed" Margin="10">
 
         </StackPanel>
+
     </RelativePanel>
 </Page>

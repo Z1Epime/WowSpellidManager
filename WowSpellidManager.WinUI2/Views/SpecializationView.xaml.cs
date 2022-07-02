@@ -24,10 +24,10 @@ namespace WowSpellidManager.Views
     /// </summary>
     public sealed partial class SpecializationView : Page
     {
-        private object fSpec;
-        private object fWowClass;
+        private SpecializationViewModel fSpec;
+        private WowClassViewModel fWowClass;
         private SpellHelper fSpellHelper;
-        public SpecializationView(object aWowClass, object aSpecialization)
+        public SpecializationView(WowClassViewModel aWowClass, SpecializationViewModel aSpecialization)
         {
             this.InitializeComponent();
             fSpellHelper = new SpellHelper();
@@ -39,7 +39,7 @@ namespace WowSpellidManager.Views
 
         private void SpellsListView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
-            SpellFrame.Content = new SpellView(fSpec, SpellNavigationView.SelectedItem, SpellNavigationView);
+            SpellFrame.Content = new SpellView(fSpec, (SpellViewModel)SpellNavigationView.SelectedItem, SpellNavigationView);
         }
 
         private void RemoveButton_Click(object sender, RoutedEventArgs e)
@@ -63,36 +63,55 @@ namespace WowSpellidManager.Views
             if (result == ContentDialogResult.Primary)
             {
                 fSpellHelper.AddSpell(view.SpellName, view.ID, fWowClass, fSpec);
-                //((SpecializationViewModel)fSpec).Spells.Add(new SpellViewModel() { ID = view.ID, Designation = view.SpellName });
             }
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
+            //var esa0fioj = WowClassHelper.ViewModels;
+
+
+            //foreach (var @class in new DataOperationProvider().WowClassOperator.GetWowClasses())
+            //{
+            //    foreach (var spec in @class.Specializations)
+            //    {
+            //        foreach (var spell in spec.Spells)
+            //        {
+            //            if (spell.ID.ID == "123")
+            //            {
+
+
+            //                foreach (var @class2 in WowClassHelper.ViewModels)
+            //                {
+            //                    foreach (var spec2 in @class2.Specializations)
+            //                    {
+            //                        foreach (var spell2 in spec2.Spells)
+            //                        {
+            //                            if (spell2.ID.ID == "123")
+            //                            {
+
+            //                                if (ReferenceEquals(spell.ID, spell2.ID))
+            //                                {
+            //                                    Console.WriteLine("They are !");
+            //                                }
+
+            //                                if (ReferenceEquals(spell.Designation, spell2.Designation))
+            //                                {
+            //                                    Console.WriteLine("They are !");
+            //                                }
+
+
+            //                            }
+            //                        }
+            //                    }
+            //                }
+
+
+            //            }
+            //        }
+            //    }
+            //}
             new DataOperationProvider().WowClassOperator.Save();
         }
-
-        //private ObservableCollection<SpellNavigationOption> GenerateSpellNavigationOptionsCollection(ObservableCollection<SpellViewModel> aSpellViewModels)
-        //{
-        //    var navOptions = new ObservableCollection<SpellNavigationOption>();
-
-        //    foreach(var spellViewModel in aSpellViewModels)
-        //    {
-        //        navOptions.Add(new SpellNavigationOption()
-        //        {
-        //            DisplayName = spellViewModel.Designation,
-        //            RemoveButton
-        //        }) ;
-        //    }
-        //}
-
-        //private class SpellNavigationOption
-        //{
-        //    private SpellViewModel fSpell;
-
-        //    public string DisplayName { get; set; }
-        //    public Button RemoveButton { get; set; }
-        //}
-
     }
 }

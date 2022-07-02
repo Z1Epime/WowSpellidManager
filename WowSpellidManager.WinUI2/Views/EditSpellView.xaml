@@ -50,7 +50,7 @@
                      MaxWidth="250"
                      RelativePanel.Below="GeneralHeaderTextBlock"
                      RelativePanel.AlignLeftWithPanel="True"
-                         Text="{Binding Designation}"
+                         Text="{Binding Designation.Designation, Mode=TwoWay}"
                  >
                 </TextBox>
 
@@ -61,7 +61,7 @@
                      Margin="10,0,0,0"
                      RelativePanel.RightOf="spellNameTextBox"
                      RelativePanel.AlignTopWith="spellNameTextBox"
-                         Text="{Binding ID}"
+                         Text="{Binding ID.ID, Mode=TwoWay}"
                  >
                 </TextBox>
             </RelativePanel>
@@ -85,14 +85,16 @@
                 <CheckBox Content="Cooldown" x:Name="CooldownCheckBox"
                           RelativePanel.RightOf="CooldownHeaderTextBlock"
                           RelativePanel.AlignTopWith="CooldownHeaderTextBlock" Margin="10,0,0,0"
-                          IsChecked="{Binding HasCooldown}">
+                          IsChecked="{Binding HasCooldown, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                     <Interactivity:Interaction.Behaviors>
+
                         <Interactions:DataTriggerBehavior Binding="{Binding IsChecked, ElementName=CooldownCheckBox}" ComparisonCondition="Equal" Value="true">
                             <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=CooldownStackPanel}" PropertyName="Visibility" Value="Visible"/>
                         </Interactions:DataTriggerBehavior>
                         <Interactions:DataTriggerBehavior Binding="{Binding IsChecked, ElementName=CooldownCheckBox}" ComparisonCondition="Equal" Value="false">
                             <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=CooldownStackPanel}" PropertyName="Visibility" Value="Collapsed"/>
                         </Interactions:DataTriggerBehavior>
+
                     </Interactivity:Interaction.Behaviors>
                 </CheckBox>
 
@@ -102,13 +104,13 @@
                             
                         RelativePanel.AlignLeftWith="CooldownHeaderTextBlock" Margin="0,10,0,0">
                     <StackPanel>
-                        
+
                         <RelativePanel>
                             <TextBox
                              x:Name="TimeTextBox"
                              RelativePanel.AlignRightWithPanel="True"
                              Width="100"
-                                     Text="{Binding Cooldown.Number}">
+                                Text="{Binding Cooldown.Number, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                             </TextBox>
                             <TextBlock x:Name="TimeTextBlock"
                            RelativePanel.LeftOf="TimeTextBox"
@@ -117,18 +119,15 @@
                             Duration
                             </TextBlock>
 
-                        
+
                             <ComboBox
                                 Margin="0,5,0,0"
                               RelativePanel.AlignRightWithPanel="True"
                               x:Name="UnitComboBoxCooldown"
                                 RelativePanel.Below="TimeTextBox"
-                              Width="100">
-                                <ComboBox.Items>
-                                    <ComboBoxItem x:Name="ComboBoxItemMinute">Minute</ComboBoxItem>
-                                    <ComboBoxItem x:Name="ComboBoxItemSecond">Second</ComboBoxItem>
-                                    <ComboBoxItem x:Name="ComboBoxItemHour">Hour</ComboBoxItem>
-                                </ComboBox.Items>
+                              Width="100"
+                                 ItemsSource="{Binding TimeUnitValues}"
+                                SelectedItem="{Binding Cooldown.SelectedMyEnumType, Mode=TwoWay}">
                             </ComboBox>
                             <TextBlock x:Name="UnitTextBlock"
                            RelativePanel.LeftOf="UnitComboBoxCooldown"
@@ -167,9 +166,9 @@
                             </TextBlock>
 
                             <TextBox MaxLength="2"
+                                     x:Name="ChargesValueTextBlock"
                              RelativePanel.RightOf="NumberTextBlock"
-                                     RelativePanel.AlignVerticalCenterWith="NumberTextBlock"
-                                     Text="{Binding Charges}">
+                                     RelativePanel.AlignVerticalCenterWith="NumberTextBlock">
                             </TextBox>
                         </RelativePanel>
                     </StackPanel>
@@ -199,7 +198,7 @@
                           RelativePanel.Below="CastHeaderTextBlock"
                           RelativePanel.AlignLeftWith="CastHeaderTextBlock" Orientation="Horizontal">
 
-                    <RadioButton Content="Instant Cast" x:Name="InstantCastRadioButton">
+                    <RadioButton Content="Instant Cast" x:Name="InstantCastRadioButton" GroupName="Cast">
                         <Interactivity:Interaction.Behaviors>
 
                             <Interactions:DataTriggerBehavior Binding="{Binding IsChecked, ElementName=InstantCastRadioButton}" ComparisonCondition="Equal" Value="true">
@@ -211,7 +210,7 @@
 
                         </Interactivity:Interaction.Behaviors>
                     </RadioButton>
-                    <RadioButton Content="Normal Cast" x:Name="NormalCastRadioButton">
+                    <RadioButton Content="Normal Cast" x:Name="NormalCastRadioButton" GroupName="Cast">
                         <Interactivity:Interaction.Behaviors>
 
                             <Interactions:DataTriggerBehavior Binding="{Binding IsChecked, ElementName=NormalCastRadioButton}" ComparisonCondition="Equal" Value="true">
@@ -222,7 +221,7 @@
 
                         </Interactivity:Interaction.Behaviors>
                     </RadioButton>
-                    <RadioButton Content="Channeling" x:Name="ChannelingRadioButton">
+                    <RadioButton Content="Channeling" x:Name="ChannelingRadioButton" GroupName="Cast">
                         <Interactivity:Interaction.Behaviors>
                             <Interactions:DataTriggerBehavior Binding="{Binding IsChecked, ElementName=ChannelingRadioButton}" ComparisonCondition="Equal" Value="true">
                                 <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=DurationTextBox}" PropertyName="Visibility" Value="Visible"/>
@@ -236,14 +235,14 @@
                 </StackPanel>
 
                 <CheckBox x:Name="OffGlobalCheckBox" RelativePanel.Below="DurationStackPanel"
-                      RelativePanel.AlignLeftWith="RadioButtonsCast" IsChecked="{Binding Cast.IsOffGlobal}">Off global</CheckBox>
+                      RelativePanel.AlignLeftWith="RadioButtonsCast">Off global</CheckBox>
 
                 <StackPanel x:Name="DurationStackPanel"
                         RelativePanel.Below="RadioButtonsCast" RelativePanel.AlignLeftWithPanel="True" Orientation="Horizontal">
 
-                    <TextBox x:Name="DurationTextBox" Header="Duration" MaxWidth="100" Margin="0,0,10,0" Visibility="Collapsed" Text="{Binding Cast.Time}"></TextBox>
+                    <TextBox x:Name="DurationTextBox" Header="Duration" MaxWidth="100" Margin="0,0,10,0" Visibility="Collapsed"></TextBox>
 
-                    <TextBox x:Name="BaseCastTimeTextBox" Header="Base cast time" MaxWidth="100" Margin="0,0,10,0" Visibility="Collapsed" Text="{Binding Cast.Time}"></TextBox>
+                    <TextBox x:Name="BaseCastTimeTextBox" Header="Base cast time" MaxWidth="100" Margin="0,0,10,0" Visibility="Collapsed"></TextBox>
 
                 </StackPanel>
 
@@ -258,8 +257,7 @@
 
                 <RelativePanel x:Name="OtherRelativePanel" RelativePanel.Below="OffGlobalCheckBox" RelativePanel.AlignLeftWithPanel="True">
 
-                    <CheckBox x:Name="RangeCheckBox" Content="Range" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignLeftWithPanel="True"
-                               IsChecked="True">
+                    <CheckBox x:Name="RangeCheckBox" Content="Range" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignLeftWithPanel="True">
                         <Interactivity:Interaction.Behaviors>
                             <Interactions:EventTriggerBehavior EventName="Checked" SourceObject="{Binding ElementName=RangeCheckBox}">
                                 <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=RangeTextBox}" 
@@ -292,7 +290,6 @@
                          RelativePanel.AlignVerticalCenterWith="RangeCheckBox"
                              Header="Number"
                              Visibility="Visible"
-                             Text="40"
                                  Margin="-25,0,15,0">
                     </TextBox>
 
@@ -300,11 +297,9 @@
                           RelativePanel.AlignVerticalCenterWith="RangeTextBox"
                           x:Name="UnitComboBoxRange"
                               Visibility="Visible"
-                          Header="Unit"
-                              SelectedIndex="0">
+                          Header="Unit">
                         <ComboBox.Items>
-                            <ComboBoxItem>Yard</ComboBoxItem>
-                            <ComboBoxItem>Mile</ComboBoxItem>
+                            <ComboBoxItem x:Name="RangeUnitYard">Yard</ComboBoxItem>
                         </ComboBox.Items>
                     </ComboBox>
 
@@ -331,10 +326,10 @@
                     RelativePanel.Below="AvailabilityTextBlock"
                     RelativePanel.AlignLeftWith="AvailabilityTextBlock">
                     <RelativePanel>
-                        <RadioButton x:Name="Talent" RelativePanel.AlignLeftWithPanel="True">Talent</RadioButton>
-                        <RadioButton x:Name="PVPTalent" RelativePanel.RightOf="Talent" RelativePanel.AlignVerticalCenterWith="Talent">PvP-Talent</RadioButton>
-                        <RadioButton x:Name="Baseline" RelativePanel.Below="Talent" RelativePanel.AlignLeftWithPanel="True" IsChecked="True">Baseline</RadioButton>
-                        <RadioButton x:Name="Other" RelativePanel.Below="PVPTalent" RelativePanel.RightOf="Baseline">Other</RadioButton>
+                        <RadioButton x:Name="Talent" RelativePanel.AlignLeftWithPanel="True" GroupName="Availability">Talent</RadioButton>
+                        <RadioButton x:Name="PVPTalent" RelativePanel.RightOf="Talent" RelativePanel.AlignVerticalCenterWith="Talent" GroupName="Availability">PvP-Talent</RadioButton>
+                        <RadioButton x:Name="Baseline" RelativePanel.Below="Talent" RelativePanel.AlignLeftWithPanel="True" GroupName="Availability">Baseline</RadioButton>
+                        <RadioButton x:Name="Other" RelativePanel.Below="PVPTalent" RelativePanel.RightOf="Baseline" GroupName="Availability">Other</RadioButton>
                     </RelativePanel>
                 </StackPanel>
 
@@ -363,7 +358,7 @@
                          MinWidth="200"
                          MaxWidth="400"
                          MaxHeight="250"
-                         >
+                             PointerEntered="AdditionalInfoTextBox_PointerEntered">
 
                 </RichEditBox>
 

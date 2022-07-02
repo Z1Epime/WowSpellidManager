@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WowSpellidManager.DomainUWP.Models.Spells;
 
 namespace WowSpellidManager.Domain.Models.Spells
 {
@@ -14,7 +15,7 @@ namespace WowSpellidManager.Domain.Models.Spells
     {
         #region Fields
         private int fNumber;
-        private string fUnit;
+        private RangeUnit fUnit;
         #endregion
 
         #region Properties
@@ -37,7 +38,7 @@ namespace WowSpellidManager.Domain.Models.Spells
         /// <summary>
         /// The unit of the range the spell has. Currently its "yard" everytime.
         /// </summary>
-        public string Unit
+        public RangeUnit Unit
         {
             get
             {
@@ -57,7 +58,7 @@ namespace WowSpellidManager.Domain.Models.Spells
         /// </summary>
         /// <param name="aNumber"></param>
         /// <param name="aUnit"></param>
-        public Range(int aNumber, string aUnit)
+        public Range(int aNumber, RangeUnit aUnit)
         {
             fNumber = aNumber;
             fUnit = aUnit;

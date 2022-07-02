@@ -10,17 +10,19 @@ using System.Threading.Tasks;
 using Windows.ApplicationModel.Resources;
 using WowSpellidManager.Domain.Models;
 using WowSpellidManager.Domain.Models.Spells;
+using WowSpellidManager.DomainUWP.Models.Helper;
 using WowSpellidManager.DomainUWP.Models.Spells;
+using WowSpellidManager.Infrastructure.CRUD;
 
 namespace WowSpellidManager.ViewModels.Wrapper
 {
     public class SpellViewModel
     {
-        public string ID { get; set; }
+        public IDHolder ID { get; set; }
 
         public Guid Guid { get; set; }
 
-        public string Designation { get; set; }
+        public DesignationHolder Designation { get; set; }
 
 #nullable enable
         public string? AdditionalInfo { get; set; }
@@ -40,5 +42,70 @@ namespace WowSpellidManager.ViewModels.Wrapper
         public Availability Availability { get; set; }
 
         public bool IsPassive { get; set; }
+
+
+
+        public IEnumerable<TimeUnit> TimeUnitValues
+        {
+            get
+            {
+                return Enum.GetValues(typeof(TimeUnit))
+                    .Cast<TimeUnit>();
+            }
+        }
+
+        private bool fHasCooldown;
+
+        
+        public bool HasCooldown
+        {
+            get
+            {
+                if (Cooldown.Number > 0)
+                {
+                    fHasCooldown = true;
+                }
+                else
+                {
+                    fHasCooldown = false;
+                }
+                return fHasCooldown;
+            }
+
+            set
+            {
+                //if (value == true)
+                //{
+                //    //if(Cooldown != null)  
+                //    Cooldown = new Cooldown();
+                //}
+                //else
+                //{
+                //    //if(Cooldown != null)
+                //    Cooldown = null;
+                //}
+
+                //fIsCooldownNotNull = value;
+                if (value == false)
+                {
+                    //Cooldown.NotifyPropertyChanged("Number");
+                    Cooldown.Number = 0;
+                }
+                else
+                {
+                    //Cooldown.NotifyPropertyChanged("Number");
+                    Cooldown.Number = 1;
+                }
+
+                fHasCooldown = value;
+            }
+        }
+
+        //private Cooldown GetCooldown(Guid aSpellGuid)
+        //{
+        //    return new DataOperationProvider().SpellOperator.GetSpell(aSpellGuid).Cooldown;
+        //}
+
+
     }
 }
