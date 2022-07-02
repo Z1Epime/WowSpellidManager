@@ -20,7 +20,7 @@ namespace WowSpellidManager.ViewModels.Wrapper
     {
         public IDHolder ID { get; set; }
 
-        public Guid Guid { get; set; }
+        public GuidHolder Guid { get; set; }
 
         public DesignationHolder Designation { get; set; }
 

@@ -15,16 +15,16 @@ namespace WowSpellidManager.Domain.Models.Spells
     public class Spell : Entity
     {
         #region Fields
-        private IDHolder fID;
-        private string? fAdditionalInfo;
+        private IDHolder fIDHolder;
+        private AdditionalInfoHolder fAdditionalInfoHolder;
         private Resource? fCost;
         private Cooldown? fCooldown;
-        private int? fCharges;
+        private ChargesHolder fChargesHolder;
         private Range? fRange;
-        private string fToolTipText;
+        private ToolTipTextHolder fToolTipTextHolder;
         private Cast fCast;
-        private bool fIsPassive;
-        private Availability fAvailability;
+        private IsPassiveHolder fIsPassiveHolder;
+        private AvailabilityHolder fAvailabilityHolder;
         #endregion
 
 
@@ -48,16 +48,16 @@ namespace WowSpellidManager.Domain.Models.Spells
         /// <summary>
         /// The text of the Tooltip of the spell. Only The main text, not the other information (range, costs, cast time etc).
         /// </summary>
-        public string ToolTipText
+        public ToolTipTextHolder ToolTipTextHolder
         {
             get
             {
-                return fToolTipText;
+                return fToolTipTextHolder;
             }
 
             set
             {
-                fToolTipText = value;
+                fToolTipTextHolder = value;
             }
         }
 
@@ -81,16 +81,16 @@ namespace WowSpellidManager.Domain.Models.Spells
         /// The number of charges (multiple uses before it goes on cooldown) a spell has. <br></br>
         /// Nullable because sometimes not worth mentioning or it just has one charge.
         /// </summary>
-        public int? Charges
+        public ChargesHolder ChargesHolder
         {
             get
             {
-                return fCharges;
+                return fChargesHolder;
             }
 
             set
             {
-                fCharges = value;
+                fChargesHolder = value;
             }
         }
 
@@ -137,16 +137,16 @@ namespace WowSpellidManager.Domain.Models.Spells
         /// A String which contains more info about a spell which cannot be represented throughout the other properties. <br></br>
         /// Nullable because sometimes no additional info is required.
         /// </summary>
-        public string? AdditionalInfo
+        public AdditionalInfoHolder AdditionalInfoHolder
         {
             get
             {
-                return fAdditionalInfo;
+                return fAdditionalInfoHolder;
             }
 
             set
             {
-                fAdditionalInfo = value;
+                fAdditionalInfoHolder = value;
             }
         }
 
@@ -157,29 +157,29 @@ namespace WowSpellidManager.Domain.Models.Spells
         {
             get
             {
-                return fID;
+                return fIDHolder;
             }
 
             set
             {
                 ArgumentGuard.CheckID(value);
-                fID = value;
+                fIDHolder = value;
             }
         }
 
         /// <summary>
         /// Determines how the player acquires the spell.
         /// </summary>
-        public Availability Availability
+        public AvailabilityHolder AvailabilityHolder
         {
             get
             {
-                return fAvailability;
+                return fAvailabilityHolder;
             }
 
             set
             {
-                fAvailability = value;
+                fAvailabilityHolder = value;
             }
         }
           
@@ -187,52 +187,52 @@ namespace WowSpellidManager.Domain.Models.Spells
         /// <summary>
         /// Determines wether is spell is a passive or not.
         /// </summary>
-        public bool IsPassive
+        public IsPassiveHolder IsPassiveHolder
         {
             get
             {
-                return fIsPassive;
+                return fIsPassiveHolder;
             }
 
             set
             {
-                fIsPassive = value;
+                fIsPassiveHolder = value;
             }
         }
         #endregion
 
         #region Constructors
-        public Spell(Guid aGuid, DesignationHolder aDesignation, Cast aCast, IDHolder aID, bool aIsPassive,
-            Availability aAvailability, Range? aRange = null, int? aCharges = null, 
-            string aToolTipText = null, Cooldown? aCooldown = null, Resource? aCost = null, 
-            string aAdditionalInfo = null) : base(aGuid, aDesignation)
+        public Spell(GuidHolder aGuid, DesignationHolder aDesignation, Cast aCast, IDHolder aID, IsPassiveHolder aIsPassive,
+            AvailabilityHolder aAvailability, Range? aRange = null, ChargesHolder aCharges = null,
+            ToolTipTextHolder aToolTipText = null, Cooldown? aCooldown = null, Resource? aCost = null,
+            AdditionalInfoHolder aAdditionalInfo = null) : base(aGuid, aDesignation)
         {
             Cast = aCast;
-            IsPassive = aIsPassive;
+            IsPassiveHolder = aIsPassive;
             Range = aRange;
-            Charges = aCharges;
+            ChargesHolder = aCharges;
             Cost = aCost;
-            ToolTipText = aToolTipText;
+            ToolTipTextHolder = aToolTipText;
             Cooldown = aCooldown;
-            AdditionalInfo = aAdditionalInfo;
-            Availability = aAvailability;
+            AdditionalInfoHolder = aAdditionalInfo;
+            AvailabilityHolder = aAvailability;
             ID = aID;
         }
 
-        public Spell(DesignationHolder aDesignation, Cast aCast, IDHolder aID, bool aIsPassive, 
-            Availability aAvailability, Range? aRange = null, int? aCharges = null,
-            string aToolTipText = null, Cooldown? aCooldown = null, Resource? aCost = null,
-            string aAdditionalInfo = null) : base(aDesignation)
+        public Spell(DesignationHolder aDesignation, Cast aCast, IDHolder aID, IsPassiveHolder aIsPassive,
+            AvailabilityHolder aAvailability, Range? aRange = null, ChargesHolder aCharges = null,
+            ToolTipTextHolder aToolTipText = null, Cooldown? aCooldown = null, Resource? aCost = null,
+            AdditionalInfoHolder aAdditionalInfo = null) : base(aDesignation)
         {
             Cast = aCast;
-            IsPassive = aIsPassive;
+            IsPassiveHolder = aIsPassive;
             Range = aRange;
-            Charges = aCharges;
+            ChargesHolder = aCharges;
             Cost = aCost;
-            ToolTipText = aToolTipText;
+            ToolTipTextHolder = aToolTipText;
             Cooldown = aCooldown;
-            AdditionalInfo = aAdditionalInfo;
-            Availability = aAvailability;
+            AdditionalInfoHolder = aAdditionalInfo;
+            AvailabilityHolder = aAvailability;
             ID = aID;
         }
 

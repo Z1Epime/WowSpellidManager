@@ -26,24 +26,23 @@ namespace WowSpellidManager.ViewModels.Helper
 
             var spell = new Spell()
             {
-                Designation = new DesignationHolder() { Designation = aSpellName },
+                DesignationHolder = new DesignationHolder() { Designation = aSpellName },
                 ID = new IDHolder() { ID = aSpellID },
-                Availability = Availability.Talent,
                 Cooldown = new Cooldown(),
             };
 
             foreach (var @class in WowClassHelper.ViewModels)
             {
-                if (@class.Guid == (aClass as WowClassViewModel).Guid)
+                if (@class.GuidHolder == (aClass as WowClassViewModel).GuidHolder)
                 {
                     foreach (var spec in @class.Specializations)
                     {
-                        if (spec.Guid == (aSpecialization as SpecializationViewModel).Guid)
+                        if (spec.GuidHolder == (aSpecialization as SpecializationViewModel).GuidHolder)
                         {
                             spec.Spells.Add(new SpellViewModel() { ID = spell.ID, 
-                                Designation = spell.Designation,
-                                AdditionalInfo = spell.AdditionalInfo, 
-                                Guid = spell.Guid,
+                                Designation = spell.DesignationHolder,
+                                AdditionalInfo = spell.AdditionalInfoHolder.AdditionalInfo, 
+                                Guid = spell.GuidHolder,
                                 Cooldown = spell.Cooldown,
                             });
                         }
@@ -52,7 +51,7 @@ namespace WowSpellidManager.ViewModels.Helper
 
             }
 
-            fDataOperationProvider.SpellOperator.AddSpell(spell, ((WowClassViewModel)aClass).Guid, ((SpecializationViewModel)aSpecialization).Guid);
+            fDataOperationProvider.SpellOperator.AddSpell(spell, ((WowClassViewModel)aClass).GuidHolder, ((SpecializationViewModel)aSpecialization).GuidHolder);
         }
 
         public void RemoveSpell(object aSpecialization, object aSpell)
@@ -65,7 +64,7 @@ namespace WowSpellidManager.ViewModels.Helper
                     for (int i = 0; i < spec.Spells.Count; i++)
                     {
                         var spell = spec.Spells[i];
-                        if (spell.Guid == ((SpellViewModel)aSpell).Guid)
+                        if (spell.GuidHolder == ((SpellViewModel)aSpell).Guid)
                         {
                             spec.Spells.Remove(spec.Spells[i]);
                         }

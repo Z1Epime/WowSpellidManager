@@ -131,10 +131,14 @@
     <Compile Include="Exceptions\TechnicalExceptions\InvalidParsingMethodException.cs" />
     <Compile Include="Metadata\WowNames.cs" />
     <Compile Include="Models\Entity.cs" />
+    <Compile Include="Models\Helper\AdditionalInfoHolder.cs" />
     <Compile Include="Models\Helper\AvailabilityHolder.cs" />
+    <Compile Include="Models\Helper\ChargesHolder.cs" />
     <Compile Include="Models\Helper\DesignationHolder.cs" />
+    <Compile Include="Models\Helper\GuidHolder.cs" />
     <Compile Include="Models\Helper\IDHolder.cs" />
-    <Compile Include="Models\Helper\Wrapper.cs" />
+    <Compile Include="Models\Helper\IsPassiveHolder.cs" />
+    <Compile Include="Models\Helper\ToolTipTextHolder.cs" />
     <Compile Include="Models\Specialization.cs" />
     <Compile Include="Models\Spells\Cast.cs" />
     <Compile Include="Models\Spells\Availability.cs" />

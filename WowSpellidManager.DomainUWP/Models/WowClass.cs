@@ -80,7 +80,7 @@ namespace WowSpellidManager.Domain.Models
         /// If no Guid is known the other constructor should be of use.</param>
         /// <param name="aDesignation">The name of the World of Warcraft class as a string which will be set in the constructor of the derived class.</param>
         /// <param name="aDescription">The description of the World of Warcraft class as a string.</param>
-        public WowClass(Guid aGuid, DesignationHolder aDesignation) : base(aGuid, aDesignation)
+        public WowClass(GuidHolder aGuid, DesignationHolder aDesignation) : base(aGuid, aDesignation)
         {
             Specializations = new List<Specialization>();
         }
