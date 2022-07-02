@@ -12,6 +12,7 @@ using WowSpellidManager.Infrastructure.CRUD;
 using WowSpellidManager.Infrastructure.Metadata;
 using WowSpellidManager.ViewModels;
 using WowSpellidManager.ViewModels.Wrapper.Main;
+using WowSpellidManager.WinUI2.ViewModels.Wrapper.Core;
 
 namespace WowSpellidManager.ViewModels.Helper
 {
@@ -44,13 +45,13 @@ namespace WowSpellidManager.ViewModels.Helper
                             GuidHolder = spell.GuidHolder,
                             IDHolder = spell.ID,
                             AvailabilityHolder = spell.AvailabilityHolder,
-                            Cast = spell.Cast,
+                            CastViewModel = new CastViewModel(spell.Cast),
                             ChargesHolder = spell.ChargesHolder,
-                            Cooldown = spell.Cooldown,
+                            CooldownViewModel = new CooldownViewModel(spell.Cooldown),
                             ToolTipTextHolder = spell.ToolTipTextHolder,
-                            Range = spell.Range,
+                            RangeViewModel = new RangeViewModel(spell.Range),
                             IsPassiveHolder = spell.IsPassiveHolder,
-                            Cost = spell.Cost,
+                            CostViewModel = new ResourceViewModel(spell.Cost),
                         }).ToList())
                     }).ToList())
                 });

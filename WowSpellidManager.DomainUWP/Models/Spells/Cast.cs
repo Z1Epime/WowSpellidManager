@@ -15,7 +15,7 @@ namespace WowSpellidManager.Domain.Models.Spells
     public class Cast
     {
         #region Fields
-        private int? fTime;
+        private int fTime;
         private CastType fCastType;
         private bool fIsOffGlobal;
         private TimeUnit fUnit;
@@ -25,7 +25,7 @@ namespace WowSpellidManager.Domain.Models.Spells
         /// <summary>
         /// The time that is needed to either cast or channel the spell.
         /// </summary>
-        public int? Time
+        public int Time
         {
             get
             {
@@ -93,7 +93,7 @@ namespace WowSpellidManager.Domain.Models.Spells
         /// </summary>
         /// <param name="aTime"></param>
         /// <param name="aIsChanneling"></param>
-        public Cast(int? aTime, CastType aCastType, TimeUnit aUnit, bool aIsOffGlobal)
+        public Cast(int aTime, CastType aCastType, TimeUnit aUnit, bool aIsOffGlobal)
         {
             Time = aTime;
             CastType = aCastType;

@@ -127,7 +127,7 @@
                                 RelativePanel.Below="TimeTextBox"
                               Width="100"
                                  ItemsSource="{Binding TimeUnitValues}"
-                                SelectedItem="{Binding Cooldown.SelectedMyEnumType, Mode=TwoWay}">
+                                SelectedItem="{Binding Cooldown.Unit, Mode=TwoWay}">
                             </ComboBox>
                             <TextBlock x:Name="UnitTextBlock"
                            RelativePanel.LeftOf="UnitComboBoxCooldown"
@@ -357,8 +357,7 @@
                          TextWrapping="Wrap"
                          MinWidth="200"
                          MaxWidth="400"
-                         MaxHeight="250"
-                             PointerEntered="AdditionalInfoTextBox_PointerEntered">
+                         MaxHeight="250">
 
                 </RichEditBox>
 

@@ -18,9 +18,7 @@ namespace WowSpellidManager.Domain.Models.Spells
         #region Fields
         private double fNumber;
         private TimeUnit fUnit;
-        #endregion
-
-        public static int InstanceCounter = 0;
+        #endregion;
 
         #region Properties
         /// <summary>
@@ -43,7 +41,7 @@ namespace WowSpellidManager.Domain.Models.Spells
         /// <summary>
         /// The specified unit of the cooldown (minutes, seconds, hours etc.).
         /// </summary>
-        public TimeUnit SelectedMyEnumType
+        public TimeUnit Unit
         {
             get
             {
@@ -78,16 +76,12 @@ namespace WowSpellidManager.Domain.Models.Spells
         /// </summary>
         public Cooldown()
         {
-            InstanceCounter++;
+
         }
         #endregion
 
-
         public event PropertyChangedEventHandler PropertyChanged;
 
-        // This method is called by the Set accessor of each property.  
-        // The CallerMemberName attribute that is applied to the optional propertyName  
-        // parameter causes the property name of the caller to be substituted as an argument.  
         public void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

@@ -10,6 +10,7 @@ using WowSpellidManager.DomainUWP.Models.Spells;
 using WowSpellidManager.Infrastructure.CRUD;
 using WowSpellidManager.ViewModels;
 using WowSpellidManager.ViewModels.Wrapper.Main;
+using WowSpellidManager.WinUI2.ViewModels.Wrapper.Core;
 
 namespace WowSpellidManager.ViewModels.Helper
 {
@@ -37,7 +38,7 @@ namespace WowSpellidManager.ViewModels.Helper
                                 DesignationHolder = spell.DesignationHolder,
                                 AdditionalInfoHolder = spell.AdditionalInfoHolder, 
                                 GuidHolder = spell.GuidHolder,
-                                Cooldown = spell.Cooldown,
+                                CooldownViewModel = new CooldownViewModel(spell.Cooldown),
                             });
                         }
                     }
@@ -87,9 +88,9 @@ namespace WowSpellidManager.ViewModels.Helper
                     {
                         if (spec.Spells[i].GuidHolder.Equals(aOldSpellViewModel.GuidHolder))
                         {
-                            spec.Spells[i].Cooldown = aNewSpellViewModel.Cooldown;
-                            spec.Spells[i].Cost = aNewSpellViewModel.Cost;
-                            spec.Spells[i].Cast= aNewSpellViewModel.Cast;
+                            spec.Spells[i].CooldownViewModel = aNewSpellViewModel.CooldownViewModel;
+                            spec.Spells[i].CostViewModel = aNewSpellViewModel.CostViewModel;
+                            spec.Spells[i].CastViewModel= aNewSpellViewModel.CastViewModel;
                             spec.Spells[i].AdditionalInfoHolder = aNewSpellViewModel.AdditionalInfoHolder;
                             spec.Spells[i].AvailabilityHolder = aNewSpellViewModel.AvailabilityHolder;
                             spec.Spells[i].ChargesHolder = aNewSpellViewModel.ChargesHolder;
@@ -97,7 +98,7 @@ namespace WowSpellidManager.ViewModels.Helper
                             spec.Spells[i].GuidHolder = aNewSpellViewModel.GuidHolder;
                             spec.Spells[i].IDHolder = aNewSpellViewModel.IDHolder;
                             spec.Spells[i].IsPassiveHolder = aNewSpellViewModel.IsPassiveHolder;
-                            spec.Spells[i].Range = aNewSpellViewModel.Range;
+                            spec.Spells[i].RangeViewModel = aNewSpellViewModel.RangeViewModel;
                             spec.Spells[i].ToolTipTextHolder = aNewSpellViewModel.ToolTipTextHolder;
                         }
                     }

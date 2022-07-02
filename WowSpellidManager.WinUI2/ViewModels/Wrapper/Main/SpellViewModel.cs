@@ -13,6 +13,7 @@ using WowSpellidManager.Domain.Models.Spells;
 using WowSpellidManager.DomainUWP.Models.Helper;
 using WowSpellidManager.DomainUWP.Models.Spells;
 using WowSpellidManager.Infrastructure.CRUD;
+using WowSpellidManager.WinUI2.ViewModels.Wrapper.Core;
 
 namespace WowSpellidManager.ViewModels.Wrapper.Main
 {
@@ -24,20 +25,19 @@ namespace WowSpellidManager.ViewModels.Wrapper.Main
 
         public DesignationHolder DesignationHolder { get; set; }
 
-#nullable enable
-        public AdditionalInfoHolder? AdditionalInfoHolder { get; set; }
+        public AdditionalInfoHolder AdditionalInfoHolder { get; set; }
 
-        public Resource? Cost { get; set; }
+        public ResourceViewModel CostViewModel { get; set; }
 
-        public Cooldown? Cooldown { get; set; }
+        public CooldownViewModel CooldownViewModel { get; set; }
 
-        public ChargesHolder? ChargesHolder { get; set; }
+        public ChargesHolder ChargesHolder { get; set; }
 
-        public Range? Range { get; set; }
-#nullable disable
+        public RangeViewModel RangeViewModel { get; set; }
+
         public ToolTipTextHolder ToolTipTextHolder { get; set; }
 
-        public Cast Cast { get; set; }
+        public CastViewModel CastViewModel { get; set; }
 
         public AvailabilityHolder AvailabilityHolder { get; set; }
 
@@ -61,7 +61,7 @@ namespace WowSpellidManager.ViewModels.Wrapper.Main
         {
             get
             {
-                if (Cooldown.Number > 0)
+                if (CooldownViewModel.Number > 0)
                 {
                     fHasCooldown = true;
                 }
@@ -89,12 +89,12 @@ namespace WowSpellidManager.ViewModels.Wrapper.Main
                 if (value == false)
                 {
                     //Cooldown.NotifyPropertyChanged("Number");
-                    Cooldown.Number = 0;
+                    CooldownViewModel.Number = 0;
                 }
                 else
                 {
                     //Cooldown.NotifyPropertyChanged("Number");
-                    Cooldown.Number = 1;
+                    CooldownViewModel.Number = 1;
                 }
 
                 fHasCooldown = value;

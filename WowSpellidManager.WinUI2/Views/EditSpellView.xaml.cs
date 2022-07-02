@@ -44,11 +44,6 @@ namespace WowSpellidManager.WinUI2.Views
             //InitControls();
         }
 
-        private void AdditionalInfoTextBox_PointerEntered(object sender, PointerRoutedEventArgs e)
-        {
-            fSpell.Cooldown.Number++;
-        }
-
         //private void InitControls()
         //{
         //    #region NameAndSpellID
