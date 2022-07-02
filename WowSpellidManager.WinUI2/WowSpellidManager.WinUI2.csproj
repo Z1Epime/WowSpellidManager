@@ -140,6 +140,13 @@
     <Compile Include="ViewModels\Wrapper\Core\CooldownViewModel.cs" />
     <Compile Include="ViewModels\Wrapper\Core\RangeViewModel.cs" />
     <Compile Include="ViewModels\Wrapper\Core\ResourceViewModel.cs" />
+    <Compile Include="ViewModels\Wrapper\Holder\AdditionalInfoHolderViewModel.cs" />
+    <Compile Include="ViewModels\Wrapper\Holder\AvailabilityHolderViewModel.cs" />
+    <Compile Include="ViewModels\Wrapper\Holder\ChargesHolderViewModel.cs" />
+    <Compile Include="ViewModels\Wrapper\Holder\DesignationHolderViewModel.cs" />
+    <Compile Include="ViewModels\Wrapper\Holder\IDHolderViewModel.cs" />
+    <Compile Include="ViewModels\Wrapper\Holder\IsPassiveHolderViewModel.cs" />
+    <Compile Include="ViewModels\Wrapper\Holder\ToolTipTextHolderViewModel.cs" />
     <Compile Include="ViewModels\Wrapper\Main\SpecializationViewModel.cs" />
     <Compile Include="ViewModels\Wrapper\Main\SpellViewModel.cs" />
     <Compile Include="ViewModels\Wrapper\Main\WowClassViewModel.cs" />

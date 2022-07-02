@@ -11,6 +11,7 @@ using WowSpellidManager.Infrastructure.CRUD;
 using WowSpellidManager.ViewModels;
 using WowSpellidManager.ViewModels.Wrapper.Main;
 using WowSpellidManager.WinUI2.ViewModels.Wrapper.Core;
+using WowSpellidManager.WinUI2.ViewModels.Wrapper.Holder;
 
 namespace WowSpellidManager.ViewModels.Helper
 {
@@ -34,9 +35,9 @@ namespace WowSpellidManager.ViewModels.Helper
                     {
                         if (spec.GuidHolder == (aSpecialization as SpecializationViewModel).GuidHolder)
                         {
-                            spec.Spells.Add(new SpellViewModel() { IDHolder = spell.ID, 
-                                DesignationHolder = spell.DesignationHolder,
-                                AdditionalInfoHolder = spell.AdditionalInfoHolder, 
+                            spec.Spells.Add(new SpellViewModel() { IDHolderViewModel = new IDHolderViewModel(spell.ID), 
+                                DesignationHolderViewModel = new DesignationHolderViewModel(spell.DesignationHolder),
+                                AdditionalInfoHolderViewModel = new AdditionalInfoHolderViewModel(spell.AdditionalInfoHolder), 
                                 GuidHolder = spell.GuidHolder,
                                 CooldownViewModel = new CooldownViewModel(spell.Cooldown),
                             });
@@ -91,15 +92,15 @@ namespace WowSpellidManager.ViewModels.Helper
                             spec.Spells[i].CooldownViewModel = aNewSpellViewModel.CooldownViewModel;
                             spec.Spells[i].CostViewModel = aNewSpellViewModel.CostViewModel;
                             spec.Spells[i].CastViewModel= aNewSpellViewModel.CastViewModel;
-                            spec.Spells[i].AdditionalInfoHolder = aNewSpellViewModel.AdditionalInfoHolder;
-                            spec.Spells[i].AvailabilityHolder = aNewSpellViewModel.AvailabilityHolder;
-                            spec.Spells[i].ChargesHolder = aNewSpellViewModel.ChargesHolder;
-                            spec.Spells[i].DesignationHolder = aNewSpellViewModel.DesignationHolder;
+                            spec.Spells[i].AdditionalInfoHolderViewModel = aNewSpellViewModel.AdditionalInfoHolderViewModel;
+                            spec.Spells[i].AvailabilityHolderViewModel = aNewSpellViewModel.AvailabilityHolderViewModel;
+                            spec.Spells[i].ChargesHolderViewModel = aNewSpellViewModel.ChargesHolderViewModel;
+                            spec.Spells[i].DesignationHolderViewModel = aNewSpellViewModel.DesignationHolderViewModel;
                             spec.Spells[i].GuidHolder = aNewSpellViewModel.GuidHolder;
-                            spec.Spells[i].IDHolder = aNewSpellViewModel.IDHolder;
-                            spec.Spells[i].IsPassiveHolder = aNewSpellViewModel.IsPassiveHolder;
+                            spec.Spells[i].IDHolderViewModel = aNewSpellViewModel.IDHolderViewModel;
+                            spec.Spells[i].IsPassiveHolderViewModel = aNewSpellViewModel.IsPassiveHolderViewModel;
                             spec.Spells[i].RangeViewModel = aNewSpellViewModel.RangeViewModel;
-                            spec.Spells[i].ToolTipTextHolder = aNewSpellViewModel.ToolTipTextHolder;
+                            spec.Spells[i].ToolTipTextHolderViewModel = aNewSpellViewModel.ToolTipTextHolderViewModel;
                         }
                     }
                 }

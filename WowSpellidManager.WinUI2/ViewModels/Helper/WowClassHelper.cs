@@ -13,6 +13,7 @@ using WowSpellidManager.Infrastructure.Metadata;
 using WowSpellidManager.ViewModels;
 using WowSpellidManager.ViewModels.Wrapper.Main;
 using WowSpellidManager.WinUI2.ViewModels.Wrapper.Core;
+using WowSpellidManager.WinUI2.ViewModels.Wrapper.Holder;
 
 namespace WowSpellidManager.ViewModels.Helper
 {
@@ -40,17 +41,17 @@ namespace WowSpellidManager.ViewModels.Helper
                         Image = SpecializationImagePaths.GetPath(@class.DesignationHolder.Designation, spec.DesignationHolder.Designation),
                         Spells = new ObservableCollection<SpellViewModel>(spec.Spells.Select(spell => new SpellViewModel()
                         {
-                            DesignationHolder = spell.DesignationHolder,
-                            AdditionalInfoHolder = spell.AdditionalInfoHolder,
+                            DesignationHolderViewModel = new DesignationHolderViewModel(spell.DesignationHolder),
+                            AdditionalInfoHolderViewModel = new AdditionalInfoHolderViewModel(spell.AdditionalInfoHolder),
                             GuidHolder = spell.GuidHolder,
-                            IDHolder = spell.ID,
-                            AvailabilityHolder = spell.AvailabilityHolder,
+                            IDHolderViewModel = new IDHolderViewModel(spell.ID),
+                            AvailabilityHolderViewModel = new AvailabilityHolderViewModel(spell.AvailabilityHolder),
                             CastViewModel = new CastViewModel(spell.Cast),
-                            ChargesHolder = spell.ChargesHolder,
+                            ChargesHolderViewModel = new ChargesHolderViewModel(spell.ChargesHolder),
                             CooldownViewModel = new CooldownViewModel(spell.Cooldown),
-                            ToolTipTextHolder = spell.ToolTipTextHolder,
+                            ToolTipTextHolderViewModel = new ToolTipTextHolderViewModel(spell.ToolTipTextHolder),
                             RangeViewModel = new RangeViewModel(spell.Range),
-                            IsPassiveHolder = spell.IsPassiveHolder,
+                            IsPassiveHolderViewModel = new IsPassiveHolderViewModel(spell.IsPassiveHolder),
                             CostViewModel = new ResourceViewModel(spell.Cost),
                         }).ToList())
                     }).ToList())
