@@ -23,8 +23,9 @@ namespace WowSpellidManager.ViewModels.Helper
             var spell = new Spell()
             {
                 DesignationHolder = new DesignationHolder() { Designation = aSpellName },
-                ID = new IDHolder() { ID = aSpellID },
+                IDHolder = new IDHolder() { ID = aSpellID },
                 Cooldown = new Cooldown(),
+                GuidHolder = new GuidHolder() { Guid = Guid.NewGuid() },
             };
 
             foreach (var @class in WowClassHelper.ViewModels)
@@ -35,7 +36,7 @@ namespace WowSpellidManager.ViewModels.Helper
                     {
                         if (spec.GuidHolder == (aSpecialization as SpecializationViewModel).GuidHolder)
                         {
-                            spec.Spells.Add(new SpellViewModel() { IDHolderViewModel = new IDHolderViewModel(spell.ID), 
+                            spec.Spells.Add(new SpellViewModel() { IDHolderViewModel = new IDHolderViewModel(spell.IDHolder), 
                                 DesignationHolderViewModel = new DesignationHolderViewModel(spell.DesignationHolder),
                                 AdditionalInfoHolderViewModel = new AdditionalInfoHolderViewModel(spell.AdditionalInfoHolder), 
                                 GuidHolder = spell.GuidHolder,

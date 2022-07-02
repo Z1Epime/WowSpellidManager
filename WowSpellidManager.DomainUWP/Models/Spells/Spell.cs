@@ -153,7 +153,7 @@ namespace WowSpellidManager.Domain.Models.Spells
         /// <summary>
         /// The id of a spell / buff / debuff which is unique throughout the program and wow.
         /// </summary>
-        public IDHolder ID
+        public IDHolder IDHolder
         {
             get
             {
@@ -216,7 +216,7 @@ namespace WowSpellidManager.Domain.Models.Spells
             Cooldown = aCooldown;
             AdditionalInfoHolder = aAdditionalInfo;
             AvailabilityHolder = aAvailability;
-            ID = aID;
+            IDHolder = aID;
         }
 
         public Spell(DesignationHolder aDesignation, Cast aCast, IDHolder aID, IsPassiveHolder aIsPassive,
@@ -233,7 +233,7 @@ namespace WowSpellidManager.Domain.Models.Spells
             Cooldown = aCooldown;
             AdditionalInfoHolder = aAdditionalInfo;
             AvailabilityHolder = aAvailability;
-            ID = aID;
+            IDHolder = aID;
         }
 
         /// <summary>

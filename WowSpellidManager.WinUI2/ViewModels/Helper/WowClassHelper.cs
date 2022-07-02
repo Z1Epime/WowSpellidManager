@@ -44,7 +44,7 @@ namespace WowSpellidManager.ViewModels.Helper
                             DesignationHolderViewModel = new DesignationHolderViewModel(spell.DesignationHolder),
                             AdditionalInfoHolderViewModel = new AdditionalInfoHolderViewModel(spell.AdditionalInfoHolder),
                             GuidHolder = spell.GuidHolder,
-                            IDHolderViewModel = new IDHolderViewModel(spell.ID),
+                            IDHolderViewModel = new IDHolderViewModel(spell.IDHolder),
                             AvailabilityHolderViewModel = new AvailabilityHolderViewModel(spell.AvailabilityHolder),
                             CastViewModel = new CastViewModel(spell.Cast),
                             ChargesHolderViewModel = new ChargesHolderViewModel(spell.ChargesHolder),

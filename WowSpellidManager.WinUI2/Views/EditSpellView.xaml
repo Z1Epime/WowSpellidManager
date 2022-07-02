@@ -50,7 +50,7 @@
                      MaxWidth="250"
                      RelativePanel.Below="GeneralHeaderTextBlock"
                      RelativePanel.AlignLeftWithPanel="True"
-                         Text="{Binding DesignationHolder.Designation, Mode=TwoWay}"
+                         Text="{Binding DesignationHolderViewModel.Designation, Mode=TwoWay}"
                  >
                 </TextBox>
 
@@ -61,7 +61,7 @@
                      Margin="10,0,0,0"
                      RelativePanel.RightOf="spellNameTextBox"
                      RelativePanel.AlignTopWith="spellNameTextBox"
-                         Text="{Binding IDHolder.ID, Mode=TwoWay}"
+                         Text="{Binding IDHolderViewModel.ID, Mode=TwoWay}"
                  >
                 </TextBox>
             </RelativePanel>
