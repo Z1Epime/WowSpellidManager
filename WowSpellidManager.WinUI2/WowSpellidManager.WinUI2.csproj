@@ -136,9 +136,9 @@
     <Compile Include="ViewModels\Validators\Checkers\SpellChecker.cs" />
     <Compile Include="ViewModels\Validators\Errors\Error.cs" />
     <Compile Include="ViewModels\Validators\Rules\IStringRule.cs" />
-    <Compile Include="ViewModels\Wrapper\SpecializationViewModel.cs" />
-    <Compile Include="ViewModels\Wrapper\SpellViewModel.cs" />
-    <Compile Include="ViewModels\Wrapper\WowClassViewModel.cs" />
+    <Compile Include="ViewModels\Wrapper\Main\SpecializationViewModel.cs" />
+    <Compile Include="ViewModels\Wrapper\Main\SpellViewModel.cs" />
+    <Compile Include="ViewModels\Wrapper\Main\WowClassViewModel.cs" />
     <Compile Include="Views\AboutView.xaml.cs">
       <DependentUpon>AboutView.xaml</DependentUpon>
     </Compile>

@@ -14,7 +14,7 @@ using WowSpellidManager.DomainUWP.Models.Helper;
 using WowSpellidManager.DomainUWP.Models.Spells;
 using WowSpellidManager.Infrastructure.CRUD;
 
-namespace WowSpellidManager.ViewModels.Wrapper
+namespace WowSpellidManager.ViewModels.Wrapper.Main
 {
     public class SpellViewModel
     {

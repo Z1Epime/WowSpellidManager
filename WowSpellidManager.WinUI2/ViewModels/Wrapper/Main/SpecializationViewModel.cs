@@ -10,7 +10,7 @@ using Windows.ApplicationModel.Resources;
 using WowSpellidManager.Domain.Models;
 using WowSpellidManager.DomainUWP.Models.Helper;
 
-namespace WowSpellidManager.ViewModels.Wrapper
+namespace WowSpellidManager.ViewModels.Wrapper.Main
 {
     public class SpecializationViewModel
     {

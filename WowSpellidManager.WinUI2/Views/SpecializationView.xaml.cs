@@ -11,7 +11,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using WowSpellidManager.Infrastructure.CRUD;
 using WowSpellidManager.ViewModels.Helper;
-using WowSpellidManager.ViewModels.Wrapper;
+using WowSpellidManager.ViewModels.Wrapper.Main;
 using WowSpellidManager.WinUI2.Views;
 
 // To learn more about WinUI, the WinUI project structure,

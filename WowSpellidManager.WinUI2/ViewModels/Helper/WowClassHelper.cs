@@ -11,7 +11,7 @@ using WowSpellidManager.DomainUWP.Models.Helper;
 using WowSpellidManager.Infrastructure.CRUD;
 using WowSpellidManager.Infrastructure.Metadata;
 using WowSpellidManager.ViewModels;
-using WowSpellidManager.ViewModels.Wrapper;
+using WowSpellidManager.ViewModels.Wrapper.Main;
 
 namespace WowSpellidManager.ViewModels.Helper
 {
