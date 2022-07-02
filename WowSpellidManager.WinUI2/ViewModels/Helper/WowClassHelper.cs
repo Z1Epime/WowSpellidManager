@@ -29,27 +29,27 @@ namespace WowSpellidManager.ViewModels.Helper
                 var helper = WowClassImagePaths.GetPath(@class.DesignationHolder.Designation);
                 ViewModels.Add(new WowClassViewModel()
                 {
-                    Designation = new ResourceLoader().GetString(@class.DesignationHolder.Designation),
+                    DesignationHolder = new DesignationHolder() { Designation = new ResourceLoader().GetString(@class.DesignationHolder.Designation) },
                     GuidHolder = @class.GuidHolder,
                     Image = WowClassImagePaths.GetPath(@class.DesignationHolder.Designation),
                     Specializations = new ObservableCollection<SpecializationViewModel>(@class.Specializations.Select(spec => new SpecializationViewModel()
                     {
-                        Designation = new ResourceLoader().GetString(spec.DesignationHolder.Designation),
+                        DesignationHolder = new DesignationHolder() { Designation = new ResourceLoader().GetString(spec.DesignationHolder.Designation) },
                         GuidHolder = spec.GuidHolder,
                         Image = SpecializationImagePaths.GetPath(@class.DesignationHolder.Designation, spec.DesignationHolder.Designation),
                         Spells = new ObservableCollection<SpellViewModel>(spec.Spells.Select(spell => new SpellViewModel()
                         {
-                            Designation = spell.DesignationHolder,
-                            AdditionalInfo = spell.AdditionalInfoHolder.AdditionalInfo,
-                            Guid = spell.GuidHolder,
-                            ID = spell.ID,
-                            Availability = spell.AvailabilityHolder.Availability,
+                            DesignationHolder = spell.DesignationHolder,
+                            AdditionalInfoHolder = spell.AdditionalInfoHolder,
+                            GuidHolder = spell.GuidHolder,
+                            IDHolder = spell.ID,
+                            AvailabilityHolder = spell.AvailabilityHolder,
                             Cast = spell.Cast,
-                            Charges = spell.ChargesHolder.Charges,
+                            ChargesHolder = spell.ChargesHolder,
                             Cooldown = spell.Cooldown,
-                            ToolTipText = spell.ToolTipTextHolder.ToolTipText,
+                            ToolTipTextHolder = spell.ToolTipTextHolder,
                             Range = spell.Range,
-                            IsPassive = spell.IsPassiveHolder.IsPassive,
+                            IsPassiveHolder = spell.IsPassiveHolder,
                             Cost = spell.Cost,
                         }).ToList())
                     }).ToList())

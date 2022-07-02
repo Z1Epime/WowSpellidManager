@@ -18,7 +18,7 @@
                        RelativePanel.AlignLeftWithPanel="True" ></Image>
                 <AppBarSeparator x:Name="Separator" Style="{StaticResource ClassNavigationItemSeparator}" RelativePanel.AlignVerticalCenterWith="Image"
                                  RelativePanel.RightOf="Image"></AppBarSeparator>
-                <TextBlock x:Name="Name" Text="{Binding Designation}" RelativePanel.AlignVerticalCenterWith="Image"
+                <TextBlock x:Name="Name" Text="{Binding DesignationHolder.Designation}" RelativePanel.AlignVerticalCenterWith="Image"
                            RelativePanel.RightOf="Separator"></TextBlock>
             </RelativePanel>
         </NavigationViewItem>

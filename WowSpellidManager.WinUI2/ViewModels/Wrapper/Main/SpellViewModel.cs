@@ -18,30 +18,30 @@ namespace WowSpellidManager.ViewModels.Wrapper.Main
 {
     public class SpellViewModel
     {
-        public IDHolder ID { get; set; }
+        public IDHolder IDHolder { get; set; }
 
-        public GuidHolder Guid { get; set; }
+        public GuidHolder GuidHolder { get; set; }
 
-        public DesignationHolder Designation { get; set; }
+        public DesignationHolder DesignationHolder { get; set; }
 
 #nullable enable
-        public string? AdditionalInfo { get; set; }
+        public AdditionalInfoHolder? AdditionalInfoHolder { get; set; }
 
         public Resource? Cost { get; set; }
 
         public Cooldown? Cooldown { get; set; }
 
-        public int? Charges { get; set; }
+        public ChargesHolder? ChargesHolder { get; set; }
 
-        public Domain.Models.Spells.Range? Range { get; set; }
+        public Range? Range { get; set; }
 #nullable disable
-        public string ToolTipText { get; set; }
+        public ToolTipTextHolder ToolTipTextHolder { get; set; }
 
         public Cast Cast { get; set; }
 
-        public Availability Availability { get; set; }
+        public AvailabilityHolder AvailabilityHolder { get; set; }
 
-        public bool IsPassive { get; set; }
+        public IsPassiveHolder IsPassiveHolder { get; set; }
 
 
 

@@ -18,7 +18,7 @@ namespace WowSpellidManager.ViewModels.Wrapper.Main
 
         public GuidHolder GuidHolder { get; set; }
 
-        public string Designation { get; set; }
+        public DesignationHolder DesignationHolder { get; set; }
 
         public string Image { get; set; }
     }
