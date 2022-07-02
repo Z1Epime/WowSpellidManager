@@ -17,7 +17,7 @@ using WowSpellidManager.WinUI2.ViewModels.Wrapper.Core;
 
 namespace WowSpellidManager.ViewModels.Wrapper.Main
 {
-    public class SpellViewModel
+    public class SpellViewModel : INotifyPropertyChanged
     {
         public IDHolder IDHolder { get; set; }
 
@@ -55,57 +55,32 @@ namespace WowSpellidManager.ViewModels.Wrapper.Main
         }
 
         private bool fHasCooldown;
-
-        
         public bool HasCooldown
         {
             get
             {
                 if (CooldownViewModel.Number > 0)
-                {
-                    fHasCooldown = true;
-                }
+                    fHasCooldown = true; 
                 else
-                {
-                    fHasCooldown = false;
-                }
+                    fHasCooldown = false; 
                 return fHasCooldown;
             }
 
             set
             {
-                //if (value == true)
-                //{
-                //    //if(Cooldown != null)  
-                //    Cooldown = new Cooldown();
-                //}
-                //else
-                //{
-                //    //if(Cooldown != null)
-                //    Cooldown = null;
-                //}
-
-                //fIsCooldownNotNull = value;
                 if (value == false)
-                {
-                    //Cooldown.NotifyPropertyChanged("Number");
-                    CooldownViewModel.Number = 0;
-                }
-                else
-                {
-                    //Cooldown.NotifyPropertyChanged("Number");
+                    CooldownViewModel.Number = 0;               
+                else 
                     CooldownViewModel.Number = 1;
-                }
-
                 fHasCooldown = value;
             }
         }
 
-        //private Cooldown GetCooldown(Guid aSpellGuid)
-        //{
-        //    return new DataOperationProvider().SpellOperator.GetSpell(aSpellGuid).Cooldown;
-        //}
+        public event PropertyChangedEventHandler PropertyChanged;
 
-
+        public void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

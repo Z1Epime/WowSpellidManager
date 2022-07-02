@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using WowSpellidManager.Domain.Models.Spells;
@@ -8,37 +10,88 @@ using WowSpellidManager.DomainUWP.Models.Spells;
 
 namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Core
 {
-    public class CastViewModel
+    public class CastViewModel : INotifyPropertyChanged
     {
         private Cast fCast;
 
         public int Time
         {
-            get => fCast.Time;
-            set => fCast.Time = value;
+            get
+            {
+                return fCast.Time;
+            }
+
+            set
+            {
+                if (fCast.Time != value)
+                {
+                    fCast.Time = value;
+                    NotifyPropertyChanged();
+                }
+            }
         }
 
         public CastType CastType
         {
-            get => fCast.CastType;
-            set => fCast.CastType = value;
+            get
+            {
+                return fCast.CastType;
+            }
+
+            set
+            {
+                if (fCast.CastType != value)
+                {
+                    fCast.CastType = value;
+                    NotifyPropertyChanged();
+                }
+            }
         }
 
         public bool IsOffGlobal
         {
-            get => fCast.IsOffGlobal;
-            set => fCast.IsOffGlobal= value;
+            get
+            {
+                return fCast.IsOffGlobal;
+            }
+
+            set
+            {
+                if (fCast.IsOffGlobal != value)
+                {
+                    fCast.IsOffGlobal = value;
+                    NotifyPropertyChanged();
+                }
+            }
         }
 
         public TimeUnit TimeUnit
         {
-            get => fCast.Unit;
-            set => fCast.Unit = value;
+            get
+            {
+                return fCast.Unit;
+            }
+
+            set
+            {
+                if (fCast.Unit != value)
+                {
+                    fCast.Unit = value;
+                    NotifyPropertyChanged();
+                }
+            }
         }
 
         public CastViewModel(Cast aCast)
         {
             fCast = aCast;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

@@ -13,7 +13,7 @@ namespace WowSpellidManager.Domain.Models.Spells
     /// This class represents the cooldown of a spell in World of Warcraft. <br></br>
     /// For simplification purposes this class does not inherit from Entity. Note that this class does not have a GUID.
     /// </summary>
-    public class Cooldown : INotifyPropertyChanged
+    public class Cooldown
     {
         #region Fields
         private double fNumber;
@@ -33,8 +33,7 @@ namespace WowSpellidManager.Domain.Models.Spells
 
             set
             {
-                fNumber = value;
-                NotifyPropertyChanged("Number");              
+                fNumber = value;            
             }
         }
 
@@ -50,11 +49,7 @@ namespace WowSpellidManager.Domain.Models.Spells
 
             set
             {
-                if (fUnit != value)
-                {
-                    fUnit = value;
-                    NotifyPropertyChanged();
-                }
+                fUnit = value;
             }
         }
         #endregion
@@ -79,13 +74,5 @@ namespace WowSpellidManager.Domain.Models.Spells
 
         }
         #endregion
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
     }
 }
