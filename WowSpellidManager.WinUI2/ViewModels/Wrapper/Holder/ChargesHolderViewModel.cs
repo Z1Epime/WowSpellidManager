@@ -29,6 +29,28 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Holder
             }
         }
 
+        private bool fHasCharges;
+        public bool HasCharges
+        {
+            get
+            {
+                if (Charges > 1)
+                    fHasCharges = true;
+                else
+                    fHasCharges = false;
+                return fHasCharges;
+            }
+
+            set
+            {
+                if (value == false)
+                    Charges = 1;
+                else
+                    Charges = 2;
+                fHasCharges = value;
+            }
+        }
+
         public ChargesHolderViewModel(ChargesHolder aChargesHolder)
         {
             fChargesHolder = aChargesHolder;

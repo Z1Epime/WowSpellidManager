@@ -29,6 +29,15 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Holder
             }
         }
 
+        public IEnumerable<Availability> AvailabilityValues
+        {
+            get
+            {
+                return Enum.GetValues(typeof(Availability))
+                    .Cast<Availability>();
+            }
+        }
+
         public AvailabilityHolderViewModel(AvailabilityHolder aAvailabilityHolder)
         {
             fAvailabilityHolder = aAvailabilityHolder;

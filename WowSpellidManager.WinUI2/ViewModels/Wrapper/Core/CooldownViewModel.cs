@@ -48,6 +48,37 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Core
             }
         }
 
+        private bool fHasCooldown;
+        public bool HasCooldown
+        {
+            get
+            {
+                if (Number > 0)
+                    fHasCooldown = true;
+                else
+                    fHasCooldown = false;
+                return fHasCooldown;
+            }
+
+            set
+            {
+                if (value == false)
+                    Number = 0;
+                else
+                    Number = 1;
+                fHasCooldown = value;
+            }
+        }
+
+        public IEnumerable<TimeUnit> TimeUnitValues
+        {
+            get
+            {
+                return Enum.GetValues(typeof(TimeUnit))
+                    .Cast<TimeUnit>();
+            }
+        }
+
         public CooldownViewModel(Cooldown aCooldown)
         {
             fCooldown = aCooldown;
