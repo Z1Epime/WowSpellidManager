@@ -26,6 +26,14 @@ namespace WowSpellidManager.ViewModels.Helper
                 IDHolder = new IDHolder() { ID = aSpellID },
                 Cooldown = new Cooldown(),
                 GuidHolder = new GuidHolder() { Guid = Guid.NewGuid() },
+                AdditionalInfoHolder = new AdditionalInfoHolder(),
+                AvailabilityHolder = new AvailabilityHolder(),
+                Cast = new Cast(),
+                ChargesHolder = new ChargesHolder(),
+                Cost = new Resource(),
+                IsPassiveHolder = new IsPassiveHolder(),
+                Range = new Range(),
+                ToolTipTextHolder = new ToolTipTextHolder(),
             };
 
             foreach (var @class in WowClassHelper.ViewModels)
@@ -41,6 +49,13 @@ namespace WowSpellidManager.ViewModels.Helper
                                 AdditionalInfoHolderViewModel = new AdditionalInfoHolderViewModel(spell.AdditionalInfoHolder), 
                                 GuidHolder = spell.GuidHolder,
                                 CooldownViewModel = new CooldownViewModel(spell.Cooldown),
+                                ChargesHolderViewModel = new ChargesHolderViewModel(spell.ChargesHolder),
+                                AvailabilityHolderViewModel = new AvailabilityHolderViewModel(spell.AvailabilityHolder),
+                                CastViewModel = new CastViewModel(spell.Cast),
+                                CostViewModel = new ResourceViewModel(spell.Cost),
+                                IsPassiveHolderViewModel = new IsPassiveHolderViewModel(spell.IsPassiveHolder),
+                                RangeViewModel = new RangeViewModel(spell.Range),
+                                ToolTipTextHolderViewModel = new ToolTipTextHolderViewModel(spell.ToolTipTextHolder),
                             });
                         }
                     }

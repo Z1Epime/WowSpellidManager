@@ -131,6 +131,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Helper\SettingsHelper.cs" />
     <Compile Include="ViewModels\Helper\SpellHelper.cs" />
+    <Compile Include="ViewModels\Helper\TypeHelper.cs" />
     <Compile Include="ViewModels\Helper\WowClassHelper.cs" />
     <Compile Include="ViewModels\Validators\Checkers\Checker.cs" />
     <Compile Include="ViewModels\Validators\Checkers\SpellChecker.cs" />
@@ -166,9 +167,12 @@
       <DependentUpon>ClassView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Converter\BoolToVisibilityConverter.cs" />
+    <Compile Include="Views\Converter\AvailabilityBooleanConverter.cs" />
+    <Compile Include="Views\Converter\CastTypeBooleanConverter.cs" />
     <Compile Include="Views\EditSpellView.xaml.cs">
       <DependentUpon>EditSpellView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Extensions\RichEditBoxExtension.cs" />
     <Compile Include="Views\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
     </Compile>

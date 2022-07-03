@@ -48,6 +48,28 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Core
             }
         }
 
+        private bool fHasCost;
+        public bool HasCost
+        {
+            get
+            {
+                if (Amount > 0)
+                    fHasCost = true;
+                else
+                    fHasCost = false;
+                return fHasCost;
+            }
+
+            set
+            {
+                if (value == false)
+                    Amount = 0;
+                else
+                    Amount = 1;
+                fHasCost = value;
+            }
+        }
+
         public IEnumerable<ResourceType> ResourceUnitValues
         {
             get

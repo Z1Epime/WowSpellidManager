@@ -65,7 +65,7 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Core
             }
         }
 
-        public TimeUnit TimeUnit
+        public TimeUnit Unit
         {
             get
             {
@@ -79,6 +79,24 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Core
                     fCast.Unit = value;
                     NotifyPropertyChanged();
                 }
+            }
+        }
+
+        public IEnumerable<CastType> CastTypeValues
+        {
+            get
+            {
+                return Enum.GetValues(typeof(CastType))
+                    .Cast<CastType>();
+            }
+        }
+
+        public IEnumerable<TimeUnit> TimeUnitValues
+        {
+            get
+            {
+                return Enum.GetValues(typeof(TimeUnit))
+                    .Cast<TimeUnit>();
             }
         }
 

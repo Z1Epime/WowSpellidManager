@@ -31,7 +31,7 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Core
             }
         }
 
-        public RangeUnit RangeUnit
+        public RangeUnit Unit
         {
             get
             {
@@ -45,6 +45,37 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Core
                     fRange.Unit = value;
                     NotifyPropertyChanged();
                 }
+            }
+        }
+
+        private bool fHasRange;
+        public bool HasRange
+        {
+            get 
+            {
+                if (Number > 0)
+                    fHasRange = true;
+                else
+                    fHasRange = false;
+                return fHasRange;
+            }
+
+            set
+            {
+                if (value == false)
+                    Number = 0;
+                else
+                    Number = 1;
+                fHasRange = value;
+            }
+        }
+
+        public IEnumerable<RangeUnit> RangeUnitValues
+        {
+            get
+            {
+                return Enum.GetValues(typeof(RangeUnit))
+                    .Cast<RangeUnit>();
             }
         }
 
