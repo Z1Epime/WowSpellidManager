@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WowSpellidManager.Domain.Models.Spells;
+using WowSpellidManager.DomainUWP.Models.Helper;
 using WowSpellidManager.Infrastructure.DataManager;
 
 namespace WowSpellidManager.Infrastructure.CRUD
@@ -19,7 +20,7 @@ namespace WowSpellidManager.Infrastructure.CRUD
             return null;
         }
 
-        public Spell GetSpell(Guid aSpellGuid)
+        public Spell GetSpell(GuidHolder aSpellGuid)
         {
             foreach(var wowClass in DataHolder.DataProvider.DataHolder.WowClasses)
             {
@@ -27,7 +28,7 @@ namespace WowSpellidManager.Infrastructure.CRUD
                 {
                     foreach (var spell in spec.Spells)
                     {
-                        if (spell.Guid == aSpellGuid)
+                        if (spell.GuidHolder.Guid == aSpellGuid.Guid)
                         {
                             return spell;
                         }
@@ -42,16 +43,16 @@ namespace WowSpellidManager.Infrastructure.CRUD
             DataHolder.DataProvider.DataParser.Save();
         }
         
-        public void AddSpell(Spell aSpell, Guid aClassGuid, Guid aSpecializationGuid)
+        public void AddSpell(Spell aSpell, GuidHolder aClassGuid, GuidHolder aSpecializationGuid)
         {
             // TODO: use linq here
             foreach(var wowClass in DataHolder.DataProvider.DataHolder.WowClasses)
             {
-                if(wowClass.Guid == aClassGuid)
+                if(wowClass.GuidHolder.Guid == aClassGuid.Guid)
                 {
                     foreach(var spec in wowClass.Specializations)
                     {
-                        if(spec.Guid == aSpecializationGuid)
+                        if(spec.GuidHolder == aSpecializationGuid)
                         {
                             spec.Spells.Add(aSpell);
                         }

@@ -11,7 +11,9 @@ using WowSpellidManager.DomainUWP.Models.Helper;
 using WowSpellidManager.Infrastructure.CRUD;
 using WowSpellidManager.Infrastructure.Metadata;
 using WowSpellidManager.ViewModels;
-using WowSpellidManager.ViewModels.Wrapper;
+using WowSpellidManager.ViewModels.Wrapper.Main;
+using WowSpellidManager.WinUI2.ViewModels.Wrapper.Core;
+using WowSpellidManager.WinUI2.ViewModels.Wrapper.Holder;
 
 namespace WowSpellidManager.ViewModels.Helper
 {
@@ -26,31 +28,31 @@ namespace WowSpellidManager.ViewModels.Helper
 
             foreach (var @class in fDataOperationProvider.WowClassOperator.GetWowClasses())
             {
-                var helper = WowClassImagePaths.GetPath(@class.Designation.Designation);
+                var helper = WowClassImagePaths.GetPath(@class.DesignationHolder.Designation);
                 ViewModels.Add(new WowClassViewModel()
                 {
-                    Designation = new ResourceLoader().GetString(@class.Designation.Designation),
-                    Guid = @class.Guid,
-                    Image = WowClassImagePaths.GetPath(@class.Designation.Designation),
+                    DesignationHolder = new DesignationHolder() { Designation = new ResourceLoader().GetString(@class.DesignationHolder.Designation) },
+                    GuidHolder = @class.GuidHolder,
+                    Image = WowClassImagePaths.GetPath(@class.DesignationHolder.Designation),
                     Specializations = new ObservableCollection<SpecializationViewModel>(@class.Specializations.Select(spec => new SpecializationViewModel()
                     {
-                        Designation = new ResourceLoader().GetString(spec.Designation.Designation),
-                        Guid = spec.Guid,
-                        Image = SpecializationImagePaths.GetPath(@class.Designation.Designation, spec.Designation.Designation),
+                        DesignationHolder = new DesignationHolder() { Designation = new ResourceLoader().GetString(spec.DesignationHolder.Designation) },
+                        GuidHolder = spec.GuidHolder,
+                        Image = SpecializationImagePaths.GetPath(@class.DesignationHolder.Designation, spec.DesignationHolder.Designation),
                         Spells = new ObservableCollection<SpellViewModel>(spec.Spells.Select(spell => new SpellViewModel()
                         {
-                            Designation = spell.Designation,
-                            AdditionalInfo = spell.AdditionalInfo,
-                            Guid = spell.Guid,
-                            ID = spell.ID,
-                            Availability = spell.Availability,
-                            Cast = spell.Cast,
-                            Charges = spell.Charges,
-                            Cooldown = spell.Cooldown,
-                            ToolTipText = spell.ToolTipText,
-                            Range = spell.Range,
-                            IsPassive = spell.IsPassive,
-                            Cost = spell.Cost,
+                            DesignationHolderViewModel = new DesignationHolderViewModel(spell.DesignationHolder),
+                            AdditionalInfoHolderViewModel = new AdditionalInfoHolderViewModel(spell.AdditionalInfoHolder),
+                            GuidHolder = spell.GuidHolder,
+                            IDHolderViewModel = new IDHolderViewModel(spell.IDHolder),
+                            AvailabilityHolderViewModel = new AvailabilityHolderViewModel(spell.AvailabilityHolder),
+                            CastViewModel = new CastViewModel(spell.Cast),
+                            ChargesHolderViewModel = new ChargesHolderViewModel(spell.ChargesHolder),
+                            CooldownViewModel = new CooldownViewModel(spell.Cooldown),
+                            ToolTipTextHolderViewModel = new ToolTipTextHolderViewModel(spell.ToolTipTextHolder),
+                            RangeViewModel = new RangeViewModel(spell.Range),
+                            IsPassiveHolderViewModel = new IsPassiveHolderViewModel(spell.IsPassiveHolder),
+                            CostViewModel = new ResourceViewModel(spell.Cost),
                         }).ToList())
                     }).ToList())
                 });

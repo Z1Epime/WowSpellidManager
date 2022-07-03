@@ -16,7 +16,7 @@
             <StackPanel Orientation="Horizontal">
                 <Image Source="{Binding Image}" Height="30"></Image>
                 <AppBarSeparator Style="{StaticResource SpecializationNavigationItemSeparator}"></AppBarSeparator>
-                <TextBlock Text="{Binding Designation}"></TextBlock>
+                <TextBlock Text="{Binding DesignationHolder.Designation}"></TextBlock>
             </StackPanel>
         </NavigationViewItem>
     </DataTemplate>

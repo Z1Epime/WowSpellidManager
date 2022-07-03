@@ -20,9 +20,9 @@ namespace WowSpellidManager.Domain.Exceptions
             }
         }
 
-        public static void CheckGuid(Guid aGuid)
+        public static void CheckGuid(GuidHolder aGuid)
         {
-            if(!Guid.TryParse(aGuid.ToString(), out var aGuid2))
+            if(!Guid.TryParse(aGuid.Guid.ToString(), out var aGuid2))
             {
                 throw new GuidNotValidException(nameof(aGuid2));
             }

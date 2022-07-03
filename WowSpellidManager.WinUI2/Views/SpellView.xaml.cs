@@ -8,7 +8,7 @@ using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml.Controls;
 using WowSpellidManager.ViewModels.Helper;
-using WowSpellidManager.ViewModels.Wrapper;
+using WowSpellidManager.ViewModels.Wrapper.Main;
 using WowSpellidManager.WinUI2.Views;
 
 // To learn more about WinUI, the WinUI project structure,

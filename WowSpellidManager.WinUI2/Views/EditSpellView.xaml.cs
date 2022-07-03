@@ -15,7 +15,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using WowSpellidManager.Infrastructure.CRUD;
 using WowSpellidManager.ViewModels.Helper;
-using WowSpellidManager.ViewModels.Wrapper;
+using WowSpellidManager.ViewModels.Wrapper.Main;
 using WowSpellidManager.Views;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -42,11 +42,6 @@ namespace WowSpellidManager.WinUI2.Views
             //Copy();
 
             //InitControls();
-        }
-
-        private void AdditionalInfoTextBox_PointerEntered(object sender, PointerRoutedEventArgs e)
-        {
-            fSpell.Cooldown.Number++;
         }
 
         //private void InitControls()

@@ -136,9 +136,20 @@
     <Compile Include="ViewModels\Validators\Checkers\SpellChecker.cs" />
     <Compile Include="ViewModels\Validators\Errors\Error.cs" />
     <Compile Include="ViewModels\Validators\Rules\IStringRule.cs" />
-    <Compile Include="ViewModels\Wrapper\SpecializationViewModel.cs" />
-    <Compile Include="ViewModels\Wrapper\SpellViewModel.cs" />
-    <Compile Include="ViewModels\Wrapper\WowClassViewModel.cs" />
+    <Compile Include="ViewModels\Wrapper\Core\CastViewModel.cs.cs" />
+    <Compile Include="ViewModels\Wrapper\Core\CooldownViewModel.cs" />
+    <Compile Include="ViewModels\Wrapper\Core\RangeViewModel.cs" />
+    <Compile Include="ViewModels\Wrapper\Core\ResourceViewModel.cs" />
+    <Compile Include="ViewModels\Wrapper\Holder\AdditionalInfoHolderViewModel.cs" />
+    <Compile Include="ViewModels\Wrapper\Holder\AvailabilityHolderViewModel.cs" />
+    <Compile Include="ViewModels\Wrapper\Holder\ChargesHolderViewModel.cs" />
+    <Compile Include="ViewModels\Wrapper\Holder\DesignationHolderViewModel.cs" />
+    <Compile Include="ViewModels\Wrapper\Holder\IDHolderViewModel.cs" />
+    <Compile Include="ViewModels\Wrapper\Holder\IsPassiveHolderViewModel.cs" />
+    <Compile Include="ViewModels\Wrapper\Holder\ToolTipTextHolderViewModel.cs" />
+    <Compile Include="ViewModels\Wrapper\Main\SpecializationViewModel.cs" />
+    <Compile Include="ViewModels\Wrapper\Main\SpellViewModel.cs" />
+    <Compile Include="ViewModels\Wrapper\Main\WowClassViewModel.cs" />
     <Compile Include="Views\AboutView.xaml.cs">
       <DependentUpon>AboutView.xaml</DependentUpon>
     </Compile>

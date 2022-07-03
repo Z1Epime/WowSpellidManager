@@ -11,51 +11,53 @@ namespace WowSpellidManager.Domain.Models
     public class Entity
     {
         #region Fields
-        private Guid fGuid;
-        private DesignationHolder fDesignation;
+        private GuidHolder fGuidHolder;
+        private DesignationHolder fDesignationHolder;
         #endregion
 
         #region Properties
-        public Guid Guid
+        public GuidHolder GuidHolder
         {
             get
             {
-                return fGuid;
+                if(fGuidHolder == null)
+                    fGuidHolder = new GuidHolder();
+                return fGuidHolder;
             }
 
             set
             {
                 ArgumentGuard.CheckGuid(value);
-                fGuid = value;
+                fGuidHolder = value;
             }
         }
 
-        public DesignationHolder Designation
+        public DesignationHolder DesignationHolder
         {
             get 
             { 
-                return fDesignation; 
+                return fDesignationHolder; 
             }
 
             set 
             {
                 ArgumentGuard.StringNullOrEmpty(((DesignationHolder)value).Designation);
-                fDesignation = value; 
+                fDesignationHolder = value; 
             }
         }
         #endregion
 
         #region Constructors
-        public Entity(Guid aGuid, DesignationHolder aDesignation)
+        public Entity(GuidHolder aGuid, DesignationHolder aDesignation)
         {
-            fGuid = aGuid;
-            fDesignation = aDesignation;
+            GuidHolder = aGuid;
+            fDesignationHolder = aDesignation;
         }
 
         public Entity(DesignationHolder aDesignation)
         {
-            fGuid = Guid.NewGuid();
-            this.fDesignation = aDesignation;
+            GuidHolder.Guid = Guid.NewGuid();
+            this.fDesignationHolder = aDesignation;
         }
 
         /// <summary>

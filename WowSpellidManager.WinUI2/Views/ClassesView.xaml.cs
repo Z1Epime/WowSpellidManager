@@ -12,7 +12,7 @@ using WowSpellidManager.ViewModels.Validators.Checkers;
 using WowSpellidManager.ViewModels.Validators.Errors;
 using WowSpellidManager.ViewModels.Validators;
 using Windows.UI.Xaml.Controls;
-using WowSpellidManager.ViewModels.Wrapper;
+using WowSpellidManager.ViewModels.Wrapper.Main;
 
 namespace WowSpellidManager.Views
 {

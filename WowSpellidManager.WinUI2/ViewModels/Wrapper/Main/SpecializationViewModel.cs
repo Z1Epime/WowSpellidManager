@@ -8,16 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Resources;
 using WowSpellidManager.Domain.Models;
+using WowSpellidManager.DomainUWP.Models.Helper;
 
-namespace WowSpellidManager.ViewModels.Wrapper
+namespace WowSpellidManager.ViewModels.Wrapper.Main
 {
     public class SpecializationViewModel
     {
         public ObservableCollection<SpellViewModel> Spells { get; set; }
 
-        public Guid Guid { get; set; }
+        public GuidHolder GuidHolder { get; set; }
 
-        public string Designation { get; set; }
+        public DesignationHolder DesignationHolder { get; set; }
 
         public string Image { get; set; }
     }

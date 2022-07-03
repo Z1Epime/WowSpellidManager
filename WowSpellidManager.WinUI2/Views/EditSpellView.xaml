@@ -50,7 +50,7 @@
                      MaxWidth="250"
                      RelativePanel.Below="GeneralHeaderTextBlock"
                      RelativePanel.AlignLeftWithPanel="True"
-                         Text="{Binding Designation.Designation, Mode=TwoWay}"
+                         Text="{Binding DesignationHolderViewModel.Designation, Mode=TwoWay}"
                  >
                 </TextBox>
 
@@ -61,7 +61,7 @@
                      Margin="10,0,0,0"
                      RelativePanel.RightOf="spellNameTextBox"
                      RelativePanel.AlignTopWith="spellNameTextBox"
-                         Text="{Binding ID.ID, Mode=TwoWay}"
+                         Text="{Binding IDHolderViewModel.ID, Mode=TwoWay}"
                  >
                 </TextBox>
             </RelativePanel>
@@ -110,7 +110,7 @@
                              x:Name="TimeTextBox"
                              RelativePanel.AlignRightWithPanel="True"
                              Width="100"
-                                Text="{Binding Cooldown.Number, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                Text="{Binding CooldownViewModel.Number, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                             </TextBox>
                             <TextBlock x:Name="TimeTextBlock"
                            RelativePanel.LeftOf="TimeTextBox"
@@ -127,7 +127,7 @@
                                 RelativePanel.Below="TimeTextBox"
                               Width="100"
                                  ItemsSource="{Binding TimeUnitValues}"
-                                SelectedItem="{Binding Cooldown.SelectedMyEnumType, Mode=TwoWay}">
+                                SelectedItem="{Binding CooldownViewModel.Unit, Mode=TwoWay}">
                             </ComboBox>
                             <TextBlock x:Name="UnitTextBlock"
                            RelativePanel.LeftOf="UnitComboBoxCooldown"
@@ -357,8 +357,7 @@
                          TextWrapping="Wrap"
                          MinWidth="200"
                          MaxWidth="400"
-                         MaxHeight="250"
-                             PointerEntered="AdditionalInfoTextBox_PointerEntered">
+                         MaxHeight="250">
 
                 </RichEditBox>
 
