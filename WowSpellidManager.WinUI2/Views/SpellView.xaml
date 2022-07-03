@@ -244,70 +244,33 @@
 
             </RelativePanel>
         </RelativePanel>
-        
+
         <StackPanel x:Name="ToggleEditStackPanel"
                     RelativePanel.AlignBottomWithPanel="True"
                     RelativePanel.AlignLeftWithPanel="True"
                     Margin="10"
                     Orientation="Horizontal">
 
-            <Button x:Name="EditButton"
-                    Style="{StaticResource AccentButtonStyle}">
-                <SymbolIcon Symbol="Edit"></SymbolIcon>
+            <ToggleButton x:Name="EditToggleButton"
+                    >
+                <StackPanel Orientation="Horizontal">
+                    <SymbolIcon Symbol="Edit" Margin="0,0,10,0"></SymbolIcon>
+                    <TextBlock>Toggle edit</TextBlock>
+                </StackPanel>
+
                 <Interactivity:Interaction.Behaviors>
 
-                    <Interactions:EventTriggerBehavior EventName="Click" SourceObject="{Binding ElementName=EditButton}">
-                        <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=AcceptButton}" PropertyName="Visibility" Value="Visible"/>
-                        <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=EditButton}" PropertyName="Visibility" Value="Collapsed"/>
+                    <Interactions:DataTriggerBehavior Binding="{Binding IsChecked, ElementName=EditToggleButton}" ComparisonCondition="Equal" Value="true">
                         <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=SpellInfoRelativePanel}" PropertyName="Visibility" Value="Collapsed"/>
                         <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=EditSpellStackPanel}" PropertyName="Visibility" Value="Visible"/>
-                        <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=CancelEditButton}" PropertyName="Visibility" Value="Visible"/>
-                    </Interactions:EventTriggerBehavior>
-
-                </Interactivity:Interaction.Behaviors>
-            </Button>
-
-            <Button x:Name="AcceptButton"
-                    Style="{StaticResource AccentButtonStyle}"
-                    RelativePanel.AlignBottomWithPanel="True"
-                    RelativePanel.AlignLeftWithPanel="True"
-                    RelativePanel.RightOf="ToggleEditButton"
-                    Content="Accept"
-                    Visibility="Collapsed"
-                    Margin="0,0,25,0">
-                <Interactivity:Interaction.Behaviors>
-
-                    <Interactions:EventTriggerBehavior EventName="Click" SourceObject="{Binding ElementName=AcceptButton}">
-                        <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=AcceptButton}" PropertyName="Visibility" Value="Collapsed"/>
-                        <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=EditButton}" PropertyName="Visibility" Value="Visible"/>
-                        <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=EditSpellStackPanel}" PropertyName="Visibility" Value="Collapsed"/>
+                    </Interactions:DataTriggerBehavior>
+                    <Interactions:DataTriggerBehavior Binding="{Binding IsChecked, ElementName=EditToggleButton}" ComparisonCondition="Equal" Value="false">
                         <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=SpellInfoRelativePanel}" PropertyName="Visibility" Value="Visible"/>
-                        <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=CancelEditButton}" PropertyName="Visibility" Value="Collapsed"/>
-                    </Interactions:EventTriggerBehavior>
-
-                </Interactivity:Interaction.Behaviors>
-            </Button>
-
-            <Button x:Name="CancelEditButton"
-                    Style="{StaticResource AccentButtonStyle}"
-                    Background="Red"
-                    RelativePanel.AlignBottomWithPanel="True"
-                    RelativePanel.AlignLeftWithPanel="True"
-                    RelativePanel.RightOf="AcceptButton"
-                    Content="Cancel"
-                    Visibility="Collapsed">
-                <Interactivity:Interaction.Behaviors>
-
-                    <Interactions:EventTriggerBehavior EventName="Click" SourceObject="{Binding ElementName=CancelEditButton}">
-                        <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=AcceptButton}" PropertyName="Visibility" Value="Collapsed"/>
-                        <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=EditButton}" PropertyName="Visibility" Value="Visible"/>
                         <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=EditSpellStackPanel}" PropertyName="Visibility" Value="Collapsed"/>
-                        <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=SpellInfoRelativePanel}" PropertyName="Visibility" Value="Visible"/>
-                        <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=CancelEditButton}" PropertyName="Visibility" Value="Collapsed"/>
-                    </Interactions:EventTriggerBehavior>
+                    </Interactions:DataTriggerBehavior>
 
                 </Interactivity:Interaction.Behaviors>
-            </Button>
+            </ToggleButton>
 
         </StackPanel>
 
