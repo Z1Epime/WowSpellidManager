@@ -48,10 +48,20 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Core
             }
         }
 
+        public IEnumerable<ResourceType> ResourceUnitValues
+        {
+            get
+            {
+                return Enum.GetValues(typeof(ResourceType))
+                    .Cast<ResourceType>();
+            }
+        }
+
         public ResourceViewModel(Resource aResource)
         {
             fResource = aResource;
         }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 

@@ -45,36 +45,6 @@ namespace WowSpellidManager.ViewModels.Wrapper.Main
         public IsPassiveHolderViewModel IsPassiveHolderViewModel { get; set; }
 
 
-
-        public IEnumerable<TimeUnit> TimeUnitValues
-        {
-            get
-            {
-                return Enum.GetValues(typeof(TimeUnit))
-                    .Cast<TimeUnit>();
-            }
-        }
-
-        private bool fHasCooldown;
-        public bool HasCooldown
-        {
-            get
-            {
-                if (CooldownViewModel.Number > 0)
-                    fHasCooldown = true; 
-                else
-                    fHasCooldown = false; 
-                return fHasCooldown;
-            }
-
-            set
-            {
-                if (value == false)
-                    CooldownViewModel.Number = 0;               
-                else 
-                    CooldownViewModel.Number = 1;
-                fHasCooldown = value;
-            }
-        }
+        
     }
 }

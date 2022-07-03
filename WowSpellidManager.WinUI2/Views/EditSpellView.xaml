@@ -85,7 +85,7 @@
                 <CheckBox Content="Cooldown" x:Name="CooldownCheckBox"
                           RelativePanel.RightOf="CooldownHeaderTextBlock"
                           RelativePanel.AlignTopWith="CooldownHeaderTextBlock" Margin="10,0,0,0"
-                          IsChecked="{Binding HasCooldown, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                          IsChecked="{Binding CooldownViewModel.HasCooldown, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                     <Interactivity:Interaction.Behaviors>
 
                         <Interactions:DataTriggerBehavior Binding="{Binding IsChecked, ElementName=CooldownCheckBox}" ComparisonCondition="Equal" Value="true">
@@ -126,7 +126,7 @@
                               x:Name="UnitComboBoxCooldown"
                                 RelativePanel.Below="TimeTextBox"
                               Width="100"
-                                 ItemsSource="{Binding TimeUnitValues}"
+                                 ItemsSource="{Binding CooldownViewModel.TimeUnitValues}"
                                 SelectedItem="{Binding CooldownViewModel.Unit, Mode=TwoWay}">
                             </ComboBox>
                             <TextBlock x:Name="UnitTextBlock"
@@ -178,9 +178,60 @@
 
             </RelativePanel>
 
+            <RelativePanel x:Name="CostRelativePanel"
+                           RelativePanel.Below="CooldownRelativePanel"
+                           RelativePanel.AlignLeftWithPanel="True"
+                           Margin="0,10,0,0"
+                           BorderBrush="DimGray" 
+                           BorderThickness="5"
+                           Padding="5">
+
+                <TextBlock x:Name="CostHeaderTextBlock"
+                       Style="{StaticResource SubtitleTextBlockStyle}"
+                       RelativePanel.AlignTopWithPanel="True"
+                       RelativePanel.AlignLeftWithPanel="True">
+                Cost
+                </TextBlock>
+
+                <CheckBox Content="Cost" x:Name="CostCheckBox"
+                          RelativePanel.RightOf="CostHeaderTextBlock"
+                          RelativePanel.AlignTopWith="CostHeaderTextBlock" Margin="10,0,0,0"
+                          >
+                    <Interactivity:Interaction.Behaviors>
+
+                        <Interactions:DataTriggerBehavior Binding="{Binding IsChecked, ElementName=CostCheckBox}" ComparisonCondition="Equal" Value="true">
+                            <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=CostStackPanel}" PropertyName="Visibility" Value="Visible"/>
+                        </Interactions:DataTriggerBehavior>
+                        <Interactions:DataTriggerBehavior Binding="{Binding IsChecked, ElementName=CostCheckBox}" ComparisonCondition="Equal" Value="false">
+                            <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=CostStackPanel}" PropertyName="Visibility" Value="Collapsed"/>
+                        </Interactions:DataTriggerBehavior>
+
+                    </Interactivity:Interaction.Behaviors>
+                </CheckBox>
+
+                <StackPanel x:Name="CostStackPanel"
+                            Orientation="Horizontal"
+                            RelativePanel.Below="CostHeaderTextBlock"
+                            RelativePanel.AlignLeftWith="CostHeaderTextBlock"
+                            Margin="0,10,0,0">
+                    <TextBox x:Name="CostTextBox"                     
+                         Header="Number"
+                         Visibility="Visible"
+                         Margin="0,0,10,0"
+                         >
+                    </TextBox>
+
+                    <ComboBox x:Name="UnitComboBoxCost"
+                              Visibility="Visible"
+                              Header="Unit"
+                              ItemsSource="{Binding CostViewModel.ResourceUnitValues}">
+                    </ComboBox>
+                </StackPanel>
+            </RelativePanel>
+
 
             <RelativePanel x:Name="CastRelativePanel"
-                           RelativePanel.Below="CooldownRelativePanel"
+                           RelativePanel.Below="CostRelativePanel"
                            RelativePanel.AlignLeftWithPanel="True"
                            Margin="0,10,0,0"
                            BorderBrush="DimGray" 
@@ -350,7 +401,7 @@
                     Additional Info
                 </TextBlock>
 
-                
+
                 <RichEditBox x:Name="AdditionalInfoTextBox"
                          RelativePanel.AlignLeftWithPanel="True"
                          RelativePanel.Below="AdditionInfoTextBlock"
