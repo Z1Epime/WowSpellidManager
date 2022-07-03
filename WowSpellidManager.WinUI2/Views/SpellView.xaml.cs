@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.ApplicationModel.DataTransfer;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml.Controls;
@@ -49,6 +50,16 @@ namespace WowSpellidManager.Views
 
             fEditSpellView = new EditSpellView(fSpell);
             EditSpellStackPanel.Children.Add(fEditSpellView);
+        }
+
+        private void CopySpellidButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            DataPackage datapackage = new DataPackage()
+            {
+                RequestedOperation = DataPackageOperation.Copy
+            };
+            datapackage.SetText(SpellidTextBlock.Text);
+            Clipboard.SetContent(datapackage);
         }
 
         //private void AcceptButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
