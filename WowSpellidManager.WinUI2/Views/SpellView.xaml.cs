@@ -50,5 +50,17 @@ namespace WowSpellidManager.Views
             datapackage.SetText(SpellidTextBlock.Text);
             Clipboard.SetContent(datapackage);
         }
+
+        private void ToggleWebViewToggleButton_Unchecked(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            webView.Navigate(new Uri("about:blank"));
+        }
+
+        private void ToggleWebViewToggleButton_Checked(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            string link = "https://www.wowhead.com/spell=" + fSpell.IDHolderViewModel.ID;
+
+            webView.Navigate(new Uri(link));
+        }
     }
 }

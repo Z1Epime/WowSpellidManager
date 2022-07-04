@@ -11,6 +11,28 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <RelativePanel>
+
+        <Grid x:Name="WebViewGrid" RelativePanel.AlignTopWithPanel="True"
+              RelativePanel.AlignRightWithPanel="True"
+              RelativePanel.RightOf="SpellInfoRelativePanel"
+              RelativePanel.Above="ToggleEditStackPanel"
+              BorderBrush="DimGray" 
+              BorderThickness="2"
+              >
+            <Interactivity:Interaction.Behaviors>
+                <Interactions:DataTriggerBehavior Binding="{Binding Visibility, ElementName=SpellInfoRelativePanel}" ComparisonCondition="Equal" Value="Visible">
+                    <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=WebViewGrid}" PropertyName="Margin" Value="0,0,0,0"/>
+                </Interactions:DataTriggerBehavior>
+                <Interactions:DataTriggerBehavior Binding="{Binding Visibility, ElementName=EditSpellStackPanel}" ComparisonCondition="Equal" Value="Visible">
+                    <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=WebViewGrid}" PropertyName="Margin" Value="425,0,0,0"/>
+                </Interactions:DataTriggerBehavior>
+            </Interactivity:Interaction.Behaviors>
+            <WebView x:Name="webView"
+                     HorizontalAlignment="Stretch"
+                     VerticalAlignment="Stretch"
+            />
+        </Grid>
+        
         <RelativePanel x:Name="SpellInfoRelativePanel">
 
             <RelativePanel x:Name="SpellToolTipRelativePanel"
@@ -296,6 +318,30 @@
             </ToggleButton>
 
         </StackPanel>
+
+        <ToggleButton x:Name="ToggleWebViewToggleButton"
+                      RelativePanel.AlignRightWithPanel="True"
+                      RelativePanel.Below="WebViewGrid"
+                      RelativePanel.AlignBottomWithPanel="True"
+                      Margin="0,0,15,0"
+                      Unchecked="ToggleWebViewToggleButton_Unchecked"
+                      Checked="ToggleWebViewToggleButton_Checked"
+                      >
+            <StackPanel Orientation="Horizontal">
+                <SymbolIcon Symbol="Globe" Margin="0,0,10,0"></SymbolIcon>
+                <TextBlock>Toggle WowHead</TextBlock>
+            </StackPanel>
+
+            <Interactivity:Interaction.Behaviors>
+                <Interactions:DataTriggerBehavior Binding="{Binding IsChecked, ElementName=ToggleWebViewToggleButton}" ComparisonCondition="Equal" Value="True">
+                    <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=WebViewGrid}" PropertyName="Visibility" Value="Visible"/>
+                </Interactions:DataTriggerBehavior>
+                <Interactions:DataTriggerBehavior Binding="{Binding IsChecked, ElementName=ToggleWebViewToggleButton}" ComparisonCondition="Equal" Value="False">
+                    <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=WebViewGrid}" PropertyName="Visibility" Value="Collapsed"/>
+                </Interactions:DataTriggerBehavior>
+            </Interactivity:Interaction.Behaviors>
+
+        </ToggleButton>
 
         <StackPanel x:Name="EditSpellStackPanel" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" 
                     Visibility="Collapsed" Margin="10">
