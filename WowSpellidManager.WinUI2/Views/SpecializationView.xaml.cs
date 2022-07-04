@@ -25,7 +25,6 @@ namespace WowSpellidManager.Views
             fSpellHelper = new SpellHelper();
             fSpec = aSpecialization;
             fWowClass = aWowClass;
-            //SpellsListView.MenuItemsSource = GenerateSpellNavigationOptionsCollection(((SpecializationViewModel)aSpecialization).Spells);
             SpellNavigationView.MenuItemsSource = aSpecialization.Spells;
         }
 
@@ -60,49 +59,6 @@ namespace WowSpellidManager.Views
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            //var esa0fioj = WowClassHelper.ViewModels;
-
-
-            //foreach (var @class in new DataOperationProvider().WowClassOperator.GetWowClasses())
-            //{
-            //    foreach (var spec in @class.Specializations)
-            //    {
-            //        foreach (var spell in spec.Spells)
-            //        {
-            //            if (spell.ID.ID == "123")
-            //            {
-
-
-            //                foreach (var @class2 in WowClassHelper.ViewModels)
-            //                {
-            //                    foreach (var spec2 in @class2.Specializations)
-            //                    {
-            //                        foreach (var spell2 in spec2.Spells)
-            //                        {
-            //                            if (spell2.ID.ID == "123")
-            //                            {
-
-            //                                if (ReferenceEquals(spell.ID, spell2.ID))
-            //                                {
-            //                                    Console.WriteLine("They are !");
-            //                                }
-
-            //                                if (ReferenceEquals(spell.Designation, spell2.Designation))
-            //                                {
-            //                                    Console.WriteLine("They are !");
-            //                                }
-
-
-            //                            }
-            //                        }
-            //                    }
-            //                }
-
-
-            //            }
-            //        }
-            //    }
-            //}
             new DataOperationProvider().WowClassOperator.Save();
         }
     }

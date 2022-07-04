@@ -51,47 +51,6 @@ namespace WowSpellidManager.ViewModels.Helper
                 });
             }
 
-            //foreach (var @class in fDataOperationProvider.WowClassOperator.GetWowClasses())
-            //{
-            //    foreach (var spec in @class.Specializations)
-            //    {
-            //        foreach (var spell in spec.Spells)
-            //        {
-            //            if (spell.Designation == "asd")
-            //            {
-
-
-            //                foreach (var @class2 in ViewModels)
-            //                {
-            //                    foreach (var spec2 in @class2.Specializations)
-            //                    {
-            //                        foreach (var spell2 in spec2.Spells)
-            //                        {
-            //                            if (spell2.Designation == "asd")
-            //                            {
-
-            //                                if (ReferenceEquals(spell.ID, spell2.ID))
-            //                                {
-            //                                    Console.WriteLine("They are !");
-            //                                }
-
-            //                                if (ReferenceEquals(spell.Designation, spell2.Designation))
-            //                                {
-            //                                    Console.WriteLine("They are !");
-            //                                }
-
-
-            //                            }
-            //                        }
-            //                    }
-            //                }
-
-
-            //            }
-            //        }
-            //    }
-            //}
-
             return ViewModels;
         }
 

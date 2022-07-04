@@ -31,18 +31,7 @@ namespace WowSpellidManager.Views
         public SpellView(SpecializationViewModel aSpec, SpellViewModel aSpell, object aSpellNavigationView)
         {
             this.InitializeComponent();
-            // TODO: this.Visibility = Visibility.Visible;
             fSpec = aSpec;
-            //((SpellViewModel)aSpell).Cooldown = new Domain.Models.Spells.Cooldown(2, DomainUWP.Models.Spells.TimeUnit.Minute);
-            //((SpellViewModel)aSpell).Cast = new Domain.Models.Spells.Cast(2, DomainUWP.Models.Spells.CastType.Cast, DomainUWP.Models.Spells.TimeUnit.Second, true);
-            //((SpellViewModel)aSpell).Charges = 2;
-            //((SpellViewModel)aSpell).Cost = new Domain.Models.Spells.Resource(DomainUWP.Models.Spells.ResourceType.Mana, 50);
-            //((SpellViewModel)aSpell).IsPassive = false;
-            //((SpellViewModel)aSpell).Range = new Domain.Models.Spells.Range(40, DomainUWP.Models.Spells.RangeUnit.Yard);
-            //((SpellViewModel)aSpell).AdditionalInfo = "sehfiuoseifuhseiofuhseifouhseiopfuesifopusehfiopueshfiu";
-            //((SpellViewModel)aSpell).Availability = DomainUWP.Models.Spells.Availability.Baseline;
-            //((SpellViewModel)aSpell).ToolTipText = "afsejofpjseofpisejfopisepofijseopiföjseofpijseofsjefsiejfespfijseofipjafsejofpjseofpisejfopisepofijseopiföjseofpijseofsjefsiejfespfijseofipjafsejofpjseofpisejfopisepo";
-
             fSpell = aSpell;
             this.aSpellNavigationView = aSpellNavigationView;
             fSpellHelper = new SpellHelper();
@@ -61,15 +50,5 @@ namespace WowSpellidManager.Views
             datapackage.SetText(SpellidTextBlock.Text);
             Clipboard.SetContent(datapackage);
         }
-
-        //private void AcceptButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
-        //{
-        //    fEditSpellView.SaveSpell();
-        //}
-
-        //private void CancelEditButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
-        //{
-        //    fEditSpellView.CancelEdit();
-        //}
     }
 }

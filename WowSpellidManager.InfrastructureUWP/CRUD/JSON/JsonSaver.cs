@@ -7,9 +7,8 @@ namespace WowSpellidManager.Infrastructure.CRUD.JSON
     public class JsonSaver
     {
         public static DataOperationProvider fDataOperationProvider = new DataOperationProvider();
-        //public static readonly string SETTINGSPATH = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\WowSpellIDManager\\Settings\\";
         public static readonly string SETTINGSPATH = ApplicationData.Current.LocalFolder.Path + "\\WowSpellIDManager\\Settings\\";
-        //public static readonly string SETTINGSPATH = KnownFolders.DocumentsLibrary.Path + "\\WowSpellIDManager\\Settings\\";
+        
         public static void SaveWowClasses()
         {
             JsonSerializer serializer = new JsonSerializer();

@@ -13,7 +13,6 @@ namespace WowSpellidManager.Views
         public AboutView()
         {
             this.InitializeComponent();
-            // Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
         }
     }
 }
