@@ -22,6 +22,12 @@
                         Style="{StaticResource SpellNavigationView}"
                         SelectionChanged="SpellsListView_SelectionChanged" 
                         >
+            <NavigationView.AutoSuggestBox>
+                <AutoSuggestBox x:Name="SpellSearchBox"
+                                PlaceholderText="Search"
+                                QueryIcon="Find"
+                                TextChanged="AutoSuggestBox_TextChanged"></AutoSuggestBox>
+            </NavigationView.AutoSuggestBox>
             <Frame x:Name="SpellFrame"></Frame>
         </NavigationView>
 

@@ -1,7 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using WowSpellidManager.Infrastructure.CRUD;
 using WowSpellidManager.ViewModels.Helper;
 using WowSpellidManager.ViewModels.Wrapper.Main;
 using WowSpellidManager.WinUI2.Views;
@@ -55,6 +56,16 @@ namespace WowSpellidManager.Views
             {
                 fSpellHelper.AddSpell(view.SpellName, view.ID, fWowClass, fSpec);
             }
+        }
+
+        private void AutoSuggestBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
+        {
+            var queryString = SpellSearchBox.Text.Replace(" ", string.Empty);
+
+            IEnumerable<SpellViewModel> results = fSpec.Spells.Where(spellVM =>
+               spellVM.DesignationHolderViewModel.Designation.Contains(queryString, StringComparison.OrdinalIgnoreCase));
+
+            SpellNavigationView.MenuItemsSource = results;
         }
     }
 }
