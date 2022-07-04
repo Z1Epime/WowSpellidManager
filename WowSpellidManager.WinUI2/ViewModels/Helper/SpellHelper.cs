@@ -60,6 +60,7 @@ namespace WowSpellidManager.ViewModels.Helper
             }
 
             fDataOperationProvider.SpellOperator.AddSpell(spell, ((WowClassViewModel)aClass).GuidHolder, ((SpecializationViewModel)aSpecialization).GuidHolder);
+            fDataOperationProvider.WowClassOperator.Save();
         }
 
         public void RemoveSpell(object aSpecialization, object aSpell)

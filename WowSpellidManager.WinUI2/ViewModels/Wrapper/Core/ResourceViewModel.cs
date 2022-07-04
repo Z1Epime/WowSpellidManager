@@ -5,10 +5,11 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using WowSpellidManager.Domain.Models.Spells;
 using WowSpellidManager.DomainUWP.Models.Spells;
+using WowSpellidManager.Infrastructure.CRUD;
 
 namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Core
 {
-    public class ResourceViewModel : INotifyPropertyChanged
+    public class ResourceViewModel : INotifyPropertyChanged, IAutoSave
     {
         private Resource fResource;
 
@@ -25,6 +26,7 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Core
                 {
                     fResource.Amount = value;
                     NotifyPropertyChanged();
+                    Save();
                 }
             }
         }
@@ -42,6 +44,7 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Core
                 {
                     fResource.Designation = value;
                     NotifyPropertyChanged();
+                    Save();
                 }
             }
         }
@@ -65,6 +68,7 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Core
                 else
                     Amount = 1;
                 fHasCost = value;
+                Save();
             }
         }
 
@@ -77,6 +81,8 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Core
             }
         }
 
+        public DataOperationProvider DataOperationProvider => new DataOperationProvider();
+
         public ResourceViewModel(Resource aResource)
         {
             fResource = aResource;
@@ -88,6 +94,11 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Core
         public void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public void Save()
+        {
+            DataOperationProvider.WowClassOperator.Save();
         }
     }
 }

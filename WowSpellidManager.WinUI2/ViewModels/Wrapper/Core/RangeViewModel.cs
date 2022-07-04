@@ -5,10 +5,11 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using WowSpellidManager.Domain.Models.Spells;
 using WowSpellidManager.DomainUWP.Models.Spells;
+using WowSpellidManager.Infrastructure.CRUD;
 
 namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Core
 {
-    public class RangeViewModel : INotifyPropertyChanged
+    public class RangeViewModel : INotifyPropertyChanged, IAutoSave
     {
         private Range fRange;
 
@@ -25,6 +26,7 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Core
                 {
                     fRange.Number = value;
                     NotifyPropertyChanged();
+                    Save();
                 }
             }
         }
@@ -42,6 +44,7 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Core
                 {
                     fRange.Unit = value;
                     NotifyPropertyChanged();
+                    Save();
                 }
             }
         }
@@ -65,6 +68,7 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Core
                 else
                     Number = 1;
                 fHasRange = value;
+                Save();
             }
         }
 
@@ -77,6 +81,8 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Core
             }
         }
 
+        public DataOperationProvider DataOperationProvider => new DataOperationProvider();
+
         public RangeViewModel(Range aRange)
         {
             fRange = aRange;
@@ -87,6 +93,11 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Core
         public void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public void Save()
+        {
+            DataOperationProvider.WowClassOperator.Save();
         }
     }
 }

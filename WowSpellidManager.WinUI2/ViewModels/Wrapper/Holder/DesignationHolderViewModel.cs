@@ -2,10 +2,11 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using WowSpellidManager.DomainUWP.Models.Helper;
+using WowSpellidManager.Infrastructure.CRUD;
 
 namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Holder
 {
-    public class DesignationHolderViewModel : INotifyPropertyChanged
+    public class DesignationHolderViewModel : INotifyPropertyChanged, IAutoSave
     {
         private DesignationHolder fDesignationHolder;
 
@@ -21,9 +22,12 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Holder
                 {
                     fDesignationHolder.Designation = value;
                     NotifyPropertyChanged();
+                    Save();
                 }
             }
         }
+
+        public DataOperationProvider DataOperationProvider => new DataOperationProvider();
 
         public DesignationHolderViewModel(DesignationHolder aDesignationHolder)
         {
@@ -34,6 +38,11 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Holder
         public void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public void Save()
+        {
+            DataOperationProvider.WowClassOperator.Save();
         }
     }
 }

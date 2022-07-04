@@ -5,10 +5,11 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using WowSpellidManager.Domain.Models.Spells;
 using WowSpellidManager.DomainUWP.Models.Spells;
+using WowSpellidManager.Infrastructure.CRUD;
 
 namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Core
 {
-    public class CastViewModel : INotifyPropertyChanged
+    public class CastViewModel : INotifyPropertyChanged, IAutoSave
     {
         private Cast fCast;
 
@@ -25,6 +26,7 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Core
                 {
                     fCast.Time = value;
                     NotifyPropertyChanged();
+                    Save();
                 }
             }
         }
@@ -42,6 +44,7 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Core
                 {
                     fCast.CastType = value;
                     NotifyPropertyChanged();
+                    Save();
                 }
             }
         }
@@ -59,6 +62,7 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Core
                 {
                     fCast.IsOffGlobal = value;
                     NotifyPropertyChanged();
+                    Save();
                 }
             }
         }
@@ -76,6 +80,7 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Core
                 {
                     fCast.Unit = value;
                     NotifyPropertyChanged();
+                    Save();
                 }
             }
         }
@@ -98,6 +103,8 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Core
             }
         }
 
+        public DataOperationProvider DataOperationProvider => new DataOperationProvider();
+
         public CastViewModel(Cast aCast)
         {
             fCast = aCast;
@@ -108,6 +115,11 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Core
         public void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public void Save()
+        {
+            DataOperationProvider.WowClassOperator.Save();
         }
     }
 }
