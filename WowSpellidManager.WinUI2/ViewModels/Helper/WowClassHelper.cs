@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.ApplicationModel.Resources;
-using WowSpellidManager.Domain.Models;
-using WowSpellidManager.Domain.Models.Spells;
 using WowSpellidManager.DomainUWP.Models.Helper;
 using WowSpellidManager.Infrastructure.CRUD;
 using WowSpellidManager.Infrastructure.Metadata;
-using WowSpellidManager.ViewModels;
 using WowSpellidManager.ViewModels.Wrapper.Main;
 using WowSpellidManager.WinUI2.ViewModels.Wrapper.Core;
 using WowSpellidManager.WinUI2.ViewModels.Wrapper.Holder;

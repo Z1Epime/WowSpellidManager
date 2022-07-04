@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Windows.Storage;
+﻿using Windows.Storage;
 
 namespace WowSpellidManager.Infrastructure.Metadata
 {
@@ -13,29 +8,29 @@ namespace WowSpellidManager.Infrastructure.Metadata
         private bool fIsDarkThemeActive;
         public string SavingsPath
         {
-            get 
+            get
             {
-                if(fSavingsPath == null)
+                if (fSavingsPath == null)
                 {
                     fSavingsPath = ApplicationData.Current.LocalFolder.Path;
                 }
-                return fSavingsPath; 
+                return fSavingsPath;
             }
-            set 
+            set
             {
-                fSavingsPath = value; 
+                fSavingsPath = value;
             }
         }
 
         public bool IsDarkThemeActive
         {
-            get 
+            get
             {
                 return fIsDarkThemeActive;
             }
-            set 
+            set
             {
-                fIsDarkThemeActive = value; 
+                fIsDarkThemeActive = value;
             }
         }
 

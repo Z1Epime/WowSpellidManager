@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -65,7 +60,7 @@ namespace WowSpellidManager.WinUI2.Views.Extensions
         #region Glue
 
         // Trivial state machine to determine who last changed the text properties
-        enum RichEditChangeState
+        private enum RichEditChangeState
         {
             Idle,
             RichTextChanged,
@@ -75,7 +70,7 @@ namespace WowSpellidManager.WinUI2.Views.Extensions
 
         // Helper class that just stores a state inside a textbox, determining
         // whether it is already being changed by code or not
-        class RichEditChangeStateHelper
+        private class RichEditChangeStateHelper
         {
             public RichEditChangeState State { get; set; }
         }
@@ -83,13 +78,13 @@ namespace WowSpellidManager.WinUI2.Views.Extensions
         // Private attached property (never seen in XAML or anywhere else) to attach
         // the state variable for us. Because this isn't used in XAML, we don't need
         // the normal GetXXX and SetXXX static methods.
-        static readonly DependencyProperty RichEditChangeStateHelperProperty =
+        private static readonly DependencyProperty RichEditChangeStateHelperProperty =
           DependencyProperty.RegisterAttached("RichEditChangeStateHelper",
           typeof(RichEditChangeStateHelper), typeof(RichEditBoxExtension), null);
 
         // Inject our state into the textbox, and also attach an event-handler
         // for the TextChanged event.
-        static void AttachRichEditBoxChangingHelper(DependencyObject o)
+        private static void AttachRichEditBoxChangingHelper(DependencyObject o)
         {
             if (o.GetValue(RichEditChangeStateHelperProperty) != null)
                 return;
@@ -127,14 +122,14 @@ namespace WowSpellidManager.WinUI2.Views.Extensions
         }
 
         // Helper to set the state managed by the textbox
-        static void SetState(DependencyObject o, RichEditChangeState state)
+        private static void SetState(DependencyObject o, RichEditChangeState state)
         {
             (o.GetValue(RichEditChangeStateHelperProperty)
               as RichEditChangeStateHelper).State = state;
         }
 
         // Helper to get the state managed by the textbox
-        static RichEditChangeState GetState(DependencyObject o)
+        private static RichEditChangeState GetState(DependencyObject o)
         {
             return (o.GetValue(RichEditChangeStateHelperProperty)
               as RichEditChangeStateHelper).State;

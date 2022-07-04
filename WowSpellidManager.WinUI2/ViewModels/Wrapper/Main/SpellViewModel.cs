@@ -1,18 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using Windows.ApplicationModel.Resources;
-using WowSpellidManager.Domain.Models;
-using WowSpellidManager.Domain.Models.Spells;
-using WowSpellidManager.DomainUWP.Models.Helper;
-using WowSpellidManager.DomainUWP.Models.Spells;
-using WowSpellidManager.Infrastructure.CRUD;
+﻿using WowSpellidManager.DomainUWP.Models.Helper;
 using WowSpellidManager.WinUI2.ViewModels.Wrapper.Core;
 using WowSpellidManager.WinUI2.ViewModels.Wrapper.Holder;
 
@@ -45,6 +31,6 @@ namespace WowSpellidManager.ViewModels.Wrapper.Main
         public IsPassiveHolderViewModel IsPassiveHolderViewModel { get; set; }
 
 
-        
+
     }
 }

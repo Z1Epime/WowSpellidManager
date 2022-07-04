@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WowSpellidManager.Domain.Metadata;
 
 namespace WowSpellidManager.Infrastructure.Metadata
@@ -107,7 +103,8 @@ namespace WowSpellidManager.Infrastructure.Metadata
                 else if (aWowClassDesignation.Equals(WowNames.SHAMAN, StringComparison.OrdinalIgnoreCase))
                 {
                     return SHAMAN_RESTORATION;
-                }else
+                }
+                else
                 {
                     return WARRIOR_ARMS;
                 }
@@ -150,7 +147,7 @@ namespace WowSpellidManager.Infrastructure.Metadata
                 {
                     return WARRIOR_PROTECTION;
                 }
-                else if(aWowClassDesignation.Equals(WowNames.PALADIN, StringComparison.OrdinalIgnoreCase))
+                else if (aWowClassDesignation.Equals(WowNames.PALADIN, StringComparison.OrdinalIgnoreCase))
                 {
                     return PALADIN_PROTECTION;
                 }
@@ -245,7 +242,8 @@ namespace WowSpellidManager.Infrastructure.Metadata
             else if (aSpecializationDesignation.Equals(WowNames.MONK_WINDWALKER, StringComparison.OrdinalIgnoreCase))
             {
                 return MONK_WINDWALKER;
-            } else
+            }
+            else
             {
                 return WARRIOR_ARMS; // TODO: Add "?" Icon here
             }

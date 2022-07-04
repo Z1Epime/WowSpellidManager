@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WowSpellidManager.Domain.Exceptions;
+﻿using System.Collections.Generic;
 using WowSpellidManager.Domain.Models.Spells;
 using WowSpellidManager.DomainUWP.Models.Helper;
 

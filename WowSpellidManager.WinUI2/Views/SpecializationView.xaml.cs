@@ -1,12 +1,4 @@
-﻿using Microsoft.UI.Xaml;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+﻿using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using WowSpellidManager.Infrastructure.CRUD;
@@ -34,7 +26,7 @@ namespace WowSpellidManager.Views
             fSpec = aSpecialization;
             fWowClass = aWowClass;
             //SpellsListView.MenuItemsSource = GenerateSpellNavigationOptionsCollection(((SpecializationViewModel)aSpecialization).Spells);
-            SpellNavigationView.MenuItemsSource = ((SpecializationViewModel)aSpecialization).Spells;
+            SpellNavigationView.MenuItemsSource = aSpecialization.Spells;
         }
 
         private void SpellsListView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
@@ -44,7 +36,7 @@ namespace WowSpellidManager.Views
 
         private void RemoveButton_Click(object sender, RoutedEventArgs e)
         {
-            ((SpecializationViewModel)fSpec).Spells.Remove((SpellViewModel)SpellNavigationView.SelectedItem);
+            fSpec.Spells.Remove((SpellViewModel)SpellNavigationView.SelectedItem);
         }
 
         private async void AddSpellButton_Click(object sender, RoutedEventArgs e)

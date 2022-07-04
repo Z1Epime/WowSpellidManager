@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WowSpellidManager.Domain.Metadata
+﻿namespace WowSpellidManager.Domain.Metadata
 {
     public class WowNames
     {
         public const string RESTORATION = "Restoration";
-        public const string FROST= "Frost";
+        public const string FROST = "Frost";
         public const string PROTECTION = "Protection";
         public const string HOLY = "Holy";
 
@@ -19,18 +13,18 @@ namespace WowSpellidManager.Domain.Metadata
         public const string DRUID_FERAL = "Feral";
         public const string DRUID_GUARDIAN = "Guardian";
         public const string DRUID_RESTORATION = RESTORATION;
-        
+
         public const string SHAMAN = "Shaman";
         public const string SHAMAN_ELEMENTAL = "Elemental";
         public const string SHAMAN_ENHANCEMENT = "Enhancement";
         public const string SHAMAN_RESTORATION = RESTORATION;
 
         public const string DEATHKNIGHT = "Deathknight";
-        public const string DEATHKNIGHT_UNHOLY= "Unholy";
+        public const string DEATHKNIGHT_UNHOLY = "Unholy";
         public const string DEATHKNIGHT_BLOOD = "Blood";
         public const string DEATHKNIGHT_FROST = FROST;
 
-        public const string DEMONHUNTER = "Demonhunter";    
+        public const string DEMONHUNTER = "Demonhunter";
         public const string DEMONHUNTER_HAVOC = "Havoc";
         public const string DEMONHUNTER_VENGEANCE = "Vengeance";
 
@@ -69,7 +63,7 @@ namespace WowSpellidManager.Domain.Metadata
         public const string WARLOCK_DESTRUCTION = "Destruction";
         public const string WARLOCK_AFFLICTION = "Affliction";
 
-        public const string WARRIOR= "Warrior";
+        public const string WARRIOR = "Warrior";
         public const string WARRIOR_ARMS = "Arms";
         public const string WARRIOR_FURY = "Fury";
         public const string WARRIOR_PROTECTION = PROTECTION;

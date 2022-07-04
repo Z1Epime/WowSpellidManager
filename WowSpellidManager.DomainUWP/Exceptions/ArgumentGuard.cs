@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WowSpellidManager.Domain.Exceptions.BusinessExceptions;
 using WowSpellidManager.Domain.Exceptions.TechnicalExceptions;
 using WowSpellidManager.Domain.Models;
@@ -14,7 +11,7 @@ namespace WowSpellidManager.Domain.Exceptions
     {
         public static void CheckNull(object aObject)
         {
-            if(aObject == null)
+            if (aObject == null)
             {
                 throw new ArgumentNullException(nameof(aObject));
             }
@@ -22,7 +19,7 @@ namespace WowSpellidManager.Domain.Exceptions
 
         public static void CheckGuid(GuidHolder aGuid)
         {
-            if(!Guid.TryParse(aGuid.Guid.ToString(), out var aGuid2))
+            if (!Guid.TryParse(aGuid.Guid.ToString(), out var aGuid2))
             {
                 throw new GuidNotValidException(nameof(aGuid2));
             }
@@ -30,11 +27,11 @@ namespace WowSpellidManager.Domain.Exceptions
 
         public static void CheckID(IDHolder aID)
         {
-            if(!Int64.TryParse(aID.ID, out _))
+            if (!Int64.TryParse(aID.ID, out _))
             {
                 throw new SpellIDNotValidException(nameof(aID.ID));
             }
-        } 
+        }
 
         public static void StringNullOrEmpty(string aString)
         {
@@ -46,7 +43,7 @@ namespace WowSpellidManager.Domain.Exceptions
 
         public static void CheckNumberOfSpecializations(List<Specialization> aSpecializations)
         {
-            if(aSpecializations.Count < 2 ||
+            if (aSpecializations.Count < 2 ||
                 aSpecializations.Count > 4)
             {
                 throw new NumberOfSpecializationsInvalidException(nameof(aSpecializations));

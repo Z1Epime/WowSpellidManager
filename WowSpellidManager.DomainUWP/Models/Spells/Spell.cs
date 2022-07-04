@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WowSpellidManager.Domain.Exceptions;
+﻿using WowSpellidManager.Domain.Exceptions;
 using WowSpellidManager.DomainUWP.Models.Helper;
-using WowSpellidManager.DomainUWP.Models.Spells;
 
 namespace WowSpellidManager.Domain.Models.Spells
 {
@@ -182,7 +176,7 @@ namespace WowSpellidManager.Domain.Models.Spells
                 fAvailabilityHolder = value;
             }
         }
-          
+
 
         /// <summary>
         /// Determines wether is spell is a passive or not.

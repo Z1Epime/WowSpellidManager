@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using Windows.ApplicationModel.Resources;
 using Windows.UI.Xaml.Controls;
-using WowSpellidManager.Views;
 
 namespace WowSpellidManager.Navigation
 {

@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using WowSpellidManager.DomainUWP.Models.Spells;
+﻿using WowSpellidManager.DomainUWP.Models.Spells;
 
 namespace WowSpellidManager.Domain.Models.Spells
 {
@@ -33,7 +26,7 @@ namespace WowSpellidManager.Domain.Models.Spells
 
             set
             {
-                fNumber = value;            
+                fNumber = value;
             }
         }
 

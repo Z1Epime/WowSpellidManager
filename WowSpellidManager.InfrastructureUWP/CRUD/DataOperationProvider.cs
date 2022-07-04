@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WowSpellidManager.Infrastructure.CRUD
+﻿namespace WowSpellidManager.Infrastructure.CRUD
 {
     public class DataOperationProvider
     {
@@ -12,40 +6,40 @@ namespace WowSpellidManager.Infrastructure.CRUD
         private static SpecializationOperator fSpecializationOperator = new SpecializationOperator();
         private static WowClassOperator fWowClassOperator = new WowClassOperator();
         private static SettingsOperator fSettingsOperator = new SettingsOperator();
-        
+
         public SpellOperator SpellOperator
         {
-            get 
-            { 
+            get
+            {
                 return fSpellOperator;
             }
 
             set
             {
-                fSpellOperator = value; 
+                fSpellOperator = value;
             }
         }
         public SpecializationOperator SpecializationOperator
         {
-            set 
+            set
             {
-                fSpecializationOperator = value; 
+                fSpecializationOperator = value;
             }
 
-            get 
+            get
             {
-                return fSpecializationOperator; 
+                return fSpecializationOperator;
             }
         }
 
         public WowClassOperator WowClassOperator
         {
-            get 
+            get
             {
                 return fWowClassOperator;
             }
 
-            set 
+            set
             {
                 fWowClassOperator = value;
             }

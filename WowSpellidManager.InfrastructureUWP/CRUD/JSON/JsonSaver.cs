@@ -1,11 +1,5 @@
 ﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.Storage;
 
 namespace WowSpellidManager.Infrastructure.CRUD.JSON
@@ -40,7 +34,7 @@ namespace WowSpellidManager.Infrastructure.CRUD.JSON
             JsonSerializer serializer = new JsonSerializer();
             serializer.NullValueHandling = NullValueHandling.Ignore;
 
-            using (StreamWriter sw = new StreamWriter(SETTINGSPATH +"settings.JSON"))
+            using (StreamWriter sw = new StreamWriter(SETTINGSPATH + "settings.JSON"))
             using (JsonWriter writer = new JsonTextWriter(sw))
             {
                 serializer.Serialize(writer, fDataOperationProvider.SettingsOperator.GetSettings());

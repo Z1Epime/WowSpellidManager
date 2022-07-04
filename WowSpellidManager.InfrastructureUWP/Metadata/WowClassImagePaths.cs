@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WowSpellidManager.Domain.Metadata;
 
 namespace WowSpellidManager.Infrastructure.Metadata
@@ -16,7 +12,7 @@ namespace WowSpellidManager.Infrastructure.Metadata
         public const string Mage = "ms-appx:///Assets/Images/WowClasses/mage.PNG";
         public const string Monk = "ms-appx:///Assets/Images/WowClasses/monk.PNG";
         public const string Paladin = "ms-appx:///Assets/Images/WowClasses/paladin.PNG";
-        public const string Priest= "ms-appx:///Assets/Images/WowClasses/priest.PNG";
+        public const string Priest = "ms-appx:///Assets/Images/WowClasses/priest.PNG";
         public const string Rogue = "ms-appx:///Assets/Images/WowClasses/rogue.PNG";
         public const string Shaman = "ms-appx:///Assets/Images/WowClasses/shaman.PNG";
         public const string Warlock = "ms-appx:///Assets/Images/WowClasses/warlock.PNG";
@@ -24,10 +20,11 @@ namespace WowSpellidManager.Infrastructure.Metadata
 
         public static string GetPath(string aWowClassDesignation)
         {
-            if(aWowClassDesignation.Equals(WowNames.DEATHKNIGHT, StringComparison.OrdinalIgnoreCase))
+            if (aWowClassDesignation.Equals(WowNames.DEATHKNIGHT, StringComparison.OrdinalIgnoreCase))
             {
                 return Deathknight;
-            } else if(aWowClassDesignation.Equals(WowNames.DEMONHUNTER, StringComparison.OrdinalIgnoreCase))
+            }
+            else if (aWowClassDesignation.Equals(WowNames.DEMONHUNTER, StringComparison.OrdinalIgnoreCase))
             {
                 return DemonHunter;
             }

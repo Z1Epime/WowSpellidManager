@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WowSpellidManager.Domain.Exceptions;
+﻿using WowSpellidManager.Domain.Exceptions;
 
 namespace WowSpellidManager.Infrastructure.DataManager
 {
@@ -11,11 +6,11 @@ namespace WowSpellidManager.Infrastructure.DataManager
     {
         private DataHolder fDataHolder;
         private DataParser fDataParser = new DataParser();
-        public DataHolder DataHolder 
+        public DataHolder DataHolder
         {
             get
-            { 
-                if(fDataHolder == null)
+            {
+                if (fDataHolder == null)
                 {
                     DataHolder tempHolder = fDataParser.Load();
                     ArgumentGuard.CheckNull(tempHolder);

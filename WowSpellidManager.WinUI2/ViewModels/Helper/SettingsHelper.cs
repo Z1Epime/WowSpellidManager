@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WowSpellidManager.Infrastructure.CRUD;
+﻿using WowSpellidManager.Infrastructure.CRUD;
 using WowSpellidManager.Infrastructure.Helper;
 using WowSpellidManager.Infrastructure.Metadata;
-using WowSpellidManager.ViewModels;
 using WowSpellidManager.ViewModels.Validators.Errors;
 
 namespace WowSpellidManager.ViewModels.Helper

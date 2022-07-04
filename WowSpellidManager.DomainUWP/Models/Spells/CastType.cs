@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WowSpellidManager.DomainUWP.Models.Spells
+﻿namespace WowSpellidManager.DomainUWP.Models.Spells
 {
     /// <summary>
     /// Determines in which way the spell is cast. <br></br>

@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WowSpellidManager.Domain.Models.Spells;
 using WowSpellidManager.DomainUWP.Models.Helper;
-using WowSpellidManager.DomainUWP.Models.Spells;
 using WowSpellidManager.Infrastructure.CRUD;
-using WowSpellidManager.ViewModels;
 using WowSpellidManager.ViewModels.Wrapper.Main;
 using WowSpellidManager.WinUI2.ViewModels.Wrapper.Core;
 using WowSpellidManager.WinUI2.ViewModels.Wrapper.Holder;
@@ -44,9 +38,11 @@ namespace WowSpellidManager.ViewModels.Helper
                     {
                         if (spec.GuidHolder == (aSpecialization as SpecializationViewModel).GuidHolder)
                         {
-                            spec.Spells.Add(new SpellViewModel() { IDHolderViewModel = new IDHolderViewModel(spell.IDHolder), 
+                            spec.Spells.Add(new SpellViewModel()
+                            {
+                                IDHolderViewModel = new IDHolderViewModel(spell.IDHolder),
                                 DesignationHolderViewModel = new DesignationHolderViewModel(spell.DesignationHolder),
-                                AdditionalInfoHolderViewModel = new AdditionalInfoHolderViewModel(spell.AdditionalInfoHolder), 
+                                AdditionalInfoHolderViewModel = new AdditionalInfoHolderViewModel(spell.AdditionalInfoHolder),
                                 GuidHolder = spell.GuidHolder,
                                 CooldownViewModel = new CooldownViewModel(spell.Cooldown),
                                 ChargesHolderViewModel = new ChargesHolderViewModel(spell.ChargesHolder),
@@ -107,7 +103,7 @@ namespace WowSpellidManager.ViewModels.Helper
                         {
                             spec.Spells[i].CooldownViewModel = aNewSpellViewModel.CooldownViewModel;
                             spec.Spells[i].CostViewModel = aNewSpellViewModel.CostViewModel;
-                            spec.Spells[i].CastViewModel= aNewSpellViewModel.CastViewModel;
+                            spec.Spells[i].CastViewModel = aNewSpellViewModel.CastViewModel;
                             spec.Spells[i].AdditionalInfoHolderViewModel = aNewSpellViewModel.AdditionalInfoHolderViewModel;
                             spec.Spells[i].AvailabilityHolderViewModel = aNewSpellViewModel.AvailabilityHolderViewModel;
                             spec.Spells[i].ChargesHolderViewModel = aNewSpellViewModel.ChargesHolderViewModel;

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using WowSpellidManager.Domain.Models;
 using WowSpellidManager.Infrastructure.Metadata;
 
@@ -15,11 +10,11 @@ namespace WowSpellidManager.Infrastructure.DataManager
 
         private ObservableCollection<WowClass> fWowClasses;
         private Settings fSettings;
-        public ObservableCollection<WowClass> WowClasses 
-        { 
-            get 
-            { 
-                return fWowClasses; 
+        public ObservableCollection<WowClass> WowClasses
+        {
+            get
+            {
+                return fWowClasses;
             }
             set
             {
@@ -29,13 +24,13 @@ namespace WowSpellidManager.Infrastructure.DataManager
 
         public Settings Settings
         {
-            get 
+            get
             {
-                return fSettings; 
+                return fSettings;
             }
-            set 
+            set
             {
-                fSettings = value; 
+                fSettings = value;
             }
         }
 

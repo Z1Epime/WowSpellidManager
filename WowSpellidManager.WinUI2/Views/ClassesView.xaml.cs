@@ -1,17 +1,5 @@
-﻿using Microsoft.UI.Xaml;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Text;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+﻿using Windows.UI.Xaml.Controls;
 using WowSpellidManager.ViewModels.Helper;
-using WowSpellidManager.ViewModels.Validators.Checkers;
-using WowSpellidManager.ViewModels.Validators.Errors;
-using WowSpellidManager.ViewModels.Validators;
-using Windows.UI.Xaml.Controls;
 using WowSpellidManager.ViewModels.Wrapper.Main;
 
 namespace WowSpellidManager.Views
@@ -123,5 +111,5 @@ namespace WowSpellidManager.Views
         //                AddSpellButton.IsEnabled = true;
 
         //}
-    }  
+    }
 }

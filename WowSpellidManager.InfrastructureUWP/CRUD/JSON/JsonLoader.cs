@@ -1,13 +1,7 @@
 ﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WowSpellidManager.Infrastructure.DataManager;
 using WowSpellidManager.Domain.Models;
 using WowSpellidManager.Infrastructure.Metadata;
 
@@ -28,7 +22,8 @@ namespace WowSpellidManager.Infrastructure.CRUD.JSON
                 }
 
                 wowClasses = JsonConvert.DeserializeObject<ObservableCollection<WowClass>>(readContents);
-            } else
+            }
+            else
             {
                 var abc = LoadSettings().SavingsPath;
                 Directory.CreateDirectory(abc + "\\WowSpellIDManager\\Data\\");
@@ -38,18 +33,18 @@ namespace WowSpellidManager.Infrastructure.CRUD.JSON
                 string json = JsonConvert.SerializeObject(wowClasses);
                 File.WriteAllText(LoadSettings().SavingsPath + "\\WowSpellIDManager\\Data\\wowclasses.json", json);
             }
-           
-            return (ObservableCollection<WowClass>)wowClasses;
+
+            return wowClasses;
         }
 
         public static Settings LoadSettings()
-        {         
+        {
             string readContents;
 
             // Directory.CreateDirectory only creates a directory if it doesnt already exist
-            Directory.CreateDirectory(JsonSaver.SETTINGSPATH); 
+            Directory.CreateDirectory(JsonSaver.SETTINGSPATH);
 
-            if(!File.Exists(JsonSaver.SETTINGSPATH + "settings.JSON"))
+            if (!File.Exists(JsonSaver.SETTINGSPATH + "settings.JSON"))
             {
                 File.Create(JsonSaver.SETTINGSPATH + "settings.JSON").Dispose();
             }

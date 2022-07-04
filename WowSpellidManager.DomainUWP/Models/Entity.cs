@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WowSpellidManager.Domain.Exceptions;
 using WowSpellidManager.DomainUWP.Models.Helper;
 
@@ -20,7 +16,7 @@ namespace WowSpellidManager.Domain.Models
         {
             get
             {
-                if(fGuidHolder == null)
+                if (fGuidHolder == null)
                     fGuidHolder = new GuidHolder();
                 return fGuidHolder;
             }
@@ -34,15 +30,15 @@ namespace WowSpellidManager.Domain.Models
 
         public DesignationHolder DesignationHolder
         {
-            get 
-            { 
-                return fDesignationHolder; 
+            get
+            {
+                return fDesignationHolder;
             }
 
-            set 
+            set
             {
-                ArgumentGuard.StringNullOrEmpty(((DesignationHolder)value).Designation);
-                fDesignationHolder = value; 
+                ArgumentGuard.StringNullOrEmpty(value.Designation);
+                fDesignationHolder = value;
             }
         }
         #endregion
