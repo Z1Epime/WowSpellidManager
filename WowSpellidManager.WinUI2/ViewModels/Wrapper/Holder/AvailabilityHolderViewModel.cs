@@ -5,10 +5,11 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using WowSpellidManager.DomainUWP.Models.Helper;
 using WowSpellidManager.DomainUWP.Models.Spells;
+using WowSpellidManager.Infrastructure.CRUD;
 
 namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Holder
 {
-    public class AvailabilityHolderViewModel : INotifyPropertyChanged
+    public class AvailabilityHolderViewModel : INotifyPropertyChanged, IAutoSave
     {
         private AvailabilityHolder fAvailabilityHolder;
 
@@ -25,6 +26,7 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Holder
                 {
                     fAvailabilityHolder.Availability = value;
                     NotifyPropertyChanged();
+                    Save();
                 }
             }
         }
@@ -38,6 +40,8 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Holder
             }
         }
 
+        public DataOperationProvider DataOperationProvider => new DataOperationProvider();
+
         public AvailabilityHolderViewModel(AvailabilityHolder aAvailabilityHolder)
         {
             fAvailabilityHolder = aAvailabilityHolder;
@@ -47,6 +51,11 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Holder
         public void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public void Save()
+        {
+            DataOperationProvider.WowClassOperator.Save();
         }
     }
 }

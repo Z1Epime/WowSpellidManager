@@ -148,14 +148,12 @@
     <Compile Include="ViewModels\Wrapper\Holder\IDHolderViewModel.cs" />
     <Compile Include="ViewModels\Wrapper\Holder\IsPassiveHolderViewModel.cs" />
     <Compile Include="ViewModels\Wrapper\Holder\ToolTipTextHolderViewModel.cs" />
+    <Compile Include="ViewModels\Wrapper\IAutoSave.cs" />
     <Compile Include="ViewModels\Wrapper\Main\SpecializationViewModel.cs" />
     <Compile Include="ViewModels\Wrapper\Main\SpellViewModel.cs" />
     <Compile Include="ViewModels\Wrapper\Main\WowClassViewModel.cs" />
     <Compile Include="Views\AboutView.xaml.cs">
       <DependentUpon>AboutView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\AddSpellPopUpView.xaml.cs">
-      <DependentUpon>AddSpellPopUpView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\AddSpellView.xaml.cs">
       <DependentUpon>AddSpellView.xaml</DependentUpon>
@@ -329,10 +327,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\AboutView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\AddSpellPopUpView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

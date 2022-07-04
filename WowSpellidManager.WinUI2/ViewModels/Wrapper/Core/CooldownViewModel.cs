@@ -5,10 +5,11 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using WowSpellidManager.Domain.Models.Spells;
 using WowSpellidManager.DomainUWP.Models.Spells;
+using WowSpellidManager.Infrastructure.CRUD;
 
 namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Core
 {
-    public class CooldownViewModel : INotifyPropertyChanged
+    public class CooldownViewModel : INotifyPropertyChanged, IAutoSave
     {
         private Cooldown fCooldown;
 
@@ -25,6 +26,7 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Core
                 {
                     fCooldown.Number = value;
                     NotifyPropertyChanged();
+                    Save();
                 }
             }
         }
@@ -42,6 +44,7 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Core
                 {
                     fCooldown.Unit = value;
                     NotifyPropertyChanged();
+                    Save();
                 }
             }
         }
@@ -65,6 +68,7 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Core
                 else
                     Number = 1;
                 fHasCooldown = value;
+                Save();
             }
         }
 
@@ -76,6 +80,8 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Core
                     .Cast<TimeUnit>();
             }
         }
+
+        public DataOperationProvider DataOperationProvider => new DataOperationProvider();
 
         public CooldownViewModel(Cooldown aCooldown)
         {
@@ -89,5 +95,9 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Core
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        public void Save()
+        {
+            DataOperationProvider.WowClassOperator.Save();
+        }
     }
 }

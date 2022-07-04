@@ -2,10 +2,11 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using WowSpellidManager.DomainUWP.Models.Helper;
+using WowSpellidManager.Infrastructure.CRUD;
 
 namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Holder
 {
-    public class IDHolderViewModel : INotifyPropertyChanged
+    public class IDHolderViewModel : INotifyPropertyChanged, IAutoSave
     {
         private IDHolder fIDHolder;
 
@@ -21,9 +22,12 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Holder
                 {
                     fIDHolder.ID = value;
                     NotifyPropertyChanged();
+                    Save();
                 }
             }
         }
+
+        public DataOperationProvider DataOperationProvider => new DataOperationProvider();
 
         public IDHolderViewModel(IDHolder aIDHolder)
         {
@@ -34,6 +38,11 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Holder
         public void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public void Save()
+        {
+            DataOperationProvider.WowClassOperator.Save();
         }
     }
 }

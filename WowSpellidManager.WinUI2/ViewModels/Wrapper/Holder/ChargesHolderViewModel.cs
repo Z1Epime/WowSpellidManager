@@ -2,10 +2,11 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using WowSpellidManager.DomainUWP.Models.Helper;
+using WowSpellidManager.Infrastructure.CRUD;
 
 namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Holder
 {
-    public class ChargesHolderViewModel : INotifyPropertyChanged
+    public class ChargesHolderViewModel : INotifyPropertyChanged, IAutoSave
     {
         private ChargesHolder fChargesHolder;
 
@@ -21,6 +22,7 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Holder
                 {
                     fChargesHolder.Charges = value;
                     NotifyPropertyChanged();
+                    Save();
                 }
             }
         }
@@ -44,8 +46,11 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Holder
                 else
                     Charges = 2;
                 fHasCharges = value;
+                Save();
             }
         }
+
+        public DataOperationProvider DataOperationProvider => new DataOperationProvider();
 
         public ChargesHolderViewModel(ChargesHolder aChargesHolder)
         {
@@ -56,6 +61,11 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Holder
         public void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public void Save()
+        {
+            DataOperationProvider.WowClassOperator.Save();
         }
     }
 }

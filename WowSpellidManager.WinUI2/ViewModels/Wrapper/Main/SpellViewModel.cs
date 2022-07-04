@@ -29,8 +29,5 @@ namespace WowSpellidManager.ViewModels.Wrapper.Main
         public AvailabilityHolderViewModel AvailabilityHolderViewModel { get; set; }
 
         public IsPassiveHolderViewModel IsPassiveHolderViewModel { get; set; }
-
-
-
     }
 }
