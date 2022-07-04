@@ -38,16 +38,6 @@
                 >Add spell
             </Button>
 
-            <Button x:Name="SaveButton"
-                    RelativePanel.AlignHorizontalCenterWithPanel="True"
-                    RelativePanel.AlignVerticalCenterWithPanel="True"
-                    Style="{StaticResource AccentButtonStyle}"
-                    FontSize="25"
-                    Click="SaveButton_Click"
-                    >
-                Save
-            </Button>
-            
             <Button x:Name="RemoveButton"
                     Style="{StaticResource AccentButtonStyle}"
                     RelativePanel.AlignRightWithPanel="True"

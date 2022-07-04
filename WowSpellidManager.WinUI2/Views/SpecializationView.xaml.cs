@@ -56,10 +56,5 @@ namespace WowSpellidManager.Views
                 fSpellHelper.AddSpell(view.SpellName, view.ID, fWowClass, fSpec);
             }
         }
-
-        private void SaveButton_Click(object sender, RoutedEventArgs e)
-        {
-            new DataOperationProvider().WowClassOperator.Save();
-        }
     }
 }
