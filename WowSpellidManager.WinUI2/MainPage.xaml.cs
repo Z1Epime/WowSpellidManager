@@ -38,7 +38,7 @@ namespace WowSpellidManager.WinUI2
                 }
                 else if (option.Name.Equals("Classes", StringComparison.OrdinalIgnoreCase))
                 {
-                    mainFrame.Content = new ClassesView();
+                    mainFrame.Content = new ClassesView(mainNavigationView);
                 }
                 else if (option.Name.Equals("Settings", StringComparison.OrdinalIgnoreCase))
                 {

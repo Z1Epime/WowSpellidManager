@@ -20,9 +20,11 @@ namespace WowSpellidManager.Views
         private SpecializationViewModel fSpec;
         private WowClassViewModel fWowClass;
         private SpellHelper fSpellHelper;
-        public SpecializationView(WowClassViewModel aWowClass, SpecializationViewModel aSpecialization)
+        private NavigationView fMainNavigationView;
+        public SpecializationView(WowClassViewModel aWowClass, SpecializationViewModel aSpecialization, NavigationView aMainNavigationView)
         {
             this.InitializeComponent();
+            fMainNavigationView = aMainNavigationView;
             fSpellHelper = new SpellHelper();
             fSpec = aSpecialization;
             fWowClass = aWowClass;
@@ -31,7 +33,7 @@ namespace WowSpellidManager.Views
 
         private void SpellsListView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
-            SpellFrame.Content = new SpellView(fSpec, (SpellViewModel)SpellNavigationView.SelectedItem, SpellNavigationView);
+            SpellFrame.Content = new SpellView(fSpec, (SpellViewModel)SpellNavigationView.SelectedItem, fMainNavigationView);
         }
 
         private void RemoveButton_Click(object sender, RoutedEventArgs e)

@@ -1,12 +1,5 @@
-﻿using Microsoft.UI.Xaml;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
+﻿using System;
 using Windows.ApplicationModel.DataTransfer;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml.Controls;
 using WowSpellidManager.ViewModels.Helper;
 using WowSpellidManager.ViewModels.Wrapper.Main;
@@ -25,15 +18,16 @@ namespace WowSpellidManager.Views
         private SpecializationViewModel fSpec;
         private SpellViewModel fSpell;
         private readonly object aSpellNavigationView;
+        private NavigationView fMainNavigationView;
         private SpellHelper fSpellHelper;
         private EditSpellView fEditSpellView;
 
-        public SpellView(SpecializationViewModel aSpec, SpellViewModel aSpell, object aSpellNavigationView)
+        public SpellView(SpecializationViewModel aSpec, SpellViewModel aSpell, NavigationView aMainNavigationView)
         {
             this.InitializeComponent();
             fSpec = aSpec;
             fSpell = aSpell;
-            this.aSpellNavigationView = aSpellNavigationView;
+            fMainNavigationView = aMainNavigationView;
             fSpellHelper = new SpellHelper();
             this.DataContext = fSpell;
 
@@ -54,6 +48,7 @@ namespace WowSpellidManager.Views
         private void ToggleWebViewToggleButton_Unchecked(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             webView.Navigate(new Uri("about:blank"));
+            fMainNavigationView.IsPaneOpen = true;
         }
 
         private void ToggleWebViewToggleButton_Checked(object sender, Windows.UI.Xaml.RoutedEventArgs e)
@@ -61,6 +56,7 @@ namespace WowSpellidManager.Views
             string link = "https://www.wowhead.com/spell=" + fSpell.IDHolderViewModel.ID;
 
             webView.Navigate(new Uri(link));
+            fMainNavigationView.IsPaneOpen = false;
         }
     }
 }
