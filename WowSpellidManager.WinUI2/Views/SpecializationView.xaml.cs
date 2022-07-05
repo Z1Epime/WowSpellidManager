@@ -62,7 +62,7 @@ namespace WowSpellidManager.Views
 
         private void AutoSuggestBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
         {
-            var queryString = SpellSearchBox.Text.Replace(" ", string.Empty);
+            var queryString = SpellSearchBox.Text.Trim();
 
             IEnumerable<SpellViewModel> results = fSpec.Spells.Where(spellVM =>
                spellVM.DesignationHolderViewModel.Designation.Contains(queryString, StringComparison.OrdinalIgnoreCase));
