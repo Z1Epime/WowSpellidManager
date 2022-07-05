@@ -12,16 +12,18 @@ namespace WowSpellidManager.Views
     public sealed partial class ClassView : Page
     {
         private WowClassViewModel fWowClass;
-        public ClassView(WowClassViewModel aWowClass)
+        private NavigationView fMainNavigationView;
+        public ClassView(WowClassViewModel aWowClass, NavigationView aMainNavigationView)
         {
             this.InitializeComponent();
+            fMainNavigationView = aMainNavigationView;
             fWowClass = aWowClass;
             SpecializationNavigationView.MenuItemsSource = aWowClass.Specializations;
         }
 
         private async void SpecializationNavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
-            specializationsFrame.Content = new SpecializationView(fWowClass, (SpecializationViewModel)SpecializationNavigationView.SelectedItem);
+            specializationsFrame.Content = new SpecializationView(fWowClass, (SpecializationViewModel)SpecializationNavigationView.SelectedItem, fMainNavigationView);
         }
     }
 }
