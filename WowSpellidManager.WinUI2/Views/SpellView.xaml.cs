@@ -5,26 +5,24 @@ using WowSpellidManager.ViewModels.Helper;
 using WowSpellidManager.ViewModels.Wrapper.Main;
 using WowSpellidManager.WinUI2.Views;
 
-// To learn more about WinUI, the WinUI project structure,
-// and more about our project templates, see: http://aka.ms/winui-project-info.
-
 namespace WowSpellidManager.Views
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class SpellView : Page
     {
         private SpecializationViewModel fSpec;
         private SpellViewModel fSpell;
-        private readonly object aSpellNavigationView;
+        private readonly NavigationView fSpellNavigationView;
         private NavigationView fMainNavigationView;
         private SpellHelper fSpellHelper;
         private EditSpellView fEditSpellView;
+        private Frame fSpellFrame;
 
-        public SpellView(SpecializationViewModel aSpec, SpellViewModel aSpell, NavigationView aMainNavigationView)
+        public SpellView(SpecializationViewModel aSpec, SpellViewModel aSpell, NavigationView aMainNavigationView, NavigationView aSpellNaviationView,
+            Frame aSpellFrame)
         {
             this.InitializeComponent();
+            fSpellNavigationView = aSpellNaviationView;
+            fSpellFrame = aSpellFrame;
             fSpec = aSpec;
             fSpell = aSpell;
             fMainNavigationView = aMainNavigationView;
@@ -57,6 +55,29 @@ namespace WowSpellidManager.Views
 
             webView.Navigate(new Uri(link));
             fMainNavigationView.IsPaneOpen = false;
+        }
+
+        private async void DeleteButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            string spellName = fSpell.DesignationHolderViewModel.Designation;
+
+            ContentDialog dialog = new ContentDialog();
+            dialog.XamlRoot = this.Content.XamlRoot;
+            dialog.Title = "Confirmation";
+            dialog.Content = $"Are you sure you want to delete \"{spellName}\"?";
+            dialog.CloseButtonText = "Cancel";
+            dialog.DefaultButton = ContentDialogButton.Primary;
+            dialog.PrimaryButtonText = "Delete";
+
+            var result = await dialog.ShowAsync();
+
+            if (result == ContentDialogResult.Primary)
+            {
+                fSpellHelper.RemoveSpell(fSpec, fSpell);
+                fSpellNavigationView.SelectedItem = null;
+                fSpellFrame.Content = null;
+                fSpellNavigationView.MenuItemsSource = fSpec.Spells;
+            }
         }
     }
 }
