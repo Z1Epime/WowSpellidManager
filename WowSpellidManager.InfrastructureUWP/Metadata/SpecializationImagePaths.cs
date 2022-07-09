@@ -5,6 +5,8 @@ namespace WowSpellidManager.Infrastructure.Metadata
 {
     public class SpecializationImagePaths
     {
+        public const string GENERAL = "ms-appx:///Assets/Images/specializations/general.PNG";
+
         public const string DEATHKNIGHT_FROST = "ms-appx:///Assets/Images/specializations/deathknight/frost.PNG";
         public const string DEATHKNIGHT_BLOOD = "ms-appx:///Assets/Images/specializations/deathknight/blood.PNG";
         public const string DEATHKNIGHT_UNHOLY = "ms-appx:///Assets/Images/specializations/deathknight/unholy.PNG";

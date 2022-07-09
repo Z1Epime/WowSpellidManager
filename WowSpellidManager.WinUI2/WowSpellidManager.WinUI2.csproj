@@ -251,6 +251,7 @@
     <Content Include="Assets\Images\specializations\druid\feral.png" />
     <Content Include="Assets\Images\specializations\druid\guardian.png" />
     <Content Include="Assets\Images\specializations\druid\restoration.png" />
+    <Content Include="Assets\Images\specializations\general.PNG" />
     <Content Include="Assets\Images\specializations\hunter\beastmastery.png" />
     <Content Include="Assets\Images\specializations\hunter\marksman.png" />
     <Content Include="Assets\Images\specializations\hunter\survival.png" />

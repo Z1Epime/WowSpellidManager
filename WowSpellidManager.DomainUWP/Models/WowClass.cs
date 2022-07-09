@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using WowSpellidManager.Domain.Models.Spells;
 using WowSpellidManager.DomainUWP.Models.Helper;
 
@@ -32,7 +33,7 @@ namespace WowSpellidManager.Domain.Models
 
         #region Fields
         private List<Specialization> fSpecializations;
-        private List<Spell> fSpells;
+        private ObservableCollection<Spell> fSpells;
         #endregion
 
         #region Properties
@@ -53,7 +54,7 @@ namespace WowSpellidManager.Domain.Models
         /// <summary>
         /// A collection of spells in which spells which are equal across all specializations are meant to be in.
         /// </summary>
-        public List<Spell> Spells
+        public ObservableCollection<Spell> Spells
         {
             get
             {
@@ -77,6 +78,7 @@ namespace WowSpellidManager.Domain.Models
         public WowClass(GuidHolder aGuid, DesignationHolder aDesignation) : base(aGuid, aDesignation)
         {
             Specializations = new List<Specialization>();
+            Spells = new ObservableCollection<Spell>();
         }
 
         /// <summary>
@@ -87,6 +89,7 @@ namespace WowSpellidManager.Domain.Models
         public WowClass(DesignationHolder aDesignation) : base(aDesignation)
         {
             Specializations = new List<Specialization>();
+            Spells = new ObservableCollection<Spell>();
         }
 
         /// <summary>

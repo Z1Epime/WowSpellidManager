@@ -12,7 +12,7 @@ namespace WowSpellidManager.ViewModels.Helper
     public class SpellHelper
     {
         private DataOperationProvider fDataOperationProvider = new DataOperationProvider();
-        public void AddSpell(string aSpellName, string aSpellID, object aClass, object aSpecialization)
+        public void AddSpell(string aSpellName, string aSpellID, WowClassViewModel aClass, SpecializationViewModel aSpecialization)
         {
             var spell = new Spell()
             {
@@ -59,7 +59,11 @@ namespace WowSpellidManager.ViewModels.Helper
 
             }
 
-            fDataOperationProvider.SpellOperator.AddSpell(spell, ((WowClassViewModel)aClass).GuidHolder, ((SpecializationViewModel)aSpecialization).GuidHolder);
+            if (aSpecialization.DesignationHolder.Designation == "General")
+                fDataOperationProvider.SpellOperator.AddSpellToClass(spell, aClass.GuidHolder);
+            else
+                fDataOperationProvider.SpellOperator.AddSpell(spell, aClass.GuidHolder, aSpecialization.GuidHolder);
+
             fDataOperationProvider.WowClassOperator.Save();
         }
 
@@ -76,44 +80,6 @@ namespace WowSpellidManager.ViewModels.Helper
                         if (spell.GuidHolder == ((SpellViewModel)aSpell).GuidHolder)
                         {
                             spec.Spells.Remove(spec.Spells[i]);
-                        }
-                    }
-                }
-            }
-        }
-
-        public SpellViewModel GetLastSpellOfSpecialization(object aSpecialization)
-        {
-            return ((SpecializationViewModel)aSpecialization).Spells.LastOrDefault();
-        }
-
-        public bool HasSpells(object aSpecialization)
-        {
-            return ((SpecializationViewModel)aSpecialization).Spells.Any();
-        }
-
-        public void SwitchSpellViewModel(SpellViewModel aOldSpellViewModel, SpellViewModel aNewSpellViewModel)
-        {
-            foreach (var @class in WowClassHelper.ViewModels)
-            {
-                foreach (var spec in @class.Specializations)
-                {
-                    for (int i = 0; i < spec.Spells.Count; i++)
-                    {
-                        if (spec.Spells[i].GuidHolder.Equals(aOldSpellViewModel.GuidHolder))
-                        {
-                            spec.Spells[i].CooldownViewModel = aNewSpellViewModel.CooldownViewModel;
-                            spec.Spells[i].CostViewModel = aNewSpellViewModel.CostViewModel;
-                            spec.Spells[i].CastViewModel = aNewSpellViewModel.CastViewModel;
-                            spec.Spells[i].AdditionalInfoHolderViewModel = aNewSpellViewModel.AdditionalInfoHolderViewModel;
-                            spec.Spells[i].AvailabilityHolderViewModel = aNewSpellViewModel.AvailabilityHolderViewModel;
-                            spec.Spells[i].ChargesHolderViewModel = aNewSpellViewModel.ChargesHolderViewModel;
-                            spec.Spells[i].DesignationHolderViewModel = aNewSpellViewModel.DesignationHolderViewModel;
-                            spec.Spells[i].GuidHolder = aNewSpellViewModel.GuidHolder;
-                            spec.Spells[i].IDHolderViewModel = aNewSpellViewModel.IDHolderViewModel;
-                            spec.Spells[i].IsPassiveHolderViewModel = aNewSpellViewModel.IsPassiveHolderViewModel;
-                            spec.Spells[i].RangeViewModel = aNewSpellViewModel.RangeViewModel;
-                            spec.Spells[i].ToolTipTextHolderViewModel = aNewSpellViewModel.ToolTipTextHolderViewModel;
                         }
                     }
                 }
