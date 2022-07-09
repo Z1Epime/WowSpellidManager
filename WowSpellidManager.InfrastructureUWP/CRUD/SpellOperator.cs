@@ -56,6 +56,18 @@ namespace WowSpellidManager.Infrastructure.CRUD
             }
         }
 
+        public void AddSpellToClass(Spell aSpell, GuidHolder aClassGuid)
+        {
+            // TODO: use linq here
+            foreach (var wowClass in DataHolder.DataProvider.DataHolder.WowClasses)
+            {
+                if (wowClass.GuidHolder.Guid == aClassGuid.Guid)
+                {
+                    wowClass.Spells.Add(aSpell);
+                }
+            }
+        }
+
 
     }
 }
