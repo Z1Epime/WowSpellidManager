@@ -100,5 +100,16 @@ namespace WowSpellidManager.Domain.Models
 
         }
         #endregion
+
+        #region Methods
+        /// <summary>
+        /// Indicates wether the JSON.NET serializer should skip the specializations or not
+        /// </summary>
+        /// <returns></returns>
+        public bool ShouldSerializeSpecializations()
+        {
+            return false;
+        }
+        #endregion
     }
 }

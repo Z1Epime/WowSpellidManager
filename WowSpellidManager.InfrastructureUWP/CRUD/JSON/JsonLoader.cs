@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using WowSpellidManager.Domain.Models;
@@ -13,27 +14,72 @@ namespace WowSpellidManager.Infrastructure.CRUD.JSON
         {
             ObservableCollection<WowClass> wowClasses = new ObservableCollection<WowClass>();
 
-            if (File.Exists(LoadSettings().SavingsPath + "\\WowSpellIDManager\\Data\\wowclasses.json"))
+            if (Directory.Exists(LoadSettings().SavingsPath + "\\WowSpellIDManager\\Data\\Classes"))
             {
-                string readContents;
-                using (StreamReader streamReader = new StreamReader(LoadSettings().SavingsPath + "\\WowSpellIDManager\\Data\\wowclasses.json"))
+                foreach (var @class in Generator.Generate())
                 {
-                    readContents = streamReader.ReadToEnd();
-                }
+                    string readContentsClass;
+                    if (File.Exists(LoadSettings().SavingsPath + $"\\WowSpellIDManager\\Data\\Classes\\" +
+                        $"{@class.DesignationHolder.Designation}\\{@class.DesignationHolder.Designation}.json"))
+                    {
+                        using (StreamReader streamReader = new StreamReader(LoadSettings().SavingsPath + $"\\WowSpellIDManager\\Data\\Classes\\" +
+                            $"{@class.DesignationHolder.Designation}\\{@class.DesignationHolder.Designation}.json"))
+                        {
+                            readContentsClass = streamReader.ReadToEnd();
+                        }
+                        wowClasses.Add(JsonConvert.DeserializeObject<WowClass>(readContentsClass));
+                    }
 
-                wowClasses = JsonConvert.DeserializeObject<ObservableCollection<WowClass>>(readContents);
+
+                    wowClasses[wowClasses.Count - 1].Specializations = new List<Specialization>();
+                    foreach (var spec in @class.Specializations)
+                    {
+                        if (File.Exists(LoadSettings().SavingsPath + $"\\WowSpellIDManager\\Data\\Classes\\" +
+                            $"{@class.DesignationHolder.Designation}\\Specializations\\{spec.DesignationHolder.Designation}.json"))
+                        {
+                            string readContentsSpec;
+                            using (StreamReader streamReader = new StreamReader(LoadSettings().SavingsPath + $"\\WowSpellIDManager\\Data\\Classes\\" +
+                                $"{@class.DesignationHolder.Designation}\\Specializations\\{spec.DesignationHolder.Designation}.json"))
+                            {
+                                readContentsSpec = streamReader.ReadToEnd();
+                            }
+
+                            // safest way to determine newst item of collection ? 
+                            wowClasses[wowClasses.Count - 1].Specializations.Add(JsonConvert.DeserializeObject<Specialization>(readContentsSpec));
+                        }
+                    }
+                }
             }
             else
             {
                 var abc = LoadSettings().SavingsPath;
-                Directory.CreateDirectory(abc + "\\WowSpellIDManager\\Data\\");
-                File.Create(LoadSettings().SavingsPath + "\\WowSpellIDManager\\Data\\wowclasses.json").Dispose();
+                Directory.CreateDirectory(abc + "\\WowSpellIDManager\\Data\\Classes");
+                foreach (var @class in Generator.Generate())
+                {
+                    Directory.CreateDirectory(abc + $"\\WowSpellIDManager\\Data\\Classes\\{@class.DesignationHolder.Designation}\\");
+                    File.Create(LoadSettings().SavingsPath + $"\\WowSpellIDManager\\Data\\Classes\\" +
+                        $"{@class.DesignationHolder.Designation}\\{@class.DesignationHolder.Designation}.json").Dispose();
+
+                    string jsonClass = JsonConvert.SerializeObject(@class);
+                    File.WriteAllText(LoadSettings().SavingsPath + $"\\WowSpellIDManager\\Data\\Classes\\" +
+                        $"{@class.DesignationHolder.Designation}\\{@class.DesignationHolder.Designation}.json", jsonClass);
+
+
+                    foreach (var spec in @class.Specializations)
+                    {
+                        Directory.CreateDirectory(abc + $"\\WowSpellIDManager\\Data\\Classes\\{@class.DesignationHolder.Designation}\\Specializations\\");
+                        File.Create(LoadSettings().SavingsPath + $"\\WowSpellIDManager\\Data\\Classes\\{@class.DesignationHolder.Designation}\\Specializations\\" +
+                            $"{spec.DesignationHolder.Designation}.json").Dispose();
+
+
+                        string jsonSpec = JsonConvert.SerializeObject(spec);
+                        File.WriteAllText(LoadSettings().SavingsPath + $"\\WowSpellIDManager\\Data\\Classes\\{@class.DesignationHolder.Designation}" +
+                            $"\\Specializations\\{spec.DesignationHolder.Designation}.json", jsonSpec);
+
+                    }
+                }
                 wowClasses = Generator.Generate();
-
-                string json = JsonConvert.SerializeObject(wowClasses);
-                File.WriteAllText(LoadSettings().SavingsPath + "\\WowSpellIDManager\\Data\\wowclasses.json", json);
             }
-
             return wowClasses;
         }
 
