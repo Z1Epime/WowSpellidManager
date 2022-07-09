@@ -8,23 +8,47 @@ namespace WowSpellidManager.Infrastructure.CRUD.JSON
     {
         public static DataOperationProvider fDataOperationProvider = new DataOperationProvider();
         public static readonly string SETTINGSPATH = ApplicationData.Current.LocalFolder.Path + "\\WowSpellIDManager\\Settings\\";
-        
+
         public static void SaveWowClasses()
         {
+            string savingsPath = fDataOperationProvider.SettingsOperator.GetSettings().SavingsPath;
+
             JsonSerializer serializer = new JsonSerializer();
             serializer.NullValueHandling = NullValueHandling.Include;
 
-            if (!Directory.Exists(fDataOperationProvider.SettingsOperator.GetSettings().SavingsPath + "\\WowSpellIDManager\\Data\\"))
+            if (!Directory.Exists(savingsPath + "\\WowSpellIDManager\\Data\\Classes\\"))
             {
-                Directory.CreateDirectory(fDataOperationProvider.SettingsOperator.GetSettings().SavingsPath + "\\WowSpellIDManager\\Data\\");
+                Directory.CreateDirectory(savingsPath + "\\WowSpellIDManager\\Data\\Classes\\");
             }
 
-            var aafa = fDataOperationProvider.WowClassOperator.GetWowClasses();
-
-            using (StreamWriter sw = new StreamWriter(fDataOperationProvider.SettingsOperator.GetSettings().SavingsPath + "\\WowSpellIDManager\\Data\\wowclasses.json"))
-            using (JsonWriter writer = new JsonTextWriter(sw))
+            foreach (var @class in fDataOperationProvider.WowClassOperator.GetWowClasses())
             {
-                serializer.Serialize(writer, fDataOperationProvider.WowClassOperator.GetWowClasses());
+                Directory.CreateDirectory(savingsPath + $"\\WowSpellIDManager\\Data\\Classes\\{@class.DesignationHolder.Designation}\\");
+
+                using (StreamWriter sw = new StreamWriter(savingsPath + $"\\WowSpellIDManager\\Data\\Classes\\" +
+                    $"{@class.DesignationHolder.Designation}\\{@class.DesignationHolder.Designation}.json"))
+                {
+                    using (JsonWriter writer = new JsonTextWriter(sw))
+                    {
+                        serializer.Serialize(writer, @class);
+                    }
+                }
+
+
+                foreach (var spec in @class.Specializations)
+                {
+                    Directory.CreateDirectory(savingsPath + $"\\WowSpellIDManager\\Data\\Classes\\{@class.DesignationHolder.Designation}" +
+                        $"\\Specializations\\");
+
+                    using (StreamWriter sw = new StreamWriter(savingsPath + $"\\WowSpellIDManager\\Data\\Classes\\{@class.DesignationHolder.Designation}" +
+                        $"\\Specializations\\{spec.DesignationHolder.Designation}.json"))
+                    {
+                        using (JsonWriter writer = new JsonTextWriter(sw))
+                        {
+                            serializer.Serialize(writer, spec);
+                        }
+                    }
+                }
             }
         }
 
