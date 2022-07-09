@@ -9,5 +9,6 @@ namespace WowSpellidManager.Infrastructure.Metadata
     {
         public static readonly string DefaultSavingsPath = ApplicationData.Current.LocalFolder.Path;
         public static readonly bool DefaultDarkThemeActive = false;
+        public static readonly bool DefaultMainNavigationLayoutVertical = true;
     }
 }

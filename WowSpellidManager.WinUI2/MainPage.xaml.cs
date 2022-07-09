@@ -2,6 +2,7 @@
 using System.Linq;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using WowSpellidManager.Infrastructure.CRUD;
 using WowSpellidManager.Navigation;
 using WowSpellidManager.Views;
 
@@ -24,6 +25,11 @@ namespace WowSpellidManager.WinUI2
             // mainNavigationView.FooterMenuItemsSource = NavigationLists.FooterNavigationOptionsMain;
             mainNavigationView.MenuItemsSource = NavigationLists.NavigationOptionsMain;
             mainNavigationView.SelectedItem = NavigationLists.NavigationOptionsMain.FirstOrDefault();
+
+            if (new DataOperationProvider().SettingsOperator.GetSettings().IsMainNavigationLayoutVertical)
+                mainNavigationView.PaneDisplayMode = NavigationViewPaneDisplayMode.Left;
+            else if (!new DataOperationProvider().SettingsOperator.GetSettings().IsMainNavigationLayoutVertical)
+                mainNavigationView.PaneDisplayMode = NavigationViewPaneDisplayMode.Top;
         }
 
         private void mainNavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)

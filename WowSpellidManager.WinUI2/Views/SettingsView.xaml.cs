@@ -16,14 +16,14 @@ namespace WowSpellidManager.Views
     {
         private SettingsHelper fHelperSettingsViewModel = new SettingsHelper();
         private Error fSavingsPathError;
-        private object View;
-        public SettingsView(object aView)
+        private NavigationView fMainNavigationView;
+        public SettingsView(NavigationView aMainNavigationView)
         {
             this.InitializeComponent();
+            fMainNavigationView = aMainNavigationView;
             fileLocation.DataContext = fHelperSettingsViewModel.GetSettings();
             ToggleSwitchDarkTheme.DataContext = fHelperSettingsViewModel.GetSettings();
-
-            View = aView;
+            ToggleSwitchMainNavigationLayout.DataContext = fHelperSettingsViewModel.GetSettings();
         }
 
         private void SaveSettingsButton_Click(object sender, RoutedEventArgs e)
@@ -53,9 +53,12 @@ namespace WowSpellidManager.Views
                 SaveSettingsButton.IsEnabled = true;
         }
 
-        private void changeButton_Click(object sender, RoutedEventArgs e)
+        private void ToggleSwitchMainNavigationLayout_Toggled(object sender, RoutedEventArgs e)
         {
-            (View as NavigationView).PaneDisplayMode = NavigationViewPaneDisplayMode.Top;
+            if ((sender as ToggleSwitch).IsOn)
+                fMainNavigationView.PaneDisplayMode = NavigationViewPaneDisplayMode.Left;
+            else if (!(sender as ToggleSwitch).IsOn)
+                fMainNavigationView.PaneDisplayMode = NavigationViewPaneDisplayMode.Top;
         }
     }
 }

@@ -78,6 +78,13 @@
                                Style="{StaticResource ToggleSwitchHeaderNameNotVisible}">
                     </TextBlock>
                 </StackPanel>
+                <StackPanel Margin="0,30,0,0">
+                    <ToggleSwitch x:Name="ToggleSwitchMainNavigationLayout"
+                                  Header="Vertical Navigation For Main Menu"
+                                  IsOn="{Binding IsMainNavigationLayoutVertical, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                  Toggled="ToggleSwitchMainNavigationLayout_Toggled">
+                    </ToggleSwitch>
+                </StackPanel>
             </StackPanel>
         </StackPanel>
 

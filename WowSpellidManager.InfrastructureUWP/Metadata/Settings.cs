@@ -6,6 +6,7 @@ namespace WowSpellidManager.Infrastructure.Metadata
     {
         private string fSavingsPath;
         private bool fIsDarkThemeActive;
+        private bool fIsMainNavigationLayoutVertical;
         public string SavingsPath
         {
             get
@@ -31,6 +32,18 @@ namespace WowSpellidManager.Infrastructure.Metadata
             set
             {
                 fIsDarkThemeActive = value;
+            }
+        }
+
+        public bool IsMainNavigationLayoutVertical
+        {
+            get
+            {
+                return fIsMainNavigationLayoutVertical;
+            }
+            set
+            {
+                fIsMainNavigationLayoutVertical = value;
             }
         }
 

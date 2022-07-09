@@ -105,7 +105,8 @@ namespace WowSpellidManager.Infrastructure.CRUD.JSON
                 readContents = JsonConvert.SerializeObject(new Settings()
                 {
                     SavingsPath = DefaultSettings.DefaultSavingsPath,
-                    IsDarkThemeActive = DefaultSettings.DefaultDarkThemeActive
+                    IsDarkThemeActive = DefaultSettings.DefaultDarkThemeActive,
+                    IsMainNavigationLayoutVertical = DefaultSettings.DefaultMainNavigationLayoutVertical,
                 });
             }
 

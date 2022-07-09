@@ -46,7 +46,8 @@ namespace WowSpellidManager.Views
         private void ToggleWebViewToggleButton_Unchecked(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             webView.Navigate(new Uri("about:blank"));
-            fMainNavigationView.IsPaneOpen = true;
+            if(fMainNavigationView.PaneDisplayMode == NavigationViewPaneDisplayMode.Left)
+                fMainNavigationView.IsPaneOpen = true;
         }
 
         private void ToggleWebViewToggleButton_Checked(object sender, Windows.UI.Xaml.RoutedEventArgs e)
@@ -54,7 +55,8 @@ namespace WowSpellidManager.Views
             string link = "https://www.wowhead.com/spell=" + fSpell.IDHolderViewModel.ID;
 
             webView.Navigate(new Uri(link));
-            fMainNavigationView.IsPaneOpen = false;
+            if (fMainNavigationView.PaneDisplayMode == NavigationViewPaneDisplayMode.Left)
+                fMainNavigationView.IsPaneOpen = false;
         }
 
         private async void DeleteButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
