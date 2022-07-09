@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using WowSpellidManager.Domain.Models.Spells;
 using WowSpellidManager.DomainUWP.Models.Helper;
 using WowSpellidManager.Infrastructure.CRUD;
@@ -67,23 +66,19 @@ namespace WowSpellidManager.ViewModels.Helper
             fDataOperationProvider.WowClassOperator.Save();
         }
 
-        public void RemoveSpell(object aSpecialization, object aSpell)
+        public void RemoveSpell(SpecializationViewModel aSpecialization, SpellViewModel aSpell)
         {
-            ((SpecializationViewModel)aSpecialization).Spells.Remove(aSpell as SpellViewModel);
-            foreach (var @class in fDataOperationProvider.WowClassOperator.GetWowClasses())
+            aSpecialization.Spells.Remove(aSpell);
+
+            if (aSpecialization.DesignationHolder.Designation == "General")
             {
-                foreach (var spec in @class.Specializations)
-                {
-                    for (int i = 0; i < spec.Spells.Count; i++)
-                    {
-                        var spell = spec.Spells[i];
-                        if (spell.GuidHolder == ((SpellViewModel)aSpell).GuidHolder)
-                        {
-                            spec.Spells.Remove(spec.Spells[i]);
-                        }
-                    }
-                }
+                fDataOperationProvider.SpellOperator.RemoveClassSpell(aSpell.GuidHolder.Guid);
+            } else
+            {
+                fDataOperationProvider.SpellOperator.RemoveSpecializationSpell(aSpecialization.GuidHolder.Guid, aSpell.GuidHolder.Guid);
             }
+            
+            fDataOperationProvider.WowClassOperator.Save();
         }
     }
 }

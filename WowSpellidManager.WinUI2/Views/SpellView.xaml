@@ -317,6 +317,15 @@
                 </Interactivity:Interaction.Behaviors>
             </ToggleButton>
 
+            <Button x:Name="DeleteButton"
+                    Style="{StaticResource AccentButtonStyle}"
+                    Margin="25,0,0,0"
+                    Background="Red"
+                    Click="DeleteButton_Click"
+                    >
+                Delete
+            </Button>
+
         </StackPanel>
 
         <ToggleButton x:Name="ToggleWebViewToggleButton"

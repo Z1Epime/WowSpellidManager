@@ -44,15 +44,7 @@
                 >Add spell
             </Button>
 
-            <Button x:Name="RemoveButton"
-                    Style="{StaticResource AccentButtonStyle}"
-                    RelativePanel.AlignRightWithPanel="True"
-                    RelativePanel.AlignVerticalCenterWithPanel="True"
-                    Margin="20"
-                    Background="Red"
-                    >
-                Remove
-            </Button>
+            
             
         </RelativePanel>
 

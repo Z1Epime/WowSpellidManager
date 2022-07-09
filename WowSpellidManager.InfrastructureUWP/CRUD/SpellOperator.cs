@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using WowSpellidManager.Domain.Models.Spells;
 using WowSpellidManager.DomainUWP.Models.Helper;
 using WowSpellidManager.Infrastructure.DataManager;
@@ -9,10 +10,38 @@ namespace WowSpellidManager.Infrastructure.CRUD
     {
         private static DataOperationProvider fDataOperationProvider = new DataOperationProvider();
 
-        public ObservableCollection<Spell> GetSpells()
+        public void RemoveClassSpell(Guid aSpellGuid)
         {
-            //return DataHolder.DataProvider.DataHolder.Spells;
-            return null;
+            foreach (var @class in fDataOperationProvider.WowClassOperator.GetWowClasses())
+            {
+                for (int i = 0; i < @class.Spells.Count; i++)
+                {
+                    if (@class.Spells[i].GuidHolder.Guid == aSpellGuid)
+                    {
+                        @class.Spells.Remove(@class.Spells[i]);
+                    }
+                }
+            }
+        }
+
+        public void RemoveSpecializationSpell(Guid aSpecializationGuid, Guid aSpellGuid)
+        {
+            foreach (var @class in fDataOperationProvider.WowClassOperator.GetWowClasses())
+            {
+                foreach (var spec in @class.Specializations)
+                {
+                    if (spec.GuidHolder.Guid == aSpecializationGuid)
+                    {
+                        for (int i = 0; i < spec.Spells.Count; i++)
+                        {
+                            if (spec.Spells[i].GuidHolder.Guid == aSpellGuid)
+                            {
+                                spec.Spells.Remove(spec.Spells[i]);
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         public Spell GetSpell(GuidHolder aSpellGuid)
@@ -67,7 +96,5 @@ namespace WowSpellidManager.Infrastructure.CRUD
                 }
             }
         }
-
-
     }
 }

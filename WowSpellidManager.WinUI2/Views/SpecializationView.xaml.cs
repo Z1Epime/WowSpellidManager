@@ -33,12 +33,7 @@ namespace WowSpellidManager.Views
 
         private void SpellsListView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
-            SpellFrame.Content = new SpellView(fSpec, (SpellViewModel)SpellNavigationView.SelectedItem, fMainNavigationView);
-        }
-
-        private void RemoveButton_Click(object sender, RoutedEventArgs e)
-        {
-            fSpec.Spells.Remove((SpellViewModel)SpellNavigationView.SelectedItem);
+            SpellFrame.Content = new SpellView(fSpec, (SpellViewModel)SpellNavigationView.SelectedItem, fMainNavigationView, SpellNavigationView, SpellFrame);
         }
 
         private async void AddSpellButton_Click(object sender, RoutedEventArgs e)
