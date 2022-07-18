@@ -10,7 +10,7 @@
         RunicPower = 5,
         Runes = 6,
         SoulShards = 7,
-        SoulShardFragents = 8,
+        SoulShardFragments = 8,
         HolyPower = 9,
         ComboPoints = 10,
         Focus = 11,

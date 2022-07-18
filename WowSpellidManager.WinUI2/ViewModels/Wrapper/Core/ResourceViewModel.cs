@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
 using WowSpellidManager.Domain.Models.Spells;
 using WowSpellidManager.DomainUWP.Models.Spells;
 using WowSpellidManager.Infrastructure.CRUD;
@@ -31,7 +32,7 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Core
             }
         }
 
-        public ResourceType Designation
+        public ResourceType ResourceDesignation
         {
             get
             {
@@ -44,8 +45,17 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Core
                 {
                     fResource.Designation = value;
                     NotifyPropertyChanged();
+                    NotifyPropertyChanged("DisplayText");
                     Save();
                 }
+            }
+        }
+
+        public string DisplayText
+        {
+            get
+            {
+                return String.Join(" ", Regex.Split(fResource.Designation.ToString(), @"(?<!^)(?=[A-Z])"));
             }
         }
 

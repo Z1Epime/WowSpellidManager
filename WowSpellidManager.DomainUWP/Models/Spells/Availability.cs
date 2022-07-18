@@ -2,9 +2,9 @@
 {
     public enum Availability
     {
-        Talent = 0,
-        HonorTalent = 1,
-        Baseline = 2,
+        Baseline = 0,
+        Talent = 1,
+        HonorTalent = 2,
         Other = 3,
     }
 }
