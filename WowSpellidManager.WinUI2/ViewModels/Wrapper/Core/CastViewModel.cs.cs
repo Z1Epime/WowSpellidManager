@@ -63,6 +63,7 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Core
                 {
                     fCast.IsOffGlobal = value;
                     NotifyPropertyChanged();
+                    NotifyPropertyChanged("OffGlobalText");
                     Save();
                 }
             }
@@ -112,6 +113,16 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Core
                     return CastType.ToString();
                 else
                     return $"{Time} {Unit} {CastType}";                 
+            }
+        }
+
+        public string OffGlobalText
+        {
+            get
+            {
+                if (IsOffGlobal)
+                    return "Off Global";
+                return String.Empty;
             }
         }
 

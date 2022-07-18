@@ -138,6 +138,13 @@ namespace WowSpellidManager.Views
             else
                 CooldownRelativePanel.Visibility = Visibility.Collapsed;
             #endregion
+
+            #region OffGlobal
+            if (fSpell.CastViewModel.IsOffGlobal)
+                OffGlobalRelativePanel.Visibility = Visibility.Visible;
+            else
+                OffGlobalRelativePanel.Visibility = Visibility.Collapsed;
+            #endregion
         }
     }
 }

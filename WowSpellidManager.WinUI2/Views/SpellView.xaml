@@ -184,30 +184,15 @@
 
                 </RelativePanel>
 
-                <RelativePanel x:Name="BottomArea" Visibility="Collapsed"
-                           RelativePanel.Below="CenterArea">
-                    <RelativePanel x:Name="BottomLeftArea">
-                        <RelativePanel x:Name="GenerateResourceRelativePanel">
-
-                            <TextBlock x:Name="GenerateResourceTextTextBlock"
-                                   RelativePanel.AlignLeftWithPanel="True"
-                                   Margin="0,0,5,0">
-                            Generates
-                            </TextBlock>
-
-                            <TextBlock x:Name="GenerateResourceNumberTextBlock"
-                                   RelativePanel.RightOf="GenerateResourceTextTextBlock"
-                                   RelativePanel.AlignVerticalCenterWith="GenerateResourceTextTextBlock"
-                                   Margin="0,0,5,0">
-                            5
-                            </TextBlock>
-
-                            <TextBlock x:Name="GenerateResourceResourceTextBlock"
-                                   RelativePanel.RightOf="GenerateResourceNumberTextBlock"
-                                   RelativePanel.AlignVerticalCenterWith="GenerateResourceNumberTextBlock">
-                            Soul Shards
-                            </TextBlock>
-
+                <RelativePanel x:Name="BottomArea"
+                               RelativePanel.Below="CenterArea">
+                    <RelativePanel x:Name="BottomLeftArea"
+                                   RelativePanel.AlignBottomWithPanel="True"
+                                   RelativePanel.AlignLeftWithPanel="True">
+                        <RelativePanel x:Name="OffGlobalRelativePanel"
+                                       RelativePanel.AlignBottomWithPanel="True"
+                                       RelativePanel.AlignLeftWithPanel="True">
+                            <TextBlock x:Name="OffGlobalTextBlock" Text="{Binding CastViewModel.OffGlobalText}"></TextBlock>
                         </RelativePanel>
                     </RelativePanel>
                 </RelativePanel>
