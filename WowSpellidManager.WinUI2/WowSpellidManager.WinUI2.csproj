@@ -412,34 +412,19 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <PRIResource Include="Views\resources\Strings\About\de-DE\Resources.resw" />
-  </ItemGroup>
-  <ItemGroup>
     <PRIResource Include="Views\resources\Strings\About\en-US\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
     <PRIResource Include="Views\resources\Strings\App\en-US\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
-    <PRIResource Include="Views\resources\Strings\Classes\de-DE\Resources.resw" />
-  </ItemGroup>
-  <ItemGroup>
     <PRIResource Include="Views\resources\Strings\Classes\en-US\Resources.resw" />
-  </ItemGroup>
-  <ItemGroup>
-    <PRIResource Include="Views\resources\Strings\Home\de-DE\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
     <PRIResource Include="Views\resources\Strings\Home\en-US\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
-    <PRIResource Include="Views\resources\Strings\MainNavigation\de-DE\Resources.resw" />
-  </ItemGroup>
-  <ItemGroup>
     <PRIResource Include="Views\resources\Strings\MainNavigation\en-US\Resources.resw" />
-  </ItemGroup>
-  <ItemGroup>
-    <PRIResource Include="Views\resources\Strings\Settings\de-DE\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
     <PRIResource Include="Views\resources\Strings\Settings\en-US\Resources.resw" />
