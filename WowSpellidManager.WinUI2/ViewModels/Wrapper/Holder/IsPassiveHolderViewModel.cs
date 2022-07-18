@@ -27,6 +27,16 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Holder
             }
         }
 
+        public string DisplayText
+        {
+            get
+            {
+                if (fIsPassiveHolder.IsPassive)
+                    return "Passive";
+                return String.Empty;
+            }
+        }
+
         public DataOperationProvider DataOperationProvider => new DataOperationProvider();
 
         public IsPassiveHolderViewModel(IsPassiveHolder aIDHolder)

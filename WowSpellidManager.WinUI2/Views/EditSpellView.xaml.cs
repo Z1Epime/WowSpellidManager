@@ -12,7 +12,6 @@ namespace WowSpellidManager.WinUI2.Views
     public sealed partial class EditSpellView : Page
     {
         private SpellViewModel fSpell;
-        private SpellViewModel fTempSpell;
         private SpellHelper fSpellHelper;
 
         public EditSpellView(object aSpell)

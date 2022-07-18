@@ -44,6 +44,7 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Core
                 {
                     fCast.CastType = value;
                     NotifyPropertyChanged();
+                    NotifyPropertyChanged("CastText");
                     Save();
                 }
             }
@@ -62,6 +63,7 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Core
                 {
                     fCast.IsOffGlobal = value;
                     NotifyPropertyChanged();
+                    NotifyPropertyChanged("OffGlobalText");
                     Save();
                 }
             }
@@ -100,6 +102,27 @@ namespace WowSpellidManager.WinUI2.ViewModels.Wrapper.Core
             {
                 return Enum.GetValues(typeof(TimeUnit))
                     .Cast<TimeUnit>();
+            }
+        }
+
+        public string CastText
+        {
+            get
+            {
+                if (CastType == CastType.Instant)
+                    return CastType.ToString();
+                else
+                    return $"{Time} {Unit} {CastType}";                 
+            }
+        }
+
+        public string OffGlobalText
+        {
+            get
+            {
+                if (IsOffGlobal)
+                    return "Off Global";
+                return String.Empty;
             }
         }
 

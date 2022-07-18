@@ -68,7 +68,7 @@
                                RelativePanel.Below="NameTextBlock"
                                RelativePanel.RightOf="ResourceValueTextBlock"
                                RelativePanel.AlignVerticalCenterWith="ResourceValueTextBlock"
-                               Text="{Binding CostViewModel.Designation}">
+                               Text="{Binding CostViewModel.DisplayText}">
                         </TextBlock>
 
                         <RelativePanel x:Name="CastRelativePanel"
@@ -79,22 +79,8 @@
                                        Margin="0,0,5,0"
                                    RelativePanel.AlignLeftWithPanel="True"
                                    RelativePanel.AlignVerticalCenterWithPanel="True">
-                            <Run Text="{Binding CastViewModel.Time}"></Run>
+                            <Run Text="{Binding CastViewModel.CastText}"></Run>
                             </TextBlock>
-
-                            <TextBlock x:Name="CastTextBlockUnit" 
-                                       Margin="0,0,5,0"
-                                       RelativePanel.RightOf="CastTextBlock"
-                                       RelativePanel.AlignVerticalCenterWith="CastTextBlock">
-                            <Run Text="{Binding CastViewModel.Unit}"></Run>
-                            </TextBlock>
-
-                            <TextBlock x:Name="CastTextBlockType" 
-                                       RelativePanel.RightOf="CastTextBlockUnit"
-                                       RelativePanel.AlignVerticalCenterWith="CastTextBlockUnit">
-                            <Run Text="{Binding CastViewModel.CastType}"></Run>
-                            </TextBlock>
-
 
                         </RelativePanel>
 
@@ -111,7 +97,7 @@
                             <TextBlock x:Name="ChargesTextBlock"
                                    RelativePanel.RightOf="ChargesValueTextBlock"
                                    RelativePanel.AlignVerticalCenterWith="ChargesValueTextBlock">
-                            charges
+                            Charges
                             </TextBlock>
 
                         </RelativePanel>
@@ -130,7 +116,7 @@
                         <TextBlock x:Name="PassiveTextBlock"
                                RelativePanel.Below="AvailabilityTextBlock"
                                RelativePanel.AlignRightWith="AvailabilityTextBlock"
-                               Text="{Binding IsPassiveHolderViewModel.IsPassive}">
+                               Text="{Binding IsPassiveHolderViewModel.DisplayText}">
                         </TextBlock>
 
                         <RelativePanel x:Name="RangeRelativePanel"
@@ -154,7 +140,7 @@
                             <TextBlock x:Name="RangeTextTextBlock"
                                    RelativePanel.RightOf="RangeUnitTextBlock"
                                    RelativePanel.AlignVerticalCenterWith="RangeUnitTextBlock">
-                            range
+                            Range
                             </TextBlock>
 
                         </RelativePanel>
@@ -198,30 +184,15 @@
 
                 </RelativePanel>
 
-                <RelativePanel x:Name="BottomArea" Visibility="Collapsed"
-                           RelativePanel.Below="CenterArea">
-                    <RelativePanel x:Name="BottomLeftArea">
-                        <RelativePanel x:Name="GenerateResourceRelativePanel">
-
-                            <TextBlock x:Name="GenerateResourceTextTextBlock"
-                                   RelativePanel.AlignLeftWithPanel="True"
-                                   Margin="0,0,5,0">
-                            Generates
-                            </TextBlock>
-
-                            <TextBlock x:Name="GenerateResourceNumberTextBlock"
-                                   RelativePanel.RightOf="GenerateResourceTextTextBlock"
-                                   RelativePanel.AlignVerticalCenterWith="GenerateResourceTextTextBlock"
-                                   Margin="0,0,5,0">
-                            5
-                            </TextBlock>
-
-                            <TextBlock x:Name="GenerateResourceResourceTextBlock"
-                                   RelativePanel.RightOf="GenerateResourceNumberTextBlock"
-                                   RelativePanel.AlignVerticalCenterWith="GenerateResourceNumberTextBlock">
-                            Soul Shards
-                            </TextBlock>
-
+                <RelativePanel x:Name="BottomArea"
+                               RelativePanel.Below="CenterArea">
+                    <RelativePanel x:Name="BottomLeftArea"
+                                   RelativePanel.AlignBottomWithPanel="True"
+                                   RelativePanel.AlignLeftWithPanel="True">
+                        <RelativePanel x:Name="OffGlobalRelativePanel"
+                                       RelativePanel.AlignBottomWithPanel="True"
+                                       RelativePanel.AlignLeftWithPanel="True">
+                            <TextBlock x:Name="OffGlobalTextBlock" Text="{Binding CastViewModel.OffGlobalText}"></TextBlock>
                         </RelativePanel>
                     </RelativePanel>
                 </RelativePanel>
@@ -297,6 +268,8 @@
                     Orientation="Horizontal">
 
             <ToggleButton x:Name="EditToggleButton"
+                          Checked="EditToggleButton_Unchecked"
+                          Unchecked="EditToggleButton_Unchecked"
                     >
                 <StackPanel Orientation="Horizontal">
                     <SymbolIcon Symbol="Edit" Margin="0,0,10,0"></SymbolIcon>

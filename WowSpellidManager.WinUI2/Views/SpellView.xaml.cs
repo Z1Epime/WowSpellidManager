@@ -1,5 +1,6 @@
 ﻿using System;
 using Windows.ApplicationModel.DataTransfer;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using WowSpellidManager.ViewModels.Helper;
 using WowSpellidManager.ViewModels.Wrapper.Main;
@@ -31,6 +32,8 @@ namespace WowSpellidManager.Views
 
             fEditSpellView = new EditSpellView(fSpell);
             EditSpellStackPanel.Children.Add(fEditSpellView);
+
+            SetControlVisibility();
         }
 
         private void CopySpellidButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
@@ -80,6 +83,68 @@ namespace WowSpellidManager.Views
                 fSpellFrame.Content = null;
                 fSpellNavigationView.MenuItemsSource = fSpec.Spells;
             }
+        }
+
+        private void EditToggleButton_Unchecked(object sender, RoutedEventArgs e)
+        {
+            SetControlVisibility();
+        }
+
+        private void SetControlVisibility()
+        {
+            #region Cost
+            if (fSpell.CostViewModel.HasCost)
+            {
+                ResourceValueTextBlock.Visibility = Visibility.Visible;
+                ResourceNameTextBlock.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                ResourceValueTextBlock.Visibility = Visibility.Collapsed;
+                ResourceNameTextBlock.Visibility = Visibility.Collapsed;
+            }
+            #endregion
+
+            #region Charges
+            if (fSpell.ChargesHolderViewModel.HasCharges)
+            {
+                ChargesRelativePanel.Visibility = Visibility.Visible;
+                CooldownTextTextBlock.Text = "Recharge";
+            }
+            else
+            {
+                ChargesRelativePanel.Visibility = Visibility.Collapsed;
+                CooldownTextTextBlock.Text = "Cooldown";
+            }
+            #endregion
+
+            #region IsPassive
+            if (fSpell.IsPassiveHolderViewModel.IsPassive)
+                PassiveTextBlock.Visibility = Visibility.Visible;
+            else
+                PassiveTextBlock.Visibility = Visibility.Collapsed;
+            #endregion
+
+            #region Range
+            if (fSpell.RangeViewModel.HasRange)
+                RangeRelativePanel.Visibility = Visibility.Visible;
+            else
+                RangeRelativePanel.Visibility = Visibility.Collapsed;
+            #endregion
+
+            #region Cooldown
+            if (fSpell.CooldownViewModel.HasCooldown)
+                CooldownRelativePanel.Visibility = Visibility.Visible;
+            else
+                CooldownRelativePanel.Visibility = Visibility.Collapsed;
+            #endregion
+
+            #region OffGlobal
+            if (fSpell.CastViewModel.IsOffGlobal)
+                OffGlobalRelativePanel.Visibility = Visibility.Visible;
+            else
+                OffGlobalRelativePanel.Visibility = Visibility.Collapsed;
+            #endregion
         }
     }
 }

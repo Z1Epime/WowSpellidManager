@@ -229,7 +229,7 @@
                               Visibility="Visible"
                               Header="Unit"
                               ItemsSource="{Binding CostViewModel.ResourceUnitValues}"
-                              SelectedItem="{Binding CostViewModel.Designation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                              SelectedItem="{Binding CostViewModel.ResourceDesignation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                     </ComboBox>
                 </StackPanel>
             </RelativePanel>
@@ -390,7 +390,7 @@
                             Converter={StaticResource availabilityToBooleanConverter}, ConverterParameter=Availability.Talent}">Talent</RadioButton>
                         <RadioButton x:Name="PVPTalent" RelativePanel.RightOf="Talent" RelativePanel.AlignVerticalCenterWith="Talent" GroupName="Availability"
                                      IsChecked="{Binding Path=AvailabilityHolderViewModel.Availability, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, 
-                            Converter={StaticResource availabilityToBooleanConverter}, ConverterParameter=Availability.HonorTalent}">PvP-Talent</RadioButton>
+                            Converter={StaticResource availabilityToBooleanConverter}, ConverterParameter=Availability.HonorTalent}">Honor-Talent</RadioButton>
                         <RadioButton x:Name="Baseline" RelativePanel.Below="Talent" RelativePanel.AlignLeftWithPanel="True" GroupName="Availability"
                                      IsChecked="{Binding Path=AvailabilityHolderViewModel.Availability, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, 
                             Converter={StaticResource availabilityToBooleanConverter}, ConverterParameter=Availability.Baseline}">Baseline</RadioButton>
