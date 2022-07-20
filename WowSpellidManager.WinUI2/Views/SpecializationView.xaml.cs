@@ -44,7 +44,7 @@ namespace WowSpellidManager.Views
             dialog.CloseButtonText = "Cancel";
             dialog.DefaultButton = ContentDialogButton.Primary;
             dialog.PrimaryButtonText = "Add";
-            dialog.Content = new AddSpellView();
+            dialog.Content = new AddSpellView(dialog);
 
             var result = await dialog.ShowAsync();
 

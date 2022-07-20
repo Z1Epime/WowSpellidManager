@@ -21,15 +21,33 @@
                  >
         </TextBox>
 
+        <TextBlock x:Name="spellNameErrorTextBlock"
+                   Foreground="Red"
+                   RelativePanel.Below="spellNameTextBox"
+                   RelativePanel.AlignLeftWith="spellNameTextBox"
+                   RelativePanel.LeftOf="spellidErrorTextBlock"
+                   TextWrapping="WrapWholeWords">
+        </TextBlock>
+
         <TextBox x:Name="spellidTextBox"
                      Header="ID"
                      Width="120"
                      MaxLength="10"
-                     Margin="10,0,0,0"
+                     Margin="010,0,0,0"
                      RelativePanel.RightOf="spellNameTextBox"
                      RelativePanel.AlignTopWith="spellNameTextBox"
                  TextChanged="spellidTextBox_TextChanged"
                  >
         </TextBox>
+
+        <TextBlock x:Name="spellidErrorTextBlock"
+                   Foreground="Red"
+                   RelativePanel.Below="spellidTextBox"
+                   RelativePanel.AlignLeftWith="spellidTextBox"
+                   Margin="10,0,0,0"
+                   TextWrapping="WrapWholeWords">
+        </TextBlock>
+
+
     </RelativePanel>
 </Page>
